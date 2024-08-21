@@ -1,0 +1,110 @@
+\documentclass{report}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\title{\Huge{Pre-Exam Notes}\\DP2}
+
+\author{\huge{Giacomo Cappelletto}}
+\date{29.4.24}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\chapter{To Remember}
+
+\section{Functions}
+
+\dfn{Column Transfromation of a graph}{
+	\textbf{If the transformation for $f(x)$ is }
+	$$\begin{pmatrix}
+		3 \\
+		5
+	\end{pmatrix}$$
+	\textbf{Then the new function is }
+	$$f(x-3)+5$$
+}
+
+\section{Series}
+
+\dfn{Induction Logic}{
+	\centering
+		\textbf{Since true for $n=1$ and ture for $n=k$ implies true for $n=k+1$, true for all $n \in \mathbb{Z}^+$}
+	
+}
+
+\section{Probability}
+
+\nt{
+	\centering
+		\textbf{Always remember to include swapping in combination problems}
+	}
+
+\section{Trig and Geometry}
+
+\dfn{Tangent Table}{
+	\begin{center}
+		\begin{tabular}[pos]{c | c}
+			Angle ($\deg $) & $tan(\theta)$        \\
+			\hline
+			0               & 0                    \\
+			30              & $\frac{1}{\sqrt{3}}$ \\
+			45              & $1$                  \\
+			60              & $\sqrt{3}$           \\
+			90              & undef
+		\end{tabular}
+	\end{center}
+}
+
+\dfn{Scalar Product Angle in Parallelograms}{
+	If $ cos(\theta) < 0$ then $\theta$ is obtuse
+	The $\theta$ found is always the one with the matching edge
+}
+\ex{$cos(\theta)$ Edge}{
+	\begin{center}
+		\begin{tikzpicture}
+			% Define the coordinates of the parallelogram
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (3,0);
+			\coordinate (C) at (4,2);
+			\coordinate (D) at (1,2);
+
+			% Draw the parallelogram
+			\draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+			% Label the vertices with nodes
+			\node at (A) [below left] {$A$};
+			\node at (B) [below right] {$B$};
+			\node at (C) [above right] {$C$};
+			\node at (D) [above left] {$D$};
+
+		\end{tikzpicture}
+	\end{center}
+
+	$$\vec{AB} \cdot \vec{AD} = cos\left\langle B\mathbf{A} D \right\rangle \left\lvert \vec{AB} \right\rvert \left\lvert \vec{AD} \right\rvert$$
+}
+
+\section{Calculus}
+
+\qs{Integral of a known derivative}{
+	$$\int_{}^{} f(x) \,dx$$
+	Where $f'(x)$ is known
+}
+
+\sol Integrate by parts as 
+\boldmath $$ du = f(x) $$ \boldmath $$ v = 1 $$
+
+\nt{You can flip a derivative if needed}
+\ex{Given $\frac{dy}{dx} = \frac{5 cos(x)}{4}$}{
+	$$\frac{dx}{dy} = \frac{4}{5 cos(x)}$$
+}
+
+\end{document}
