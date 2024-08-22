@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1724254889.77339 "/Users/giacomo/Documents/Math/Notes/DP/Resume/main.tex" "main.pdf" "main" 1724254904.21304 0
-  "/Users/giacomo/Documents/Math/Notes/DP/Resume/main.tex" 1724254880.51211 48941 3cd87b4250cd8b03f154d3d0fd65fb13 ""
+["pdflatex"] 1724306134.46724 "/Users/giacomo/Documents/Math/Notes/DP/Resume/main.tex" "main.pdf" "main" 1724306139.69361 0
+  "/Users/giacomo/Documents/Math/Notes/DP/Resume/main.tex" 1724306131.16954 55940 7738e8e8317ffffc40792f6fc092fe21 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc" 1699652218 3877 2ca811886181a05a861d20a35de75e06 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -18,6 +18,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/NewPXMI.tfm" 1591219423 1160 c2197cdaa08622262260a0a34b1dfcef ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/NewPXMI_gnu.tfm" 1570136818 748 0258bafb3cb53bfddd528993739cf619 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/pxmiaX.tfm" 1634156854 1732 18a727750846a1c3e7271725c4449898 ""
@@ -43,6 +44,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb" 1591219423 25273 57c06ae0831a03c4eb441ef7894a1639 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb" 1570136818 16003 379767f2e95213e4cfc7bfd5823fb860 ""
@@ -333,9 +335,9 @@
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "letterfonts.tex" 1723906624.98207 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1723906624.98663 3389 93000260d2aea292d29c76d4ace77a29 ""
-  "main.aux" 1724254903.99296 10587 229d095475480955a6af6b91bf208421 "pdflatex"
-  "main.tex" 1724254880.51211 48941 3cd87b4250cd8b03f154d3d0fd65fb13 ""
-  "main.toc" 1724254903.99785 1686 97135a0e6b11c6c2803386d17f971238 "pdflatex"
+  "main.aux" 1724306139.58702 12962 101517ba692d4d62b64a881d71ace131 "pdflatex"
+  "main.tex" 1724306131.16954 55940 7738e8e8317ffffc40792f6fc092fe21 ""
+  "main.toc" 1724306139.58967 2035 350a7013a371d6775dbd0d9a1b50d79c "pdflatex"
   "preamble.tex" 1724061110.68045 20053 cac64cd8837854e12008c40220fda887 ""
   (generated)
   "main.aux"

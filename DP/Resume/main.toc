@@ -19,4 +19,8 @@
 \contentsline {section}{\numberline {3.4}Distances in Geometry}{27}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Graphical Representations (BAD)}{28}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Intersections between planes}{30}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Trigonometry and Circular Functions}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Basic Trigonometry}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Circular Functions}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Volumes and Surface Areas of 3D Shapes}{34}{section.4.3}%
 \contentsfinish 
