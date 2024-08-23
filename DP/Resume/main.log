@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.28)  22 AUG 2024 08:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.28)  23 AUG 2024 09:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1322,27 +1322,27 @@ Chapter 4.
 [31
 
 ] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1710--1710
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1710--1710
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1710--1710
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1710--1710
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1710--1710
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1711
 
  []
 
@@ -1363,7 +1363,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  50499 strings out of 474116
  1172774 string characters out of 5743682
- 2394596 words of memory out of 5000000
+ 2394597 words of memory out of 5000000
  71862 multiletter control sequences out of 15000+600000
  594734 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
