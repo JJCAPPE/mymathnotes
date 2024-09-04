@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725460647.49045 "/Users/giacomo/Documents/Math/MA225/main.tex" "main.pdf" "main" 1725460648.79846 0
-  "/Users/giacomo/Documents/Math/MA225/main.tex" 1725460647.31112 1922 fdb270d16e32b73476818907ddf38452 ""
+["pdflatex"] 1725460953.32169 "/Users/giacomo/Documents/Math/Notes/MA225/main.tex" "main.pdf" "main" 1725460954.51253 0
+  "/Users/giacomo/Documents/Math/Notes/MA225/main.tex" 1725460953.12288 1893 a3e142ce1fff86fb404eea5c96fc569f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc" 1699652218 3877 2ca811886181a05a861d20a35de75e06 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -308,9 +308,9 @@
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "letterfonts.tex" 1725456673.16208 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1725456673.16496 3389 93000260d2aea292d29c76d4ace77a29 ""
-  "main.aux" 1725460648.71383 1689 2a3990f8a1d6ad7d01a8cb0fc5c13856 "pdflatex"
-  "main.tex" 1725460647.31112 1922 fdb270d16e32b73476818907ddf38452 ""
-  "main.toc" 1725460648.71473 223 2bf4e4a20b822f990149a23ff5d497a6 "pdflatex"
+  "main.aux" 1725460954.42478 1689 2a3990f8a1d6ad7d01a8cb0fc5c13856 "pdflatex"
+  "main.tex" 1725460953.12288 1893 a3e142ce1fff86fb404eea5c96fc569f ""
+  "main.toc" 1725460954.42572 223 2bf4e4a20b822f990149a23ff5d497a6 "pdflatex"
   "preamble.tex" 1725456673.16729 20053 cac64cd8837854e12008c40220fda887 ""
   (generated)
   "main.aux"
