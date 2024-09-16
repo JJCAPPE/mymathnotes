@@ -12,4 +12,5 @@
 \contentsline {section}{\numberline {1.6}Cross Product and Volumes}{9}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}Link to Matrix Determinants}{10}{subsection.1.6.1}%
 \contentsline {section}{\numberline {1.7}Cross Product Polynomial Multiplication}{10}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Torque}{11}{section.1.8}%
 \contentsfinish 
