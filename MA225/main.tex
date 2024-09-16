@@ -629,4 +629,291 @@ Thus, in this case, the transformation results in a clockwise orientation.
 }
 
 
+\section*{Parametric Equations}
+
+\dfn{Parametric Equations}{
+	A parametric equation expresses a set of quantities as explicit functions of an independent parameter. In a two-dimensional case, a parametric equation for a curve can be represented as:
+	\[
+		\langle x,y  \rangle t = \langle f(t), g(t) \rangle
+	\]
+	and in three dimensions as:
+	\[
+		\langle x, y, z \rangle t = \langle f(t), g(t), h(t) \rangle
+	\]
+}
+
+\nt{
+	For example, consider the curve in the plane given by the equation \( y = f(x) = x^2 + 1 \). This describes a parabola in Cartesian coordinates.
+}
+
+\thm{Parametric unit circle in Cartesian coordinates}{
+	A unit circle in parametric form can be represented as:
+	\[
+		x^2 + y^2 = 1
+	\]
+	which corresponds to the parametric equations:
+	\[
+		\langle x,y  \rangle t = \langle \cos(t), \sin(t) \rangle
+	\]
+}
+
+\subsection{Examples}
+
+\nt{
+	The parametric equation:
+	\[
+		\langle x,y  \rangle t = \langle 4 \cos(t), 3 \sin(t) \rangle
+	\]
+	At specific values of \( t \), we can compute the points:
+	\[
+		t = 0 \implies \langle 4, 0 \rangle
+	\]
+	\[
+		t = \frac{\pi}{2} \implies \langle 0, 3 \rangle
+	\]
+	\[
+		t = \pi \implies \langle -4, 0 \rangle
+	\]
+	\[
+		t = \frac{3\pi}{2} \implies \langle 0, -3 \rangle
+	\]
+}
+
+\dfn{Parametric for a Helix}{
+	\[
+		\langle x(t), y(t), z(t) \rangle = \langle 4 \cos(t), 3 \sin(t), 0.1t \rangle
+	\]
+}
+
+% The figure needs to be outside the definition environment
+\begin{figure}[!htbp]
+	\centering
+	\vspace*{10pt}
+	\begin{tikzpicture}
+		\begin{axis}[mesh,
+				samples=100,
+				xlabel={$x$},
+				ylabel={$y$},
+				zlabel={$z$},
+				view={60}{30},
+				grid=both,
+			]
+			\addplot3 [
+				domain=0:10,
+				samples=50,
+			]
+			({4*cos(deg(x))}, {3*sin(deg(x))}, {0.1*x});
+		\end{axis}
+	\end{tikzpicture}
+	\caption{3D plot of a parametric helix.}
+	\label{fig:3dplot}
+\end{figure}
+
+\thm{Parametric Equation of a Line}{
+	The parametric equation of a line can be expressed as:
+	\[
+		\langle x, y, z \rangle t = \mathbf{OP} + \mathbf{V}t
+	\]
+	Where:
+	\begin{itemize}
+		\item \( \mathbf{OP} = \langle x_0, y_0, z_0 \rangle \) is the position vector to the initial point \( P \),
+		\item \( \mathbf{V} = \langle v_x, v_y, v_z \rangle \) is the direction vector of the line.
+	\end{itemize}
+}
+
+\qs{3D Parametric Equation of a Line}{
+	\begin{itemize}
+		\item \( \mathbf{OP} = \langle 1, 2, 3 \rangle \) is the position vector to the initial point \( P \),
+		\item \( \mathbf{V} = \langle 1, 1, 1 \rangle \) is the direction vector of the line.
+	\end{itemize}
+	Thus, the parametric equation of the line becomes:
+	\[
+	\langle x(t), y(t), z(t) \rangle = \langle 1, 2, 3 \rangle + t \langle 1, 1, 1 \rangle
+	\]
+	\[
+	x(t) = 1 + t, \quad y(t) = 2 + t, \quad z(t) = 3 + t
+	\]
+	Or simply:
+	\[
+	\langle x, y, z \rangle t = \langle 1+t, 2+t, 3+t \rangle
+	\]
+
+}
+
+\sol 
+
+
+% The figure for the parametric line
+\begin{figure}[!htbp]
+    \centering
+    \vspace*{10pt}
+    \begin{tikzpicture}
+        \begin{axis}[mesh,
+            samples=100,
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            view={60}{30},
+            grid=both,
+        ]
+            % Plot the parametric line
+            \addplot3 [
+                domain=0:10,
+                samples=50,
+                thick,
+                color=blue,
+            ]
+            ({1 + x}, {2 + x}, {3 + x});
+
+            % Mark the initial point OP = (1, 2, 3)
+            \addplot3 [
+                only marks,
+                mark=ball,
+                mark size=3pt,
+                color=red,
+            ]
+            coordinates {(1, 2, 3)};
+            
+            % Label the initial point
+            \node at (axis cs:1, 2, 3) [anchor=west] {P (1, 2, 3)};
+            
+            % Plot the vector from the origin
+            \addplot3 [
+                -stealth,
+                thick,
+                color=green,
+            ]
+            coordinates {(0, 0, 0) (1, 2, 3)};
+            
+            % Label the vector
+            \node at (axis cs:0.5, 1, 1.5) [anchor=east] {OP};
+
+            % Mark another point on the line for t = 3, (4, 5, 6)
+            \addplot3 [
+                only marks,
+                mark=ball,
+                mark size=3pt,
+                color=red,
+            ]
+            coordinates {(4, 5, 6)};
+            
+            % Label the point
+            \node at (axis cs:4, 5, 6) [anchor=west] {Point (4, 5, 6)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{3D plot of a parametric line with vector OP and points.}
+    \label{fig:3dlineplot}
+\end{figure}
+
+
+\section{Distance from a Point to a Line}
+
+\dfn{Parametric Equation of the Line}{
+The line is represented by:
+\[
+\mathbf{l} = \mathbf{OP} + t \mathbf{V}
+\]
+Where:
+\begin{itemize}
+    \item \( \mathbf{OP} \) is the position vector of a point on the line,
+    \item \( \mathbf{V} \) is the direction vector of the line.
+\end{itemize}
+}
+
+\thm{Distance from a Point to a Line}{
+The distance \( d \) from a point \( Q \) to the line \( l \) is given by:
+\[
+d = \frac{| \mathbf{V} \times \mathbf{PQ} |}{| \mathbf{V} |}
+\]
+Where:
+\begin{itemize}
+    \item \( \mathbf{PQ} \) is the vector from point \( P \) on the line to the point \( Q \),
+    \item \( \mathbf{V} \times \mathbf{PQ} \) is the cross product of the direction vector \( \mathbf{V} \) and the vector \( \mathbf{PQ} \).
+\end{itemize}
+}
+
+\subsection{Example}
+
+\qs{Find the distance from the point \( Q = (3, 4, 0) \) to the line \( l \) given by the parametric equation}{
+\[
+\mathbf{l} = \langle t, 1, 2t \rangle = \langle 0, 1, 0 \rangle + t \langle 1, 0, 2 \rangle
+\]
+with point \( P = (0, 1, 0) \) and direction vector \( \mathbf{V} = \langle 1, 0, 2 \rangle \).
+}
+
+\sol
+The vector \( \mathbf{PQ} \) from \( P = (0, 1, 0) \) to \( Q = (3, 4, 0) \) is:
+\[
+\mathbf{PQ} = \langle 3, 4, 0 \rangle - \langle 0, 1, 0 \rangle = \langle 3, 3, 0 \rangle
+\]
+Now, we compute the cross product \( \mathbf{V} \times \mathbf{PQ} \):
+\[
+\mathbf{V} \times \mathbf{PQ} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+1 & 0 & 2 \\
+3 & 3 & 0 \\
+\end{vmatrix}
+= \hat{i}(0 - 6) - \hat{j}(0 - 6) + \hat{k}(3 - 0) = \langle -6, -6, 3 \rangle
+\]
+Next, calculate the magnitude of the cross product:
+\[
+|\mathbf{V} \times \mathbf{PQ}| = \sqrt{(-6)^2 + (-6)^2 + 3^2} = \sqrt{36 + 36 + 9} = \sqrt{81} = 9
+\]
+The magnitude of the direction vector \( \mathbf{V} \) is:
+\[
+|\mathbf{V}| = \sqrt{1^2 + 0^2 + 2^2} = \sqrt{1 + 4} = \sqrt{5}
+\]
+Finally, the distance \( d \) is:
+\[
+d = \frac{9}{\sqrt{5}} = \frac{9\sqrt{5}}{5}
+\]
+
+
+\section{Intersection of Two Parametric Lines}
+
+\dfn{Intersection of Parametric Lines}{
+To find the intersection point of two parametric lines, we need to equate their parametric equations and solve for the parameters.
+}
+
+\qs{Find the intersection of the lines \( l_1 \) and \( l_2 \) given by the parametric equations}{
+\[
+l_1 = \langle x, y \rangle (t) = \langle 0, 1 \rangle + t \langle 1, 0 \rangle
+\]
+\[
+l_2 = \langle 1, 1 \rangle + s \langle -2, 1 \rangle
+\]
+}
+
+\sol
+Equating the two parametric equations:
+\[
+\langle 0, 1 \rangle + t \langle 1, 0 \rangle = \langle 1, 1 \rangle + s \langle -2, 1 \rangle
+\]
+This gives the system of equations:
+\[
+0 + t = 1 - 2s
+\]
+\[
+1 + 0 = 1 + s
+\]
+
+From the second equation, we find:
+\[
+s = 0
+\]
+
+Substitute \( s = 0 \) into the first equation:
+\[
+t = 1
+\]
+
+Thus, the lines intersect when \( t = 1 \) and \( s = 0 \).
+
+The intersection point is:
+\[
+\langle 0, 1 \rangle + 1 \cdot \langle 1, 0 \rangle = \langle 1, 1 \rangle
+\]
+Therefore, the lines intersect at \( (1, 1) \).
+
+
 \end{document}
