@@ -1141,4 +1141,734 @@ The limits of each component as \(t \to -1\) are:
 	\node at (8.5, 0.5) [blue] {Acceleration $\vec{r}''(t)$};
 \end{tikzpicture}
 
+\section{Properties}
+
+\dfn{Chain Rule Derivation}{
+	\[
+		\frac{dy}{dt} = \frac{dy}{du} \cdot \frac{dx}{dt} \quad \Rightarrow \quad \frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}
+		\quad \Rightarrow \quad \frac{dy}{dx} = \frac{du}{dt}
+	\]
+}
+
+\qs{Example}{
+	Slope of
+	\[
+		\vec{r}(t) = \langle \cos(t), \sin(t) \rangle
+	\]
+
+	At \( t = \frac{\pi}{3} \):
+
+}
+
+\sol
+
+\[
+	\cos\left(\frac{\pi}{3}\right) = \frac{1}{2}, \quad \sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}
+\]
+
+
+\[
+	\vec{r}'(t) = \langle -\sin(t), \cos(t) \rangle
+\]
+
+
+At \( t = \frac{\pi}{3} \):
+
+\[
+	\vec{r}'\left(\frac{\pi}{3}\right) = \langle -\frac{\sqrt{3}}{2}, \frac{1}{2} \rangle
+\]
+
+Slope Calculation
+\[
+	\text{slope} = \frac{\frac{-1}{2}}{\frac{-\sqrt{3}}{2}} = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+\]
+
+Vector Notation
+\[
+	\vec{r}'(t) = \langle -\sin(t), \cos(t) \rangle \quad \text{so} \quad \vec{r}'\left(\frac{\pi}{3}\right) = \langle -\frac{\sqrt{3}}{2}, \frac{1}{2} \rangle
+\]
+
+\subsection{Chain Rule}
+
+\dfn{Chain Rule for VV}{
+
+	Let $g : \mathbb{R} \to \mathbb{R}$ and $\vec{r}(t)$ be a vector function. The derivative of the composition of functions is:
+
+	\[
+		\frac{d}{dt}[g(\vec{r}(t))] = g'(\vec{r}(t)) \cdot \vec{r}'(t)
+	\]
+
+	where $g'(\vec{r}(t))$ is the derivative of $g$ with respect to the vector function $\vec{r}(t)$ and $\vec{r}'(t)$ is the derivative of the vector function $\vec{r}(t)$ with respect to $t$. This rule is useful for differentiating scalar functions composed with vector-valued functions.
+
+}
+
+\qs{Example}{
+
+\[
+	\vec{r}(t) = \langle \cos^2 t, -3t + \cos^3 t \rangle = \dot{\vec{r}}(g(t))
+\]
+\[
+	y = \cos t, \quad \vec{r} = \langle t^2, -3t, 3t^3 \rangle
+\]
+\[
+	g' = -\sin t, \quad \dot{\vec{r}} = \langle 2t, 3t^2 \rangle
+\]
+
+Thus, the derivative is:
+
+\[
+\vec{s}(t) = \frac{d}{dt} \left( g(y(t)) \vec{r}(g(t)) \right) = g'(t) \cdot \dot{\vec{r}}(g(t))
+\]
+
+\[
+= -\sin t \cdot \langle 2\cos t, 3\cos^2 t \rangle
+\]
+
+}
+
+\subsection{Product Rule}
+
+\dfn{Product rule for VV}{
+
+	Let $g(t): \mathbb{R} \to \mathbb{R}$, $\vec{r}(t): \mathbb{R} \to \mathbb{R}^n$, and $\vec{s}(t): \mathbb{R} \to \mathbb{R}^n$ be vector functions. Then, the product rule is:
+
+	\[
+		\frac{d}{dt} \left( g(t) \vec{r}(t) \right) = g'(t) \vec{r}(t) + g(t) \dot{\vec{r}}(t)
+	\]
+
+	For vector dot products:
+
+	\[
+		\frac{d}{dt} \left( \vec{r}(t) \cdot \vec{s}(t) \right) = \vec{r}'(t) \cdot \vec{s}(t) + \vec{r}(t) \cdot \vec{s}'(t)
+	\]
+
+	For vector cross products:
+
+	\[
+		\frac{d}{dt} \left( \vec{r}(t) \times \vec{s}(t) \right) = \vec{r}'(t) \times \vec{s}(t) + \vec{r}(t) \times \vec{s}'(t)
+	\]
+
+}
+
+\subsection{Integrals}
+
+\dfn{Integral of Vector-Valued Functions}{
+
+Let $\vec{r}(t): [a,b] \to \mathbb{R}^n$ be a continuous vector-valued function. The definite integral of $\vec{r}(t)$ over the interval $[a,b]$ is defined as:
+
+\[
+	\int_a^b \vec{r}(t) \, dt = \langle \int_a^b r_1(t) \, dt, \int_a^b r_2(t) \, dt, \dots, \int_a^b r_n(t) \, dt \rangle
+\]
+
+where $\vec{r}(t) = \langle r_1(t), r_2(t), \dots, r_n(t) \rangle$. This means that the integral of a vector-valued function is the vector whose components are the integrals of the respective component functions.
+
+For example, if $\vec{r}(t) = \langle f(t), g(t), h(t) \rangle$, then:
+
+\[
+	\int_a^b \vec{r}(t) \, dt = \langle \int_a^b f(t) \, dt, \int_a^b g(t) \, dt, \int_a^b h(t) \, dt \rangle
+\]
+
+This can be extended to cases where $\vec{r}(t)$ represents the position of a particle over time, and the integral represents the net displacement of the particle over the interval $[a,b]$.
+
+}
+
+\qs{Find the integral of the vector-valued function}{Calculate the integral of the vector-valued function \(\vec{r}(t) = \langle t^2, \sin t, e^t \rangle\) over the interval \(t \in [0, 1]\).}
+
+\sol
+
+The vector-valued function is given as:
+
+\[
+	\vec{r}(t) = \langle t^2, \sin t, e^t \rangle
+\]
+
+We can integrate each component of the vector separately over the interval \([0, 1]\):
+
+\[
+	\int_0^1 \vec{r}(t) \, dt = \langle \int_0^1 t^2 \, dt, \int_0^1 \sin t \, dt, \int_0^1 e^t \, dt \rangle
+\]
+
+Now, solving each integral:
+
+1. For \(\int_0^1 t^2 \, dt\):
+
+\[
+	\int_0^1 t^2 \, dt = \left[ \frac{t^3}{3} \right]_0^1 = \frac{1^3}{3} - \frac{0^3}{3} = \frac{1}{3}
+\]
+
+2. For \(\int_0^1 \sin t \, dt\):
+
+\[
+	\int_0^1 \sin t \, dt = \left[ -\cos t \right]_0^1 = -\cos(1) + \cos(0) = 1 - \cos(1)
+\]
+
+3. For \(\int_0^1 e^t \, dt\):
+
+\[
+	\int_0^1 e^t \, dt = \left[ e^t \right]_0^1 = e^1 - e^0 = e - 1
+\]
+
+Thus, the result of the integral is:
+
+\[
+	\int_0^1 \vec{r}(t) \, dt = \langle \frac{1}{3}, 1 - \cos(1), e - 1 \rangle
+\]
+
+\qs{Find the position vector of a ball in 3D space}{A ball is thrown from the origin with an initial velocity vector \(\vec{v}(0) = \langle 1, 3, 5 \rangle\) m/s, and experiences a constant acceleration vector \(\vec{a}(t) = \langle 0, 0, -10 \rangle\) m/s\(^2\). Find the position vector \(\vec{r}(t)\) of the ball at any time \(t\).}
+
+\sol
+
+The velocity vector \(\vec{v}(t)\) is found by integrating the acceleration vector \(\vec{a}(t)\):
+
+\[
+	\vec{v}(t) = \int_0^t \vec{a}(s) \, ds + \vec{v}(0)
+\]
+
+Given that \(\vec{a}(t) = \langle 0, 0, -10 \rangle\), we integrate each component:
+
+\[
+	\vec{v}(t) = \int_0^t \langle 0, 0, -10 \rangle \, ds + \langle 1, 3, 5 \rangle
+\]
+\[
+	= \langle 0, 0, -10t \rangle + \langle 1, 3, 5 \rangle
+\]
+\[
+	\vec{v}(t) = \langle 1, 3, 5 - 10t \rangle
+\]
+
+Now, to find the position vector \(\vec{r}(t)\), we integrate the velocity vector \(\vec{v}(t)\):
+
+\[
+	\vec{r}(t) = \int_0^t \vec{v}(s) \, ds
+\]
+\[
+	= \int_0^t \langle 1, 3, 5 - 10s \rangle \, ds
+\]
+
+Integrating each component:
+
+1. For the first component:
+\[
+	\int_0^t 1 \, ds = t
+\]
+
+2. For the second component:
+\[
+	\int_0^t 3 \, ds = 3t
+\]
+
+3. For the third component:
+\[
+	\int_0^t (5 - 10s) \, ds = \left[ 5s - 5s^2 \right]_0^t = 5t - 5t^2
+\]
+
+Thus, the position vector is:
+
+\[
+	\vec{r}(t) = \langle t, 3t, 5t - 5t^2 \rangle
+\]
+
+\pagebreak
+
+\section{Arc Length}
+
+The arc length of a smooth curve given by a vector-valued function can be calculated using an integral. Let the position vector of a curve be represented as:
+\[
+	\vec{r}(t) = \langle f(t), g(t), h(t) \rangle,
+\]
+where \(t\) is the parameter over some interval \([a, b]\).
+
+\dfn{Arc Length Formula}{
+	The arc length \(L\) of the curve \(\vec{r}(t)\) over the interval \([a, b]\) is given by:
+	\[
+		L = \int_a^b \left| \vec{r}'(t) \right| \, dt,
+	\]
+	where \(\vec{r}'(t)\) is the derivative of the position vector, representing the velocity vector of the curve.
+
+	To find \(\left| \vec{r}'(t) \right|\), we use the following:
+	\[
+		\left| \vec{r}'(t) \right| = \sqrt{\left( f'(t) \right)^2 + \left( g'(t) \right)^2 + \left( h'(t) \right)^2}.
+	\]
+
+	Therefore, the arc length formula can be explicitly written as:
+	\[
+		L = \int_a^b \sqrt{\left( f'(t) \right)^2 + \left( g'(t) \right)^2 + \left( h'(t) \right)^2} \, dt.
+	\]
+}
+
+\qs{Example: Eagle Spiraling}{
+	Consider an example where an eagle is spiraling in space, and its position at time \(t\) (in minutes) is given by:
+	\[
+		\vec{r}(t) = \langle 250 \cos(t), 250 \sin(t), 100t \rangle \quad \text{(in feet)}.
+	\]
+}
+
+\sol
+
+To find the velocity vector, we differentiate each component of \(\vec{r}(t)\):
+\[
+	\vec{r}'(t) = \langle -250 \sin(t), 250 \cos(t), 100 \rangle \quad \text{(in feet per minute)}.
+\]
+
+The magnitude of the velocity vector \(\left| \vec{r}'(t) \right|\) is:
+\[
+	\left| \vec{r}'(t) \right| = \sqrt{(-250 \sin(t))^2 + (250 \cos(t))^2 + (100)^2}.
+\]
+Simplifying, we obtain:
+\[
+	\left| \vec{r}'(t) \right| = \sqrt{250^2 \sin^2(t) + 250^2 \cos^2(t) + 100^2}.
+\]
+
+Using the Pythagorean identity \(\sin^2(t) + \cos^2(t) = 1\), we find:
+\[
+	\left| \vec{r}'(t) \right| = \sqrt{250^2 + 100^2} = \sqrt{62500 + 10000} = \sqrt{72500} \approx 269.3 \quad \text{(feet per minute)}.
+\]
+
+Therefore, the speed of the eagle is approximately \(269.3\) feet per minute.
+
+\qs{Calculating Distance Over Time}{Find the total distance over 10 minutes}
+
+\sol
+
+To find the total distance traveled by the eagle over a period of 10 minutes, we compute the arc length:
+\[
+	\text{Distance} = \int_0^{10} \left| \vec{r}'(t) \right| \, dt = \int_0^{10} 269.3 \, dt.
+\]
+
+Evaluating the integral:
+\[
+	\text{Distance} = 269.3 \cdot (10 - 0) = 2693 \text{ feet}.
+\]
+
+Thus, over 10 minutes, the eagle travels approximately 2693 feet.
+
+\dfn{Arc Length Function}{
+	The arc length function, denoted by \(S(t)\), is defined as:
+	\[
+		S(t) = \text{distance traveled along the curve from } t = a.
+	\]
+	It is given by the integral:
+	\[
+		S(t) = \int_a^t \left| \vec{r}'(s) \right| \, ds.
+	\]
+	This function essentially converts the vector quantity \(\vec{r}(t)\) into a 1-dimensional scalar that measures the total distance traveled without considering direction.
+
+	The arc length function \(S(t)\) effectively flattens the vector \(\vec{r}(t)\) into a scalar by integrating the magnitude of the velocity vector \(\vec{r}'(s)\) over the interval \([a, t]\).
+}
+
+\ex{Application: Reparametrization by Arc Length}{
+One common use of the arc length function is to reparametrize the curve so that it is traveled at unit speed.
+
+Given the inverse function of \(S(t)\), denoted as \(S^{-1}(t)\), we wish to compare:
+\[
+	\vec{r}\left( S^{-1}(t) \right) \quad \text{with} \quad \vec{r}(t).
+\]
+
+
+If \(S(t)\) is given by:
+\[
+	S(t) = \int_a^t \left| \vec{r}'(p) \right| \, dp,
+\]
+then \(S'(t) = \left| \vec{r}'(t) \right|\).
+
+To differentiate \(\vec{r}(S^{-1}(t))\), we use the chain rule:
+\[
+	\frac{d}{dt} \vec{r}(S^{-1}(t)) = \frac{1}{S'(S^{-1}(t))} \vec{r}'(S^{-1}(t)).
+\]
+
+Since \(S'(S^{-1}(t)) = \left| \vec{r}'(S^{-1}(t)) \right|\), we have:
+\[
+	\frac{d}{dt} \vec{r}(S^{-1}(t)) = \frac{\vec{r}'(S^{-1}(t))}{\left| \vec{r}'(S^{-1}(t)) \right|}.
+\]
+This shows that the derivative of \(\vec{r}(S^{-1}(t))\) is a unit vector, implying that \(\vec{r}(S^{-1}(t))\) describes the same curve as \(\vec{r}(t)\), but at unit speed.
+
+By reparametrizing the curve with respect to arc length, we achieve a uniform traversal of the curve at constant unit speed. The transformation \(\vec{r}(S^{-1}(t))\) provides a way to describe the geometry of the curve without the influence of varying speed.
+
+}
+
+\qs{Worked Example}{
+Consider the position of an eagle as it spirals upward over time. The position vector \(\vec{r}(t)\) is given by:
+\[
+	\vec{r}(t) = \langle 250 \cos(t), 250 \sin(t), 100t \rangle \quad \text{(in feet)},
+\]
+where \(t\) is in minutes.
+
+\subsection*{Step 1: Find the Speed of the Eagle}
+The velocity vector is obtained by differentiating the position vector:
+\[
+	\vec{r}'(t) = \langle -250 \sin(t), 250 \cos(t), 100 \rangle.
+\]
+
+The speed is the magnitude of the velocity vector:
+\[
+	\left| \vec{r}'(t) \right| = \sqrt{(-250 \sin(t))^2 + (250 \cos(t))^2 + 100^2} = \sqrt{62500 + 10000} = 269.3 \quad \text{(feet per minute)}.
+\]
+
+\subsection*{Step 2: Arc Length Function \(S(t)\)}
+To find the arc length function \(S(t)\), which represents the distance traveled along the curve from \(t = 0\) to \(t = t\):
+\[
+	S(t) = \int_0^t \left| \vec{r}'(p) \right| \, dp.
+\]
+Since the speed is constant:
+\[
+	S(t) = \int_0^t 269.3 \, dp = 269.3 t.
+\]
+
+Thus, at time \(t\), the eagle has traveled \(269.3 t\) feet.
+
+\subsection*{Step 3: Reparametrize by Arc Length}
+The inverse of the arc length function \(S(t)\), denoted as \(S^{-1}(t)\), is given by:
+\[
+	S^{-1}(t) = \frac{t}{269.3}.
+\]
+
+Now, to reparametrize the curve by arc length, we substitute \(S^{-1}(t)\) into the original position vector \(\vec{r}(t)\):
+\[
+\vec{r}(S^{-1}(t)) = \left\langle 250 \cos\left( \frac{t}{269.3} \right), 250 \sin\left( \frac{t}{269.3} \right), 100 \frac{t}{269.3} \right\rangle.
+\]
+
+\subsection*{Interpretation}
+This reparametrization gives the position of the eagle as a function of the distance traveled (in feet), rather than as a function of time. It provides a way to describe the motion of the eagle along the curve such that the eagle is moving at a constant speed of 1 foot per unit of time.
+
+}
+
+\section{Curvature of a Vector-Valued Function}
+Curvature is a measure of the "sharpness" or "bendiness" of a curve. For a smooth curve given by a vector-valued function \(\vec{r}(t)\), the curvature at a point is related to how quickly the direction of the curve is changing.
+
+\subsection{Osculating Circle}
+The concept of curvature is closely tied to the idea of an \textbf{osculating circle}. At any point on the curve, the osculating circle is the circle that best approximates the curve's curvature at that point. This circle:
+- Has the same tangent as the curve \(\vec{r}(t)\) at the point \(\vec{r}(t_0)\).
+- Its radius is a measure of the "tightness" of the curve's bend at that point.
+
+The radius of the osculating circle is denoted as:
+\[
+	R(t),
+\]
+where \(R(t)\) is the radius of curvature of the curve at time \(t\).
+
+\subsection*{Curvature \(\kappa(t)\)}
+The curvature \(\kappa(t)\) of the curve \(\vec{r}(t)\) at the point \(\vec{r}(t_0)\) is defined as the reciprocal of the radius of the osculating circle:
+\[
+	\kappa(t) = \frac{1}{R(t)}.
+\]
+A smaller radius \(R(t)\) indicates a tighter bend and thus a larger curvature \(\kappa(t)\), whereas a larger radius corresponds to a gentler curve and smaller curvature.
+
+The osculating circle provides a geometric interpretation of curvature, serving as the best circular approximation to the curve at any given point. The curvature \(\kappa(t)\) quantifies how sharply the curve bends at that point, with the relationship:
+\[
+	\kappa(t) = \frac{1}{R(t)}.
+\]
+
+\dfn{Osculating Circle of a Straight Line}{
+
+	A straight line is a curve with no curvature. Thus, the curvature \(\kappa(t)\) of a straight line is zero at all points. To understand why, consider the definition of the osculating circle.
+
+
+	For any curve \(\vec{r}(t)\), the osculating circle at a point \(\vec{r}(t_0)\) is defined as the circle that "best fits" the curve at that point. Mathematically, this means:
+	\[
+		\kappa(t) = \lim_{\Delta t \to 0} \frac{\text{change in angle}}{\text{arc length}},
+	\]
+	where \(\kappa(t)\) is the curvature of the curve. However, for a straight line, the change in angle is always zero, so:
+	\[
+		\kappa(t) = 0.
+	\]
+
+	Since curvature is the reciprocal of the radius of the osculating circle \(R(t)\), a zero curvature implies an infinite radius:
+	\[
+		R(t) = \frac{1}{\kappa(t)} \to \infty.
+	\]
+	Therefore, the osculating circle of a straight line is effectively a circle with infinite radius, meaning it is "flattened" into a straight line.
+
+}
+
+\subsection*{Diagram}
+Below is a diagram to illustrate the concept of the osculating circle of a straight line:
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.2]
+		% Draw the straight line
+		\draw[thick] (-3, 0) -- (3, 0) node[right] {\(\vec{r}(t)\)};
+
+		% Draw the tangent vector at the point
+		\draw[->, thick] (0, 0) -- (1, 0) node[above] {Tangent};
+
+		% Mark a point on the line
+		\filldraw (0, 0) circle (2pt) node[below] {\(\vec{r}(t_0)\)};
+
+		% Draw the large osculating circle (only a visible arc to suggest a large radius)
+		\draw[dashed] (5, 0) arc[start angle=0, end angle=180, radius=5];
+
+		% Label the osculating circle
+		\node at (0, 3.2) {Osculating circle (large radius)};
+	\end{tikzpicture}
+\end{center}
+
+The dashed arc represents the osculating circle with an infinitely large radius, approximating the straight line at \(\vec{r}(t_0)\).
+
+To approach the concept of osculating circles for vector-valued functions, we break down the analysis into four key points:
+
+\subsection*{1. Tangent Vector at \(t_0\)}
+The tangent vector to the curve at time \(t_0\) is given by:
+\[
+	\vec{T}(t) = \frac{\vec{r}'(t)}{\left| \vec{r}'(t) \right|}.
+\]
+This vector is the unit tangent vector at any point on the curve.
+
+\subsection*{2. If \(\vec{r}(t)\) Describes a Circle}
+Suppose that \(\vec{r}(t)\) describes a circular path. In this case:
+\begin{itemize}
+	\item The vector \(\vec{r}(t)\) is always parallel to the radius of the circle.
+	\item The velocity vector \(\vec{r}'(t)\) is also perpendicular to \(\vec{r}(t)\).
+\end{itemize}
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.2]
+		% Draw the circle
+		\draw[thick] (0,0) circle (2.1);
+
+		% Draw the position vector
+		\draw[->, thick, green] (0,0) -- (1.5,1.5) node[above right] {\(\vec{r}(t)\)};
+
+		% Draw the radius (position vector)
+		\draw[dashed] (0,0) -- (1.5,1.5) node[below right] {Radius};
+
+		% Draw the tangent vector
+		\draw[->, thick] (1.5,1.5) -- (0.2, 3) node[above] {\(\vec{r}'(t)\)};
+
+		% Mark the center of the circle
+		\filldraw (0,0) circle (2pt) node[left] {Center};
+	\end{tikzpicture}
+\end{center}
+
+\subsection*{3. Acceleration Vector \(\vec{a}(t)\)}
+For a circular path, the acceleration vector \(\vec{a}(t)\) points toward the center of the circle. Hence,
+\[
+	\vec{a}(t) \text{ is opposite to } \vec{r}(t) \text{ and directed towards the center}.
+\]
+This implies:
+\[
+	\vec{a}(t) \perp \vec{r}'(t), \quad \vec{a}(t) \perp \vec{T}(t).
+\]
+
+\subsection*{4. Constant Speed and Perpendicularity}
+Suppose that \(\vec{r}(t)\) describes a curve with constant speed:
+\[
+	\left| \vec{r}'(t) \right| = C, \quad C \in \mathbb{R}.
+\]
+
+For both 2D and 3D, the curve will either be a circle or a sphere with a fixed radius. The velocity and acceleration vectors, \(\vec{r}'(t)\) and \(\vec{a}(t)\), maintain a perpendicular relationship:
+\[
+	\vec{r}(t) \cdot \vec{v}(t) = 0.
+\]
+
+\begin{center}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\subsection*{2D Circle}
+		\begin{tikzpicture}[scale=1.5]
+			% Draw the circle
+			\draw[thick] (0, 0) circle (1);
+
+			% Draw the radius vector
+			\draw[->, thick, green] (0, 0) -- (0.7, 0.7) node[above right] {\(\vec{r}(t_0)\)};
+
+			% Draw and label the axes
+			\draw[->, thick] (-1.5, 0) -- (1.5, 0) node[right] {$x$};
+			\draw[->, thick] (0, -1.5) -- (0, 1.5) node[above] {$y$};
+		\end{tikzpicture}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\subsection*{3D Sphere}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					zlabel={$z$},
+					view={60}{30},
+					grid=both,
+					domain=-1:1,
+					zmin=-1, zmax=1,
+					axis equal,
+				]
+				% Use spherical coordinates to draw a sphere
+				\addplot3[
+					surf,
+					colormap/cool,
+					domain=0:360,
+					domain y=0:180,
+					samples=50,
+					samples y=50,
+					z buffer=sort
+				]
+				({sin(y)*cos(x)}, {sin(y)*sin(x)}, {cos(y)});
+			\end{axis}
+		\end{tikzpicture}
+	\end{minipage}
+\end{center}
+
+\subsection*{Deriving the Perpendicularity}
+Let \(\vec{v}(t) = \vec{r}'(t)\) be the velocity vector. Then:
+\[
+	\vec{r}'(t) \cdot \vec{v}(t) = \vec{r}'(t) \cdot \vec{r}'(t) = \frac{1}{2} \frac{d}{dt} \left( \vec{r} \cdot \vec{r} \right).
+\]
+Differentiating:
+\[
+	= \frac{1}{2} \frac{d}{dt} \left( |\vec{r}'(t)|^2 \right) = \frac{1}{2} \frac{d}{dt} C^2 = 0,
+\]
+since \(C\) is constant.
+
+Therefore, if \(\left| \vec{r}'(t) \right| = C\), then:
+\[
+	\vec{v}(t) \perp \vec{r}(t).
+\]
+
+\section*{Calculating Curvature}
+
+\subsection{Case 1: $\vec{r}(t)$ travels at unit speed around a circle}
+
+We consider the position vector $\vec{r}(t)$ traveling at unit speed around a circle of radius $R$.
+
+\[
+\vec{r}(t) = \left\langle R \cos\left(\frac{t}{R}\right), R \sin\left(\frac{t}{R}\right), 0 \right\rangle
+\]
+
+The velocity vector $\vec{v}(t)$ is then the derivative of the position vector:
+
+\[
+\vec{v}(t) = \vec{r}'(t) = \left\langle -\sin\left(\frac{t}{R}\right), \cos\left(\frac{t}{R}\right), 0 \right\rangle
+\]
+
+Note that the magnitude of the velocity vector is 1 (unit speed):
+
+\[
+	|\vec{v}(t)| = 1
+\]
+
+The acceleration vector $\vec{a}(t)$, which is the second derivative of the position vector, is given by:
+
+\[
+\vec{a}(t) = \vec{r}''(t) = \left\langle -\frac{1}{R} \cos\left(\frac{t}{R}\right), -\frac{1}{R} \sin\left(\frac{t}{R}\right), 0 \right\rangle
+\]
+
+The magnitude of the acceleration vector (centripetal acceleration) is:
+
+\[
+	|\vec{r}''(t)| = \frac{1}{R}
+\]
+
+\dfn{The curvature $\kappa(t)$ of the circle }{
+
+\[
+	\kappa(t) = \frac{1}{R}
+\]
+
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		% Circle
+		\draw[thick] (0,0) circle (2);
+		\draw[thick, ->] (0,0) -- (2,0) node[midway, below] {$R$};
+		\draw[thick, ->] (0,0) -- (1.4,1.4) node[midway, right] {$\vec{r}(t)$};
+		% Axes
+		\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+		\draw[->] (0,-2.5) -- (0,2.5) node[above] {$y$};
+		\draw[->, thick] (1.4,1.4) arc (45:85:2.0) node[above right] {$\kappa(t) = \frac{1}{R}$};
+	\end{tikzpicture}
+\end{center}
+
+\nt{
+\begin{itemize}
+	\item $\vec{r}(t)$ represents the position of a point moving around a circle of radius $R$.
+	\item The velocity vector $\vec{v}(t)$ is orthogonal to $\vec{r}(t)$ and has a constant magnitude, indicating uniform circular motion.
+	\item The acceleration vector $\vec{a}(t)$ points towards the center of the circle (centripetal acceleration) and its magnitude is inversely proportional to the radius $R$, showing that a smaller radius corresponds to a greater acceleration.
+	\item The curvature $\kappa(t)$ is defined as the reciprocal of the radius of the circle, $\frac{1}{R}$.
+\end{itemize}
+}
+
+\subsection{Case 2: General Curve with Unit Speed}
+
+Consider a curve given by the position vector $\vec{r}(t)$, which travels at unit speed along a general curve. This means that the magnitude of the velocity vector is constant:
+\[
+|\vec{v}(t)| = 1.
+\]
+Since the speed is constant, the acceleration vector $\vec{a}(t)$ is orthogonal to the velocity vector:
+\[
+\vec{v}(t) \cdot \vec{a}(t) = 0.
+\]
+
+This implies that all changes in $\vec{a}(t)$ are perpendicular to the direction of motion (velocity), which aligns with the properties of motion at unit speed.
+
+\clm{Acceleration and the Osculating Circle}{}{
+The acceleration vector $\vec{a}(t)$ is directed towards the center of curvature of the curve at each point, and its magnitude is related to the curvature. In fact, the acceleration "matches" the behavior of the osculating circle at that point. The osculating circle is the circle that best approximates the curve locally, and its radius of curvature $R$ is inversely proportional to the curvature.
+}
+
+\thm{Curvature and Acceleration}{
+
+The curvature $\kappa(t)$ of the curve at time $t$ is defined as the magnitude of the acceleration vector:
+\[
+\kappa(t) = |\vec{a}(t)|.
+\]
+
+This provides a measure of how sharply the curve is bending at any given point. Since the speed is unitary, the curvature directly corresponds to the acceleration's magnitude.
+
+}
+
+\ex{Matching the Curve with Its Osculating Circle}{
+
+The osculating circle at a point on the curve is chosen so that its first and second derivatives match the curve's first and second derivatives, respectively:
+\[
+\text{Choose circle } \vec{C}(t) \text{ such that } \vec{C}'(t) \text{ and } \vec{C}''(t) \text{ match } \vec{r}'(t) \text{ and } \vec{r}''(t).
+\]
+
+This ensures that the circle is the best local approximation to the curve at that point, providing insight into the curve's behavior through the curvature.
+
+}
+
+
+\subsection{Case 3: General Curve with Variable Speed}
+
+In this case, we analyze a general curve with a variable speed. Unlike the previous case, the magnitude of the velocity vector is not constant:
+\[
+|\vec{v}(t)| \neq 1.
+\]
+
+This implies that the curve's speed is not uniform, and therefore, the analysis of the curvature will require a different approach.
+
+\par
+
+Let \( s(t) \) be the arc length parameter, which is a function of \( t \). The position vector can be reparameterized in terms of arc length:
+\[
+\vec{r}(s^{-1}(t)),
+\]
+where \( s^{-1}(t) \) is the inverse function of \( s(t) \).
+
+\thm{Calculating Curvature \( \kappa(t) \)}{
+
+To find the curvature, we introduce a parameter \( t_0 \), which satisfies \( t_0 = s^{-1}(t) \). Thus, we have:
+\[
+s^{-1}(t_0) = t.
+\]
+The curvature \( \kappa(t) \) is then given by:
+\[
+\kappa(t) = \left| \frac{d}{d t_0} \vec{T}(s^{-1}(t_0)) \right|,
+\]
+where \( \vec{T}(t) \) is the unit tangent vector.
+
+This can be rewritten as:
+\[
+\kappa(t) = \left| \frac{\frac{d}{d t} \vec{r}(s^{-1}(t))}{|\vec{r}'(s^{-1}(t))|} \right| = \left| \frac{\vec{T}'(s^{-1}(t_0))}{|\vec{r}'(s^{-1}(t_0))|} \right|.
+\]
+
+The final expression for the curvature is:
+\[
+\boxed{\kappa(t) = \frac{|\vec{T}'(t)|}{|\vec{r}'(t)|}}
+\]
+where \( \vec{T}(t) = \frac{\vec{r}'(t)}{|\vec{r}'(t)|} \) is the unit tangent vector to the curve.
+
+}
+
+
+
 \end{document}
