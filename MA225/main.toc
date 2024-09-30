@@ -21,14 +21,13 @@
 \contentsline {section}{\numberline {1.12}Vector Valued Functions}{15}{section.1.12}%
 \contentsline {section}{\numberline {1.13}Calculus and Vector Valued Functions}{17}{section.1.13}%
 \contentsline {subsection}{\numberline {1.13.1}Derivative}{17}{subsection.1.13.1}%
-\contentsline {section}{\numberline {1.14}Properties}{18}{section.1.14}%
-\contentsline {subsection}{\numberline {1.14.1}Chain Rule}{19}{subsection.1.14.1}%
-\contentsline {subsection}{\numberline {1.14.2}Product Rule}{19}{subsection.1.14.2}%
-\contentsline {subsection}{\numberline {1.14.3}Integrals}{20}{subsection.1.14.3}%
-\contentsline {section}{\numberline {1.15}Arc Length}{22}{section.1.15}%
-\contentsline {section}{\numberline {1.16}Curvature of a Vector-Valued Function}{24}{section.1.16}%
-\contentsline {subsection}{\numberline {1.16.1}Osculating Circle}{24}{subsection.1.16.1}%
-\contentsline {subsection}{\numberline {1.16.2}Case 1: $\vec {r}(t)$ travels at unit speed around a circle}{27}{subsection.1.16.2}%
-\contentsline {subsection}{\numberline {1.16.3}Case 2: General Curve with Unit Speed}{28}{subsection.1.16.3}%
-\contentsline {subsection}{\numberline {1.16.4}Case 3: General Curve with Variable Speed}{29}{subsection.1.16.4}%
+\contentsline {subsection}{\numberline {1.13.2}Chain Rule}{20}{subsection.1.13.2}%
+\contentsline {subsection}{\numberline {1.13.3}Product Rule}{21}{subsection.1.13.3}%
+\contentsline {subsection}{\numberline {1.13.4}Integrals}{21}{subsection.1.13.4}%
+\contentsline {section}{\numberline {1.14}Arc Length}{23}{section.1.14}%
+\contentsline {section}{\numberline {1.15}Curvature of a Vector-Valued Function}{25}{section.1.15}%
+\contentsline {subsection}{\numberline {1.15.1}Osculating Circle}{25}{subsection.1.15.1}%
+\contentsline {subsection}{\numberline {1.15.2}Case 1: $\vec {r}(t)$ travels at unit speed around a circle}{28}{subsection.1.15.2}%
+\contentsline {subsection}{\numberline {1.15.3}Case 2: General Curve with Unit Speed}{29}{subsection.1.15.3}%
+\contentsline {subsection}{\numberline {1.15.4}Case 3: General Curve with Variable Speed}{30}{subsection.1.15.4}%
 \contentsfinish 

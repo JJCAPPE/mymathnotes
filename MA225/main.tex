@@ -1141,7 +1141,60 @@ The limits of each component as \(t \to -1\) are:
 	\node at (8.5, 0.5) [blue] {Acceleration $\vec{r}''(t)$};
 \end{tikzpicture}
 
-\section{Properties}
+\dfn{Derivatives of Parametric Curves in terms of $t$}{
+
+	Given a parametric curve defined by:
+	\[
+		x = f(t), \quad y = g(t)
+	\]
+	where \(t\) is the parameter, we want to find the derivative \(\frac{dy}{dx}\), which represents the slope of the tangent to the curve at any point \(t\).
+
+	\textbf{Step 1: Finding the Derivatives of \(x\) and \(y\) with respect to \(t\)}
+	To find \(\frac{dy}{dx}\), we need to find both \(\frac{dx}{dt}\) and \(\frac{dy}{dt}\). These are given by:
+	\[
+		\frac{dx}{dt} = f'(t), \quad \frac{dy}{dt} = g'(t)
+	\]
+
+	\textbf{Step 2: Using the Chain Rule}
+	The derivative \(\frac{dy}{dx}\) can be found by using the chain rule as follows:
+	\[
+		\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}
+	\]
+	Substituting the expressions for \(\frac{dx}{dt}\) and \(\frac{dy}{dt}\), we obtain:
+	\[
+		\frac{dy}{dx} = \frac{g'(t)}{f'(t)}
+	\]
+
+	\textbf{Step 3: Simplifying the Result}
+	The expression \(\frac{dy}{dx}\) provides the slope of the curve at any point \(t\) in terms of the parameter.
+}
+
+\ex{Consider the parametric equations:}{
+
+	\[
+		x = 6 \sin t, \quad y = 6 \cos t
+	\]
+
+	To find \(\frac{dy}{dx}\), we calculate the derivatives with respect to \(t\):
+	\[
+		\frac{dx}{dt} = 6 \cos t, \quad \frac{dy}{dt} = -6 \sin t
+	\]
+
+	Then, we apply the formula:
+	\[
+		\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}} = \frac{-6 \sin t}{6 \cos t}
+	\]
+
+	Simplifying the expression:
+	\[
+		\frac{dy}{dx} = -\tan t
+	\]
+
+	Therefore, the slope of the tangent line to the parametric curve at any point \(t\) is:
+	\[
+		\frac{dy}{dx} = -\tan t
+	\]
+}
 
 \dfn{Chain Rule Derivation}{
 	\[
@@ -1730,13 +1783,13 @@ Therefore, if \(\left| \vec{r}'(t) \right| = C\), then:
 We consider the position vector $\vec{r}(t)$ traveling at unit speed around a circle of radius $R$.
 
 \[
-\vec{r}(t) = \left\langle R \cos\left(\frac{t}{R}\right), R \sin\left(\frac{t}{R}\right), 0 \right\rangle
+	\vec{r}(t) = \left\langle R \cos\left(\frac{t}{R}\right), R \sin\left(\frac{t}{R}\right), 0 \right\rangle
 \]
 
 The velocity vector $\vec{v}(t)$ is then the derivative of the position vector:
 
 \[
-\vec{v}(t) = \vec{r}'(t) = \left\langle -\sin\left(\frac{t}{R}\right), \cos\left(\frac{t}{R}\right), 0 \right\rangle
+	\vec{v}(t) = \vec{r}'(t) = \left\langle -\sin\left(\frac{t}{R}\right), \cos\left(\frac{t}{R}\right), 0 \right\rangle
 \]
 
 Note that the magnitude of the velocity vector is 1 (unit speed):
@@ -1748,20 +1801,16 @@ Note that the magnitude of the velocity vector is 1 (unit speed):
 The acceleration vector $\vec{a}(t)$, which is the second derivative of the position vector, is given by:
 
 \[
-\vec{a}(t) = \vec{r}''(t) = \left\langle -\frac{1}{R} \cos\left(\frac{t}{R}\right), -\frac{1}{R} \sin\left(\frac{t}{R}\right), 0 \right\rangle
-\]
-
-The magnitude of the acceleration vector (centripetal acceleration) is:
-
-\[
-	|\vec{r}''(t)| = \frac{1}{R}
+	\vec{a}(t) = \vec{r}''(t) = \left\langle -\frac{1}{R} \cos\left(\frac{t}{R}\right), -\frac{1}{R} \sin\left(\frac{t}{R}\right), 0 \right\rangle
 \]
 
 \dfn{The curvature $\kappa(t)$ of the circle }{
 
-\[
-	\kappa(t) = \frac{1}{R}
-\]
+The magnitude of the acceleration vector (centripetal acceleration) is:
+
+	\[
+		\kappa(t) = |\vec{r}''(t)| = \frac{1}{R}
+	\]
 
 }
 
@@ -1779,50 +1828,50 @@ The magnitude of the acceleration vector (centripetal acceleration) is:
 \end{center}
 
 \nt{
-\begin{itemize}
-	\item $\vec{r}(t)$ represents the position of a point moving around a circle of radius $R$.
-	\item The velocity vector $\vec{v}(t)$ is orthogonal to $\vec{r}(t)$ and has a constant magnitude, indicating uniform circular motion.
-	\item The acceleration vector $\vec{a}(t)$ points towards the center of the circle (centripetal acceleration) and its magnitude is inversely proportional to the radius $R$, showing that a smaller radius corresponds to a greater acceleration.
-	\item The curvature $\kappa(t)$ is defined as the reciprocal of the radius of the circle, $\frac{1}{R}$.
-\end{itemize}
+	\begin{itemize}
+		\item $\vec{r}(t)$ represents the position of a point moving around a circle of radius $R$.
+		\item The velocity vector $\vec{v}(t)$ is orthogonal to $\vec{r}(t)$ and has a constant magnitude, indicating uniform circular motion.
+		\item The acceleration vector $\vec{a}(t)$ points towards the center of the circle (centripetal acceleration) and its magnitude is inversely proportional to the radius $R$, showing that a smaller radius corresponds to a greater acceleration.
+		\item The curvature $\kappa(t)$ is defined as the reciprocal of the radius of the circle, $\frac{1}{R}$.
+	\end{itemize}
 }
 
 \subsection{Case 2: General Curve with Unit Speed}
 
 Consider a curve given by the position vector $\vec{r}(t)$, which travels at unit speed along a general curve. This means that the magnitude of the velocity vector is constant:
 \[
-|\vec{v}(t)| = 1.
+	|\vec{v}(t)| = 1.
 \]
 Since the speed is constant, the acceleration vector $\vec{a}(t)$ is orthogonal to the velocity vector:
 \[
-\vec{v}(t) \cdot \vec{a}(t) = 0.
+	\vec{v}(t) \cdot \vec{a}(t) = 0.
 \]
 
 This implies that all changes in $\vec{a}(t)$ are perpendicular to the direction of motion (velocity), which aligns with the properties of motion at unit speed.
 
 \clm{Acceleration and the Osculating Circle}{}{
-The acceleration vector $\vec{a}(t)$ is directed towards the center of curvature of the curve at each point, and its magnitude is related to the curvature. In fact, the acceleration "matches" the behavior of the osculating circle at that point. The osculating circle is the circle that best approximates the curve locally, and its radius of curvature $R$ is inversely proportional to the curvature.
+	The acceleration vector $\vec{a}(t)$ is directed towards the center of curvature of the curve at each point, and its magnitude is related to the curvature. In fact, the acceleration "matches" the behavior of the osculating circle at that point. The osculating circle is the circle that best approximates the curve locally, and its radius of curvature $R$ is inversely proportional to the curvature.
 }
 
 \thm{Curvature and Acceleration}{
 
-The curvature $\kappa(t)$ of the curve at time $t$ is defined as the magnitude of the acceleration vector:
-\[
-\kappa(t) = |\vec{a}(t)|.
-\]
+	The curvature $\kappa(t)$ of the curve at time $t$ is defined as the magnitude of the acceleration vector:
+	\[
+		\kappa(t) = |\vec{a}(t)|.
+	\]
 
-This provides a measure of how sharply the curve is bending at any given point. Since the speed is unitary, the curvature directly corresponds to the acceleration's magnitude.
+	This provides a measure of how sharply the curve is bending at any given point. Since the speed is unitary, the curvature directly corresponds to the acceleration's magnitude.
 
 }
 
 \ex{Matching the Curve with Its Osculating Circle}{
 
-The osculating circle at a point on the curve is chosen so that its first and second derivatives match the curve's first and second derivatives, respectively:
-\[
-\text{Choose circle } \vec{C}(t) \text{ such that } \vec{C}'(t) \text{ and } \vec{C}''(t) \text{ match } \vec{r}'(t) \text{ and } \vec{r}''(t).
-\]
+	The osculating circle at a point on the curve is chosen so that its first and second derivatives match the curve's first and second derivatives, respectively:
+	\[
+		\text{Choose circle } \vec{C}(t) \text{ such that } \vec{C}'(t) \text{ and } \vec{C}''(t) \text{ match } \vec{r}'(t) \text{ and } \vec{r}''(t).
+	\]
 
-This ensures that the circle is the best local approximation to the curve at that point, providing insight into the curve's behavior through the curvature.
+	This ensures that the circle is the best local approximation to the curve at that point, providing insight into the curve's behavior through the curvature.
 
 }
 
@@ -1831,7 +1880,7 @@ This ensures that the circle is the best local approximation to the curve at tha
 
 In this case, we analyze a general curve with a variable speed. Unlike the previous case, the magnitude of the velocity vector is not constant:
 \[
-|\vec{v}(t)| \neq 1.
+	|\vec{v}(t)| \neq 1.
 \]
 
 This implies that the curve's speed is not uniform, and therefore, the analysis of the curvature will require a different approach.
@@ -1840,7 +1889,7 @@ This implies that the curve's speed is not uniform, and therefore, the analysis 
 
 Let \( s(t) \) be the arc length parameter, which is a function of \( t \). The position vector can be reparameterized in terms of arc length:
 \[
-\vec{r}(s^{-1}(t)),
+	\vec{r}(s^{-1}(t)),
 \]
 where \( s^{-1}(t) \) is the inverse function of \( s(t) \).
 
@@ -1848,25 +1897,42 @@ where \( s^{-1}(t) \) is the inverse function of \( s(t) \).
 
 To find the curvature, we introduce a parameter \( t_0 \), which satisfies \( t_0 = s^{-1}(t) \). Thus, we have:
 \[
-s^{-1}(t_0) = t.
+	s^{-1}(t_0) = t.
 \]
 The curvature \( \kappa(t) \) is then given by:
 \[
-\kappa(t) = \left| \frac{d}{d t_0} \vec{T}(s^{-1}(t_0)) \right|,
+	\kappa(t) = \left| \frac{d}{d t_0} \vec{T}(s^{-1}(t_0)) \right|,
 \]
 where \( \vec{T}(t) \) is the unit tangent vector.
 
 This can be rewritten as:
 \[
 \kappa(t) = \left| \frac{\frac{d}{d t} \vec{r}(s^{-1}(t))}{|\vec{r}'(s^{-1}(t))|} \right| = \left| \frac{\vec{T}'(s^{-1}(t_0))}{|\vec{r}'(s^{-1}(t_0))|} \right|.
-\]
+	\]
 
-The final expression for the curvature is:
-\[
-\boxed{\kappa(t) = \frac{|\vec{T}'(t)|}{|\vec{r}'(t)|}}
-\]
-where \( \vec{T}(t) = \frac{\vec{r}'(t)}{|\vec{r}'(t)|} \) is the unit tangent vector to the curve.
+	The final expression for the curvature is:
+	\[
+		\boxed{\kappa(t) = \frac{|\vec{T}'(t)|}{|\vec{r}'(t)|}}
+	\]
+	where \( \vec{T}(t) = \frac{\vec{r}'(t)}{|\vec{r}'(t)|} \) is the unit tangent vector to the curve. \\
+	Alternatively, the curvature can be found with
 
+	\[
+		\boxed{\kappa (t) = \frac{\lvert \vec{a} \times \vec{v} \rvert}{\lvert \vec{v} \rvert^3}, \quad \kappa (t) = \frac{1}{\lvert \vec{v} \rvert} \left\lvert \frac{d\vec{T}}{dt} \right\rvert, \kappa (t) = \lvert \frac{d\vec{T}}{ds} \rvert}
+	\]
+
+	if \(y = f(x)\)  can be parametrized as
+	\[
+		\vec{r}(t) = \langle t, f(t), 0 \rangle,
+	\]
+	where
+	\[
+		x'(t) = 1, \quad x''(t) = 0.
+	\]
+	This parametrization gives the curvature \(\kappa\) of the curve as
+	\[
+		\boxed{\kappa (t)= \frac{\lvert y''(x) \rvert}{\left( 1 + (y'(x))^2 \right)^{3/2}}.}
+	\]
 }
 
 
