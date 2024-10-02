@@ -34,4 +34,10 @@
 \contentsline {subsection}{\numberline {1.17.1}Case 1: $\vec {r}(t)$ travels at unit speed around a circle}{28}{subsection.1.17.1}%
 \contentsline {subsection}{\numberline {1.17.2}Case 2: General Curve with Unit Speed}{29}{subsection.1.17.2}%
 \contentsline {subsection}{\numberline {1.17.3}Case 3: General Curve with Variable Speed}{30}{subsection.1.17.3}%
+\contentsline {section}{\numberline {1.18}Components of Acceleration}{31}{section.1.18}%
+\contentsline {section}{\numberline {1.19}Binormal Vector}{31}{section.1.19}%
+\contentsline {subsection}{\numberline {1.19.1}Change in the Plane of Motion}{31}{subsection.1.19.1}%
+\contentsline {subsection}{\numberline {1.19.2}Torsion and its Relation to the Binormal Vector}{32}{subsection.1.19.2}%
+\contentsline {subsection}{\numberline {1.19.3}General Case and Torsion Formula}{32}{subsection.1.19.3}%
+\contentsline {subsection}{\numberline {1.19.4}Expressing the Binormal Vector with Velocity and Acceleration}{33}{subsection.1.19.4}%
 \contentsfinish 

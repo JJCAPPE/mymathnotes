@@ -7,8 +7,10 @@
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{pgfplots}
 \usepackage{smartdiagram}
+\usepackage{xcolor}
 \usesmartdiagramlibrary{additions}
 
 \title{\Huge{CASMA 225}\\Calc 3}
@@ -1806,7 +1808,7 @@ The acceleration vector $\vec{a}(t)$, which is the second derivative of the posi
 
 \dfn{The curvature $\kappa(t)$ of the circle }{
 
-The magnitude of the acceleration vector (centripetal acceleration) is:
+	The magnitude of the acceleration vector (centripetal acceleration) is:
 
 	\[
 		\kappa(t) = |\vec{r}''(t)| = \frac{1}{R}
@@ -1935,6 +1937,214 @@ This can be rewritten as:
 	\]
 }
 
+\section{Components of Acceleration}
 
+
+\begin{center}
+	\begin{tikzpicture}
+
+		% Curve and points
+		\draw[thick] (0,0) .. controls (2,3) and (3,1.5) .. (6,1);
+		\node[right] at (6,1) {$\vec{r}(t)$};
+
+		% Acceleration vector and components
+		\draw[->, thick, purple] (3,1.5) -- (5,2) node[midway, below] {$\vec{a}(t)$};
+		\draw[->, thick, red] (3,1.5) -- (4,0.5) node[midway, left] {$\vec{a}_\perp(t)$};
+
+		% Tangent and normal vectors
+		\draw[->, thick, blue] (3,1.5) -- (4.5,3) node[above] {$\hat{T}(t)$};
+		\draw[->, thick, green] (3,1.5) -- (3.5,2.5) node[right] {$\hat{N}(t)$};
+
+		% Descriptive text boxes
+		\node[draw=blue, text=blue] at (0,-1.5) {$|\vec{a}_\perp(t)| = \frac{|\vec{v}(t) \times \vec{a}(t)|}{|\vec{v}(t)|} = |\vec{v}(t)|^2 \cdot \kappa(t)$};
+		\node[draw=green, text=green] at (6,-1.5) {$|\vec{a}_\parallel(t)| = \frac{d}{dt}|\vec{v}(t)| = \frac{d^2}{dt^2} \int_0^t |\vec{v}(p)| dp = \frac{d^2}{dt^2} s(t)$};
+
+		% Labels for centripetal and speed change
+		\node[draw=red, text=red] at (-3,-3) {$\vec{a}_\perp(t) =$ centripetal acceleration};
+		\node[draw=green, text=green] at (6,-3) {$\vec{a}_\parallel(t) =$ speed change};
+
+		% Final equation box
+		\node[draw=purple, text=purple] at (0,-4.5) {$\vec{a}(t) = |\vec{a}_\perp(t)| \cdot \frac{\vec{r}'(t)}{|\vec{r}'(t)|} + |\vec{a}_\parallel(t)| \cdot \hat{T}(t)$};
+
+		% Comment on missing component
+		\node[align=left] at (7,-4.5) {\textit{Missing a third component of motion}};
+	\end{tikzpicture}
+\end{center}
+
+
+\section{Binormal Vector}
+\dfn{Binormal Vector}{
+	The \textbf{binormal vector} $\vec{B}$ is defined as:
+	\[
+		\vec{B} = \vec{T} \times \vec{N}
+	\]
+	where:
+	- $\vec{T}$ is the unit tangent vector to the curve, given by:
+	\[
+		\vec{T} = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}
+	\]
+	- $\vec{N}$ is the unit normal vector to the curve, and it is defined as:
+	\[
+		\vec{N} = \frac{\vec{T}'(t)}{|\vec{T}'(t)|}
+	\]
+
+	The binormal vector $\vec{B}$ represents the direction to exit the current plane of motion described by the vectors $\vec{T}$ and $\vec{N}$.
+}
+
+\subsection{Change in the Plane of Motion}
+
+The rate of change of the binormal vector is given by:
+\[
+	\frac{d\vec{B}}{dt} = \text{change in the plane of motion}
+\]
+
+Applying the derivative product rule to $\vec{B} = \vec{T} \times \vec{N}$:
+\[
+	\frac{d}{dt} (\vec{T} \times \vec{N}) = \frac{d\vec{T}}{dt} \times \vec{N} + \vec{T} \times \frac{d\vec{N}}{dt}
+\]
+Since:
+\[
+	\vec{N} = \frac{\vec{T}'(t)}{|\vec{T}'(t)|}
+\]
+it follows that:
+\[
+	\vec{T} \cdot \vec{N} = 0
+\]
+and thus:
+\[
+	\frac{d\vec{B}}{dt} \text{ is orthogonal to both } \vec{T} \text{ and } \vec{N}
+\]
+
+\subsection{Torsion and its Relation to the Binormal Vector}
+
+Since $\vec{N}$ is a unit vector, the vector $\vec{B}'$ is parallel to $\vec{N}$:
+\[
+	\frac{d\vec{B}}{dt} = -\tau \vec{N}
+\]
+where $\tau$ is the \textbf{torsion} of the plane of movement.
+
+\nt{
+	If $\tau > 0$, the motion is on the plane of movement; if $\tau < 0$, the motion is in the opposite direction.
+}
+
+To find $\tau$, take the dot product of both sides with $\vec{N}$:
+\[
+	\frac{d\vec{B}}{dt} \cdot \vec{N} = -\tau (\vec{N} \cdot \vec{N}) = -\tau
+\]
+Thus, at unit speed:
+\dfn{Torsion $\tau$ at unit speed}{
+	\[
+		\tau = -\frac{\frac{d\vec{B}}{dt} \cdot \vec{N}}{|\vec{N}|} = -\frac{d\vec{B}}{dt} \cdot \vec{N}
+	\]
+}
+
+\subsection{General Case and Torsion Formula}
+
+For the general case, replace $\vec{r}(t)$ with $\vec{r}(s^{-1}(t))$, where $s(t)$ is the arc-length parameterization.
+
+The derivative of $\vec{B}$ in the general case is given by:
+\[
+	\frac{d\vec{B}(s^{-1})}{d(t_0)} = \frac{\vec{B}'(s^{-1}(t_0))}{|\vec{r}'(s^{-1}(t_0))|}
+\]
+or simply:
+\[
+	\frac{d\vec{B}(t)}{dt} = \frac{\vec{B}'(t) \cdot \vec{N}(t)}{|\vec{r}'(t)|}
+\]
+The general formula for torsion $\tau$ becomes:
+
+\dfn{General form for torsion $\tau$}{
+	\[
+		\tau = \frac{\vec{B}'(t) \cdot \vec{N}(t)}{|\vec{r}'(t)|}
+	\]
+	.
+}
+
+\subsection{Expressing the Binormal Vector with Velocity and Acceleration}
+
+The binormal vector $\vec{B}$ can be expressed as:
+\[
+	\vec{B} = \frac{\vec{v} \times \vec{a}}{|\vec{v} \times \vec{a}|}
+\]
+where $\vec{v}$ is the velocity vector and $\vec{a}$ is the acceleration vector.
+
+The torsion $\tau$ is given by:
+\[
+	\tau = \frac{(\vec{v} \times \vec{a}) \cdot \vec{a}'}{|\vec{v} \times \vec{a}|^2}
+\]
+
+\nt{
+	The centripetal acceleration determines the curvature of the path.
+}
+\ex{Finding the Torsion of a Helix Path}{
+
+	Consider the helix parameterized by:
+	\[
+		\vec{r}(t) = \langle \cos t, \sin t, t \rangle
+	\]
+
+	The first derivative (velocity vector) is:
+	\[
+		\vec{r}'(t) = \langle -\sin t, \cos t, 1 \rangle
+	\]
+	with magnitude:
+	\[
+		|\vec{r}'(t)| = \sqrt{2}
+	\]
+
+	The unit tangent vector $\vec{T}(t)$ is:
+	\[
+		\vec{T}(t) = \frac{\vec{r}'(t)}{|\vec{r}'(t)|} = \left\langle -\frac{\sin t}{\sqrt{2}}, \frac{\cos t}{\sqrt{2}}, \frac{1}{\sqrt{2}} \right\rangle
+	\]
+
+	The derivative of the tangent vector is:
+	\[
+		\vec{T}'(t) = \left\langle -\frac{\cos t}{\sqrt{2}}, -\frac{\sin t}{\sqrt{2}}, 0 \right\rangle
+	\]
+	and its magnitude is:
+	\[
+		|\vec{T}'(t)| = \frac{1}{\sqrt{2}}
+	\]
+
+	The curvature $\kappa(t)$ is given by:
+	\[
+		\kappa(t) = \frac{|\vec{T}'(t)|}{|\vec{r}'(t)|} = \frac{\frac{1}{\sqrt{2}}}{\sqrt{2}} = \frac{1}{2}
+	\]
+	Hence, the radius of curvature $R(t)$ is:
+	\[
+		R(t) = \frac{1}{\kappa(t)} = 2
+	\]
+
+	The normal vector $\vec{N}(t)$ is:
+	\[
+		\vec{N}(t) = \frac{\vec{T}'(t)}{|\vec{T}'(t)|} = \left\langle -\cos t, -\sin t, 0 \right\rangle
+	\]
+	which points towards the center of the curvature.
+
+	The normal acceleration $a_N$ is:
+	\[
+		a_N = |\vec{r}'(t)|^2 \cdot \kappa = 1 \quad \text{(constant, points towards the center)}
+	\]
+
+	The tangential acceleration is:
+	\[
+		a_T = s''(t), \quad s(t) = t \sqrt{2}, \quad s'(t) = \sqrt{2}
+	\]
+
+	The binormal vector $\vec{B}$ is given by:
+	\[
+		\vec{B} = \vec{T} \times \vec{N} = \frac{1}{\sqrt{2}} \langle \sin t, -\cos t, 0 \rangle
+	\]
+
+	The derivative of the binormal vector is:
+	\[
+		\vec{B}' = \frac{1}{\sqrt{2}} \langle \cos t, \sin t, 0 \rangle = -\frac{1}{\sqrt{2}} \vec{N} \implies \tau = \frac{\vec{B}' \cdot \vec{N}}{|\vec{r}'(t)|} = \frac{1}{2}
+	\]
+
+	Therefore, the torsion $\tau$ is:
+	\[
+		\tau = \frac{\kappa}{\sqrt{2}} = \frac{1}{2}
+	\]
+
+}
 
 \end{document}
