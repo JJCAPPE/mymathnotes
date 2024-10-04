@@ -26,7 +26,7 @@
 \tableofcontents
 \pagebreak
 
-\chapter{Vectors}
+\chapter{Vector Valued Functions}
 
 \section{Review}
 
@@ -2146,5 +2146,464 @@ The torsion $\tau$ is given by:
 	\]
 
 }
+
+\chapter{Functions of Multiple Random Variables}
+
+\section{Plotting Multiple Random Variable Functions}
+
+Consider a function $f(x, y) = z$. We aim to plot functions in 3D.
+
+\subsection*{Example}
+\[
+	f(x, y) = x^2 + y^2
+\]
+
+\begin{itemize}
+	\item When $y = 0$, $f(x, 0) = x^2$.
+	\item When $x = 0$, $f(0, y) = y^2$.
+\end{itemize}
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				view={45}{45},
+				xlabel={$x$},
+				ylabel={$y$},
+				zlabel={$z$},
+				grid=major,
+				colormap/cool,
+			]
+			\addplot3[surf, domain=-2:2, domain y=-2:2]
+			{x^2 + y^2};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+For this surface:
+\begin{itemize}
+	\item If $z = 0$, $(x, y) = (0, 0)$.
+	\item If $z = 1$, $x^2 + y^2 = 1$, which represents a \textbf{circle}.
+	\item If $z > 0$, $x^2 + y^2 = z$, representing a circle with radius $\sqrt{z}$ in the $xy$-plane.
+\end{itemize}
+
+The vertical line test still applies: a vertical line intersects the surface at at most 1 point.
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				axis lines = middle,
+				domain=-2:2,
+				y domain=-2:2,
+				view={60}{30},
+				samples=20,
+				samples y=20,
+				colormap/cool,
+			]
+			\addplot3[surf, opacity=0.5] {x^2 + y^2};
+			\addplot3[thick, domain=0:2*pi, samples y=0]
+			({cos(deg(x))}, {sin(deg(x))}, {1}) node[above] {Circle at $z = 1$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\subsection*{Sphere by Self Equation}
+
+A sphere cannot be represented as a function in the form $f(x, y) = z$. This is because it fails the vertical line test; a vertical line may intersect the sphere at multiple points.
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				axis lines = middle,
+				view={45}{30},
+				grid=major,
+				axis equal
+			]
+			% Draw the sphere using parametric equations
+			\addplot3[
+				surf,
+				domain=0:360,
+				y domain=0:180,
+				samples=20,
+				samples y=20,
+				opacity=0.4,
+				colormap/cool,
+			]
+			({sin(y)*cos(x)}, {sin(y)*sin(x)}, {cos(y)});
+			% Vertical line test
+			\addplot3[
+				thick,
+				domain=-1.5:1.5,
+				samples y=0,
+			]
+			({0}, {0}, {x}) node[right] {Vertical line fails test};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\section{Domain of Multiple Random Variable Functions}
+
+
+\dfn{Domain}{The domain of $f(x, y)$ is the set of pairs $(x, y) \in \mathbb{R}^2$ such that $f(x, y)$ is defined.}
+\ex{Example of finding domain}{
+	Let
+	\[
+		f(x, y) = \sqrt{4 - x^2 - y^2}
+	\]
+	To ensure that $f(x, y)$ is defined, the expression inside the square root must be non-negative:
+	\[
+		4 - x^2 - y^2 \geq 0 \implies x^2 + y^2 \leq 4
+	\]
+
+	This inequality describes a disk of radius 2 centered at the origin $(0, 0)$.
+
+	\begin{center}
+		\begin{tikzpicture}
+			% Draw the domain as a disk
+			\begin{axis}[
+					axis equal,
+					xlabel = {$x$},
+					ylabel = {$y$},
+					axis lines = middle,
+					xmin = -3, xmax = 3,
+					ymin = -3, ymax = 3,
+					grid = major
+				]
+				% Disk with radius 2
+				\addplot[draw=black, fill=blue!20, fill opacity=0.5, domain=0:2*pi, samples=100]
+				({2*cos(deg(x))}, {2*sin(deg(x))});
+				% Origin marker
+				\node at (axis cs:0, 0) [circle, fill=black, inner sep=1.5pt] {};
+				\node[below right] at (axis cs:0, 0) {$(0, 0)$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+	Therefore, the domain of $f(x, y)$ is:
+	\[
+		\{(x, y) \in \mathbb{R}^2 \mid x^2 + y^2 \leq 4\}
+	\]
+}
+
+
+\section{Range of Multiple Random Variable Functions}
+
+\dfn{Range}{
+	The range of a function $f(x, y)$ is the set of all $z$ such that $z = f(x, y)$ for some input $(x, y)$.
+}
+
+\ex{Example of finding the range}{
+	Consider the function
+	\[
+		f(x, y) = \sqrt{4 - x^2 - y^2}
+	\]
+	Evaluating $f$ at the origin:
+	\[
+		f(0, 0) = \sqrt{4 - 0^2 - 0^2} = 2
+	\]
+	The maximum value of $f$ is 2. To find the minimum, consider the boundary of the domain:
+	If $x^2 + y^2 = 4$, then
+	\[
+		f(x, y) = \sqrt{4 - (x^2 + y^2)} = \sqrt{4 - 4} = 0
+	\]
+
+	Therefore, the range of $f(x, y)$ is:
+	\[
+		\{ z \in [0, 2] \}
+	\]
+}
+
+\ex{Another example}{
+	Let
+	\[
+		f(x, y) = x^2 + y^2
+	\]
+	Since $f(x, y) \geq 0$ for all $(x, y) \in \mathbb{R}^2$, the range of $f(x, y)$ is:
+	\[
+		\{ z \mid z \geq 0 \}
+	\]
+}
+
+\section{Level Curves of Functions of Two Variables}
+
+\dfn{Level Curves}{
+	Level curves (or contour lines) of a function $f(x, y)$ are curves in the $xy$-plane along which the function takes a constant value. For a given value $c$, a level curve is the set of points $(x, y)$ such that:
+	\[
+		f(x, y) = c
+	\]
+}
+
+\ex{Example of level curves}{
+	Consider the function:
+	\[
+		f(x, y) = x^2 + y^2
+	\]
+	To find the level curves for this function, set $f(x, y)$ equal to a constant $c$:
+	\[
+		x^2 + y^2 = c
+	\]
+	These curves are circles centered at the origin with radius $\sqrt{c}$.
+
+	\begin{center}
+		\begin{tikzpicture}
+			% Draw level curves as circles
+			\begin{axis}[
+				axis equal,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				axis lines = middle,
+				xmin = -3, xmax = 3,
+				ymin = -3, ymax = 3,
+				grid = major,
+				ticks=none
+			]
+				% Level curve for c = 1
+				\addplot[blue, thick, domain=0:2*pi, samples=100] 
+					({sqrt(1)*cos(deg(x))}, {sqrt(1)*sin(deg(x))});
+				\node[above right] at (axis cs: 1, 0.5) {$c = 1$};
+				
+				% Level curve for c = 2
+				\addplot[red, thick, domain=0:2*pi, samples=100] 
+					({sqrt(2)*cos(deg(x))}, {sqrt(2)*sin(deg(x))});
+				\node[above right] at (axis cs: 1.5, 1.5) {$c = 2$};
+				
+				% Level curve for c = 3
+				\addplot[green, thick, domain=0:2*pi, samples=100] 
+					({sqrt(3)*cos(deg(x))}, {sqrt(3)*sin(deg(x))});
+				\node[below right] at (axis cs: 2.3, -0.5) {$c = 3$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	
+
+	In this case, each level curve is a circle centered at the origin. The radius of each circle is $\sqrt{c}$, indicating that as the value of $c$ increases, the radius of the level curve also increases.
+
+}
+
+\section{Limits of Two-Variable Functions}
+
+\dfn{Limit of a Two-Variable Function}{
+Let $f(x, y)$ be a function of two variables. The limit of $f(x, y)$ as $(x, y)$ approaches $(a, b)$ is denoted as:
+\[
+\lim_{(x, y) \to (a, b)} f(x, y) = L
+\]
+This means that as the point $(x, y)$ gets arbitrarily close to $(a, b)$, the function values $f(x, y)$ approach the value $L$. For the limit to exist, the function must approach the same value $L$ regardless of the path taken to reach $(a, b)$.
+}
+
+\subsection*{Visualizing Limits}
+
+The concept of limits for two-variable functions can be visualized in 3D, where $f(x, y)$ is represented as a surface over the $xy$-plane. The behavior of the function as $(x, y)$ approaches a point $(a, b)$ corresponds to how the surface approaches a specific height, $L$.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={45}{45},
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            domain=-2:2, 
+            domain y=-2:2,
+            grid=major,
+            colormap/cool,
+        ]
+            % A sample function to visualize limit
+            \addplot3[surf, opacity=0.7] {1 - (x^2 + y^2)};
+            \addplot3+[mark=*, only marks] coordinates {(0,0,1)};
+            \node at (axis cs: 0, 0, 1.2) [above] {$(a, b, L)$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+In this diagram, the surface represents a function $f(x, y)$, and the point $(a, b, L)$ is the limit we are trying to approach.
+
+\ex{Example of a Limit}{
+Consider the function:
+\[
+f(x, y) = \frac{x^2 - y^2}{x^2 + y^2}
+\]
+We want to find 
+\[
+\lim_{(x, y) \to (0, 0)} f(x, y)
+\]
+
+Evaluating the limit along different paths:
+\begin{itemize}
+    \item Along the path $y = 0$, we have $f(x, 0) = \frac{x^2}{x^2} = 1$.
+    \item Along the path $x = 0$, we have $f(0, y) = \frac{-y^2}{y^2} = -1$.
+\end{itemize}
+
+Since the limit depends on the path taken to approach $(0, 0)$, the limit does not exist.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={45}{45},
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            domain=-1:1, 
+            domain y=-1:1,
+            grid=major,
+            colormap/hot,
+        ]
+            % The surface of the function to visualize path-dependent behavior
+            \addplot3[surf, opacity=0.7] {(x^2 - y^2)/(x^2 + y^2)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+This diagram shows how the function behaves differently along different paths toward the origin, resulting in no single limit.
+
+}
+
+\ex{Example of a Limit that Exists}{
+Consider the function:
+\[
+f(x, y) = x^2 + y^2
+\]
+We want to find 
+\[
+\lim_{(x, y) \to (0, 0)} f(x, y)
+\]
+
+Since $f(x, y) = x^2 + y^2$, regardless of the path taken to approach $(0, 0)$, the value of $f(x, y)$ approaches $0$. Therefore, 
+\[
+\lim_{(x, y) \to (0, 0)} f(x, y) = 0.
+\]
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={45}{45},
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            domain=-2:2, 
+            domain y=-2:2,
+            grid=major,
+            colormap/viridis,
+        ]
+            % A simple surface where the limit exists
+            \addplot3[surf, opacity=0.7] {x^2 + y^2};
+            \addplot3+[mark=*, only marks] coordinates {(0,0,0)};
+            \node at (axis cs: 0, 0, 0.2) [above] {$(0, 0, 0)$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+}
+
+\ex{Changing $g(x)$}{
+
+For a function $f(x, y)$, the limit as $(x, y)$ approaches a point $(a, b)$ must be the same regardless of the path taken to approach $(a, b)$.
+
+Consider the function:
+\[
+f(x, y) = \frac{3xy^2}{x^2 + y^4}
+\]
+We wish to find:
+\[
+\lim_{(x, y) \to (0, 0)} f(x, y)
+\]
+This limit initially appears to be of the form $\frac{0}{0}$, indicating an indeterminate form.
+
+To proceed, we evaluate the limit along different paths. Let’s test two paths to see if the limit is consistent.
+
+\subsection*{Path 1: Linear Path $y = mx$}
+Substitute $y = mx$ into $f(x, y)$:
+\[
+f(x, y) = \frac{3x(mx)^2}{x^2 + (mx)^4} = \frac{3m^2 x^3}{x^2 + m^4 x^4}
+\]
+Then, consider the limit as $x \to 0$:
+\[
+\lim_{x \to 0} \frac{3m^2 x^3}{x^2 + m^4 x^4}
+\]
+Factor out $x^2$ in the denominator:
+\[
+= \lim_{x \to 0} \frac{3m^2 x}{1 + m^4 x^2} = 0
+\]
+
+\subsection*{Path 2: Parabolic Path $y = m\sqrt{x}$}
+Substitute $y = m\sqrt{x}$ into $f(x, y)$:
+\[
+f(x, y) = \frac{3x(m\sqrt{x})^2}{x^2 + (m\sqrt{x})^4} = \frac{3m^2 x^2}{x^2 + m^4 x^2}
+\]
+Then, consider the limit as $x \to 0$:
+\[
+\lim_{x \to 0} \frac{3m^2 x^2}{(m^4 + 1)x^2} = \lim_{x \to 0} \frac{3m^2}{m^4 + 1} = \frac{3m^2}{m^4 + 1} \neq 0
+\]
+
+Since the limit depends on the path taken (0 for the linear path and $\frac{3m^2}{m^4 + 1}$ for the parabolic path), the limit does not exist:
+\[
+\lim_{(x, y) \to (0, 0)} f(x, y) \text{ DNE (Does Not Exist)}
+\]
+}
+
+\section{Tips for Finding Limits of Two-Variable Functions (2VF)}
+
+\subsection*{1) Polynomials are Continuous}
+Polynomials in two variables are always continuous everywhere in their domain. For example:
+\[
+f(x, y) = 3x^2 + 2y^2 + 3x^4 + 1
+\]
+is continuous for all $(x, y) \in \mathbb{R}^2$.
+
+\subsection*{2) Compositions of Continuous Functions are Continuous}
+If $g(t)$ is a function of one variable and continuous at $t = 0$, and $f(x, y)$ is a continuous function of two variables, then $g(f(x, y))$ is also continuous at any point where $f(x, y)$ is defined. For example:
+\[
+g(t) = 
+\begin{cases} 
+\frac{\sqrt{1 + t} - 1}{t} & \text{if } t \neq 0 \\ 
+e & \text{if } t = 0 
+\end{cases}
+\]
+is continuous everywhere.
+
+Now consider the function:
+\[
+f(x, y) = x y^2
+\]
+Since $f(x, y)$ is continuous, the composition $g(f(x, y))$ is also continuous. Specifically:
+\[
+g(f(x, y)) = 
+\begin{cases} 
+\frac{\sqrt{1 + x y^2} - 1}{x y^2} & \text{if } x y^2 \neq 0 \\ 
+e & \text{if } x y^2 = 0
+\end{cases}
+\]
+This composition is continuous.
+
+\subsection*{3) Rational Functions}
+A rational function $f(x, y) = \frac{P(x, y)}{Q(x, y)}$ is continuous at all points where the denominator $Q(x, y) \neq 0$. For example:
+\[
+f(x, y) = \frac{3x y^2}{x^2 + y^4}
+\]
+is continuous wherever $x^2 + y^4 \neq 0$.
+
+\nt{\textbf{Tip on Factoring and Simplifying} \\
+To find the limit of a rational function, try factoring and simplifying the expression. This can help identify points of discontinuity or removable singularities.
+}
+
+\subsection*{4) Special Limits: Squeeze Theorem}
+The Squeeze Theorem can be used for two-variable functions. If:
+\[
+h(x, y) \leq f(x, y) \leq g(x, y)
+\]
+and both $h(x, y)$ and $g(x, y)$ approach the same limit $L$ as $(x, y) \to (a, b)$, then:
+\[
+\lim_{(x, y) \to (a, b)} f(x, y) = L
+\]
+
+\subsection*{5) Use of Polar Coordinates}
+For limits involving two-variable functions, converting to polar coordinates can often simplify the problem. Let:
+\[
+x = r \cos \theta, \quad y = r \sin \theta
+\]
+Then, $f(x, y)$ becomes a function of $r$ and $\theta$, which can be easier to analyze as $r \to 0$. This is particularly useful when the limit depends on the distance from the origin.
+
+\subsection*{6) Testing Multiple Paths}
+When checking if a limit exists, test multiple paths (e.g., $y = mx$, $y = m\sqrt{x}$, $x = 0$, $y = 0$). If the limit differs for any path, then the limit does not exist. However, if all paths give the same result, it is likely that the limit exists (though more thorough testing is required for rigor).
+
+\subsection*{7) Continuity of Common Functions}
+Most standard functions (e.g., trigonometric, exponential, logarithmic) are continuous within their domains. If they are composed with continuous functions of $x$ and $y$, the result is continuous as well.
 
 \end{document}
