@@ -26,7 +26,7 @@
 \tableofcontents
 \pagebreak
 
-\chapter{Vector Valued Functions}
+\chapter{Vector Valued Functions $f:\mathbb{R} \rightarrow \mathbb{R}^n$}
 
 \section{Review}
 
@@ -1964,7 +1964,7 @@ This can be rewritten as:
 		\node[draw=green, text=green] at (6,-3) {$\vec{a}_\parallel(t) =$ speed change};
 
 		% Final equation box
-		\node[draw=purple, text=purple] at (0,-4.5) {$\vec{a}(t) = |\vec{a}_\perp(t)| \cdot \frac{\vec{r}'(t)}{|\vec{r}'(t)|} + |\vec{a}_\parallel(t)| \cdot \hat{T}(t)$};
+		\node[draw=purple, text=purple] at (0,-4.5) {$\vec{a}(t) = |\vec{a}_\perp(t)| \cdot \frac{\vec{T}'(t)}{|\vec{T	}'(t)|} + |\vec{a}_\parallel(t)| \cdot \hat{T}(t)$};
 
 		% Comment on missing component
 		\node[align=left] at (7,-4.5) {\textit{Missing a third component of motion}};
@@ -1976,7 +1976,7 @@ This can be rewritten as:
 \dfn{Binormal Vector}{
 	The \textbf{binormal vector} $\vec{B}$ is defined as:
 	\[
-		\vec{B} = \vec{T} \times \vec{N}
+		\vec{B} = \vec{T} \times \vec{N} = \frac{\vec{v} \times \vec{a}}{|\vec{v} \times \vec{a}|}
 	\]
 	where:
 	- $\vec{T}$ is the unit tangent vector to the curve, given by:
@@ -2147,7 +2147,7 @@ The torsion $\tau$ is given by:
 
 }
 
-\chapter{Functions of Multiple Random Variables}
+\chapter{Functions of Multiple Random Variables $f:\mathbb{R} ^ n \rightarrow \mathbb{R}$}
 
 \section{Plotting Multiple Random Variable Functions}
 
@@ -2347,33 +2347,33 @@ A sphere cannot be represented as a function in the form $f(x, y) = z$. This is 
 		\begin{tikzpicture}
 			% Draw level curves as circles
 			\begin{axis}[
-				axis equal,
-				xlabel = {$x$},
-				ylabel = {$y$},
-				axis lines = middle,
-				xmin = -3, xmax = 3,
-				ymin = -3, ymax = 3,
-				grid = major,
-				ticks=none
-			]
+					axis equal,
+					xlabel = {$x$},
+					ylabel = {$y$},
+					axis lines = middle,
+					xmin = -3, xmax = 3,
+					ymin = -3, ymax = 3,
+					grid = major,
+					ticks=none
+				]
 				% Level curve for c = 1
-				\addplot[blue, thick, domain=0:2*pi, samples=100] 
-					({sqrt(1)*cos(deg(x))}, {sqrt(1)*sin(deg(x))});
+				\addplot[blue, thick, domain=0:2*pi, samples=100]
+				({sqrt(1)*cos(deg(x))}, {sqrt(1)*sin(deg(x))});
 				\node[above right] at (axis cs: 1, 0.5) {$c = 1$};
-				
+
 				% Level curve for c = 2
-				\addplot[red, thick, domain=0:2*pi, samples=100] 
-					({sqrt(2)*cos(deg(x))}, {sqrt(2)*sin(deg(x))});
+				\addplot[red, thick, domain=0:2*pi, samples=100]
+				({sqrt(2)*cos(deg(x))}, {sqrt(2)*sin(deg(x))});
 				\node[above right] at (axis cs: 1.5, 1.5) {$c = 2$};
-				
+
 				% Level curve for c = 3
-				\addplot[green, thick, domain=0:2*pi, samples=100] 
-					({sqrt(3)*cos(deg(x))}, {sqrt(3)*sin(deg(x))});
+				\addplot[green, thick, domain=0:2*pi, samples=100]
+				({sqrt(3)*cos(deg(x))}, {sqrt(3)*sin(deg(x))});
 				\node[below right] at (axis cs: 2.3, -0.5) {$c = 3$};
 			\end{axis}
 		\end{tikzpicture}
 	\end{center}
-	
+
 
 	In this case, each level curve is a circle centered at the origin. The radius of each circle is $\sqrt{c}$, indicating that as the value of $c$ increases, the radius of the level curve also increases.
 
@@ -2382,11 +2382,27 @@ A sphere cannot be represented as a function in the form $f(x, y) = z$. This is 
 \section{Limits of Two-Variable Functions}
 
 \dfn{Limit of a Two-Variable Function}{
-Let $f(x, y)$ be a function of two variables. The limit of $f(x, y)$ as $(x, y)$ approaches $(a, b)$ is denoted as:
+	Let $f(x, y)$ be a function of two variables. The limit of $f(x, y)$ as $(x, y)$ approaches $(a, b)$ is denoted as:
+	\[
+		\lim_{(x, y) \to (a, b)} f(x, y) = L
+	\]
+	This means that as the point $(x, y)$ gets arbitrarily close to $(a, b)$, the function values $f(x, y)$ approach the value $L$. For the limit to exist, the function must approach the same value $L$ regardless of the path taken to reach $(a, b)$.
+}
+
+\dfn{Formal Definition}{
+
 \[
-\lim_{(x, y) \to (a, b)} f(x, y) = L
-\]
-This means that as the point $(x, y)$ gets arbitrarily close to $(a, b)$, the function values $f(x, y)$ approach the value $L$. For the limit to exist, the function must approach the same value $L$ regardless of the path taken to reach $(a, b)$.
+	\lim_{(x,y) \to (a,b)} f(x,y) = L
+	\]
+	if for any \( \varepsilon > 0 \), there exists a constant \( \delta > 0 \) such that:
+	\[
+	|f(x,y) - L| < \varepsilon
+	\]
+	whenever \( (x, y) \) are in the domain of \( f \) and:
+	\[
+	|(x,y) - (a,b)| < \delta
+	\]
+	
 }
 
 \subsection*{Visualizing Limits}
@@ -2394,216 +2410,469 @@ This means that as the point $(x, y)$ gets arbitrarily close to $(a, b)$, the fu
 The concept of limits for two-variable functions can be visualized in 3D, where $f(x, y)$ is represented as a surface over the $xy$-plane. The behavior of the function as $(x, y)$ approaches a point $(a, b)$ corresponds to how the surface approaches a specific height, $L$.
 
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-            view={45}{45},
-            xlabel={$x$},
-            ylabel={$y$},
-            zlabel={$z$},
-            domain=-2:2, 
-            domain y=-2:2,
-            grid=major,
-            colormap/cool,
-        ]
-            % A sample function to visualize limit
-            \addplot3[surf, opacity=0.7] {1 - (x^2 + y^2)};
-            \addplot3+[mark=*, only marks] coordinates {(0,0,1)};
-            \node at (axis cs: 0, 0, 1.2) [above] {$(a, b, L)$};
-        \end{axis}
-    \end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+				view={45}{45},
+				xlabel={$x$},
+				ylabel={$y$},
+				zlabel={$z$},
+				domain=-2:2,
+				domain y=-2:2,
+				grid=major,
+				colormap/cool,
+			]
+			% A sample function to visualize limit
+			\addplot3[surf, opacity=0.7] {1 - (x^2 + y^2)};
+			\addplot3+[mark=*, only marks] coordinates {(0,0,1)};
+			\node at (axis cs: 0, 0, 1.2) [above] {$(a, b, L)$};
+		\end{axis}
+	\end{tikzpicture}
 \end{center}
 
 In this diagram, the surface represents a function $f(x, y)$, and the point $(a, b, L)$ is the limit we are trying to approach.
 
 \ex{Example of a Limit}{
-Consider the function:
-\[
-f(x, y) = \frac{x^2 - y^2}{x^2 + y^2}
-\]
-We want to find 
-\[
-\lim_{(x, y) \to (0, 0)} f(x, y)
-\]
+	Consider the function:
+	\[
+		f(x, y) = \frac{x^2 - y^2}{x^2 + y^2}
+	\]
+	We want to find
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y)
+	\]
 
-Evaluating the limit along different paths:
-\begin{itemize}
-    \item Along the path $y = 0$, we have $f(x, 0) = \frac{x^2}{x^2} = 1$.
-    \item Along the path $x = 0$, we have $f(0, y) = \frac{-y^2}{y^2} = -1$.
-\end{itemize}
+	Evaluating the limit along different paths:
+	\begin{itemize}
+		\item Along the path $y = 0$, we have $f(x, 0) = \frac{x^2}{x^2} = 1$.
+		\item Along the path $x = 0$, we have $f(0, y) = \frac{-y^2}{y^2} = -1$.
+	\end{itemize}
 
-Since the limit depends on the path taken to approach $(0, 0)$, the limit does not exist.
+	Since the limit depends on the path taken to approach $(0, 0)$, the limit does not exist.
 
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-            view={45}{45},
-            xlabel={$x$},
-            ylabel={$y$},
-            zlabel={$z$},
-            domain=-1:1, 
-            domain y=-1:1,
-            grid=major,
-            colormap/hot,
-        ]
-            % The surface of the function to visualize path-dependent behavior
-            \addplot3[surf, opacity=0.7] {(x^2 - y^2)/(x^2 + y^2)};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					view={45}{45},
+					xlabel={$x$},
+					ylabel={$y$},
+					zlabel={$z$},
+					domain=-1:1,
+					domain y=-1:1,
+					grid=major,
+					colormap/hot,
+				]
+				% The surface of the function to visualize path-dependent behavior
+				\addplot3[surf, opacity=0.7] {(x^2 - y^2)/(x^2 + y^2)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 
-This diagram shows how the function behaves differently along different paths toward the origin, resulting in no single limit.
+	This diagram shows how the function behaves differently along different paths toward the origin, resulting in no single limit.
 
 }
 
 \ex{Example of a Limit that Exists}{
-Consider the function:
-\[
-f(x, y) = x^2 + y^2
-\]
-We want to find 
-\[
-\lim_{(x, y) \to (0, 0)} f(x, y)
-\]
+	Consider the function:
+	\[
+		f(x, y) = x^2 + y^2
+	\]
+	We want to find
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y)
+	\]
 
-Since $f(x, y) = x^2 + y^2$, regardless of the path taken to approach $(0, 0)$, the value of $f(x, y)$ approaches $0$. Therefore, 
-\[
-\lim_{(x, y) \to (0, 0)} f(x, y) = 0.
-\]
+	Since $f(x, y) = x^2 + y^2$, regardless of the path taken to approach $(0, 0)$, the value of $f(x, y)$ approaches $0$. Therefore,
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y) = 0.
+	\]
 
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-            view={45}{45},
-            xlabel={$x$},
-            ylabel={$y$},
-            zlabel={$z$},
-            domain=-2:2, 
-            domain y=-2:2,
-            grid=major,
-            colormap/viridis,
-        ]
-            % A simple surface where the limit exists
-            \addplot3[surf, opacity=0.7] {x^2 + y^2};
-            \addplot3+[mark=*, only marks] coordinates {(0,0,0)};
-            \node at (axis cs: 0, 0, 0.2) [above] {$(0, 0, 0)$};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					view={45}{45},
+					xlabel={$x$},
+					ylabel={$y$},
+					zlabel={$z$},
+					domain=-2:2,
+					domain y=-2:2,
+					grid=major,
+					colormap/viridis,
+				]
+				% A simple surface where the limit exists
+				\addplot3[surf, opacity=0.7] {x^2 + y^2};
+				\addplot3+[mark=*, only marks] coordinates {(0,0,0)};
+				\node at (axis cs: 0, 0, 0.2) [above] {$(0, 0, 0)$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 
 }
 
+\subsection{Limits by substituting with function $f:\mathbb{R} \rightarrow \mathbb{R}$}
+
 \ex{Changing $g(x)$}{
 
-For a function $f(x, y)$, the limit as $(x, y)$ approaches a point $(a, b)$ must be the same regardless of the path taken to approach $(a, b)$.
+	For a function $f(x, y)$, the limit as $(x, y)$ approaches a point $(a, b)$ must be the same regardless of the path taken to approach $(a, b)$.
 
-Consider the function:
-\[
-f(x, y) = \frac{3xy^2}{x^2 + y^4}
-\]
-We wish to find:
-\[
-\lim_{(x, y) \to (0, 0)} f(x, y)
-\]
-This limit initially appears to be of the form $\frac{0}{0}$, indicating an indeterminate form.
+	Consider the function:
+	\[
+		f(x, y) = \frac{3xy^2}{x^2 + y^4}
+	\]
+	We wish to find:
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y)
+	\]
+	This limit initially appears to be of the form $\frac{0}{0}$, indicating an indeterminate form.
 
-To proceed, we evaluate the limit along different paths. Let’s test two paths to see if the limit is consistent.
+	To proceed, we evaluate the limit along different paths. Let’s test two paths to see if the limit is consistent.
 
-\subsection*{Path 1: Linear Path $y = mx$}
-Substitute $y = mx$ into $f(x, y)$:
-\[
-f(x, y) = \frac{3x(mx)^2}{x^2 + (mx)^4} = \frac{3m^2 x^3}{x^2 + m^4 x^4}
-\]
-Then, consider the limit as $x \to 0$:
-\[
-\lim_{x \to 0} \frac{3m^2 x^3}{x^2 + m^4 x^4}
-\]
-Factor out $x^2$ in the denominator:
-\[
-= \lim_{x \to 0} \frac{3m^2 x}{1 + m^4 x^2} = 0
-\]
+	\subsection*{Path 1: Linear Path $y = mx$}
+	Substitute $y = mx$ into $f(x, y)$:
+	\[
+		f(x, y) = \frac{3x(mx)^2}{x^2 + (mx)^4} = \frac{3m^2 x^3}{x^2 + m^4 x^4}
+	\]
+	Then, consider the limit as $x \to 0$:
+	\[
+		\lim_{x \to 0} \frac{3m^2 x^3}{x^2 + m^4 x^4}
+	\]
+	Factor out $x^2$ in the denominator:
+	\[
+		= \lim_{x \to 0} \frac{3m^2 x}{1 + m^4 x^2} = 0
+	\]
 
-\subsection*{Path 2: Parabolic Path $y = m\sqrt{x}$}
-Substitute $y = m\sqrt{x}$ into $f(x, y)$:
-\[
-f(x, y) = \frac{3x(m\sqrt{x})^2}{x^2 + (m\sqrt{x})^4} = \frac{3m^2 x^2}{x^2 + m^4 x^2}
-\]
-Then, consider the limit as $x \to 0$:
-\[
-\lim_{x \to 0} \frac{3m^2 x^2}{(m^4 + 1)x^2} = \lim_{x \to 0} \frac{3m^2}{m^4 + 1} = \frac{3m^2}{m^4 + 1} \neq 0
-\]
+	\subsection*{Path 2: Parabolic Path $y = m\sqrt{x}$}
+	Substitute $y = m\sqrt{x}$ into $f(x, y)$:
+	\[
+		f(x, y) = \frac{3x(m\sqrt{x})^2}{x^2 + (m\sqrt{x})^4} = \frac{3m^2 x^2}{x^2 + m^4 x^2}
+	\]
+	Then, consider the limit as $x \to 0$:
+	\[
+		\lim_{x \to 0} \frac{3m^2 x^2}{(m^4 + 1)x^2} = \lim_{x \to 0} \frac{3m^2}{m^4 + 1} = \frac{3m^2}{m^4 + 1} \neq 0
+	\]
 
-Since the limit depends on the path taken (0 for the linear path and $\frac{3m^2}{m^4 + 1}$ for the parabolic path), the limit does not exist:
-\[
-\lim_{(x, y) \to (0, 0)} f(x, y) \text{ DNE (Does Not Exist)}
-\]
+	Since the limit depends on the path taken (0 for the linear path and $\frac{3m^2}{m^4 + 1}$ for the parabolic path), the limit does not exist:
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y) \text{ DNE (Does Not Exist)}
+	\]
+}
+
+\subsection{Limits by substituting with Vector Valued Functions $f:\mathbb{R} \rightarrow \mathbb{R}^n$}
+
+\ex{Substituting $< g_1(t), g_2(t) > $}{
+	Since a 1 to 1 function $g(t)$ must pass the vertical line test, it is a limiting way to approach the point at which we want to compute the limit of a two variable function. Using a vector valued function will remove this limitation and enable us to approach from any direction.
+
+	For a function $f(x, y)$, the limit as $(x, y)$ approaches a point $(a, b)$ must be the same regardless of the path taken to approach $(a, b)$.
+
+	Consider the function:
+	\[
+		f(x, y) = \frac{3xy^2}{x^2 + y^4}
+	\]
+	We wish to find:
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y)
+	\]
+	This limit initially appears to be of the form $\frac{0}{0}$, indicating an indeterminate form.
+
+	To proceed, we evaluate the limit along different paths. Let’s test two paths to see if the limit is consistent.
+
+	\subsection*{Path 1: Parametric Linear Path $\vec{r}(t) = \langle t, mt \rangle$}
+
+	Substitute $\vec{r}(t) = \langle t, mt \rangle$ into $f(x, y)$:
+	\[
+		f(x, y) = \frac{3(t)(mt)^2}{t^2 + (mt)^4} = \frac{3m^2 t^3}{t^2 + m^4 t^4}
+	\]
+	Then, consider the limit as $t \to 0$:
+	\[
+		\lim_{t \to 0} \frac{3m^2 t^3}{t^2 + m^4 t^4}
+	\]
+	Factor out $t^2$ in the denominator:
+	\[
+		= \lim_{t \to 0} \frac{3m^2 t}{1 + m^4 t^2} = 0
+	\]
+
+	\subsection*{Path 2: Parametric Parabolic Path $\vec{r}(t) = \langle t^2, m\sqrt{t} \rangle$}
+
+	Substitute $\vec{r}(t) = \langle t^2, m\sqrt{t} \rangle$ into $f(x, y)$:
+	\[
+		f(x, y) = \frac{3(t^2)(m\sqrt{t})^2}{(t^2)^2 + (m\sqrt{t})^4} = \frac{3m^2 t^3}{t^4 + m^4 t^2}
+	\]
+	Then, consider the limit as $t \to 0$:
+	\[
+		\lim_{t \to 0} \frac{3m^2 t^3}{t^4 + m^4 t^2}
+	\]
+	Factor out $t^2$ in the denominator:
+	\[
+		= \lim_{t \to 0} \frac{3m^2 t}{t^2 + m^4} = \frac{3m^2}{m^4} = \frac{3}{m^2} \neq 0
+	\]
+
+	Since the limit depends on the path taken (0 for the linear path and $\frac{3}{m^2}$ for the parabolic path), the limit does not exist:
+	\[
+		\lim_{(x, y) \to (0, 0)} f(x, y) \text{ DNE (Does Not Exist)}
+	\]
+
+}
+
+\ex{Other Example}{
+
+	$$f(x,y)=\frac{\sqrt[2]{x+y} + ln(\sqrt[2]{x+y})}{x+y}$$
+
+	\[
+		f(x,y) =
+		\begin{cases}
+			\frac{\sqrt[2]{x+y} + ln(\sqrt[2]{x+y})}{x+y} & \text{if } x,y \neq 0 \\
+			L                                             & \text{if } x=y=0      \\
+		\end{cases}
+	\]
+
+	If
+
+	$$g(t)=<g_1(t),g_2(t)>$$
+
+	where $g_1(t) = t, g_2(t)=\sqrt{t}$
+
+	and
+
+	$$h(s) = \frac{\sqrt[2]{s} + ln(\sqrt[2]{s})}{s}$$
+
+	then
+
+	$$f(x,y) = h(g_1(x),g_2(y))$$
+
 }
 
 \section{Tips for Finding Limits of Two-Variable Functions (2VF)}
 
-\subsection*{1) Polynomials are Continuous}
+\subsection{Polynomials are Continuous}
 Polynomials in two variables are always continuous everywhere in their domain. For example:
 \[
-f(x, y) = 3x^2 + 2y^2 + 3x^4 + 1
+	f(x, y) = 3x^2 + 2y^2 + 3x^4 + 1
 \]
 is continuous for all $(x, y) \in \mathbb{R}^2$.
 
-\subsection*{2) Compositions of Continuous Functions are Continuous}
+\subsection{Compositions of Continuous Functions are Continuous}
 If $g(t)$ is a function of one variable and continuous at $t = 0$, and $f(x, y)$ is a continuous function of two variables, then $g(f(x, y))$ is also continuous at any point where $f(x, y)$ is defined. For example:
 \[
-g(t) = 
-\begin{cases} 
-\frac{\sqrt{1 + t} - 1}{t} & \text{if } t \neq 0 \\ 
-e & \text{if } t = 0 
-\end{cases}
+	g(t) =
+	\begin{cases}
+		\frac{\sqrt{1 + t} - 1}{t} & \text{if } t \neq 0 \\
+		e                          & \text{if } t = 0
+	\end{cases}
 \]
 is continuous everywhere.
 
 Now consider the function:
 \[
-f(x, y) = x y^2
+	f(x, y) = x y^2
 \]
 Since $f(x, y)$ is continuous, the composition $g(f(x, y))$ is also continuous. Specifically:
 \[
-g(f(x, y)) = 
-\begin{cases} 
-\frac{\sqrt{1 + x y^2} - 1}{x y^2} & \text{if } x y^2 \neq 0 \\ 
-e & \text{if } x y^2 = 0
-\end{cases}
+	g(f(x, y)) =
+	\begin{cases}
+		\frac{\sqrt{1 + x y^2} - 1}{x y^2} & \text{if } x y^2 \neq 0 \\
+		e                                  & \text{if } x y^2 = 0
+	\end{cases}
 \]
 This composition is continuous.
 
-\subsection*{3) Rational Functions}
+\subsection{Rational Functions}
 A rational function $f(x, y) = \frac{P(x, y)}{Q(x, y)}$ is continuous at all points where the denominator $Q(x, y) \neq 0$. For example:
 \[
-f(x, y) = \frac{3x y^2}{x^2 + y^4}
+	f(x, y) = \frac{3x y^2}{x^2 + y^4}
 \]
 is continuous wherever $x^2 + y^4 \neq 0$.
 
 \nt{\textbf{Tip on Factoring and Simplifying} \\
-To find the limit of a rational function, try factoring and simplifying the expression. This can help identify points of discontinuity or removable singularities.
+	To find the limit of a rational function, try factoring and simplifying the expression. This can help identify points of discontinuity or removable singularities.
 }
 
-\subsection*{4) Special Limits: Squeeze Theorem}
+\subsection{Special Limits: Squeeze Theorem}
 The Squeeze Theorem can be used for two-variable functions. If:
 \[
-h(x, y) \leq f(x, y) \leq g(x, y)
+	h(x, y) \leq f(x, y) \leq g(x, y)
 \]
 and both $h(x, y)$ and $g(x, y)$ approach the same limit $L$ as $(x, y) \to (a, b)$, then:
 \[
-\lim_{(x, y) \to (a, b)} f(x, y) = L
+	\lim_{(x, y) \to (a, b)} f(x, y) = L
 \]
 
-\subsection*{5) Use of Polar Coordinates}
+\subsection{Use of Polar Coordinates}
 For limits involving two-variable functions, converting to polar coordinates can often simplify the problem. Let:
 \[
-x = r \cos \theta, \quad y = r \sin \theta
+	x = r \cos \theta, \quad y = r \sin \theta
 \]
 Then, $f(x, y)$ becomes a function of $r$ and $\theta$, which can be easier to analyze as $r \to 0$. This is particularly useful when the limit depends on the distance from the origin.
 
-\subsection*{6) Testing Multiple Paths}
+\subsection{Testing Multiple Paths}
 When checking if a limit exists, test multiple paths (e.g., $y = mx$, $y = m\sqrt{x}$, $x = 0$, $y = 0$). If the limit differs for any path, then the limit does not exist. However, if all paths give the same result, it is likely that the limit exists (though more thorough testing is required for rigor).
 
-\subsection*{7) Continuity of Common Functions}
+\subsection{Continuity of Common Functions}
 Most standard functions (e.g., trigonometric, exponential, logarithmic) are continuous within their domains. If they are composed with continuous functions of $x$ and $y$, the result is continuous as well.
+
+\subsection{Rational functions}
+Consider a rational function of two variables in the form:
+
+\[
+	\frac{h(x, y)}{g(x, y)}
+\]
+
+where \( h(x, y) \) and \( g(x, y) \) are polynomials. The behavior of the limit of this function as \( (x, y) \to (a, b) \) can be classified into three cases:
+
+\subsection{Case 1: \( g(a, b) \neq 0 \)}
+
+If the denominator \( g(x, y) \) is non-zero at the point \( (a, b) \), i.e., \( g(a, b) \neq 0 \), then the function is continuous at \( (a, b) \). In this case, we have:
+
+\[
+	\lim_{(x, y) \to (a, b)} \frac{h(x, y)}{g(x, y)} = \frac{h(a, b)}{g(a, b)}.
+\]
+
+Thus, the limit exists and equals the value of the function at the point \( (a, b) \).
+
+\subsection{Case 2: \( g(a, b) = 0 \) and \( h(a, b) \neq 0 \)}
+
+If the denominator \( g(x, y) \) equals zero at \( (a, b) \) but the numerator \( h(x, y) \) does not, i.e., \( h(a, b) \neq 0 \), then the limit does not exist. Intuitively, this is because the denominator tends to zero while the numerator tends to a non-zero constant, leading to a blow-up of the function.
+
+\[
+	\lim_{(x, y) \to (a, b)} \frac{h(x, y)}{g(x, y)} \quad \text{does not exist}.
+\]
+
+\subsection{Case 3: \( h(a, b) = g(a, b) = 0 \)}
+
+If both the numerator and the denominator are zero at \( (a, b) \), i.e., \( h(a, b) = g(a, b) = 0 \), we have an indeterminate form \( \frac{0}{0} \). In this case, we try to simplify the expression by factoring out the common terms in \( h(x, y) \) and \( g(x, y) \).
+
+\ex{Example}{
+
+	Consider the function:
+
+	\[
+		\frac{x^2 - y^2}{x - y}.
+	\]
+
+	At the point \( (1, 1) \), both the numerator and the denominator are zero:
+
+	\[
+		h(1, 1) = g(1, 1) = 0.
+	\]
+
+	We factor the numerator:
+
+	\[
+		x^2 - y^2 = (x - y)(x + y).
+	\]
+
+	Now, cancel the common factor \( x - y \) in the numerator and denominator:
+
+	\[
+		\frac{x^2 - y^2}{x - y} = x + y.
+	\]
+
+	Thus, the limit simplifies to:
+
+	\[
+		\lim_{(x, y) \to (1, 1)} \frac{x^2 - y^2}{x - y} = \lim_{(x, y) \to (1, 1)} (x + y) = 1 + 1 = 2.
+	\]
+
+	Hence, by removing the common factor, the limit can be computed as \( 2 \).
+}
+
+\subsection{Case 4: \( h(a, b) = g(a, b) = 0 \) still}
+
+Try several Vector Valued functions, trying to make the denominator small or big compared to the numerator
+
+\ex{Large denominator}{
+	\[
+		\quad \lim_{(x,y) \to (0,0)} \frac{x^2 y}{x^2 + y^2}
+	\]
+	One possible path: Let \( y = 0 \),
+	\[
+		\frac{x^2 (0)}{x^2 + 0^2} = \frac{0}{x^2} = 0
+	\]
+
+	Now try a different path: Let \( x = 0 \),
+	\[
+		\frac{0^2 y}{0^2 + y^2} = \frac{0}{y^2} = 0
+	\]
+
+	\noindent \textbf{Parametric form:}
+	\[
+		\lim_{t \to 0} f(r_1(t), r_2(t)) = \lim_{t \to 0} f(0,t) = \lim_{t \to 0} \frac{0^2 t}{0^2 + t^2} = \lim_{t \to 0} 0 = 0
+	\]
+
+	Thus, the limit is \( 0 = 0 \).
+}
+
+\ex{Small denominator}{
+
+	\[
+		x = -y^2 + y^n, \quad \text{where } n > 2
+	\]
+	(for \( y \) small)
+
+	\[
+		\lim_{t \to 0} f(t^2 + t^n, t) = \frac{(t^4 - 2t^{n+2} + t^{2n}) t}{t^2 + t^n + t^2} = \lim_{t \to 0} \frac{t^5 - 2t^{n+3} + t^{2n+1}}{t^n} \quad (n=5)
+	\]
+	Simplifying:
+	\[
+		n = 5: \quad \lim_{t \to 0} \left(1-2t^3 + t^6 \right) = 1
+	\]
+
+}
+
+\subsection{Case 5: Still getting the same limit}
+
+\ex{Trying}{
+	Let $\lim_{(x,y) \to (0,0)} = \frac{xy^2}{x^2+y^2}$. \\
+	If we divide by $y^2$ we get
+	\[
+		\lim_{(x, y) \to (0,0)} \frac{xy^2}{x^2+y^2} = \lim_{(x, y) \to (0,0)} \frac{x}{(\frac{x^2}{y^2})+1} = 0
+	\]
+}
+
+
+\section{Properties of Limits of Two-Variable Functions}
+
+Let $f(x, y)$ and $g(x, y)$ be two functions of two variables such that:
+\[
+	\lim_{(x, y) \to (a, b)} f(x, y) = L_1, \quad \lim_{(x, y) \to (a, b)} g(x, y) = L_2
+\]
+Then, the following properties hold:
+
+\subsection{Scaling by a constant:}
+\[
+	\lim_{(x, y) \to (a, b)} [k f(x, y)] = k L_1, \quad \text{where } k \text{ is any real constant}
+\]
+
+\subsection{Addition of functions:}
+\[
+	\lim_{(x, y) \to (a, b)} [f(x, y) + g(x, y)] = L_1 + L_2
+\]
+
+\subsection{Multiplication of functions:}
+\[
+	\lim_{(x, y) \to (a, b)} [f(x, y) g(x, y)] = L_1 L_2
+\]
+
+\subsection{Division of functions:}
+\[
+	\lim_{(x, y) \to (a, b)} \left[ \frac{f(x, y)}{g(x, y)} \right] = \frac{L_1}{L_2}, \quad \text{provided } L_2 \neq 0
+\]
+
+\subsection{Other}
+
+\[
+	\lim_{(x,y) \to (a,b)} \left( f(x,y) \right)^n = L^n \quad (n = 0,1,2,3,\dots)
+\]
+\[
+	\lim_{(x,y) \to (a,b)} \left( f(x,y) \right)^{1/n} = L^{1/n} \quad \text{if } n \text{ is even, } L \geq 0
+\]
+
+\section{Partial Derivatives}
+
+\[
+	\frac{\partial}{\partial x} f(x,y) = lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}
+\]
+
+\[
+	\frac{\partial}{\partial y} f(x,y) = lim_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}
+\]
 
 \end{document}

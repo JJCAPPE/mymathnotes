@@ -1,4 +1,4 @@
-\contentsline {chapter}{\numberline {1}Vector Valued Functions}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Review}{3}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Basics}{3}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}Notation}{4}{subsection.1.1.2}%
@@ -40,11 +40,33 @@
 \contentsline {subsection}{\numberline {1.19.2}Torsion and its Relation to the Binormal Vector}{33}{subsection.1.19.2}%
 \contentsline {subsection}{\numberline {1.19.3}General Case and Torsion Formula}{33}{subsection.1.19.3}%
 \contentsline {subsection}{\numberline {1.19.4}Expressing the Binormal Vector with Velocity and Acceleration}{34}{subsection.1.19.4}%
-\contentsline {chapter}{\numberline {2}Functions of Multiple Random Variables}{36}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Functions of Multiple Random Variables $f:\varmathbb {R} ^ n \rightarrow \varmathbb {R}$}{36}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Plotting Multiple Random Variable Functions}{36}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Domain of Multiple Random Variable Functions}{37}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Range of Multiple Random Variable Functions}{38}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Level Curves of Functions of Two Variables}{39}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Limits of Two-Variable Functions}{39}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Tips for Finding Limits of Two-Variable Functions (2VF)}{42}{section.2.6}%
+\contentsline {subsection}{\numberline {2.5.1}Limits by substituting with function $f:\varmathbb {R} \rightarrow \varmathbb {R}$}{41}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Limits by substituting with Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{42}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Tips for Finding Limits of Two-Variable Functions (2VF)}{44}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Polynomials are Continuous}{44}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Compositions of Continuous Functions are Continuous}{44}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Rational Functions}{44}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Special Limits: Squeeze Theorem}{44}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Use of Polar Coordinates}{45}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}Testing Multiple Paths}{45}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.7}Continuity of Common Functions}{45}{subsection.2.6.7}%
+\contentsline {subsection}{\numberline {2.6.8}Rational functions}{45}{subsection.2.6.8}%
+\contentsline {subsection}{\numberline {2.6.9}Case 1: \( g(a, b) \neq 0 \)}{45}{subsection.2.6.9}%
+\contentsline {subsection}{\numberline {2.6.10}Case 2: \( g(a, b) = 0 \) and \( h(a, b) \neq 0 \)}{45}{subsection.2.6.10}%
+\contentsline {subsection}{\numberline {2.6.11}Case 3: \( h(a, b) = g(a, b) = 0 \)}{45}{subsection.2.6.11}%
+\contentsline {subsection}{\numberline {2.6.12}Case 4: \( h(a, b) = g(a, b) = 0 \) still}{46}{subsection.2.6.12}%
+\contentsline {subsection}{\numberline {2.6.13}Case 5: Still getting the same limit}{47}{subsection.2.6.13}%
+\contentsline {section}{\numberline {2.7}Properties of Limits of Two-Variable Functions}{47}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Scaling by a constant:}{47}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Addition of functions:}{47}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Multiplication of functions:}{47}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Division of functions:}{47}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Other}{47}{subsection.2.7.5}%
+\contentsline {section}{\numberline {2.8}Partial Derivatives}{47}{section.2.8}%
 \contentsfinish 
