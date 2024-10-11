@@ -2391,18 +2391,18 @@ A sphere cannot be represented as a function in the form $f(x, y) = z$. This is 
 
 \dfn{Formal Definition}{
 
-\[
-	\lim_{(x,y) \to (a,b)} f(x,y) = L
+	\[
+		\lim_{(x,y) \to (a,b)} f(x,y) = L
 	\]
 	if for any \( \varepsilon > 0 \), there exists a constant \( \delta > 0 \) such that:
 	\[
-	|f(x,y) - L| < \varepsilon
+		|f(x,y) - L| < \varepsilon
 	\]
 	whenever \( (x, y) \) are in the domain of \( f \) and:
 	\[
-	|(x,y) - (a,b)| < \delta
+		|(x,y) - (a,b)| < \delta
 	\]
-	
+
 }
 
 \subsection*{Visualizing Limits}
@@ -2867,12 +2867,260 @@ Then, the following properties hold:
 
 \section{Partial Derivatives}
 
-\[
-	\frac{\partial}{\partial x} f(x,y) = lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}
-\]
+\dfn{Partial Derivative of random two variable function }{
+
+	\[
+		\frac{\partial}{\partial x} f(x,y) = lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}
+	\]
+
+	\[
+		\frac{\partial}{\partial y} f(x,y) = lim_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}
+	\]
+
+}
+
+\ex{Example of application of partial derivatives}{
+
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					colormap/cool,
+					grid=both,
+					domain=-2:2,
+					domain y=-2:2,
+					enlargelimits=false,
+					xlabel=$x$,
+					ylabel=$y$,
+					zlabel={$f(x,y) = x^4 - 2x^2 - y^4 + 2y^2$},
+					samples=50,
+					z buffer=sort
+				]
+				\addplot3[surf] {x^4 - 2*x^2 - y^4 + 2*y^2};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+	The partial derivative of a function \( f(x, y) \) with respect to \( x \) at a point \( P = (x_0, y_0) \) is defined as:
+
+	\[
+		f_x(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h}
+	\]
+
+	Similarly, the partial derivative with respect to \( y \) at \( P = (x_0, y_0) \) is:
+
+	\[
+		f_y(x_0, y_0) = \lim_{k \to 0} \frac{f(x_0, y_0 + k) - f(x_0, y_0)}{k}
+	\]
+
+	For the function \( f(x, y) = x^4 - 2x^2 - y^4 + 2y^2 \), the partial derivatives are:
+
+	\[
+		f_x(x, y) = 4x^3 - 4x, \quad f_y(x, y) = -4y^3 + 4y
+	\]
+
+}
+
+\subsection{Differentiability}
+
+\thm{Conditions for Differentiability}{Consider a function $f(x, y)$, and we aim to analyze the differentiability at a point $(a, b)$.
+
+	To say that $f(x, y)$ is differentiable at the point $(a, b)$, the following conditions must hold:
+
+	\begin{enumerate}
+		\item The partial derivatives $f_x(a, b)$ and $f_y(a, b)$ must exist.
+		\item We must have the following expression for the increment of $f$ at $(a, b)$:
+		      \[
+			      f(a + \Delta x, b + \Delta y) - f(a, b) = \Delta x f_x(a, b) + \Delta y f_y(a, b) + \epsilon_1(\Delta x) \Delta x + \epsilon_2(\Delta y) \Delta y
+		      \]
+		      where $\epsilon_1(\Delta x) \to 0$ as $\Delta x \to 0$ and $\epsilon_2(\Delta y) \to 0$ as $\Delta y \to 0$.
+	\end{enumerate}
+
+	This form shows that the change in the function can be approximated by the linear part involving the partial derivatives, with the higher-order terms represented by $\epsilon_1$ and $\epsilon_2$, which tend to zero.
+}
+
+\subsection*{Graphical Interpretation}
+
+Consider the following illustration of the change in the function $f$:
 
 \[
-	\frac{\partial}{\partial y} f(x,y) = lim_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}
+	\text{Elevation of } f(a, b) \to f(a + \Delta x, b + \Delta y)
 \]
+
+The increment of $f$ is given by:
+\[
+	f(a + \Delta x, b + \Delta y) - f(a, b)
+\]
+
+Using the definition of differentiability, we can decompose this increment as follows:
+
+\[
+	\Delta f = \Delta x f_x(a, b) + \Delta y f_y(a, b)
+\]
+
+Graphically, this can be interpreted as moving along the tangent plane at the point $(a, b)$ in the direction of $\Delta x$ and $\Delta y$. The elevation changes linearly based on the partial derivatives.
+
+For the function to be differentiable at $(a, b)$, we require that:
+
+\[
+	\lim_{\Delta x \to 0} \epsilon_1(\Delta x) = 0, \quad \lim_{\Delta y \to 0} \epsilon_2(\Delta y) = 0
+\]
+
+These conditions ensure that the error terms involving $\epsilon_1$ and $\epsilon_2$ vanish as the changes $\Delta x$ and $\Delta y$ become small, ensuring a linear approximation near the point $(a, b)$.
+
+\section{Directional Derivative}
+
+Let $\mathbf{u} = \langle u_1, u_2 \rangle$ be a unit vector, i.e., $|\mathbf{u}| = 1$. The directional derivative of $f(x, y)$ at the point $(a, b)$ in the direction of $\mathbf{u}$ is defined as:
+
+\[
+	D_{\mathbf{u}} f(a, b) = \lim_{h \to 0} \frac{f(a + h u_1, b + h u_2) - f(a, b)}{h}
+\]
+
+This represents the slope of the hill that you are traveling on in the direction of $\mathbf{u}$.
+
+If $f(x, y)$ is differentiable at $(a, b)$, we know that the function $f$ satisfies the following approximation:
+
+\[
+	f(a + \Delta x, b + \Delta y) - f(a, b) = \Delta x f_x(a, b) + \Delta y f_y(a, b) + \Delta x \epsilon_1(\Delta x) + \Delta y \epsilon_2(\Delta y)
+\]
+
+where $\epsilon_1(\Delta x) \to 0$ as $\Delta x \to 0$ and $\epsilon_2(\Delta y) \to 0$ as $\Delta y \to 0$.
+
+\subsection{Derivation of the Directional Derivative}
+
+Substituting $\Delta x = h u_1$ and $\Delta y = h u_2$, the directional derivative becomes:
+
+\[
+	\lim_{h \to 0} \frac{h u_1 f_x(a, b) + h u_2 f_y(a, b) + h u_1 \epsilon_1(h) + h u_2 \epsilon_2(h)}{h}
+\]
+
+Simplifying the expression:
+
+\[
+	= u_1 f_x(a, b) + u_2 f_y(a, b) + u_1 \epsilon_1(h) + u_2 \epsilon_2(h)
+\]
+
+As $h \to 0$, the terms $u_1 \epsilon_1(h)$ and $u_2 \epsilon_2(h)$ tend to $0$, so we are left with:
+
+\[
+	D_{\mathbf{u}} f(a, b) = u_1 f_x(a, b) + u_2 f_y(a, b)
+\]
+
+This can be expressed compactly as the dot product:
+
+\[
+	D_{\mathbf{u}} f(a, b) = \langle f_x(a, b), f_y(a, b) \rangle \cdot \mathbf{u}
+\]
+
+\dfn{Definition of the Gradient}{
+	The gradient of $f(x, y)$ at the point $(a, b)$ is defined as the vector:
+
+	\[
+		\nabla f(a, b) = \langle f_x(a, b), f_y(a, b) \rangle
+	\]
+
+	The directional derivative is then the dot product of the gradient and the direction vector $\mathbf{u}$:
+
+	\[
+		D_{\mathbf{u}} f(a, b) = \nabla f(a, b) \cdot \mathbf{u}
+	\]
+
+	Thus, the gradient gives the direction of the steepest ascent of the function, and the directional derivative gives the rate of change of the function in the direction of $\mathbf{u}$.
+
+}
+
+
+\section{Application of the Gradient}
+
+The gradient $\nabla f(a, b)$ plays an important role in determining the behavior of the function in various directions.
+
+\subsection{Directional Derivative and the Gradient}
+
+If $f$ is differentiable at $(a, b)$, then for any unit vector $\mathbf{u}$, the directional derivative of $f$ in the direction of $\mathbf{u}$ is given by:
+
+\[
+	D_{\mathbf{u}} f(a, b) = \nabla f(a, b) \cdot \mathbf{u}
+\]
+
+This formula can be used to determine how the function changes as we move in the direction of $\mathbf{u}$.
+
+\subsection{Dot Product and Angle}
+
+We know from vector calculus that:
+
+\[
+	\mathbf{u} \cdot \mathbf{v} = |\mathbf{u}| |\mathbf{v}| \cos \theta
+\]
+
+Thus, for the directional derivative:
+
+\[
+	D_{\mathbf{u}} f(a, b) = |\nabla f(a, b)| |\mathbf{u}| \cos \theta
+\]
+
+where $\theta$ is the angle between the gradient vector $\nabla f(a, b)$ and the direction vector $\mathbf{u}$.
+
+\begin{itemize}
+	\item If $\theta > \frac{\pi}{2}$, then $\mathbf{u}$ points downhill (negative directional derivative).
+	\item If $0 < \theta < \frac{\pi}{2}$, then $\mathbf{u}$ points uphill (positive directional derivative).
+\end{itemize}
+
+\subsection{Maximum and Minimum Values of the Directional Derivative}
+
+The directional derivative $D_{\mathbf{u}} f(a, b)$ is maximized when $\theta = 0^\circ$, which means that $\mathbf{u}$ points in the direction of the steepest ascent. This happens when $\mathbf{u}$ is in the same direction as $\nabla f(a, b)$:
+
+\[
+	\nabla f(a, b) \text{ points towards the direction of steepest ascent.}
+\]
+
+Conversely, the directional derivative is minimized when $\theta = 180^\circ$, which means $\mathbf{u}$ points in the direction of steepest descent. In this case:
+
+\[
+	-\nabla f(a, b) \text{ points towards the direction of steepest descent.}
+\]
+
+This forms the foundation of gradient descent algorithms, where the negative gradient is used to find minimum values.
+
+\subsection{Tangent to a Level Curve}
+
+Consider a level curve of the form $f(x, y) = c$. The vector $\nabla f(a, b)$ is perpendicular to the level curve at the point $(a, b)$, which implies that any vector $\mathbf{u}$ tangent to the level curve satisfies:
+
+\[
+	D_{\mathbf{u}} f(a, b) = 0
+\]
+
+This means that if $\mathbf{u}$ is tangent to the level curve, the directional derivative is zero, implying that there is no change in the value of the function along that curve.
+
+Below is a diagram representing the gradient and the tangents to the level curves:
+
+\begin{center}
+	\includegraphics[scale=0.5]{levelcurves.png}
+\end{center}
+
+\section*{Tangent Planes}
+
+The equation of the tangent plane to the surface $z = f(x, y)$ at the point $(a, b)$ is given by the linear approximation:
+
+\[
+	z = f(a, b) + \nabla f(a, b) \cdot \langle x - a, y - b \rangle
+\]
+
+This can be interpreted as the plane that best approximates the surface near the point $(a, b)$.
+
+\subsection{Linear Approximation of Tangent Planes}
+
+Using the gradient, we express the tangent plane as:
+
+\[
+	z = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)
+\]
+
+This equation is derived from the fact that the gradient $\nabla f(a, b) = \langle f_x(a, b), f_y(a, b) \rangle$ points in the direction of the steepest ascent.
+
+Below is a simple diagram representing a surface and its tangent plane at a point:
+
+\begin{center}
+	\includegraphics[scale=0.5]{tangentplane.png}
+\end{center}
+
 
 \end{document}

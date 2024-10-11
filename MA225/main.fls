@@ -729,6 +729,16 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmb10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmb10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmb10.tfm
+INPUT ./levelcurves.png
+INPUT ./levelcurves.png
+INPUT ./levelcurves.png
+INPUT ./levelcurves.png
+INPUT ./levelcurves.png
+INPUT ./tangentplane.png
+INPUT ./tangentplane.png
+INPUT ./tangentplane.png
+INPUT ./tangentplane.png
+INPUT ./tangentplane.png
 INPUT main.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb

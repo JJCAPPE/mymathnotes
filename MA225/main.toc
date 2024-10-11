@@ -69,4 +69,13 @@
 \contentsline {subsection}{\numberline {2.7.4}Division of functions:}{47}{subsection.2.7.4}%
 \contentsline {subsection}{\numberline {2.7.5}Other}{47}{subsection.2.7.5}%
 \contentsline {section}{\numberline {2.8}Partial Derivatives}{47}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Differentiability}{48}{subsection.2.8.1}%
+\contentsline {section}{\numberline {2.9}Directional Derivative}{49}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Derivation of the Directional Derivative}{49}{subsection.2.9.1}%
+\contentsline {section}{\numberline {2.10}Application of the Gradient}{50}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Directional Derivative and the Gradient}{50}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}Dot Product and Angle}{50}{subsection.2.10.2}%
+\contentsline {subsection}{\numberline {2.10.3}Maximum and Minimum Values of the Directional Derivative}{50}{subsection.2.10.3}%
+\contentsline {subsection}{\numberline {2.10.4}Tangent to a Level Curve}{50}{subsection.2.10.4}%
+\contentsline {subsection}{\numberline {2.10.5}Linear Approximation of Tangent Planes}{51}{subsection.2.10.5}%
 \contentsfinish 
