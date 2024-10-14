@@ -1964,7 +1964,7 @@ This can be rewritten as:
 		\node[draw=green, text=green] at (6,-3) {$\vec{a}_\parallel(t) =$ speed change};
 
 		% Final equation box
-		\node[draw=purple, text=purple] at (0,-4.5) {$\vec{a}(t) = |\vec{a}_\perp(t)| \cdot \frac{\vec{T}'(t)}{|\vec{T	}'(t)|} + |\vec{a}_\parallel(t)| \cdot \hat{T}(t)$};
+		\node[draw=purple, text=purple] at (0,-4.5) {$\vec{a}(t) = |\vec{a}_\perp(t)| \cdot \frac{\vec{T}'(t)}{|\vec{T	}'(t)|} + |\vec{a}_\parallel(t)| \cdot \frac{\vec{r}'(t)}{|\vec{r}'(t)|}$};
 
 		% Comment on missing component
 		\node[align=left] at (7,-4.5) {\textit{Missing a third component of motion}};
@@ -1979,15 +1979,16 @@ This can be rewritten as:
 		\vec{B} = \vec{T} \times \vec{N} = \frac{\vec{v} \times \vec{a}}{|\vec{v} \times \vec{a}|}
 	\]
 	where:
-	- $\vec{T}$ is the unit tangent vector to the curve, given by:
-	\[
-		\vec{T} = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}
-	\]
-	- $\vec{N}$ is the unit normal vector to the curve, and it is defined as:
-	\[
-		\vec{N} = \frac{\vec{T}'(t)}{|\vec{T}'(t)|}
-	\]
-
+	\begin{itemize}
+		\item $\vec{T}$ is the unit tangent vector to the curve, given by:
+		      \[
+			      \vec{T} = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}
+		      \]
+		\item $\vec{N}$ is the unit normal vector to the curve, and it is defined as:
+		      \[
+			      \vec{N} = \frac{\vec{T}'(t)}{|\vec{T}'(t)|}
+		      \]
+	\end{itemize}
 	The binormal vector $\vec{B}$ represents the direction to exit the current plane of motion described by the vectors $\vec{T}$ and $\vec{N}$.
 }
 
