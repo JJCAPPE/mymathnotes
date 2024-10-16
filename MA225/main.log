@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.28)  13 OCT 2024 12:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.28)  15 OCT 2024 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1346,7 +1346,7 @@ Overfull \hbox (36.4146pt too wide) in paragraph at lines 230--230
  []
 
 [5] [6] [7]
-<graphicalvm.png, id=383, 829.0975pt x 338.26375pt>
+<graphicalvm.png, id=389, 829.0975pt x 338.26375pt>
 File: graphicalvm.png Graphic file (type png)
 <use graphicalvm.png>
 Package pdftex.def Info: graphicalvm.png  used on input line 432.
@@ -1516,19 +1516,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2778.
 
-[46] [47] [48] [49]
-<levelcurves.png, id=708, 411.57765pt x 397.84634pt>
+[46] [47] [48] [49] [50] [51] [52]
+<levelcurves.png, id=734, 411.57765pt x 397.84634pt>
 File: levelcurves.png Graphic file (type png)
 <use levelcurves.png>
-Package pdftex.def Info: levelcurves.png  used on input line 3097.
+Package pdftex.def Info: levelcurves.png  used on input line 3281.
 (pdftex.def)             Requested size: 205.78831pt x 198.92268pt.
- [50]
-<tangentplane.png, id=713, 411.939pt x 370.0224pt>
+<tangentplane.png, id=735, 411.939pt x 370.0224pt>
 File: tangentplane.png Graphic file (type png)
 <use tangentplane.png>
-Package pdftex.def Info: tangentplane.png  used on input line 3123.
+Package pdftex.def Info: tangentplane.png  used on input line 3307.
 (pdftex.def)             Requested size: 205.96898pt x 185.01074pt.
- [51 <./levelcurves.png> <./tangentplane.png>] (./main.aux)
+ [53 <./levelcurves.png>] [54 <./tangentplane.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1543,18 +1542,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 54789 strings out of 474116
- 1253266 string characters out of 5743682
- 4003328 words of memory out of 5000000
- 76027 multiletter control sequences out of 15000+600000
+ 54810 strings out of 474116
+ 1253551 string characters out of 5743682
+ 4001328 words of memory out of 5000000
+ 76035 multiletter control sequences out of 15000+600000
  624943 words of font info for 225 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,105p,916b,12247s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb>
-Output written on main.pdf (52 pages, 1319694 bytes).
+Output written on main.pdf (55 pages, 1328936 bytes).
 PDF statistics:
- 1113 PDF objects out of 1200 (max. 8388607)
- 866 compressed objects within 9 object streams
- 252 named destinations out of 1000 (max. 500000)
- 1012 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1150 PDF objects out of 1200 (max. 8388607)
+ 898 compressed objects within 9 object streams
+ 265 named destinations out of 1000 (max. 500000)
+ 1028 words of extra memory for PDF output out of 10000 (max. 10000000)
 

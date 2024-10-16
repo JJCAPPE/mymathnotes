@@ -2968,6 +2968,190 @@ For the function to be differentiable at $(a, b)$, we require that:
 
 These conditions ensure that the error terms involving $\epsilon_1$ and $\epsilon_2$ vanish as the changes $\Delta x$ and $\Delta y$ become small, ensuring a linear approximation near the point $(a, b)$.
 
+\subsection{Open and Closed Sets}
+
+Consider the set $R$ defined by:
+
+\[
+	R: y < x, \quad x^2 + y^2 < 1
+\]
+
+The set $R$ is open if we can draw it using **dashed lines**, indicating that the boundary is not included in the set. If we have a set of solutions to inequalities with strict inequalities (e.g., $<$ or $>$), the set is typically **open**.
+
+If $R$ is defined by inequalities involving $\leq$ or $\geq$, then the set is **closed**.
+
+\subsection*{Example of Open and Closed Sets}
+
+Let $R_1$ be defined as:
+
+\[
+	R_1: x^2 + y^2 < 1 \quad \text{(open)}
+\]
+
+Let $S$ be defined as:
+
+\[
+	S: y < x \quad \text{(open)}
+\]
+
+We can also consider the closed sets:
+
+\[
+	R_2: x^2 + y^2 \leq 1 \quad \text{(closed)}
+\]
+
+\[
+	S: y \leq x \quad \text{(closed)}
+\]
+
+Below are illustrations of open and closed sets. Dotted lines indicate that the boundary is **not included** (open), while solid lines indicate the boundary **is included** (closed).
+
+\begin{center}
+	\begin{tikzpicture}
+		% Open set R: x^2 + y^2 < 1
+		\draw[dashed] (0,0) circle (2);
+		\node at (-2.5, 2.2) {$R_1$: $x^2 + y^2 < 1$};
+
+		% Closed set R: x^2 + y^2 <= 1
+		\draw (5,0) circle (2);
+		\node at (8.5, 2.2) {$R_2$: $x^2 + y^2 \leq 1$};
+
+		% Open set y < x
+		\draw[dashed] (-3,-3) -- (3, 3);
+		\node at (-3, 2.7) {Open $S: y < x$};
+
+		% Closed set y <= x
+		\draw (2, -3) -- (8, 3);
+		\node at (8, 2.7) {Closed $S: y \leq x$};
+	\end{tikzpicture}
+\end{center}
+
+\subsection{Conditions for Differentiability}
+
+A function $f(x, y)$ is differentiable at $(a, b)$ if:
+
+\begin{enumerate}
+	\item The partial derivatives $f_x(a, b)$ and $f_y(a, b)$ exist.
+	\item The following limit holds:
+	      \[
+		      f(a + \Delta x, b + \Delta y) - f(a, b) = \Delta x f_x(a, b) + \Delta y f_y(a, b) + \Delta x \epsilon_1(\Delta x) + \Delta y \epsilon_2(\Delta y)
+	      \]
+	      where $\epsilon_1(\Delta x) \to 0$ as $\Delta x \to 0$ and $\epsilon_2(\Delta y) \to 0$ as $\Delta y \to 0$.
+\end{enumerate}
+
+\thm{Sufficient Conditions for Differentiability}{
+
+	A sufficient condition for differentiability is the following theorem:
+
+	If there exists an open set $D$ containing $(a, b)$ such that $f_x(x, y)$ and $f_y(x, y)$ exist at all points in $D$, and if $f_x(a, b)$ and $f_y(a, b)$ are continuous at $(a, b)$, then $f(x, y)$ is differentiable at $(a, b)$.
+}
+
+\ex{Differentiability of a Given Function}{
+
+	Consider the function:
+
+	\[
+		f(x, y) = e^{xy} + x^3 y
+	\]
+
+	We want to check whether this function is differentiable at any point $(a, b)$. First, we compute the partial derivatives:
+
+	\[
+		f_x(x, y) = y e^{xy} + 3x^2 y
+	\]
+	\[
+		f_y(x, y) = x e^{xy} + x^3
+	\]
+
+	For any point $(a, b)$, both $f_x(a, b)$ and $f_y(a, b)$ exist in $\mathbb{R}^2$ and are continuous at $(a, b)$ because the terms $e^{xy}$, $x^3$, and $y$ are all continuous on $\mathbb{R}^2$.
+
+	Thus, according to the theorem for differentiability, we conclude that:
+
+	\[
+		f(x, y) \text{ is differentiable at } (a, b)
+	\]
+}
+
+\ex{Discontinuity of a Function}{
+
+Consider the function:
+
+\[
+f(x, y) = 
+\begin{cases}
+    \frac{3xy}{x^2 + y^2} & \text{if } (x, y) \neq (0, 0) \\
+    0 & \text{if } (x, y) = (0, 0)
+\end{cases}
+\]
+
+We are interested in determining whether this function is continuous and differentiable at the point $(0, 0)$.
+
+\subsection*{Continuity Check}
+
+We first evaluate $f(0, 0)$:
+
+\[
+f(0, 0) = 0
+\]
+
+Next, we compute the limit of $f(x, y)$ as $(x, y) \to (0, 0)$. To do this, we examine the limit along two different paths:
+
+\[
+r_1(t) = \langle t, 0 \rangle
+\]
+Along this path, we have:
+
+\[
+\lim_{t \to 0} f(t, 0) = \lim_{t \to 0} \frac{3t \cdot 0}{t^2 + 0^2} = 0
+\]
+
+Now consider the path:
+
+\[
+r_2(t) = \langle t, t \rangle
+\]
+Along this path, we compute:
+
+\[
+\lim_{t \to 0} f(t, t) = \lim_{t \to 0} \frac{3t \cdot t}{t^2 + t^2} = \frac{3t^2}{2t^2} = \frac{3}{2}
+\]
+
+Since the limits along different paths do not agree (one is $0$, and the other is $\frac{3}{2}$), we conclude that:
+
+\[
+f(x, y) \text{ is not continuous at } (0, 0)
+\]
+
+Thus, even though the partial derivatives $f_x$ and $f_y$ exist at $(0, 0)$, the function is not continuous, and therefore, $f(x, y)$ is not differentiable at $(0, 0)$.
+}
+
+\begin{center}
+    \begin{tikzpicture}
+        % Path r_1: along x-axis
+        \draw[->, thick] (-2,0) -- (2,0);
+        \node at (2.5, 0) {$r_1(t) = \langle t, 0 \rangle$};
+
+        % Path r_2: diagonal line
+        \draw[->, thick] (-2,-2) -- (2,2);
+        \node at (2.5, 2) {$r_2(t) = \langle t, t \rangle$};
+
+        % Mark origin
+        \filldraw[red] (0, 0) circle (2pt);
+        \node at (-0.2, -0.2) {$(0,0)$};
+
+        % Labels
+        \node at (0.5, -0.5) {Limit $0$};
+        \node at (1.5, 1.5) {Limit $\frac{3}{2}$};
+    \end{tikzpicture}
+\end{center}
+
+\thm{Differentiability Implies Continuity}{
+
+If $f(x, y)$ is differentiable at $(a, b)$, then $f(x, y)$ is also continuous at $(a, b)$. This is an important result that will help us analyze the next example.
+
+}
+
+
 \section{Directional Derivative}
 
 Let $\mathbf{u} = \langle u_1, u_2 \rangle$ be a unit vector, i.e., $|\mathbf{u}| = 1$. The directional derivative of $f(x, y)$ at the point $(a, b)$ in the direction of $\mathbf{u}$ is defined as:
