@@ -11,6 +11,8 @@
 \usepackage{pgfplots}
 \usepackage{smartdiagram}
 \usepackage{xcolor}
+\usepackage{forest}
+
 \usesmartdiagramlibrary{additions}
 
 \title{\Huge{CASMA 225}\\Calc 3}
@@ -3074,80 +3076,80 @@ A function $f(x, y)$ is differentiable at $(a, b)$ if:
 
 \ex{Discontinuity of a Function}{
 
-Consider the function:
+	Consider the function:
 
-\[
-f(x, y) = 
-\begin{cases}
-    \frac{3xy}{x^2 + y^2} & \text{if } (x, y) \neq (0, 0) \\
-    0 & \text{if } (x, y) = (0, 0)
-\end{cases}
-\]
+	\[
+		f(x, y) =
+		\begin{cases}
+			\frac{3xy}{x^2 + y^2} & \text{if } (x, y) \neq (0, 0) \\
+			0                     & \text{if } (x, y) = (0, 0)
+		\end{cases}
+	\]
 
-We are interested in determining whether this function is continuous and differentiable at the point $(0, 0)$.
+	We are interested in determining whether this function is continuous and differentiable at the point $(0, 0)$.
 
-\subsection*{Continuity Check}
+	\subsection*{Continuity Check}
 
-We first evaluate $f(0, 0)$:
+	We first evaluate $f(0, 0)$:
 
-\[
-f(0, 0) = 0
-\]
+	\[
+		f(0, 0) = 0
+	\]
 
-Next, we compute the limit of $f(x, y)$ as $(x, y) \to (0, 0)$. To do this, we examine the limit along two different paths:
+	Next, we compute the limit of $f(x, y)$ as $(x, y) \to (0, 0)$. To do this, we examine the limit along two different paths:
 
-\[
-r_1(t) = \langle t, 0 \rangle
-\]
-Along this path, we have:
+	\[
+		r_1(t) = \langle t, 0 \rangle
+	\]
+	Along this path, we have:
 
-\[
-\lim_{t \to 0} f(t, 0) = \lim_{t \to 0} \frac{3t \cdot 0}{t^2 + 0^2} = 0
-\]
+	\[
+		\lim_{t \to 0} f(t, 0) = \lim_{t \to 0} \frac{3t \cdot 0}{t^2 + 0^2} = 0
+	\]
 
-Now consider the path:
+	Now consider the path:
 
-\[
-r_2(t) = \langle t, t \rangle
-\]
-Along this path, we compute:
+	\[
+		r_2(t) = \langle t, t \rangle
+	\]
+	Along this path, we compute:
 
-\[
-\lim_{t \to 0} f(t, t) = \lim_{t \to 0} \frac{3t \cdot t}{t^2 + t^2} = \frac{3t^2}{2t^2} = \frac{3}{2}
-\]
+	\[
+		\lim_{t \to 0} f(t, t) = \lim_{t \to 0} \frac{3t \cdot t}{t^2 + t^2} = \frac{3t^2}{2t^2} = \frac{3}{2}
+	\]
 
-Since the limits along different paths do not agree (one is $0$, and the other is $\frac{3}{2}$), we conclude that:
+	Since the limits along different paths do not agree (one is $0$, and the other is $\frac{3}{2}$), we conclude that:
 
-\[
-f(x, y) \text{ is not continuous at } (0, 0)
-\]
+	\[
+		f(x, y) \text{ is not continuous at } (0, 0)
+	\]
 
-Thus, even though the partial derivatives $f_x$ and $f_y$ exist at $(0, 0)$, the function is not continuous, and therefore, $f(x, y)$ is not differentiable at $(0, 0)$.
+	Thus, even though the partial derivatives $f_x$ and $f_y$ exist at $(0, 0)$, the function is not continuous, and therefore, $f(x, y)$ is not differentiable at $(0, 0)$.
 }
 
 \begin{center}
-    \begin{tikzpicture}
-        % Path r_1: along x-axis
-        \draw[->, thick] (-2,0) -- (2,0);
-        \node at (2.5, 0) {$r_1(t) = \langle t, 0 \rangle$};
+	\begin{tikzpicture}
+		% Path r_1: along x-axis
+		\draw[->, thick] (-2,0) -- (2,0);
+		\node at (2.5, 0) {$r_1(t) = \langle t, 0 \rangle$};
 
-        % Path r_2: diagonal line
-        \draw[->, thick] (-2,-2) -- (2,2);
-        \node at (2.5, 2) {$r_2(t) = \langle t, t \rangle$};
+		% Path r_2: diagonal line
+		\draw[->, thick] (-2,-2) -- (2,2);
+		\node at (2.5, 2) {$r_2(t) = \langle t, t \rangle$};
 
-        % Mark origin
-        \filldraw[red] (0, 0) circle (2pt);
-        \node at (-0.2, -0.2) {$(0,0)$};
+		% Mark origin
+		\filldraw[red] (0, 0) circle (2pt);
+		\node at (-0.2, -0.2) {$(0,0)$};
 
-        % Labels
-        \node at (0.5, -0.5) {Limit $0$};
-        \node at (1.5, 1.5) {Limit $\frac{3}{2}$};
-    \end{tikzpicture}
+		% Labels
+		\node at (0.5, -0.5) {Limit $0$};
+		\node at (1.5, 1.5) {Limit $\frac{3}{2}$};
+	\end{tikzpicture}
 \end{center}
 
 \thm{Differentiability Implies Continuity}{
 
-If $f(x, y)$ is differentiable at $(a, b)$, then $f(x, y)$ is also continuous at $(a, b)$. This is an important result that will help us analyze the next example.
+	If $f(x, y)$ is differentiable at $(a, b)$, then $f(x, y)$ is also continuous at $(a, b)$. This is an important result that will help us analyze the next example.
 
 }
 
@@ -3281,7 +3283,7 @@ Below is a diagram representing the gradient and the tangents to the level curve
 	\includegraphics[scale=0.5]{levelcurves.png}
 \end{center}
 
-\section*{Tangent Planes}
+\section{Tangent Planes}
 
 The equation of the tangent plane to the surface $z = f(x, y)$ at the point $(a, b)$ is given by the linear approximation:
 
@@ -3307,5 +3309,170 @@ Below is a simple diagram representing a surface and its tangent plane at a poin
 	\includegraphics[scale=0.5]{tangentplane.png}
 \end{center}
 
+\section{Chain Rule in Functions of several random variables  $ f:\mathbb{R} ^ n \rightarrow \mathbb{R} $ }
+
+
+\clm{Differentiation of functions}{}{
+	Let $z$ be a differentiable function of $x$ and $y$ on an interval domain, where $x$ and $y$ are differentiable functions of $t$ on interval $I$. Then:
+
+	\[
+		\frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt}
+	\]
+
+	We sum the rates of change of $z$ through $x$ and $y$.
+}
+
+\dfn{Single Variable}{
+	For single-variable functions, we use $\frac{d}{dt}$; for multiple variables, we use $\frac{\partial}{\partial t}$.
+}
+
+
+\begin{center}
+	\begin{forest}
+		[$z$
+			[$\frac{\partial z}{\partial x}$
+					[$x$
+							[$\frac{dx}{db}$
+									[$t$]
+								]
+						]
+				]
+				[$\frac{\partial z}{\partial y}$
+					[$y$
+							[$\frac{dy}{db}$
+									[$t$]
+								]
+						]
+				]
+		]
+	\end{forest}
+\end{center}
+
+\ex{Three Variables}{
+	If $z$ is a function of $x$, $y$, and $t$, we have:
+
+	\[
+		\frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt} + \frac{\partial z}{\partial t}
+	\]
+}
+
+
+\begin{center}
+	\begin{forest}
+		[$w$
+			[$\frac{\partial w}{\partial y}$
+			[$y$
+					[$\frac{dy}{db}$
+							[$t$]
+						]
+			]
+				]
+				[$\frac{\partial w}{\partial x}$
+				[$x$
+					[$\frac{dx}{db}$
+							[$t$]
+						]
+				]
+				]
+				[$\frac{\partial w}{\partial z}$
+				[$z$
+					[$\frac{dz}{db}$
+							[$t$]
+						]
+				]
+				]
+		]
+	\end{forest}
+\end{center}
+
+\ex{Example 1}{
+	Given $z = x \sin(y), \; x = t^2, \; y = t^3$:
+
+	\[
+		\frac{\partial z}{\partial x} = \sin(y), \quad \frac{\partial z}{\partial y} = x \cos(y)
+	\]
+	\[
+		\frac{dx}{dt} = 2t, \quad \frac{dy}{dt} = 3t^2
+	\]
+
+	Therefore,
+
+	\[
+		\frac{dz}{dt} = \sin(t^3)(2t) + t^2 \cos(t^3)(3t^2) = 2t \sin(t^3) + 3t^4 \cos(t^3)
+	\]
+
+	\begin{center}
+        \begin{forest}
+            [$z$
+                [$\frac{\partial z}{\partial x}$
+                    [$x$
+                        [$\frac{dx}{dt}$
+                            [$t$]
+                        ]
+                    ]
+                ]
+                [$\frac{\partial z}{\partial y}$
+                    [$y$
+                        [$\frac{dy}{dt}$
+                            [$t$]
+                        ]
+                    ]
+                ]
+            ]
+        \end{forest}
+    \end{center}
+
+}
+
+\ex{Example 2}{
+	Given $V = x y z, \; x = e^t, \; y = 2t + 3, \; z = \sin(t)$:
+
+	\[
+		\frac{\partial V}{\partial x} = yz, \quad \frac{\partial V}{\partial y} = xz, \quad \frac{\partial V}{\partial z} = xy
+	\]
+	\[
+		\frac{dx}{dt} = e^t, \quad \frac{dy}{dt} = 2, \quad \frac{dz}{dt} = \cos(t)
+	\]
+
+	Therefore,
+
+	\[
+		\frac{dV}{dt} = yz \cdot e^t + xz \cdot 2 + xy \cdot \cos(t)
+	\]
+	Substituting:
+
+	\[
+		\frac{dV}{dt} = (2t+3)\sin(t) \cdot e^t + (e^t)\sin(t) \cdot 2 + (e^t)(2t+3) \cdot \cos(t)
+	\]
+
+	\begin{center}
+        \begin{forest}
+            [$V$
+                [$\frac{\partial V}{\partial x}$
+                    [$x$
+                        [$\frac{dx}{dt}$
+                            [$t$]
+                        ]
+                    ]
+                ]
+                [$\frac{\partial V}{\partial y}$
+                    [$y$
+                        [$\frac{dy}{dt}$
+                            [$t$]
+                        ]
+                    ]
+                ]
+                [$\frac{\partial V}{\partial z}$
+                    [$z$
+                        [$\frac{dz}{dt}$
+                            [$t$]
+                        ]
+                    ]
+                ]
+            ]
+        \end{forest}
+    \end{center}
+
+}
 
 \end{document}
