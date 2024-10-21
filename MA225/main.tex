@@ -3334,6 +3334,7 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 	We will follow the steps below to compute the tangent plane:
 
 	\begin{enumerate}
+
 		\item \textbf{Find the point of tangency \( (a, b, c) \):}
 
 		      The point of tangency is given as \( \left( \frac{\pi}{2}, 0, 1 \right) \), so:
@@ -3384,13 +3385,14 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 		      \]
 
 		\item \textbf{Final equation of the tangent plane:}
-
 		      Thus, the equation of the tangent plane at \( \left( \frac{\pi}{2}, 0, 1 \right) \) is:
 
 		      \[
 			      y + z - 1 = 0
 		      \]
+
 	\end{enumerate}
+
 }
 
 \begin{center}
@@ -3400,8 +3402,11 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 				xlabel=$x$, ylabel=$y$, zlabel=$z$,
 				grid=major,
 				samples=50,
-				domain=-2*pi:2*pi,
-				y domain=-1:1,
+				domain=-3:6,
+				y domain=-3:3,
+				zmin=-5, zmax=5, % Set z-range to about 10 units total
+				xmin=-3, xmax=6, % Set x-range to about 10 units total
+				ymin=-3, ymax=3, % Set y-range to about 10 units total
 				colormap/cool]
 
 			% Plot the surface z = sin(x) * exp(y)
@@ -3410,7 +3415,7 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 
 			% Plot the tangent plane z = exp(y)
 			\addplot3[surf, opacity=0.6, color=red!80, fill opacity=0.3]
-			{exp(y)};
+			{1+y};
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
