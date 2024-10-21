@@ -3285,29 +3285,368 @@ Below is a diagram representing the gradient and the tangents to the level curve
 
 \section{Tangent Planes}
 
-The equation of the tangent plane to the surface $z = f(x, y)$ at the point $(a, b)$ is given by the linear approximation:
+\subsection{Tangent Line for Single Variable Functions}
 
+For a function of a single variable, the equation of the tangent line at a point \(f(a)\) is given by:
 \[
-	z = f(a, b) + \nabla f(a, b) \cdot \langle x - a, y - b \rangle
+	y = f'(a)(x - a) + f(a)
 \]
+This represents the line that touches the curve \(y = f(x)\) at the point \((a, f(a))\), and the slope of this line is determined by the derivative \(f'(a)\).
 
-This can be interpreted as the plane that best approximates the surface near the point $(a, b)$.
+\subsection{Tangent Plane for Two Variable Functions}
 
-\subsection{Linear Approximation of Tangent Planes}
+For functions of two variables, i.e. \(f(x, y)\), the tangent plane at a point \(P(a, b, c)\) on the surface can be described. Let the function be \(f(a, b) = c\), and we define a point \(P(a, b, c)\) that lies on the surface at the tangent point.
 
-Using the gradient, we express the tangent plane as:
+The tangent plane equation is derived using partial derivatives and parameter vectors.
 
+\textbf{Parameter Vector Representation}
+
+Let the point on the surface be \(P = (a, b, c)\) and consider small increments in \(x\) and \(y\), denoted \(\Delta x\) and \(\Delta y\), respectively. The change in the function value \(\Delta z\) due to these increments can be approximated using the partial derivatives. The tangent plane is spanned by vectors in the \(x\) and \(y\) directions, leading to:
 \[
-	z = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)
+	\vec{v} = \langle v_1, v_2 \rangle
 \]
+where:
+\[
+	v_1 = \frac{\partial f}{\partial x}(a, b) \quad \text{and} \quad v_2 = \frac{\partial f}{\partial y}(a, b)
+\]
+The equation of the plane then involves computing how much \(z\) increments based on \(x\) and \(y\), giving us the tangent plane equation:
+\[
+	z = c + \nabla f(a, b) \cdot \langle x - a, y - b \rangle
+\]
+where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y)\) at the point \((a, b)\).
 
-This equation is derived from the fact that the gradient $\nabla f(a, b) = \langle f_x(a, b), f_y(a, b) \rangle$ points in the direction of the steepest ascent.
+\dfn{The Tangent Plane Equation}{
 
-Below is a simple diagram representing a surface and its tangent plane at a point:
+	The explicit equation of the tangent plane can be written as:
+	\[
+		\frac{\partial f}{\partial x}(a, b)(x - a) + \frac{\partial f}{\partial y}(a, b)(y - b) + z - c = 0
+	\]
+	This expresses how the surface locally behaves near the point \((a, b, c)\), and the coefficients of \(x - a\) and \(y - b\) are given by the partial derivatives of \(f\) at \((a, b)\).
+}
+
+\ex{1}{
+	We are tasked with finding the tangent plane of the surface \( z = f(x, y) = \sin(x) \cdot e^y \) at the point \( \left( \frac{\pi}{2}, 0, 1 \right) \). The general form of the equation of a tangent plane to a surface \( z = f(x, y) \) is given by:
+
+	\[
+		\frac{\partial f}{\partial x}(a, b)(x - a) + \frac{\partial f}{\partial y}(a, b)(y - b) + z - c = 0
+	\]
+
+	We will follow the steps below to compute the tangent plane:
+
+	\begin{enumerate}
+		\item \textbf{Find the point of tangency \( (a, b, c) \):}
+
+		      The point of tangency is given as \( \left( \frac{\pi}{2}, 0, 1 \right) \), so:
+		      \[
+			      a = \frac{\pi}{2}, \quad b = 0, \quad c = 1
+		      \]
+
+		\item \textbf{Compute the partial derivative with respect to \(x\):}
+
+		      The partial derivative of \( f(x, y) = \sin(x) \cdot e^y \) with respect to \( x \) is:
+
+		      \[
+			      \frac{\partial f}{\partial x}(x, y) = \cos(x) \cdot e^y
+		      \]
+
+		      At the point \( \left( \frac{\pi}{2}, 0 \right) \), this becomes:
+
+		      \[
+			      \frac{\partial f}{\partial x} \left( \frac{\pi}{2}, 0 \right) = \cos\left( \frac{\pi}{2} \right) \cdot e^0 = 0 \cdot 1 = 0
+		      \]
+
+		\item \textbf{Compute the partial derivative with respect to \(y\):}
+
+		      The partial derivative of \( f(x, y) = \sin(x) \cdot e^y \) with respect to \( y \) is:
+
+		      \[
+			      \frac{\partial f}{\partial y}(x, y) = \sin(x) \cdot e^y
+		      \]
+
+		      At the point \( \left( \frac{\pi}{2}, 0 \right) \), this becomes:
+
+		      \[
+			      \frac{\partial f}{\partial y} \left( \frac{\pi}{2}, 0 \right) = \sin\left( \frac{\pi}{2} \right) \cdot e^0 = 1 \cdot 1 = 1
+		      \]
+
+		\item \textbf{Substitute into the tangent plane equation:}
+
+		      Using the general form of the tangent plane equation and substituting \( a = \frac{\pi}{2} \), \( b = 0 \), \( c = 1 \), as well as the values of the partial derivatives \( \frac{\partial f}{\partial x}(a, b) = 0 \) and \( \frac{\partial f}{\partial y}(a, b) = 1 \), we have:
+
+		      \[
+			      0 \cdot (x - \frac{\pi}{2}) + 1 \cdot (y - 0) + z - 1 = 0
+		      \]
+
+		      Simplifying the equation:
+
+		      \[
+			      y + z - 1 = 0
+		      \]
+
+		\item \textbf{Final equation of the tangent plane:}
+
+		      Thus, the equation of the tangent plane at \( \left( \frac{\pi}{2}, 0, 1 \right) \) is:
+
+		      \[
+			      y + z - 1 = 0
+		      \]
+	\end{enumerate}
+}
 
 \begin{center}
-	\includegraphics[scale=0.5]{tangentplane.png}
+	\begin{tikzpicture}
+		\begin{axis}[
+				view={60}{30},
+				xlabel=$x$, ylabel=$y$, zlabel=$z$,
+				grid=major,
+				samples=50,
+				domain=-2*pi:2*pi,
+				y domain=-1:1,
+				colormap/cool]
+
+			% Plot the surface z = sin(x) * exp(y)
+			\addplot3[surf, shader=interp]
+			{sin(deg(x)) * exp(y)};
+
+			% Plot the tangent plane z = exp(y)
+			\addplot3[surf, opacity=0.6, color=red!80, fill opacity=0.3]
+			{exp(y)};
+		\end{axis}
+	\end{tikzpicture}
 \end{center}
+
+\subsection{Implicit Case}
+
+When dealing with implicit functions such as \(f(x, y) = D\), the process involves implicit differentiation to find the slope of the tangent line. For example, given an equation of the form:
+\[
+	x^2 + y^2 = 4
+\]
+we differentiate implicitly to obtain the tangent line equation. The process is as follows:
+\[
+	\frac{dy}{dx} = -\frac{F_x}{F_y}
+\]
+For the given equation \(x^2 + y^2 = 4\), we compute:
+\[
+	\frac{dy}{dx} = -\frac{x}{y}
+\]
+leading to the equation of the tangent line:
+\[
+	y - b = -\frac{F_x}{F_y}(x - a)
+\]
+
+\dfn{Tangent Line for Implicit Functions}{
+
+	Finally, for the tangent line in the implicit case, we use the gradient \(\nabla f(a, b)\) to express the equation of the tangent line:
+	\[
+		\nabla f(a, b) \cdot \langle x - a, y - b \rangle = 0
+	\]
+	This represents a line tangent to the curve at the point \((a, b)\) on the implicit function.
+}
+
+\subsection{Level Surfaces and Tangent Planes}
+
+A \textbf{level surface} is represented by the equation \( w = f(x, y, z) \), where \(w\) is a constant, indicating a 3D surface embedded in 4D space. For example:
+\[
+	f(x, y, z) = D, \quad D \in \mathbb{R}
+\]
+This represents a 2D surface in 3D space. An example is the implicit equation:
+\[
+	x^2 + y^2 + z^2 = 4
+\]
+which describes a sphere of radius 2 in 3D space.
+
+\dfn{Level Curves Tangent Plane}{
+	The tangent plane to the surface is given by:
+	\[
+		\nabla F(a, b, c) \cdot \langle x - a, y - b, z - c \rangle = 0
+	\]
+	where \(\nabla F(a, b, c)\) is the gradient of the function \(F\) at the point \((a, b, c)\).
+}
+
+\subsection{Summary of Cases}
+
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Curve/Surface} & \textbf{Equation}                                                     \\
+		\hline
+		\( y = f(x) \)         & \( y = f'(a)(x - a) + f(a) \)                                         \\
+		\( z = f(x, y) \)      & \( z = c + \nabla f(a, b) \cdot \langle x - a, y - b \rangle \)       \\
+		\( F(x, y, z) = D \)   & \( \nabla F(a, b, c) \cdot \langle x - a, y - b, z - c \rangle = 0 \) \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\ex{1}{
+
+	Consider the surface given by:
+	\[
+		z = f(x, y) = x^2 y^2 - 2x
+	\]
+	At the point \((1, 3, 7)\), we compute the gradient:
+	\[
+		\nabla f(x, y) = \langle y^2 2x - 2, x^2 2y \rangle
+	\]
+	At the point \((1, 3)\):
+	\[
+		\nabla f(1, 3) = \langle 9 - 2, 6 \rangle = \langle 7, 6 \rangle
+	\]
+	The equation of the tangent plane is:
+	\[
+		7(x - 1) + 6(y - 3) + z - 7 = 0
+	\]
+	Simplifying this gives:
+	\[
+		7(x - 1) + 6(y - 3) + z = 7
+	\]
+}
+
+\ex{2}{
+
+	Now, consider the implicit surface given by:
+	\[
+		F(x, y, z) = x^3 - 3y + z^2 = 8
+	\]
+	At the point \((1, 2, 3)\), the gradient is:
+	\[
+		\nabla F(x, y, z) = \langle 3x^2, -3, 2z \rangle
+	\]
+	At the point \((1, 2, 3)\), this evaluates to:
+	\[
+		\nabla F(1, 2, 3) = \langle 3, -3, 6 \rangle
+	\]
+	The tangent plane equation is:
+	\[
+		3(x - 1) - 3(y - 2) + 6(z - 3) = 0
+	\]
+	Simplifying:
+	\[
+		3(x - 1) - 3(y - 2) + 6(z - 3) = 0
+	\]
+	\[
+		3(x - 1) - 3(y - 2) + 6(z - 3) = 0
+	\]
+	This describes the tangent plane to the surface at the given point.
+}
+
+\section{Applications of Tangent Planes}
+
+\subsection{Linear Approximation}
+
+In many cases, we know the value of the function \( f(a, b) \) at a particular point and want to estimate the value of \( f(x, y) \) near that point. We use the linear approximation formula for this estimation:
+\[
+	f(x, y) \approx f(a, b) + \nabla f(a, b) \cdot \langle x - a, y - b \rangle
+\]
+where \( \nabla f(a, b) \) is the gradient of the function \( f \) at the point \((a, b)\).
+
+\ex{Linear Approximation of \( \sin(x y) \)}{
+
+	Let \( f(x, y) = \sin(x y) \). We want to estimate \( f(0.8, 0.25) \) using linear approximation.
+
+	\begin{enumerate}
+		\item First, find \( f(a, b) = f(\pi/2, 0.2) \). Since \( \sin(\frac{\pi}{2} \cdot 0.2) \approx 0.985 \), we get:
+		      \[
+			      f(a, b) = \sin \left( \frac{\pi}{2} \times 0.2 \right) \approx 0.985
+		      \]
+		\item The gradient \( \nabla f(x, y) \) is given by:
+		      \[
+			      \nabla f(x, y) = \langle y \cos(x y), x \cos(x y) \rangle
+		      \]
+		      At \( (\frac{\pi}{2}, 0.2) \), we calculate the partial derivatives:
+		      \[
+			      \nabla f\left(\frac{\pi}{2}, 0.2\right) = \langle 0.2 \cos(1), \frac{\pi}{2} \cos(1) \rangle
+		      \]
+		      Using \( \cos(1) \approx 0.5403 \), we have:
+		      \[
+			      \nabla f\left(\frac{\pi}{2}, 0.2\right) = \langle 0.1081, 0.8474 \rangle
+		      \]
+		\item Now, estimate \( f(0.8, 0.25) \) using the formula for linear approximation:
+		      \[
+			      f(0.8, 0.25) \approx f\left(\frac{\pi}{2}, 0.2\right) + \nabla f\left(\frac{\pi}{2}, 0.2\right) \cdot \langle 0.8 - \frac{\pi}{2}, 0.25 - 0.2 \rangle
+		      \]
+		      Simplifying:
+		      \[
+			      f(0.8, 0.25) \approx 0.985 + \langle 0.1081, 0.8474 \rangle \cdot \langle -0.014, 0.05 \rangle
+		      \]
+		      \[
+			      f(0.8, 0.25) \approx 0.985 + (-0.0015 + 0.0424)
+		      \]
+		      \[
+			      f(0.8, 0.25) \approx 0.985 + 0.0409 = 1.0259
+		      \]
+	\end{enumerate}
+
+}
+
+\subsection{Finding Approximate Solutions to Equations}
+
+To find approximate solutions to equations, we can apply linearization techniques similar to the above. For instance, if we know a point \((a, b, c)\) and want to estimate the solution for \(f(x, y, z)\), we use the following approximation:
+\[
+	f(x, y, z) \approx f(a, b, c) + \nabla f(a, b, c) \cdot \langle x - a, y - b, z - c \rangle
+\]
+where \(\nabla f(a, b, c)\) is the gradient of the function at the point \((a, b, c)\).
+
+\ex{Finding the Root of \( f(z) = z e^z + 1.02 z - e^z - 0.2 \)}{
+	To find approximate solutions to equations, we can apply linearization techniques similar to the above. For instance, if we know a point \((a, b, c)\) and want to estimate the solution for \(f(x, y, z)\), we use the following approximation:
+	\[
+		f(x, y, z) \approx f(a, b, c) + \nabla f(a, b, c) \cdot \langle x - a, y - b, z - c \rangle
+	\]
+	where \(\nabla f(a, b, c)\) is the gradient of the function at the point \((a, b, c)\).
+
+	\subsection{Example: Linearizing \( f(x,y,z) = z\ln(z) + xz - e^{yz} \)}
+
+	Consider the function \( f(x, y, z) = z\ln(z) + xz - e^{yz} \). We want to find an approximate solution around the point \( (x, y, z) = (1, 0, 1) \).
+
+	First, we calculate the value of the function at this point:
+	\[
+		f(1, 0, 1) = 1 \ln(1) + 1 \cdot 1 - e^{0 \cdot 1} = 0 + 1 - 1 = 0.
+	\]
+
+	Next, we compute the gradient \( \nabla f(x, y, z) \) at the point \( (1, 0, 1) \). The gradient is given by:
+	\[
+		\nabla f(x, y, z) = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right).
+	\]
+
+	\noindent
+	The partial derivatives are calculated as follows:
+	\[
+		\frac{\partial f}{\partial x} = z, \quad \frac{\partial f}{\partial y} = -z e^{yz}, \quad \frac{\partial f}{\partial z} = \ln(z) + 1 + x - y e^{yz}.
+	\]
+
+	Evaluating these at \( (x, y, z) = (1, 0, 1) \):
+	\[
+		\frac{\partial f}{\partial x}(1, 0, 1) = 1, \quad \frac{\partial f}{\partial y}(1, 0, 1) = -1, \quad \frac{\partial f}{\partial z}(1, 0, 1) = \ln(1) + 1 + 1 = 2.
+	\]
+
+	Thus, the gradient at \( (1, 0, 1) \) is:
+	\[
+		\nabla f(1, 0, 1) = (1, -1, 2).
+	\]
+
+	Using the linear approximation formula:
+	\[
+		f(x, y, z) \approx f(1, 0, 1) + \nabla f(1, 0, 1) \cdot \langle x - 1, y, z - 1 \rangle,
+	\]
+	we substitute the values:
+	\[
+		f(x, y, z) \approx 0 + (1)(x - 1) + (-1)(y) + (2)(z - 1).
+	\]
+
+	Simplifying:
+	\[
+		f(x, y, z) \approx x - 1 - y + 2(z - 1).
+	\]
+	\[
+		f(x, y, z) \approx x + 2z - y - 3.
+	\]
+
+	Thus, the linearized approximation of \( f(x, y, z) \) around \( (1, 0, 1) \) is:
+	\[
+		f(x, y, z) \approx x + 2z - y - 3.
+	\]
+
+}
+
 
 \section{Chain Rule in Functions of several random variables  $ f:\mathbb{R} ^ n \rightarrow \mathbb{R} $ }
 
@@ -3348,7 +3687,7 @@ Below is a simple diagram representing a surface and its tangent plane at a poin
 	\end{forest}
 \end{center}
 
-\ex{Three Variables}{
+\clm{Three Variables}{}{
 	If $z$ is a function of $x$, $y$, and $t$, we have:
 
 	\[
@@ -3361,25 +3700,25 @@ Below is a simple diagram representing a surface and its tangent plane at a poin
 	\begin{forest}
 		[$w$
 			[$\frac{\partial w}{\partial y}$
-			[$y$
-					[$\frac{dy}{db}$
-							[$t$]
+					[$y$
+							[$\frac{dy}{db}$
+									[$t$]
+								]
 						]
-			]
 				]
 				[$\frac{\partial w}{\partial x}$
-				[$x$
-					[$\frac{dx}{db}$
-							[$t$]
+					[$x$
+							[$\frac{dx}{db}$
+									[$t$]
+								]
 						]
-				]
 				]
 				[$\frac{\partial w}{\partial z}$
-				[$z$
-					[$\frac{dz}{db}$
-							[$t$]
+					[$z$
+							[$\frac{dz}{db}$
+									[$t$]
+								]
 						]
-				]
 				]
 		]
 	\end{forest}
@@ -3402,25 +3741,25 @@ Below is a simple diagram representing a surface and its tangent plane at a poin
 	\]
 
 	\begin{center}
-        \begin{forest}
-            [$z$
-                [$\frac{\partial z}{\partial x}$
-                    [$x$
-                        [$\frac{dx}{dt}$
-                            [$t$]
-                        ]
-                    ]
-                ]
-                [$\frac{\partial z}{\partial y}$
-                    [$y$
-                        [$\frac{dy}{dt}$
-                            [$t$]
-                        ]
-                    ]
-                ]
-            ]
-        \end{forest}
-    \end{center}
+		\begin{forest}
+			[$z$
+				[$\frac{\partial z}{\partial x}$
+						[$x$
+								[$\frac{dx}{dt}$
+										[$t$]
+									]
+							]
+					]
+					[$\frac{\partial z}{\partial y}$
+						[$y$
+								[$\frac{dy}{dt}$
+										[$t$]
+									]
+							]
+					]
+			]
+		\end{forest}
+	\end{center}
 
 }
 
@@ -3446,33 +3785,86 @@ Below is a simple diagram representing a surface and its tangent plane at a poin
 	\]
 
 	\begin{center}
-        \begin{forest}
-            [$V$
-                [$\frac{\partial V}{\partial x}$
-                    [$x$
-                        [$\frac{dx}{dt}$
-                            [$t$]
-                        ]
-                    ]
-                ]
-                [$\frac{\partial V}{\partial y}$
-                    [$y$
-                        [$\frac{dy}{dt}$
-                            [$t$]
-                        ]
-                    ]
-                ]
-                [$\frac{\partial V}{\partial z}$
-                    [$z$
-                        [$\frac{dz}{dt}$
-                            [$t$]
-                        ]
-                    ]
-                ]
-            ]
-        \end{forest}
-    \end{center}
+		\begin{forest}
+			[$V$
+				[$\frac{\partial V}{\partial x}$
+						[$x$
+								[$\frac{dx}{dt}$
+										[$t$]
+									]
+							]
+					]
+					[$\frac{\partial V}{\partial y}$
+						[$y$
+								[$\frac{dy}{dt}$
+										[$t$]
+									]
+							]
+					]
+					[$\frac{\partial V}{\partial z}$
+						[$z$
+								[$\frac{dz}{dt}$
+										[$t$]
+									]
+							]
+					]
+			]
+		\end{forest}
+	\end{center}
 
+}
+
+\clm{Two Independent Variables}{}{
+	If $z = f(x, y), x = g(s,t), y = h(s,t)$, then:
+
+	\[
+		\frac{dz}{ds} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial s}
+	\]
+
+	\[
+		\frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial t}
+	\]
+
+}
+
+\begin{center}
+	\begin{forest}
+		[z
+				[x
+						[s]
+						[t]
+				]
+				[y
+						[s]
+						[t]
+				]
+		]
+	\end{forest}
+\end{center}
+
+\clm{Implicit Differentiation}{}{
+	Let $f$ be a differentiable function on its domain, and suppose $f(x,y) = 0$ defines $y$ as a differentiable function of $x$. Provided $F_y \neq 0$, we have:
+
+	\[
+		\frac{dy}{dx} = - \frac{F_x}{F_y}
+	\]
+
+	\ex{Example}{
+		Given:
+		\[
+			\frac{dy}{dx} \; \text{if} \; y e^{xy} - 2 = 0
+		\]
+
+		We have:
+		\[
+			F_x = y^2 e^{xy}, \quad F_y = xy e^{xy} + e^{xy}
+		\]
+
+		Therefore:
+		\[
+			\frac{dy}{dx} = -\frac{y^2 e^{xy}}{xy e^{xy} + e^{xy}} = \frac{-y^2}{x + y}
+		\]
+	}
 }
 
 \end{document}
