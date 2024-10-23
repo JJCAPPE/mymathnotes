@@ -12,6 +12,9 @@
 \usepackage{smartdiagram}
 \usepackage{xcolor}
 \usepackage{forest}
+\usepgfplotslibrary{colormaps}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
 
 \usesmartdiagramlibrary{additions}
 
@@ -3407,7 +3410,9 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 				zmin=-5, zmax=5, % Set z-range to about 10 units total
 				xmin=-3, xmax=6, % Set x-range to about 10 units total
 				ymin=-3, ymax=3, % Set y-range to about 10 units total
-				colormap/cool]
+				mesh/ordering=y varies, % Add mesh/gridlines
+				colormap/viridis
+				]
 
 			% Plot the surface z = sin(x) * exp(y)
 			\addplot3[surf, shader=interp]
@@ -3652,6 +3657,58 @@ where \(\nabla f(a, b, c)\) is the gradient of the function at the point \((a, b
 
 }
 
+\subsection{Differentials}
+
+\thm{Differentials approximation using gradient}{
+
+	Suppose \( z = f(x, y) \), then
+	\[
+		\Delta z = f(x + \Delta x, y + \Delta y) - f(x, y)
+	\]
+	can be approximated by
+	\[
+		\Delta z \approx \nabla f(x, y) \cdot \langle \Delta x, \Delta y \rangle
+	\]
+	which expands to
+	\[
+		\Delta z = f_x(x, y) \Delta x + f_y(x, y) \Delta y
+	\]
+	where \( f_x(x, y) \) and \( f_y(x, y) \) are the partial derivatives of \( f \) with respect to \( x \) and \( y \), respectively.
+
+}
+
+\ex{Example}{
+
+	Consider the volume \( V \) of a cone, given by
+	\[
+		V = \frac{\pi}{2} r^2 h
+	\]
+	where \( r \) is the radius and \( h \) is the height of the cone. If \( r \) decreases by 1.5\% and \( h \) increases by 2.2\%, what is the percentage change in \( V \)?
+
+	First, find the change in volume \( \Delta V \) using the differential approximation:
+	\[
+		\Delta V = V_r \Delta r + V_h \Delta h
+	\]
+	where \( V_r \) and \( V_h \) are the partial derivatives of \( V \) with respect to \( r \) and \( h \). We have:
+	\[
+		V_r = \pi r h, \quad V_h = \frac{\pi}{2} r^2
+	\]
+	Thus,
+	\[
+		\frac{\Delta V}{V} = \frac{\pi r h \Delta r}{\frac{\pi}{2} r^2 h} + \frac{\frac{\pi}{2} r^2 \Delta h}{\frac{\pi}{2} r^2 h}
+		= \frac{2 \Delta r}{r} + \frac{\Delta h}{h}
+	\]
+
+	Substituting the percentage changes:
+	\[
+		\frac{\Delta V}{V} = 2 \left( \frac{-1.5}{100} \right) + \left( \frac{2.2}{100} \right)
+		= -0.03 + 0.022 = -0.008
+	\]
+
+	Thus, the volume decreases by $0.8\%$.
+
+}
+
 
 \section{Chain Rule in Functions of several random variables  $ f:\mathbb{R} ^ n \rightarrow \mathbb{R} $ }
 
@@ -3871,5 +3928,199 @@ where \(\nabla f(a, b, c)\) is the gradient of the function at the point \((a, b
 		\]
 	}
 }
+
+\section{Maximum and Minimum of 2 Variable Functions $f:\mathbb{R} \rightarrow \mathbb{R}^2$ }
+
+\subsection{Critical Points}
+
+A \emph{critical point} of a function \( f(x, y) \) is a point \( (a, b) \in \mathbb{R}^2 \) such that:
+\begin{enumerate}
+	\item \( \nabla f(a, b) = \vec{0} \), i.e., the gradient of \( f \) at \( (a, b) \) is the zero vector $<0,0$.
+	\item The partial derivatives \( f_x(a, b) \) and \( f_y(a, b) \) both exist.
+\end{enumerate}
+
+At a critical point, there are three possible types:
+\begin{enumerate}
+	\item \emph{Local minimum}: The function value increases as we move away from \( (a, b) \) in all directions.
+	\item \emph{Local maximum}: The function value decreases as we move away from \( (a, b) \) in all directions.
+	\item \emph{Saddle point}: The function behaves such that in some directions, it increases, while in others, it decreases.
+\end{enumerate}
+
+\subsection{Definitions}
+\begin{enumerate}
+	\item \( f(a, b) \) is a \emph{local maximum} if there exists an open disc \( D \), such that for all \( (x, y) \in D \), \( f(a, b) \geq f(x, y) \).
+	\item \( f(a, b) \) is a \emph{local minimum} if the same condition holds, but with \( f(a, b) \leq f(x, y) \).
+	\item A \emph{saddle point} exists if, for any neighborhood around \( (a, b) \), there exist points \( (x_1, y_1) \) and \( (x_2, y_2) \) such that \( f(a, b) > f(x_1, y_1) \) and \( f(a, b) < f(x_2, y_2) \).
+\end{enumerate}
+
+\subsection{Visual Representation of Maxima, Minima and Saddle Points}
+
+
+\begin{tikzpicture}
+	\begin{groupplot}[
+			group style={
+					group name=my plots,
+					group size=3 by 1,
+					horizontal sep=1.5cm,
+				},
+			colormap/hot,
+			mesh/ordering=y varies, % Add mesh/gridlines
+			grid=major, % Add gridlines to the axesP
+			width=6cm,
+			height=6cm,
+			xlabel=$x$, ylabel=$y$, zlabel=$z$,
+			domain=-2:2,
+			samples=50,
+		]
+
+		% Plot 1: z = x^2 + y^2 (Local Minima)
+		% Plot 1: z = x^2 + y^2 (Local Minima)
+		\nextgroupplot[title={$z = x^2 + y^2$}, zmax=4, zmin=0]
+		\addplot3[surf] {x^2 + y^2};
+		\node at (axis cs:-1.5,1.5,-0.5) [below] {Local Minima};
+
+		% Plot 2: z = -x^2 - y^2 (Local Maxima)
+		\nextgroupplot[title={$z = -x^2 - y^2$}, zmax=0, zmin=-4]
+		\addplot3[surf] {-x^2 - y^2};
+		\node at (axis cs:-1.5,1.5,-3.5) [below] {Local Maxima};
+
+		% Plot 3: z = x^2 - y^2 (Saddle Point)
+		\nextgroupplot[title={$z = x^2 - y^2$}, zmax=4, zmin=-4]
+		\addplot3[surf] {x^2 - y^2};
+		\node at (axis cs:-1.5,1.5,-3.5) [below] {Saddle Point};
+
+	\end{groupplot}
+\end{tikzpicture}
+
+\subsection{Second Derivative Test}
+The second derivative test is used to classify critical points by examining the Hessian matrix. The Hessian matrix, \( H(x, y) \), contains the second-order partial derivatives of \( f(x, y) \):
+\[
+	H(x, y) = \begin{bmatrix}
+		f_{xx}(x, y) & f_{xy}(x, y) \\
+		f_{yx}(x, y) & f_{yy}(x, y)
+	\end{bmatrix}
+\]
+We evaluate the determinant of the Hessian, \( \text{det}(H) = f_{xx}(x, y) f_{yy}(x, y) - \left( f_{xy}(x, y) \right)^2 \), and use the following rules:
+\begin{enumerate}
+	\item If \( \text{det}(H) > 0 \) and \( f_{xx}(a, b) > 0 \), then \( f(a, b) \) is a \emph{local minimum}.
+	\item If \( \text{det}(H) > 0 \) and \( f_{xx}(a, b) < 0 \), then \( f(a, b) \) is a \emph{local maximum}.
+	\item If \( \text{det}(H) < 0 \), then \( (a, b) \) is a \emph{saddle point}.
+	\item If \( \text{det}(H) = 0 \), the test is \emph{inconclusive}.
+\end{enumerate}
+
+\ex{Example}{
+	Consider the function:
+	\[
+		f(x, y) = x^3 - 3x + y^3 - 3y
+	\]
+	To find the critical points, we calculate the gradient:
+	\[
+		\nabla f(x, y) = \begin{bmatrix} 3x^2 - 3 \\ 3y^2 - 3 \end{bmatrix}
+	\]
+	Setting \( \nabla f(x, y) = 0 \), we solve:
+	\[
+		3x^2 - 3 = 0 \quad \Rightarrow \quad x = \pm 1
+	\]
+	\[
+		3y^2 - 3 = 0 \quad \Rightarrow \quad y = \pm 1
+	\]
+	Thus, the critical points are \( (1, 1), (1, -1), (-1, 1), (-1, -1) \).
+
+	Next, we calculate the Hessian matrix:
+	\[
+		H(x, y) = \begin{bmatrix}
+			6x & 0  \\
+			0  & 6y
+		\end{bmatrix}
+	\]
+	The determinant of the Hessian is:
+	\[
+		\text{det}(H) = 36xy
+	\]
+	For the critical points: 
+	\begin{itemize}
+		\item \( (1, 1) \): \( \text{det}(H) = 36 \), and since \( f_{xx}(1, 1) = 6 \), this is a local minimum.
+		\item \( (1, -1) \): \( \text{det}(H) = -36 \), so this is a saddle point.
+		\item \( (-1, 1) \): \( \text{det}(H) = -36 \), so this is a saddle point.
+		\item \( (-1, -1) \): \( \text{det}(H) = 36 \), and since \( f_{xx}(-1, -1) = -6 \), this is a local maximum.
+	\end{itemize}
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				colormap/plasma,
+				width=10cm,
+				height=10cm,
+				xlabel=$x$, ylabel=$y$, zlabel=$z$,
+				domain=-3:3,
+				samples=50,
+				samples y=50,
+				zmax=8, zmin=-8,
+				mesh/ordering=y varies, % Add mesh/gridlines
+				grid=major, % Add gridlines to the axesP
+				view={250}{60}, % Adjusting the view angle for better perspective
+				scatter/classes={a={mark=*,blue}} % For marking points
+			]
+			\addplot3[surf, mesh/cols=50] {x^3 - 3*x + y^3 - 3*y};
+			\addplot3[only marks, mark=*, color=red] coordinates {
+					(1,1,-4) % z = -4
+					(-1,1,0) % z = 0
+					(1,-1,0) % z = 0
+					(-1,-1,4) % z = 4
+				};
+			\node at (axis cs:1,1,-4) [anchor=north east,fill=white] {\tiny $(1,1)$ MIN};
+			\node at (axis cs:-1,1,0) [anchor=north west,fill=white] {\tiny $(-1,1)$ SADDLE};
+			\node at (axis cs:1,-1,0) [anchor=south east,fill=white] {\tiny $(1,-1)$ SADDLE};
+			\node at (axis cs:-1,-1,4) [anchor=south west,fill=white] {\tiny $(-1,-1)$ MAX};
+
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+\subsection{Connection Between the Second Derivative Test and Eigenvalues of the Hessian}
+
+The Second Derivative Test is closely related to the eigenvalues of the Hessian matrix. To understand this connection, we need to explore the geometric interpretation of eigenvalues and how they inform us about the curvature of a function at a critical point.
+
+Given a Hessian matrix \( H(x, y) \), we can compute its eigenvalues, \( \lambda_1 \) and \( \lambda_2 \). These eigenvalues describe the principal curvatures of the function in the directions of the corresponding eigenvectors. Here's the relationship between the eigenvalues and the nature of the critical point:
+
+\begin{enumerate}
+	\item If both eigenvalues \( \lambda_1 > 0 \) and \( \lambda_2 > 0 \), the function \( f(x, y) \) is \emph{locally convex} at the critical point, meaning the graph of the function curves upwards in all directions. This corresponds to a \textbf{local minimum}.
+	\item If both eigenvalues \( \lambda_1 < 0 \) and \( \lambda_2 < 0 \), the function is \emph{locally concave}, meaning the graph curves downwards in all directions. This corresponds to a \textbf{local maximum}.
+	\item If one eigenvalue is positive and the other is negative (\( \lambda_1 \lambda_2 < 0 \)), the function exhibits a \emph{saddle point}. The function curves upwards in the direction corresponding to the positive eigenvalue and downwards in the direction corresponding to the negative eigenvalue.
+	\item If any eigenvalue is zero (\( \lambda_1 = 0 \) or \( \lambda_2 = 0 \)), the Second Derivative Test is \emph{inconclusive}. In this case, higher-order terms or a more detailed analysis is required to classify the critical point.
+\end{enumerate}
+
+\subsection{Intuition from Linear Algebra}
+Eigenvalues of the Hessian matrix tell us about the principal directions in which the function is changing at a critical point. Consider the Hessian as a local quadratic approximation of the function at a point, where the eigenvalues reflect how steep the function’s graph is along particular directions. Specifically:
+\begin{itemize}
+	\item Positive eigenvalues correspond to directions where the function increases, resembling an upward-parabola shape.
+	\item Negative eigenvalues correspond to directions where the function decreases, resembling a downward-parabola.
+	\item Mixed signs for the eigenvalues indicate a saddle-like behavior, where some directions exhibit maxima and others minima.
+\end{itemize}
+
+Thus, checking the signs of the eigenvalues is an alternative way to interpret the Second Derivative Test in terms of curvature.
+
+\ex{Example}{
+	Let’s revisit the example \( f(x, y) = x^3 - 3x + y^3 - 3y \) and calculate the Hessian matrix at one of the critical points. For the critical point \( (1, 1) \), we have:
+	\[
+		H(1, 1) = \begin{bmatrix}
+			6 & 0 \\
+			0 & 6
+		\end{bmatrix}
+	\]
+	The eigenvalues of this Hessian are \( \lambda_1 = 6 \) and \( \lambda_2 = 6 \), both positive, which confirms that \( (1, 1) \) is a local minimum as expected from the Second Derivative Test.
+
+	For the critical point \( (1, -1) \), the Hessian is:
+	\[
+		H(1, -1) = \begin{bmatrix}
+			6 & 0  \\
+			0 & -6
+		\end{bmatrix}
+	\]
+	The eigenvalues are \( \lambda_1 = 6 \) and \( \lambda_2 = -6 \), confirming that \( (1, -1) \) is a saddle point, as one direction curves upward and the other downward.
+}
+
+
 
 \end{document}
