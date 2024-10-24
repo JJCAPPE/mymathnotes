@@ -1,0 +1,101 @@
+\contentsline {chapter}{\numberline {1}Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Review}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Basics}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Notation}{4}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Operations}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Dot Product}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Applications}{6}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Matrix Determinants}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Matrix multiplication with 2D Vectors}{8}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Effect on Area}{9}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Matrix multiplication with 3D Vectors}{10}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Cross Product and Volumes}{10}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Link to Matrix Determinants}{11}{subsection.1.6.1}%
+\contentsline {section}{\numberline {1.7}Cross Product Polynomial Multiplication}{11}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Torque}{12}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Parametric Equations}{12}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Examples}{12}{subsection.1.9.1}%
+\contentsline {section}{\numberline {1.10}Distance from a Point to a Line}{14}{section.1.10}%
+\contentsline {subsection}{\numberline {1.10.1}Example}{14}{subsection.1.10.1}%
+\contentsline {section}{\numberline {1.11}Intersection of Two Parametric Lines}{15}{section.1.11}%
+\contentsline {section}{\numberline {1.12}Planes}{15}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Vector Valued Functions}{16}{section.1.13}%
+\contentsline {section}{\numberline {1.14}Calculus and Vector Valued Functions}{18}{section.1.14}%
+\contentsline {subsection}{\numberline {1.14.1}Derivative}{18}{subsection.1.14.1}%
+\contentsline {subsection}{\numberline {1.14.2}Chain Rule}{21}{subsection.1.14.2}%
+\contentsline {subsection}{\numberline {1.14.3}Product Rule}{22}{subsection.1.14.3}%
+\contentsline {subsection}{\numberline {1.14.4}Integrals}{22}{subsection.1.14.4}%
+\contentsline {section}{\numberline {1.15}Arc Length}{24}{section.1.15}%
+\contentsline {section}{\numberline {1.16}Curvature of a Vector-Valued Function}{26}{section.1.16}%
+\contentsline {subsection}{\numberline {1.16.1}Osculating Circle}{26}{subsection.1.16.1}%
+\contentsline {subsection}{\numberline {1.16.2}Curvature \(\kappa (t)\)}{27}{subsection.1.16.2}%
+\contentsline {subsection}{\numberline {1.16.3}Deriving the Perpendicularity}{29}{subsection.1.16.3}%
+\contentsline {section}{\numberline {1.17}Calculating Curvature}{29}{section.1.17}%
+\contentsline {subsection}{\numberline {1.17.1}Case 1: $\vec {r}(t)$ travels at unit speed around a circle}{29}{subsection.1.17.1}%
+\contentsline {subsection}{\numberline {1.17.2}Case 2: General Curve with Unit Speed}{30}{subsection.1.17.2}%
+\contentsline {subsection}{\numberline {1.17.3}Case 3: General Curve with Variable Speed}{31}{subsection.1.17.3}%
+\contentsline {section}{\numberline {1.18}Components of Acceleration}{32}{section.1.18}%
+\contentsline {section}{\numberline {1.19}Binormal Vector}{32}{section.1.19}%
+\contentsline {subsection}{\numberline {1.19.1}Change in the Plane of Motion}{32}{subsection.1.19.1}%
+\contentsline {subsection}{\numberline {1.19.2}Torsion and its Relation to the Binormal Vector}{33}{subsection.1.19.2}%
+\contentsline {subsection}{\numberline {1.19.3}General Case and Torsion Formula}{33}{subsection.1.19.3}%
+\contentsline {subsection}{\numberline {1.19.4}Expressing the Binormal Vector with Velocity and Acceleration}{34}{subsection.1.19.4}%
+\contentsline {chapter}{\numberline {2}Functions of Multiple Random Variables $f:\varmathbb {R} ^ n \rightarrow \varmathbb {R}$}{36}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Plotting Multiple Random Variable Functions}{36}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Domain of Multiple Random Variable Functions}{37}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Range of Multiple Random Variable Functions}{38}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Level Curves of Functions of Two Variables}{38}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Limits of Two-Variable Functions}{39}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Limits by substituting with function $f:\varmathbb {R} \rightarrow \varmathbb {R}$}{41}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Limits by substituting with Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{42}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Tips for Finding Limits of Two-Variable Functions (2VF)}{43}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Polynomials are Continuous}{43}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Compositions of Continuous Functions are Continuous}{43}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Rational Functions}{44}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Special Limits: Squeeze Theorem}{44}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Use of Polar Coordinates}{44}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}Testing Multiple Paths}{44}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.7}Continuity of Common Functions}{44}{subsection.2.6.7}%
+\contentsline {subsection}{\numberline {2.6.8}Rational functions}{44}{subsection.2.6.8}%
+\contentsline {subsection}{\numberline {2.6.9}Case 1: \( g(a, b) \neq 0 \)}{45}{subsection.2.6.9}%
+\contentsline {subsection}{\numberline {2.6.10}Case 2: \( g(a, b) = 0 \) and \( h(a, b) \neq 0 \)}{45}{subsection.2.6.10}%
+\contentsline {subsection}{\numberline {2.6.11}Case 3: \( h(a, b) = g(a, b) = 0 \)}{45}{subsection.2.6.11}%
+\contentsline {subsection}{\numberline {2.6.12}Case 4: \( h(a, b) = g(a, b) = 0 \) still}{45}{subsection.2.6.12}%
+\contentsline {subsection}{\numberline {2.6.13}Case 5: Still getting the same limit}{46}{subsection.2.6.13}%
+\contentsline {section}{\numberline {2.7}Properties of Limits of Two-Variable Functions}{46}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Scaling by a constant:}{46}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Addition of functions:}{46}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Multiplication of functions:}{46}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Division of functions:}{47}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Other}{47}{subsection.2.7.5}%
+\contentsline {section}{\numberline {2.8}Partial Derivatives}{47}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Differentiability}{48}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Open and Closed Sets}{48}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.8.3}Conditions for Differentiability}{49}{subsection.2.8.3}%
+\contentsline {section}{\numberline {2.9}Directional Derivative}{51}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Derivation of the Directional Derivative}{51}{subsection.2.9.1}%
+\contentsline {section}{\numberline {2.10}Application of the Gradient}{51}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Directional Derivative and the Gradient}{51}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}Dot Product and Angle}{52}{subsection.2.10.2}%
+\contentsline {subsection}{\numberline {2.10.3}Maximum and Minimum Values of the Directional Derivative}{52}{subsection.2.10.3}%
+\contentsline {subsection}{\numberline {2.10.4}Tangent to a Level Curve}{52}{subsection.2.10.4}%
+\contentsline {section}{\numberline {2.11}Tangent Planes}{53}{section.2.11}%
+\contentsline {subsection}{\numberline {2.11.1}Tangent Line for Single Variable Functions}{53}{subsection.2.11.1}%
+\contentsline {subsection}{\numberline {2.11.2}Tangent Plane for Two Variable Functions}{53}{subsection.2.11.2}%
+\contentsline {subsection}{\numberline {2.11.3}Implicit Case}{55}{subsection.2.11.3}%
+\contentsline {subsection}{\numberline {2.11.4}Level Surfaces and Tangent Planes}{55}{subsection.2.11.4}%
+\contentsline {subsection}{\numberline {2.11.5}Summary of Cases}{55}{subsection.2.11.5}%
+\contentsline {section}{\numberline {2.12}Applications of Tangent Planes}{56}{section.2.12}%
+\contentsline {subsection}{\numberline {2.12.1}Linear Approximation}{56}{subsection.2.12.1}%
+\contentsline {subsection}{\numberline {2.12.2}Finding Approximate Solutions to Equations}{57}{subsection.2.12.2}%
+\contentsline {subsection}{\numberline {2.12.3}Example: Linearizing \( f(x,y,z) = z\ln (z) + xz - e^{yz} \)}{57}{subsection.2.12.3}%
+\contentsline {subsection}{\numberline {2.12.4}Differentials}{58}{subsection.2.12.4}%
+\contentsline {section}{\numberline {2.13}Chain Rule in Functions of several random variables $ f:\varmathbb {R} ^ n \rightarrow \varmathbb {R} $ }{59}{section.2.13}%
+\contentsline {section}{\numberline {2.14}Maximum and Minimum of 2 Variable Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^2$ }{61}{section.2.14}%
+\contentsline {subsection}{\numberline {2.14.1}Critical Points}{61}{subsection.2.14.1}%
+\contentsline {subsection}{\numberline {2.14.2}Definitions}{62}{subsection.2.14.2}%
+\contentsline {subsection}{\numberline {2.14.3}Visual Representation of Maxima, Minima and Saddle Points}{62}{subsection.2.14.3}%
+\contentsline {subsection}{\numberline {2.14.4}Second Derivative Test}{62}{subsection.2.14.4}%
+\contentsline {subsection}{\numberline {2.14.5}Connection Between the Second Derivative Test and Eigenvalues of the Hessian}{63}{subsection.2.14.5}%
+\contentsline {subsection}{\numberline {2.14.6}Intuition from Linear Algebra}{64}{subsection.2.14.6}%
+\contentsfinish 

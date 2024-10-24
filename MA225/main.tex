@@ -3401,23 +3401,21 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 \begin{center}
 	\begin{tikzpicture}
 		\begin{axis}[
-				view={60}{30},
-				xlabel=$x$, ylabel=$y$, zlabel=$z$,
-				grid=major,
-				samples=50,
-				domain=-3:6,
-				y domain=-3:3,
-				zmin=-5, zmax=5, % Set z-range to about 10 units total
-				xmin=-3, xmax=6, % Set x-range to about 10 units total
-				ymin=-3, ymax=3, % Set y-range to about 10 units total
-				mesh/ordering=y varies, % Add mesh/gridlines
-				colormap/viridis
-				]
-
+			colormap/cool,
+			grid=both,
+			enlargelimits=false,
+			samples=50,
+			z buffer=sort,
+			view={60}{30},
+			xlabel=$x$, ylabel=$y$, zlabel=$z$,
+			domain=-3:6,
+			y domain=-3:3,
+			zmin=-5, zmax=5, % Set z-range to about 10 units total
+			xmin=-3, xmax=6, % Set x-range to about 10 units total
+			ymin=-3, ymax=3, % Set y-range to about 10 units total
+			]
 			% Plot the surface z = sin(x) * exp(y)
-			\addplot3[surf, shader=interp]
-			{sin(deg(x)) * exp(y)};
-
+			\addplot3[surf] {sin(deg(x)) * exp(y)};
 			% Plot the tangent plane z = exp(y)
 			\addplot3[surf, opacity=0.6, color=red!80, fill opacity=0.3]
 			{1+y};
@@ -3955,7 +3953,6 @@ At a critical point, there are three possible types:
 
 \subsection{Visual Representation of Maxima, Minima and Saddle Points}
 
-
 \begin{tikzpicture}
 	\begin{groupplot}[
 			group style={
@@ -4029,27 +4026,27 @@ We evaluate the determinant of the Hessian, \( \text{det}(H) = f_{xx}(x, y) f_{y
 	Next, we calculate the Hessian matrix:
 	\[
 		H(x, y) = \begin{bmatrix}
-			6x & 0  \\
-			0  & 6y
+			6x & 0   \\
+			0  & -6y
 		\end{bmatrix}
 	\]
 	The determinant of the Hessian is:
 	\[
-		\text{det}(H) = 36xy
+		\text{det}(H) = -36xy
 	\]
-	For the critical points: 
+	For the critical points:
 	\begin{itemize}
-		\item \( (1, 1) \): \( \text{det}(H) = 36 \), and since \( f_{xx}(1, 1) = 6 \), this is a local minimum.
-		\item \( (1, -1) \): \( \text{det}(H) = -36 \), so this is a saddle point.
-		\item \( (-1, 1) \): \( \text{det}(H) = -36 \), so this is a saddle point.
-		\item \( (-1, -1) \): \( \text{det}(H) = 36 \), and since \( f_{xx}(-1, -1) = -6 \), this is a local maximum.
+		\item \( (1, 1) \): \( \text{det}(H) = 36 \), so this is a saddle point.
+		\item \( (1, -1) \): \( \text{det}(H) = -36 \), and since \( f_{xx}(1, 1) = 6 \), this is a local minimum.
+		\item \( (-1, 1) \): \( \text{det}(H) = -36 \), and since \( f_{xx}(-1, -1) = -6 \), this is a local maximum.
+		\item \( (-1, -1) \): \( \text{det}(H) = 36 \), so this is a saddle point.
 	\end{itemize}
 }
 
 \begin{center}
 	\begin{tikzpicture}
 		\begin{axis}[
-				colormap/plasma,
+				colormap/hot,
 				width=10cm,
 				height=10cm,
 				xlabel=$x$, ylabel=$y$, zlabel=$z$,
