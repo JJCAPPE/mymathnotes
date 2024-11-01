@@ -31,4 +31,472 @@
 \tableofcontents
 \pagebreak
 
+\chapter{Vector Valued Functions $f:\mathbb{R} \rightarrow \mathbb{R}^n$}
 
+
+\section{Absolute Extrema}
+
+For a function \( f \) defined on a region \( R \) in \( \mathbb{R}^2 \), a point \( (a, b) \) in \( R \) is an \emph{absolute maximum} of \( f \) if \( f(a, b) \geq f(x, y) \) for any \( (x, y) \) in \( R \). Similarly, \( (a, b) \) is an \emph{absolute minimum} if \( f(a, b) \leq f(x, y) \) for any \( (x, y) \) in \( R \).
+
+\thm{Extreme Value Theorem}{
+	If \( R \) is closed and bounded, and if \( f \) is continuous on \( R \), then the absolute extrema of \( f \) on \( R \) can be found by examining:
+	\begin{enumerate}
+		\item Critical points of \( f \) (for local extrema within \( R \)),
+		\item Boundary values of \( f \) on \( R \).
+	\end{enumerate}
+}
+
+\ex{Example Extreme Value Theorem}{
+	Consider the function \( V(\ell, w) = \ell w (96 - \ell - w) \), where \( R = \{ (\ell, w) \mid \ell \geq 0, w \geq 0, \ell + w \leq 96 \} \).
+
+	\begin{enumerate}
+		\item Since \( R \) is closed, we can apply the Extreme Value Theorem:
+		      \begin{enumerate}
+			      \item Find local maxima by setting \( \nabla V(\ell, w) = 0 \).
+			      \item Evaluate \( V \) on the boundary of \( R \).
+		      \end{enumerate}
+	\end{enumerate}
+
+	To find critical points:
+	\[
+		V(\ell, w) = \ell w (96 - \ell - w)
+	\]
+	The partial derivatives are:
+	\[
+		\frac{\partial V}{\partial \ell} = w(96 - 2\ell - w), \quad \frac{\partial V}{\partial w} = \ell(96 - \ell - 2w)
+	\]
+	Setting these to zero, we get:
+	\[
+		\begin{cases}
+			w(96 - 2\ell - w) = 0 \\
+			\ell(96 - \ell - 2w) = 0
+		\end{cases}
+	\]
+	This yields critical points at \( (\ell, w) = (32, 32) \).\\
+
+	On the boundary of \( R \):
+	\begin{enumerate}
+		\item \( \ell = 0 \): Then \( V = 0 \) for any \( w \).
+		\item \( w = 0 \): Then \( V = 0 \) for any \( \ell \).
+		\item \( \ell + w = 96 \): Substitute \( w = 96 - \ell \) into \( V(\ell, w) = \ell (96 - \ell) (96 - \ell - (96 - \ell)) = \ell(96 - \ell)^2 \).
+	\end{enumerate}
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.05]
+			% Draw the axes
+			\draw[->] (0, 0) -- (100, 0) node[right] {\( \ell \)};
+			\draw[->] (0, 0) -- (0, 100) node[above] {\( w \)};
+
+			% Draw the boundary line l + w = 96
+			\draw[thick] (0,96) -- (96,0);
+			\node[above right] at (50, 50) {\( \ell + w = 96 \)};
+
+			% Label points
+			\filldraw[black] (96,0) circle (1.5pt) node[below] {\( (96, 0) \)};
+			\filldraw[black] (0,96) circle (1.5pt) node[left] {\( (0, 96) \)};
+			\filldraw[black] (0,0) circle (1.5pt) node[below left] {\( (0, 0) \)};
+
+			% Shade the feasible region
+			\fill[gray, opacity=0.2] (0, 0) -- (0, 96) -- (96, 0) -- cycle;
+
+			% Label the region
+			\node at (40, 40) {\( R \)};
+		\end{tikzpicture}
+	\end{center}
+
+	Solving this, we find that \( V(32, 32) = 32 \cdot 32 \cdot 32 = 32768 \), which is the maximum value on \( R \).\\
+
+	To confirm the local maximum at \( (32, 32) \), we compute the Hessian:
+	\[
+		H(\ell, w) = \begin{bmatrix} -2w & 96 - \ell - w \\ 96 - \ell - w & -2\ell \end{bmatrix}
+	\]
+	At \( (32, 32) \), the Hessian determinant is:
+	\[
+		\det(H) = (-2 \times 32)^2 - (96 - 32 - 32)^2 = (64 \times 64) - (32 \times 32) = 32768 > 0
+	\]
+	Thus, \( V(\ell, w) \) has a local maximum at \( (32, 32) \).
+}
+\ex{Another Example}{
+	Consider \( f(x, y) = 4 - x^2 - y^2 \) on \( R = \{ (x, y) \mid -1 \leq x \leq 1, x^2 + y^2 < 1 \} \). Here, \( R \) is an open region without boundaries.\\
+
+	The maximum of \( f(x, y) \) occurs at \( (0, 0) \), where \( f(0, 0) = 4 \). There is no absolute minimum because for points approaching the boundary (e.g., \( x \approx 0.99 \)), \( f(x, y) \) approaches \( -\infty \).
+
+	Thus, in \( R \), there is no absolute minimum value for \( f \), illustrating the importance of the region's closedness and boundedness for the Extreme Value Theorem to apply.
+}
+
+\section{Lagrange Multiplier Method}
+
+\subsection{General Procedure}
+
+To maximize or minimize \( f(x, y) \) subject to a constraint \( g(x, y) = 0 \), follow these steps:
+
+\begin{enumerate}
+	\item \textbf{Identify Critical Points:} A point \( (x', y') \) is a critical point if:
+	      \begin{itemize}
+		      \item There exists \( \lambda \in \mathbb{R} \) such that \( \nabla f(x', y') = \lambda \nabla g(x', y') \) (using the \emph{method of Lagrange multipliers}).
+		      \item \( g(x', y') = 0 \).
+	      \end{itemize}
+
+	\item \textbf{Evaluate Cases for Critical Points:}
+	      \begin{enumerate}
+		      \item \textbf{Case 1:} The constraint region \( R \) is bounded and has no endpoints.
+		            \begin{itemize}
+			            \item In this case, assuming continuity of \( f \), any local extrema within \( R \) are also absolute extrema.
+			            \item Select critical points \( (x', y') \) and evaluate \( f \) at these points.
+		            \end{itemize}
+
+		      \item \textbf{Case 2:} The constraint region \( R \) is bounded and has endpoints.
+		            \begin{itemize}
+			            \item Example: \( x^2 - 4y^2 \leq 0 \) with \( -1 \leq x \leq 1 \).
+			            \item Absolute extrema may occur at local extrema or endpoints.
+			            \item Check critical points and also evaluate \( f \) at the boundary endpoints.
+		            \end{itemize}
+
+		      \item \textbf{Case 3:} The constraint region \( R \) is unbounded or does not include all endpoints.
+		            \begin{itemize}
+			            \item Example: \( x^2 - 4y^2 \) unbounded or \( x^2 + y^2 - 4 = 0 \) with \( -2 \leq x \leq 2 \).
+			            \item It may be possible that absolute extrema do not exist.
+			            \item Find any critical points and evaluate \( f(x) \) as \( x \rightarrow \pm \infty \) if applicable.
+		            \end{itemize}
+	      \end{enumerate}
+\end{enumerate}
+
+\ex{Lagrange Multiplier Method}{
+	We aim to find the absolute extrema of the function \( f(x, y) = x - 2y \) subject to the constraint \( g(x, y) = x^2 + y^2 = 4 \).\\
+	To find the extrema, we use the method of Lagrange multipliers, where we seek points where \( \nabla f = \lambda \nabla g \).
+
+	The gradients of \( f \) and \( g \) are:
+	\[
+		\nabla f(x, y) = \begin{bmatrix} 1 \\ -2 \end{bmatrix}, \quad \nabla g(x, y) = \begin{bmatrix} 2x \\ 2y \end{bmatrix}
+	\]
+	Setting \( \nabla f = \lambda \nabla g \), we have:
+	\[
+		\begin{cases}
+			1 = \lambda \cdot 2x \\
+			-2 = \lambda \cdot 2y
+		\end{cases}
+	\]
+	This simplifies to:
+	\[
+		\lambda = \frac{1}{2x} = \frac{-1}{y} \Rightarrow y = -2x
+	\]
+
+	Substitute \( y = -2x \) into the constraint \( g(x, y) = x^2 + y^2 = 4 \):
+	\[
+		x^2 + (-2x)^2 = 4 \Rightarrow x^2 + 4x^2 = 4 \Rightarrow 5x^2 = 4 \Rightarrow x = \pm \frac{2}{\sqrt{5}}
+	\]
+	Then, \( y = -2x \) gives \( y = \pm \frac{4}{\sqrt{5}} \). So the points are:
+	\[
+		\left( \frac{2}{\sqrt{5}}, -\frac{4}{\sqrt{5}} \right) \quad \text{and} \quad \left( -\frac{2}{\sqrt{5}}, \frac{4}{\sqrt{5}} \right)
+	\]
+
+	Calculate \( f(x, y) \) at the points:
+	\[
+		f\left( \frac{2}{\sqrt{5}}, -\frac{4}{\sqrt{5}} \right) = \frac{2}{\sqrt{5}} + \frac{8}{\sqrt{5}} = \frac{10}{\sqrt{5}} = 2\sqrt{5}
+	\]
+	\[
+		f\left( -\frac{2}{\sqrt{5}}, \frac{4}{\sqrt{5}} \right) = -\frac{2}{\sqrt{5}} - \frac{8}{\sqrt{5}} = -\frac{10}{\sqrt{5}} = -2\sqrt{5}
+	\]
+	Thus, the \textbf{absolute maximum} is \( 2\sqrt{5} \) and the \textbf{absolute minimum} is \( -2\sqrt{5} \).\\
+
+	Below is a diagram showing the constraint \( x^2 + y^2 = 4 \) as a circle and the level curves of \( f(x, y) = x - 2y \), specifically showing the two tangent level curves at \( z = \pm \frac{10}{\sqrt{5}} \) that represent the maximum and minimum values.
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5]
+			% Draw the constraint circle x^2 + y^2 = 4
+			\draw[thick] (0,0) circle (2);
+			\node at (2.2, 0) {\( x^2 + y^2 = 4 \)};
+
+			% Draw the level curves of f(x, y) = x - 2y
+			\draw[dashed, domain=-2:2] plot({\x}, {(\x - 10/sqrt(5))/2});
+			\node[above right] at (1.788854382, -2) {\( x - 2y = \frac{10}{\sqrt{5}} \)};
+
+			\draw[dashed, domain=-2:2] plot({\x}, {(\x + 10/sqrt(5))/2});
+			\node[below right] at (1.788854382, 2) {\( x - 2y = -\frac{10}{\sqrt{5}} \)};
+
+			% Draw the points of maximum and minimum
+			\filldraw[black] (0.894427191, -1.788854382) circle (0.05);
+			\node[below right] at (0.894427191, -1.788854382) {\( \left( \frac{2}{\sqrt{5}}, -\frac{4}{\sqrt{5}} \right) \)};
+
+			\filldraw[black] (-0.894427191, 1.788854382) circle (0.05);
+			\node[above left] at (-0.894427191, 1.788854382) {\( \left( -\frac{2}{\sqrt{5}}, \frac{4}{\sqrt{5}} \right) \)};
+		\end{tikzpicture}
+	\end{center}
+}
+
+\ex{Example: Finding Extrema of \( f(x, y) = e^{x+y} \) with Constraint}{
+	Consider maximizing or minimizing \( f(x, y) = e^{x+y} \) subject to the constraint \( g(x, y) = x^2 + xy + y^2 - 9 = 0 \).
+
+	\begin{enumerate}
+		\item Using the method of Lagrange multipliers, we set up the system:
+		      \[
+			      \nabla f(x, y) = \lambda \nabla g(x, y)
+		      \]
+		      which gives:
+		      \[
+			      \begin{cases}
+				      e^{x+y} = \lambda (2x + y) \\
+				      e^{x+y} = \lambda (x + 2y)
+			      \end{cases}
+		      \]
+
+		\item Dividing the equations, we get:
+		      \[
+			      \frac{2x + y}{x + 2y} = 1 \Rightarrow x = y
+		      \]
+		\item Substitute \( x = y \) into the constraint \( x^2 + xy + y^2 = 9 \):
+		      \[
+			      x^2 + x^2 + x^2 = 9 \Rightarrow 3x^2 = 9 \Rightarrow x = \pm \sqrt{3}, \quad y = \pm \sqrt{3}
+		      \]
+		\item The critical points are \( ( \sqrt{3}, \sqrt{3} ) \) and \( ( -\sqrt{3}, -\sqrt{3} ) \).
+
+		\item Evaluating \( f(x, y) \) at these points:
+		      \[
+			      f(\sqrt{3}, \sqrt{3}) = e^{2\sqrt{3}}, \quad f(-\sqrt{3}, -\sqrt{3}) = e^{-2\sqrt{3}}
+		      \]
+
+		\item Thus, the maximum value is \( e^{2\sqrt{3}} \) and the minimum value is \( e^{-2\sqrt{3}} \).
+	\end{enumerate}
+}
+
+\ex{Example: Finding Extrema of \( f(x, y) = x - y \) with Constraint}{
+	Consider the function \( f(x, y) = x - y \) with the constraint \( g(x, y) = x^2 + y^2 - 3 x y - 20 = 0 \).
+
+	\begin{enumerate}
+		\item The gradients are:
+		      \[
+			      \nabla f(x, y) = \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \quad \nabla g(x, y) = \begin{bmatrix} 2x - 3y \\ 2y - 3x \end{bmatrix}
+		      \]
+
+		\item Set \( \nabla f = \lambda \nabla g \):
+		      \[
+			      \begin{cases}
+				      1 = \lambda (2x - 3y) \\
+				      -1 = \lambda (2y - 3x)
+			      \end{cases}
+		      \]
+
+		\item Solving this system, we find critical points at \( (2, -2) \) and \( (-2, 2) \).
+
+		\item Evaluating \( f(x, y) \) at these points:
+		      \[
+			      f(2, 1) = 1, \quad f(-2, -1) = -1
+		      \]
+
+		\item Therefore, the maximum value is \( 1 \) and the minimum value is \( -1 \).
+	\end{enumerate}
+
+	By observing the level curves diagram, we can see that the given points do not maximise/minimise the function, as any other line where \( x-y < \pm 4 \) would further increase/decrease the function.
+
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				axis lines=middle,
+				grid=both,
+				xmin=-50, xmax=50,
+				ymin=-50, ymax=70,
+				xlabel={$x$},
+				ylabel={$y$},
+				every axis x label/.style={at={(current axis.right of origin)}, anchor=west},
+				every axis y label/.style={at={(current axis.above origin)}, anchor=south},
+				width=10cm, height=10cm,
+				samples=200,
+				domain=-50:50
+			]
+
+			% Plot of x - y = -4
+			\addplot[domain=-50:50, green, thick] {x + 4};
+			\node[anchor=south west] at (axis cs:-40,-44) {$x - y = -4$};
+
+			% Plot of x - y = 4
+			\addplot[domain=-50:50, red, thick] {x - 4};
+			\node[anchor=south west] at (axis cs:40,36) {$x - y = 4$};
+
+			% Approximate implicit plot for x^2 + y^2 - 3xy - 20 = 0 using parametric plot
+			\addplot[black, thick, samples=200, domain=-50:50] 
+				({x}, {(3*x + sqrt(3*x*x + 80))/2});
+			\addplot[black, thick, samples=200, domain=-50:50] 
+				({x}, {(3*x - sqrt(3*x*x + 80))/2});
+			\node[anchor=north west] at (axis cs:30,55) {$x^2 + y^2 - 3xy - 20 = 0$};
+
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+
+\section{Multiple Integration}
+
+\nt{
+	The integral
+	\[
+		\int_a^b f(x) \, dx = A
+	\]
+	represents the area under the curve \( f(x) \) from \( a \) to \( b \), where \( A \) can also be approximated as
+	\[
+		A \approx \sum_{i=1}^N f(x_i) \Delta x.
+	\]
+}
+
+\nt{
+To find the volume under a surface \( z = f(x, y) \) over a region \( R = [a, b] \times [c, d] \), we use the double integral
+\[
+	\iint_R f(x, y) \, dA.
+\]
+This can be approximated by summing over small subregions within \( R \):
+\[
+	\iint_R f(x, y) \, dA = \lim_{\Delta \to 0} \sum_{i=1}^m \sum_{j=1}^n f(x_i, y_j) \Delta x \, \Delta y.
+\]
+}
+
+\thm{Continuity and Limits of Double Integrals}{
+	If the limit
+	\[
+		\lim_{(x, y) \to (a, b)} f(x, y)
+	\]
+	exists for all points \( (a, b) \) in \( R \), then \( f(x, y) \) is continuous over \( R \), and the order of integration can be changed under Fubini's theorem.
+}
+
+\nt{
+	Consider dividing \( R \) into \( n \) subregions, each with area \( \Delta A_{ij} \) and height \( f(x_i, y_j) \). Then, the volume \( V \) is approximated as
+	\[
+		V \approx \sum_{i=1}^m \sum_{j=1}^n f(x_i, y_j) \Delta x \, \Delta y,
+	\]
+	where \( n \) is the number of boxes in the \( x \)-direction and \( m \) is the number in the \( y \)-direction. Taking the limit as \( \Delta x, \Delta y \to 0 \) gives
+	\[
+		V = \iint_R f(x, y) \, dA.
+	\]
+}
+
+\dfn{Double Integral Definition}{
+The double integral of \( f(x, y) \) over \( R = [a, b] \times [c, d] \) is defined by
+\[
+	\iint_R f(x, y) \, dA = \lim_{n \to \infty} \sum_{i=1}^n \sum_{j=1}^n f(x_i, y_j) \Delta A_{ij}.
+\]
+}
+
+\thm{Fubini's Theorem}{
+	The order of integration does not affect the result of the double integral. Thus,
+	\[
+		\iint_R f(x, y) \, dA = \int_a^b \left( \int_c^d f(x, y) \, dy \right) dx = \int_c^d \left( \int_a^b f(x, y) \, dx \right) dy.
+	\]
+}
+
+\ex{Example of Double Integral Calculation}{
+Calculate the volume under \( f(x, y) = 4 + x + y^2 \) over the region \( R = [-1, 1] \times [0, 2] \):
+\[
+	\iint_R f(x, y) \, dA = \int_{-1}^1 \int_0^2 (4 + x + y^2) \, dy \, dx.
+\]
+Evaluating the inner integral with respect to \( y \),
+\[
+	\int_0^2 (4 + x + y^2) \, dy = 4y + xy + \frac{y^3}{3} \Big|_0^2 = 8 + 2x + \frac{8}{3}.
+\]
+Then, integrating with respect to \( x \),
+\[
+	\int_{-1}^1 \left( 8 + 2x + \frac{8}{3} \right) dx = \left( 8 + \frac{8}{3} \right) \cdot 2 = \frac{32}{3}.
+\]
+Thus, the volume \( V = \frac{32}{3} \).
+}
+
+\ex{Example: Integration Over a Rectangular Domain}{
+	Evaluate
+	\[
+		\int_0^2 \int_0^1 \frac{x y}{1 + x^2} \, dx \, dy.
+	\]
+
+	Using substitution \( u = x^2 \) with \( du = 2x \, dx \), we find
+	\[
+		\int_0^2 \int_0^1 \frac{x y}{1 + x^2} \, dx \, dy = \int_0^2 y \left( \int_0^1 \frac{x}{1 + x^2} \, dx \right) dy = \int_0^2 y \left[ \frac{1}{2} \ln(1 + x^2) \right]_0^1 \, dy.
+	\]
+	Simplifying, we get
+	\[
+		V = \int_0^2 y \cdot \frac{\ln(2)}{2} \, dy = \frac{\ln(2)}{2} \int_0^2 y \, dy = \frac{\ln(2)}{2} \cdot \frac{y^2}{2} \Big|_0^2 = \ln(2).
+	\]
+}
+
+\subsection{Non-Rectangular Domains}
+
+\nt{
+	Consider \( R = \{ (x, y) : a \leq x \leq b, g_1(x) \leq y \leq g_2(x) \} \), where the boundaries are given by functions \( y = g_1(x) \) and \( y = g_2(x) \).
+}
+
+\ex{Example: Non-Rectangular Domain Integration}{
+	Suppose \( R = \{ (x, y) : -1 \leq x \leq 1, x^2 \leq y \leq 2 - x^2 \} \).
+	We wish to evaluate
+	\[
+		\int_R (x+y) \, dA.
+	\]
+	We split \( R \) into two regions, \( R_1 \) and \( R_2 \), with bounds given by
+	\[
+		R_1 = \{ (x, y) : -1 \leq x \leq 1, x^2 \leq y \leq 2 - x^2 \}.
+	\]
+	Evaluating each integral, we obtain
+	\[
+		V = \int_{-1}^1 \left( \int_{x^2}^{2 - x^2} (x + y) \, dy \right) dx.
+	\]
+
+	On solving, we get
+	\[
+		V = \int_{-1}^1 \left( \int_{x^2}^{2 - x^2} (x + y) \, dy \right) dx = \ldots = \frac{8}{35}.
+	\]
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		% Define axes
+		\draw[->] (-2,0) -- (2,0) node[right] {\( x \)};
+		\draw[->] (0,-0.5) -- (0,3) node[above] {\( y \)};
+
+		% Draw the curves
+		\draw[thick, domain=-1:1, samples=100] plot (\x, {\x*\x}) node[right] {\( y = x^2 \)};
+		\draw[thick, domain=-1:1, samples=100] plot (\x, {2 - \x*\x}) node[above] {\( y = 2 - x^2 \)};
+
+		% Shade the region between curves
+		\fill[gray, opacity=0.2] (-1,1) parabola bend (0,0) (1,1) -- (1,2) parabola bend (0,2) (-1,2) -- cycle;
+	\end{tikzpicture}
+\end{center}
+
+\nt{
+	When changing the order of integration, try dividing the region into smaller regions to make integration simpler.
+}
+
+\subsection{Volume Between Surfaces}
+
+\nt{
+	To find the volume of a sphere using double integrals, consider the surface
+	\[
+		x^2 + y^2 + z^2 = 1.
+	\]
+	Then \( z = \pm \sqrt{1 - x^2 - y^2} \), and we can set up the integral as
+	\[
+		V = 2 \iint_R \sqrt{1 - x^2 - y^2} \, dA,
+	\]
+	where \( R = \{ (x, y) : -1 \leq x \leq 1, -\sqrt{1 - x^2} \leq y \leq \sqrt{1 - x^2} \} \).
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		% Define axes
+		\draw[->] (-2,0) -- (2,0) node[right] {\( x \)};
+		\draw[->] (0,-2) -- (0,2) node[above] {\( y \)};
+
+		% Draw the circle for the sphere projection
+		\draw[thick] (0,0) circle (1.5);
+		\node[below left] at (1.5,0) {\( x^2 + y^2 = 1 \)};
+
+		% Label the region
+		\fill[gray, opacity=0.2] (0,0) circle (1.5);
+		\node at (0,0) {\( R \)};
+	\end{tikzpicture}
+\end{center}
+
+\ex{Example: Volume Between Surfaces}{
+	Calculate the volume between the surfaces \( z = \sqrt{1 - x^2 - y^2} \) and \( z = -\sqrt{1 - x^2 - y^2} \):
+	\[
+		V = \iint_R \left( \sqrt{1 - x^2 - y^2} - (-\sqrt{1 - x^2 - y^2}) \right) \, dA = 2 \iint_R \sqrt{1 - x^2 - y^2} \, dA.
+	\]
+	Setting up the limits as before, we integrate over \( R \) to find the volume of the sphere.
+}
+
+\end{document}
