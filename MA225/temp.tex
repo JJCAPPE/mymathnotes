@@ -315,10 +315,10 @@ To maximize or minimize \( f(x, y) \) subject to a constraint \( g(x, y) = 0 \),
 			\node[anchor=south west] at (axis cs:40,36) {$x - y = 4$};
 
 			% Approximate implicit plot for x^2 + y^2 - 3xy - 20 = 0 using parametric plot
-			\addplot[black, thick, samples=200, domain=-50:50] 
-				({x}, {(3*x + sqrt(3*x*x + 80))/2});
-			\addplot[black, thick, samples=200, domain=-50:50] 
-				({x}, {(3*x - sqrt(3*x*x + 80))/2});
+			\addplot[black, thick, samples=200, domain=-50:50]
+			({x}, {(3*x + sqrt(3*x*x + 80))/2});
+			\addplot[black, thick, samples=200, domain=-50:50]
+			({x}, {(3*x - sqrt(3*x*x + 80))/2});
 			\node[anchor=north west] at (axis cs:30,55) {$x^2 + y^2 - 3xy - 20 = 0$};
 
 		\end{axis}
@@ -498,5 +498,251 @@ Thus, the volume \( V = \frac{32}{3} \).
 	\]
 	Setting up the limits as before, we integrate over \( R \) to find the volume of the sphere.
 }
+
+\section{Applications of Double Integrals}
+
+\subsection{Area of a Surface}
+
+\dfn{Area of a Surface with Double integrals}{
+
+	When calculating the area of a surface where the height of the surface in 3D space is constantly 1, the area of the surface is numerically equal to the volume under the surface. Thus, by setting the height \( f(x, y) = 1 \) over a given region \( R \), the area of \( R \) can be computed using a double integral, which effectively measures the "volume" under the constant surface.
+
+	\[
+		\text{Area of } R = \iint_R f(x, y) \, dA = \iint_R 1 \, dA
+	\]
+}
+
+\ex{Example}{ Calculate the area of the region \( R = \{ (x, y) : x^2 + y^2 \leq 1 \} \), which is the unit disk in the \( xy \)-plane.
+
+	\[
+		\iint_R dA = \int_{-1}^1 \int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}} dy \, dx
+	\]
+
+	Calculating,
+	\[
+		= 2 \int_{-1}^1 \sqrt{1 - x^2} \, dx
+	\]
+
+	Using substitution, let \( x = \cos \theta \), we get:
+	\[
+		= 2 \int_0^\pi \sin^2 \theta \, d\theta = \pi
+	\]
+
+	Thus, the area of \( R \) is \( \pi \).
+}
+
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				width=12cm,
+				height=12cm,
+				view={135}{30},
+				xlabel=$x$,
+				ylabel=$y$,
+				zlabel=$z$,
+				zmin=0,
+				xmin=-1.2, xmax=1.2,
+				ymin=-1.2, ymax=1.2,
+				grid=major,
+				colormap/cool,
+			]
+
+			% Main cylinder surface
+			\addplot3[
+				surf,
+				samples=50,
+				domain=-1:1,
+				y domain=-1:1,
+				restrict expr to domain={x^2+y^2}{0:1},
+				opacity=0.8,
+			]
+			{1};  % Height is constant at z=1
+
+			% Bottom circle at z=0
+			\addplot3[
+				domain=0:360,
+				samples=100,
+				thick,
+				color=black,
+			]
+			({cos(x)},{sin(x)},{0});
+
+			% Top circle at z=1
+			\addplot3[
+				domain=0:360,
+				samples=100,
+				thick,
+				color=black,
+			]
+			({cos(x)},{sin(x)},{1});
+
+			% Cross-section curves
+			\addplot3[
+				color=red,
+				thick,
+				domain=-1:1,
+				samples=50,
+			]
+			({x},{0},{1});
+
+			\addplot3[
+				color=blue,
+				thick,
+				domain=-1:1,
+				samples=50,
+			]
+			({0},{x},{1});
+
+			% Height indicator lines
+			\foreach \x in {0.2,0.4,0.6,0.8} {
+					\addplot3[
+						dashed,
+						color=gray,
+					] coordinates {
+							(\x,0,0)
+							(\x,0,1)
+						};
+				}
+
+			% Vertical lines at corners for better visibility
+			\addplot3[thick, color=black] coordinates {(1,0,0) (1,0,1)};
+			\addplot3[thick, color=black] coordinates {(-1,0,0) (-1,0,1)};
+			\addplot3[thick, color=black] coordinates {(0,1,0) (0,1,1)};
+			\addplot3[thick, color=black] coordinates {(0,-1,0) (0,-1,1)};
+
+			% Add legend
+			\addlegendentry{$z=1$ (Cylinder surface)}
+			\addlegendentry{Region $R$}
+			\addlegendentry{$x$-cross section}
+			\addlegendentry{$y$-cross section}
+
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+
+\subsection{Average Value of a Function}
+
+\dfn{Average Value of a Function}{
+	The average value of a function \( f(x, y) \) over a region \( R \) is defined as the total value of \( f(x, y) \) over \( R \) divided by the area of \( R \). This can be expressed using double integrals as follows:
+
+	\[
+		\overline{f} = \frac{1}{\text{Area of } R} \iint_R f(x, y) \, dA = \frac{1}{\iint_R dA} \iint_R f(x, y) \, dA
+	\]
+}
+\ex{Example}{
+	Find the average value of \( f(x, y) = \sqrt{1 - x^2 - y^2} \) over the region \( R = \{ (x, y) : x^2 + y^2 \leq 1 \} \).
+
+	First, calculate the area of \( R \):
+	\[
+		\text{Area of } R = \iint_R dA = \pi.
+	\]
+
+	Now, calculate the integral of \( f(x, y) \) over \( R \):
+	\[
+		\iint_R \sqrt{1 - x^2 - y^2} \, dA.
+	\]
+
+	Using polar coordinates, where \( x = r \cos \theta \) and \( y = r \sin \theta \), we have \( dA = r \, dr \, d\theta \):
+	\[
+		= \int_0^{2\pi} \int_0^1 \sqrt{1 - r^2} \cdot r \, dr \, d\theta.
+	\]
+
+	Breaking down the integral,
+	\[
+		= 2\pi \int_0^1 r \sqrt{1 - r^2} \, dr.
+	\]
+
+	Using the substitution \( u = 1 - r^2 \) (with \( du = -2r \, dr \)),
+	\[
+		= 2\pi \int_1^0 \sqrt{u} \cdot \left(-\frac{du}{2}\right) = \pi \int_0^1 \sqrt{u} \, du.
+	\]
+
+	Evaluating the integral,
+	\[
+		= \pi \int_0^1 u^{1/2} \, du = \pi \left[ \frac{u^{3/2}}{3/2} \right]_0^1 = \pi \cdot \frac{2}{3} = \frac{2\pi}{3}.
+	\]
+
+	Therefore, the average value of \( f(x, y) \) over \( R \) is
+	\[
+		\overline{f} = \frac{\frac{2\pi}{3}}{\pi} = \frac{2}{3}.
+	\]
+}
+
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				width=12cm,
+				height=12cm,
+				view={135}{30},
+				xlabel=$x$,
+				ylabel=$y$,
+				zlabel=$z$,
+				zmin=0,
+				xmin=-1.2, xmax=1.2,
+				ymin=-1.2, ymax=1.2,
+				grid=major,
+				colormap/cool,
+			]
+
+			% Main surface plot
+			\addplot3[
+				surf,
+				samples=50,
+				domain=-1:1,
+				y domain=-1:1,
+				restrict expr to domain={x^2+y^2}{0:1},
+				opacity=0.8,
+			]
+			{sqrt(1-x^2-y^2)};
+
+			% Boundary circle at z=0
+			\addplot3[
+				domain=0:360,
+				samples=100,
+				thick,
+				color=black,
+			]
+			({cos(x)},{sin(x)},{0});
+
+			\addplot3[
+				color=red,
+				thick,
+				domain=-1:1,
+				samples=50,
+			]
+			({x},{0},{sqrt(max(0,1-x^2))});
+
+			\addplot3[
+				color=blue,
+				thick,
+				domain=-1:1,
+				samples=50,
+			]
+			({0},{x},{sqrt(max(0,1-x^2))});
+
+			% Height indicator lines
+			\foreach \x in {0.2,0.4,0.6,0.8} {
+					\addplot3[
+						dashed,
+						color=gray,
+					] coordinates {
+							(\x,0,0)
+							(\x,0,{sqrt(1-\x^2)})
+						};
+				}
+
+			% Add legend
+			\addlegendentry{$f(x,y)=\sqrt{1-x^2-y^2}$}
+			\addlegendentry{Region $R$}
+			\addlegendentry{$x$-cross section}
+			\addlegendentry{$y$-cross section}
+
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
 
 \end{document}
