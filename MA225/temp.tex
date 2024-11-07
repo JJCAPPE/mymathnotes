@@ -12,6 +12,7 @@
 \usepackage{smartdiagram}
 \usepackage{xcolor}
 \usepackage{forest}
+\usepackage{tikz-3dplot}
 \usepgfplotslibrary{colormaps}
 \usepgfplotslibrary{groupplots}
 \pgfplotsset{compat=newest}
@@ -743,6 +744,157 @@ Thus, the volume \( V = \frac{32}{3} \).
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
+
+\section{Derivation of Triple Integrals through Riemann Sums}
+
+To derive the concept of a triple integral, we start by considering a bounded, three-dimensional region \( D \subset \mathbb{R}^3 \) over which we wish to integrate a continuous function \( f(x, y, z) \). The idea is to approximate the "volume" under the surface defined by \( f(x, y, z) \) over \( D \) by partitioning \( D \) into smaller subregions, summing up values of \( f \) at chosen points within these subregions, and then taking the limit as the partitions become finer.
+
+\subsection{Partitioning the Region}
+
+1. Let \( D \) be divided into \( n \times m \times l \) subregions, each of volume \( \Delta V_{ijk} = \Delta x_i \Delta y_j \Delta z_k \), where:
+\[
+	\Delta x_i = x_{i+1} - x_i, \quad \Delta y_j = y_{j+1} - y_j, \quad \Delta z_k = z_{k+1} - z_k
+\]
+
+2. In each subregion, choose a point \( (x_i^*, y_j^*, z_k^*) \) where \( f \) will be evaluated. The function value at each of these points, \( f(x_i^*, y_j^*, z_k^*) \), approximates the "height" over the corresponding volume element.
+
+\subsection{Forming the Riemann Sum}
+
+With these chosen points and partition, the Riemann sum for \( f \) over the region \( D \) is given by:
+\[
+	\sum_{i=1}^n \sum_{j=1}^m \sum_{k=1}^l f(x_i^*, y_j^*, z_k^*) \Delta x_i \Delta y_j \Delta z_k.
+\]
+
+As the partitions become finer, i.e., \( \Delta x_i, \Delta y_j, \Delta z_k \to 0 \) for all \( i, j, k \), the sum approaches the exact "volume" under \( f \) over \( D \), which we denote as the triple integral:
+\[
+	\iiint_D f(x, y, z) \, dV = \lim_{n, m, l \to \infty} \sum_{i=1}^n \sum_{j=1}^m \sum_{k=1}^l f(x_i^*, y_j^*, z_k^*) \Delta x_i \Delta y_j \Delta z_k.
+\]
+
+Thus, the triple integral represents the limit of the Riemann sum as the volume elements \( \Delta V_{ijk} \) become infinitesimally small.
+
+\section{Triple Integrals Intuitions and Applications}
+
+\[
+	\int f(x) \, dx \rightarrow \text{Area} \quad \int\int f(x,y) \, dA \rightarrow \text{Volume under } f(x,y)
+\]
+\[
+	\iiint f(x,y,z) \, dV \rightarrow \text{Volume under solid } w = f(x,y,z)
+\]
+
+\subsection{Integrals Represent Products}
+\[
+	\text{Examples:}
+\]
+\[
+	\text{Length } = F = P \cdot A \quad \Rightarrow \quad \iint_R P(x,y) \, dA
+\]
+\[
+	\text{Mass } = \rho \cdot V \quad \Rightarrow \quad m = \iiint_D \rho(x,y,z) \, dV
+\]
+
+\ex{Mass of a Rock}{
+	Suppose a rock with uniform density $\rho$ and volume $V$. Then
+	\[
+		m = \rho V
+	\]
+	If $\rho$ is non-uniform, how do you find the mass?
+
+	Suppose $\rho(x,y,z)$ is given by $p(x,y,z)$ over the support of $D$, then
+	\[
+		m = \iiint_D p(x,y,z) \, dV
+	\]
+	where \( D \subseteq \mathbb{R}^3 \) is the region occupied by the rock.
+}
+\ex{Volume}{
+	Note $A \subseteq \mathbb{R}^2$, then
+	\[
+		\text{Volume of } D \text{ in } \mathbb{R}^3
+	\]
+	is
+	\[
+		V = \iiint_D \, dV
+	\]
+}
+
+\ex{Example 3: Probability Densities}{
+	Let $x, y, z$ be variables representing random quantities. You can find $f(x,y,z)$ called a Probability Density Function (P.D.F.) where
+	\[
+		P((x,y,z) \in D) = \iiint_D f(x,y,z) \, dV
+	\]
+}
+\dfn{Bounds of Integration for triple integrals}{
+	Suppose \( D = \{ (x,y,z) : a \leq x \leq b, \, g(x) \leq y \leq h(x), \, G(x,y) \leq z \leq H(x,y) \} \),
+	where the bounds of \( y \) depend on \( x \) and the bounds of \( z \) depend on \( x \) and \( y \).
+
+	Then
+	\[
+		V = \iiint_D f(x,y,z) \, dV = \int_a^b \int_{g(x)}^{h(x)} \int_{G(x,y)}^{H(x,y)} f(x,y,z) \, dz \, dy \, dx
+	\]
+}
+
+\ex{PDF in 3 Continous Random Variables}{
+Three customers wait \( x, y, z \) minutes.
+
+\[
+	f(x,y,z) = \begin{cases}
+		10^3 e^{-(x+y+z)} \cdot \frac{1}{10} & \text{if } x, y, z \geq 0 \\
+		0                                    & \text{otherwise}
+	\end{cases}
+\]
+
+\paragraph{(1) Probability that \( (x,y,z) \in D \):}
+\[
+	P((x,y,z) \in D) = \iiint_D 10^3 e^{-(x+y+z)} \cdot \frac{1}{10} \, dV
+\]
+
+\paragraph{(2) Probability that customers wait at most 5 minutes:}
+\[
+	D = [0,5] \times [0,5] \times [0,5]
+\]
+\[
+	P = \iiint_D 10^3 e^{-(x+y+z)} \cdot \frac{1}{10} \, dx \, dy \, dz = 0.061 = 6.1\%
+\]
+
+\paragraph{(3) Probability that \( 0 \leq x \leq y \leq z \leq 20 \):}
+Define
+\[
+	P = \{ (x,y,z) : 0 \leq x \leq y \leq z \leq 20 \}
+\]
+1. Find the domain of \( x \) in \( D \):
+\[
+	0 \leq x \leq 20
+\]
+2. Fix some \( x = x_0 \), define \( R = \{ (y,z) : 0 \leq x_0 \leq y \leq 20 \} \).
+3. Marginalize \( y \) in \( R \):
+\[
+	x \leq y \leq 20
+\]
+4. Marginalize \( z \) in \( R \):
+\[
+	y \leq z \leq 20
+\]
+
+Thus,
+\[
+	D = [0,20] \times [x,20] \times [y,20]
+\]
+\[
+	P = \int_0^{20} \int_x^{20} \int_y^{20} 10^3 e^{-(x+y+z)} \cdot \frac{1}{10} \, dz \, dy \, dx
+\]
+}
+
+\thm{Fubini’s Theorem Extended to Triple Integrals}{
+Fubini’s Theorem allows us to evaluate triple integrals as iterated integrals by integrating one variable at a time. If \( f(x,y,z) \) is continuous on a rectangular region \( D = [a,b] \times [c,d] \times [e,f] \), then
+\[
+	\iiint_D f(x,y,z) \, dV = \int_a^b \int_c^d \int_e^f f(x,y,z) \, dz \, dy \, dx.
+\]
+
+This can also be rearranged in different orders of integration:
+\[
+	\iiint_D f(x,y,z) \, dV = \int_c^d \int_a^b \int_e^f f(x,y,z) \, dx \, dz \, dy,
+\]
+and similarly for other orders, depending on the bounds and convenience for computation.
+}
 
 
 \end{document}

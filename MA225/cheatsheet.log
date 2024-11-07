@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.28)  13 OCT 2024 12:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.23)  7 NOV 2024 12:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,7 +1288,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/b/n' in size <5.5> not available
 [1
 
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}] (./cheatsheet.aux)
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}] [2] (./cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1300,18 +1300,18 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 48189 strings out of 474116
- 1109536 string characters out of 5743682
- 1961187 words of memory out of 5000000
- 69713 multiletter control sequences out of 15000+600000
- 573479 words of font info for 80 fonts, out of 8000000 for 9000
+ 48204 strings out of 474116
+ 1109811 string characters out of 11493681
+ 13925187 words of memory out of 22000000
+ 69722 multiletter control sequences out of 15000+600000
+ 573825 words of font info for 81 fonts, out of 12000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,102p,773b,756s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb>
-Output written on cheatsheet.pdf (1 page, 102454 bytes).
+ 99i,9n,102p,773b,756s stack positions out of 10000i,1000n,20000p,12000000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb>
+Output written on cheatsheet.pdf (2 pages, 120602 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
+ 122 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -114,4 +114,38 @@
 \]
 \end{multicols}
 
+\pagebreak
+
+\[
+		\text{det}(M) = \det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
+\]
+
+\[
+	H(x, y) = \begin{bmatrix}
+		f_{xx}(x, y) & f_{xy}(x, y) \\
+		f_{yx}(x, y) & f_{yy}(x, y)
+	\end{bmatrix}
+\]
+
+\begin{center}
+	\begin{enumerate}
+		\item If \( \text{det}(H) > 0 \) and \( f_{xx}(a, b) > 0 \), then \( f(a, b) \) is a \emph{local minimum}.
+		\item If \( \text{det}(H) > 0 \) and \( f_{xx}(a, b) < 0 \), then \( f(a, b) \) is a \emph{local maximum}.
+		\item If \( \text{det}(H) < 0 \), then \( (a, b) \) is a \emph{saddle point}.
+		\item If \( \text{det}(H) = 0 \), the test is \emph{inconclusive}.
+	\end{enumerate}
+\end{center}
+
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Curve/Surface} & \textbf{Equation}                                                     \\
+		\hline
+		\( y = f(x) \)         & \( y = f'(a)(x - a) + f(a) \)                                         \\
+		\( z = f(x, y) \)      & \( z = c + \nabla f(a, b) \cdot \langle x - a, y - b \rangle \)       \\
+		\( F(x, y, z) = D \)   & \( \nabla F(a, b, c) \cdot \langle x - a, y - b, z - c \rangle = 0 \) \\
+		\hline
+	\end{tabular}
+\end{center}
+
 \end{document}
