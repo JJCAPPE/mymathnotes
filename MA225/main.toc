@@ -98,4 +98,21 @@
 \contentsline {subsection}{\numberline {2.14.4}Second Derivative Test}{62}{subsection.2.14.4}%
 \contentsline {subsection}{\numberline {2.14.5}Connection Between the Second Derivative Test and Eigenvalues of the Hessian}{63}{subsection.2.14.5}%
 \contentsline {subsection}{\numberline {2.14.6}Intuition from Linear Algebra}{64}{subsection.2.14.6}%
+\contentsline {section}{\numberline {2.15}Absolute Extrema}{64}{section.2.15}%
+\contentsline {section}{\numberline {2.16}Lagrange Multiplier Method}{66}{section.2.16}%
+\contentsline {subsection}{\numberline {2.16.1}General Procedure}{66}{subsection.2.16.1}%
+\contentsline {section}{\numberline {2.17}Multiple Integration}{69}{section.2.17}%
+\contentsline {subsection}{\numberline {2.17.1}Non-Rectangular Domains}{71}{subsection.2.17.1}%
+\contentsline {subsection}{\numberline {2.17.2}Volume Between Surfaces}{71}{subsection.2.17.2}%
+\contentsline {section}{\numberline {2.18}Applications of Double Integrals}{72}{section.2.18}%
+\contentsline {subsection}{\numberline {2.18.1}Area of a Surface}{72}{subsection.2.18.1}%
+\contentsline {subsection}{\numberline {2.18.2}Average Value of a Function}{73}{subsection.2.18.2}%
+\contentsline {section}{\numberline {2.19}Derivation of Triple Integrals through Riemann Sums}{74}{section.2.19}%
+\contentsline {subsection}{\numberline {2.19.1}Partitioning the Region}{74}{subsection.2.19.1}%
+\contentsline {subsection}{\numberline {2.19.2}Forming the Riemann Sum}{75}{subsection.2.19.2}%
+\contentsline {section}{\numberline {2.20}Triple Integrals Intuitions and Applications}{75}{section.2.20}%
+\contentsline {subsection}{\numberline {2.20.1}Integrals Represent Products}{75}{subsection.2.20.1}%
+\contentsline {paragraph}{(1) Probability that \( (x,y,z) \in D \):}{76}{section*.23}%
+\contentsline {paragraph}{(2) Probability that customers wait at most 5 minutes:}{76}{section*.24}%
+\contentsline {paragraph}{(3) Probability that \( 0 \leqslant x \leqslant y \leqslant z \leqslant 20 \):}{76}{section*.25}%
 \contentsfinish 
