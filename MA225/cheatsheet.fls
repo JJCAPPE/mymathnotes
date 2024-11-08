@@ -565,6 +565,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/NewPXMI_gnu.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/NewPXMI.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/stxscr.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newpx/zplsym.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntxsym.tfm
 INPUT cheatsheet.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb
@@ -577,3 +579,4 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb

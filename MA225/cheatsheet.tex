@@ -115,7 +115,8 @@
 \end{multicols}
 
 \pagebreak
-
+\begin{center}
+	
 \[
 		\text{det}(M) = \det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
 \]
@@ -127,7 +128,7 @@
 	\end{bmatrix}
 \]
 
-\begin{center}
+
 	\begin{enumerate}
 		\item If \( \text{det}(H) > 0 \) and \( f_{xx}(a, b) > 0 \), then \( f(a, b) \) is a \emph{local minimum}.
 		\item If \( \text{det}(H) > 0 \) and \( f_{xx}(a, b) < 0 \), then \( f(a, b) \) is a \emph{local maximum}.
@@ -147,5 +148,13 @@
 		\hline
 	\end{tabular}
 \end{center}
+
+Suppose \( D = \{ (x,y,z) : a \leq x \leq b, \, g(x) \leq y \leq h(x), \, G(x,y) \leq z \leq H(x,y) \} \),
+	where the bounds of \( y \) depend on \( x \) and the bounds of \( z \) depend on \( x \) and \( y \).
+
+	Then
+	\[
+		V = \iiint_D f(x,y,z) \, dV = \int_a^b \int_{g(x)}^{h(x)} \int_{G(x,y)}^{H(x,y)} f(x,y,z) \, dz \, dy \, dx
+	\]
 
 \end{document}
