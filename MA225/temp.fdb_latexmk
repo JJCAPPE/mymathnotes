@@ -1,8 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1731092972.66952 "/Users/giacomo/Documents/Math/Notes/MA225/temp.tex" "temp.pdf" "temp" 1731092988.54674 0
-  "/Users/giacomo/Documents/Math/Notes/MA225/temp.tex" 1731092962.77802 4691 0287589c8e2da852a7ed88560fd9797d ""
+["pdflatex"] 1731339444.79317 "/Users/giacomo/Documents/Math/Notes/MA225/temp.tex" "temp.pdf" "temp" 1731339459.78396 0
+  "/Users/giacomo/Documents/Math/Notes/MA225/temp.tex" 1731339432.47428 10615 ac0f6c33997d0e4515da58c0f0cfb939 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc" 1699652218 3877 2ca811886181a05a861d20a35de75e06 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -15,6 +17,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/NewPXMI.tfm" 1591219423 1160 c2197cdaa08622262260a0a34b1dfcef ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/NewPXMI_gnu.tfm" 1570136818 748 0258bafb3cb53bfddd528993739cf619 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newpx/pxmiaX.tfm" 1634156854 1732 18a727750846a1c3e7271725c4449898 ""
@@ -37,6 +40,9 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb" 1591219423 25273 57c06ae0831a03c4eb441ef7894a1639 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb" 1570136818 16003 379767f2e95213e4cfc7bfd5823fb860 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb" 1634156854 55131 37a379baccd50ac17c5ca120b382f7a1 ""
@@ -340,9 +346,9 @@
   "letterfonts.tex" 1725456673.16208 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1725456673.16496 3389 93000260d2aea292d29c76d4ace77a29 ""
   "preamble.tex" 1725456673.16729 20053 cac64cd8837854e12008c40220fda887 ""
-  "temp.aux" 1731092988.3414 1302 a7b8812aed0ccb2f387fa8c16b7fb228 "pdflatex"
-  "temp.tex" 1731092962.77802 4691 0287589c8e2da852a7ed88560fd9797d ""
-  "temp.toc" 1731092988.3438 144 988a67b68d8db5ca363e4828db5fca47 "pdflatex"
+  "temp.aux" 1731339459.62892 1798 6db297f7cf82d16a3e45f37ba929fa8c "pdflatex"
+  "temp.tex" 1731339432.47428 10615 ac0f6c33997d0e4515da58c0f0cfb939 ""
+  "temp.toc" 1731339459.63021 227 b0b29bbb9008b8c38a5e3211d7b2bbb6 "pdflatex"
   (generated)
   "temp.aux"
   "temp.log"
