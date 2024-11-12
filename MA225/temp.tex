@@ -9,13 +9,14 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=1.18}
 \usepackage{smartdiagram}
 \usepackage{xcolor}
 \usepackage{forest}
 \usepackage{tikz-3dplot}
 \usepgfplotslibrary{colormaps}
 \usepgfplotslibrary{groupplots}
-\pgfplotsset{compat=newest}
 
 \usesmartdiagramlibrary{additions}
 
@@ -27,7 +28,7 @@
 
 
 \maketitle
-\newpage
+\pagebreak
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
 \pagebreak
@@ -230,61 +231,61 @@
 }
 
 \begin{center}
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \begin{tikzpicture}[scale=0.7]
-            % Cartesian coordinate system diagram
-            \node at (0, 4.5) {\textbf{Cartesian Coordinates}};
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=0.7]
+			% Cartesian coordinate system diagram
+			\node at (0, 4.5) {\textbf{Cartesian Coordinates}};
 
-            % Draw axes
-            \draw[->] (-4, 0) -- (4, 0) node[anchor=north] {\( x \)};
-            \draw[->] (0, -4) -- (0, 4) node[anchor=west] {\( y \)};
+			% Draw axes
+			\draw[->] (-4, 0) -- (4, 0) node[anchor=north] {\( x \)};
+			\draw[->] (0, -4) -- (0, 4) node[anchor=west] {\( y \)};
 
-            % Draw point and line
-            \coordinate (P) at (3,2); % Point P at (3,2)
-            \draw[thick] (-4,-8/3) -- (4,8/3); % Line through origin and point (slope 2/3)
+			% Draw point and line
+			\coordinate (P) at (3,2); % Point P at (3,2)
+			\draw[thick] (-4,-8/3) -- (4,8/3); % Line through origin and point (slope 2/3)
 
-            % Mark point P
-            \filldraw (P) circle (2pt) node[anchor=south west] {\( P(x, y) = (3, 2) \)};
+			% Mark point P
+			\filldraw (P) circle (2pt) node[anchor=south west] {\( P(x, y) = (3, 2) \)};
 
-            % Draw dashed lines to x and y axes for clarity
-            \draw[dashed] (P) -- (3,0) node[anchor=north] {3};
-            \draw[dashed] (P) -- (0,2) node[anchor=east] {2};
-        \end{tikzpicture}
-    \end{minipage}%
-    \hspace{0.05\textwidth} % Space between the two diagrams
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \begin{tikzpicture}[scale=0.7]
-            % Polar coordinate system diagram
-            \node at (0, 4.5) {\textbf{Polar Coordinates}};
+			% Draw dashed lines to x and y axes for clarity
+			\draw[dashed] (P) -- (3,0) node[anchor=north] {3};
+			\draw[dashed] (P) -- (0,2) node[anchor=east] {2};
+		\end{tikzpicture}
+	\end{minipage}%
+	\hspace{0.05\textwidth} % Space between the two diagrams
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=0.7]
+			% Polar coordinate system diagram
+			\node at (0, 4.5) {\textbf{Polar Coordinates}};
 
-            % Draw polar grid
-            \foreach \r in {1, 2, 3, 4} {
-                \draw[cyan, thin] (0,0) circle (\r);
-            }
-            \foreach \a in {0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330} {
-                \draw[cyan, thin] (0,0) -- (\a:4);
-            }
+			% Draw polar grid
+			\foreach \r in {1, 2, 3, 4} {
+					\draw[cyan, thin] (0,0) circle (\r);
+				}
+			\foreach \a in {0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330} {
+					\draw[cyan, thin] (0,0) -- (\a:4);
+				}
 
-            % Draw axis lines with labels
-            \draw[->, thick] (-4.5,0) -- (4.5,0) node[anchor=north] {\( x \)};
-            \draw[->, thick] (0,-4.5) -- (0,4.5) node[anchor=west] {\( y \)};
+			% Draw axis lines with labels
+			\draw[->, thick] (-4.5,0) -- (4.5,0) node[anchor=north] {\( x \)};
+			\draw[->, thick] (0,-4.5) -- (0,4.5) node[anchor=west] {\( y \)};
 
-            % Draw point and radial line
-            \coordinate (O) at (0,0);
-            \coordinate (P) at (3,2); % Point P in polar coordinates (approx r=3.6, theta=33.69 degrees)
-            \draw[->, thick] (O) -- (P) node[midway, anchor=south east] {\( r \)};
-            \filldraw (P) circle (2pt) node[anchor=south west] {\( P(r, \theta) \)};
+			% Draw point and radial line
+			\coordinate (O) at (0,0);
+			\coordinate (P) at (3,2); % Point P in polar coordinates (approx r=3.6, theta=33.69 degrees)
+			\draw[->, thick] (O) -- (P) node[midway, anchor=south east] {\( r \)};
+			\filldraw (P) circle (2pt) node[anchor=south west] {\( P(r, \theta) \)};
 
-            % Draw angle arc
-            \draw[->] (0.8,0) arc [start angle=0, end angle=33.69, radius=0.8];
-            \node at (1,0.2) {\( \theta \)};
+			% Draw angle arc
+			\draw[->] (0.8,0) arc [start angle=0, end angle=33.69, radius=0.8];
+			\node at (1,0.2) {\( \theta \)};
 
-            % Label r and theta
-            \node at (P) [anchor=north] {\( (r \approx 3.6, \theta \approx 33.69^\circ) \)};
-        \end{tikzpicture}
-    \end{minipage}
+			% Label r and theta
+			\node at (P) [anchor=north] {\( (r \approx 3.6, \theta \approx 33.69^\circ) \)};
+		\end{tikzpicture}
+	\end{minipage}
 \end{center}
 
 \begin{center}
@@ -328,4 +329,228 @@
 \ex{Applications of Polar Coordinates}{
 	Polar coordinates are particularly useful in problems involving symmetry around a central point, such as in physics for modeling circular motion, waves, and fields. They simplify equations and visualizations in cases where Cartesian coordinates might be cumbersome.
 }
+
+\section{Basic Equations}
+
+\subsection{Ellipse}
+\[
+	\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\]
+For parametric representation:
+\[
+	x = a \cos \theta, \quad y = b \sin \theta
+\]
+
+\subsection{Line}
+\[
+	r(\theta) = \frac{b}{\sin \theta - \cos \theta}
+\]
+where \( y = mx + b \).
+
+\subsection{Cardioid}
+The equation for a cardioid:
+\[
+	r(\theta) = 1 + \cos \theta
+\]
+Transformations:
+\[
+	r = 1 + \cos \theta \Rightarrow r = x + \cos \theta
+\]
+\[
+	r = r \cos \theta \Rightarrow x = \cos \theta
+\]
+
+\section{Slope of a Curve}
+
+For a function \( r = f(\theta) \):
+\[
+	\text{slope} = \frac{dy}{dx} = \frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}}
+\]
+Using parametric form \( r(\theta) = f(\theta) \), then
+\[
+	x(\theta) = f(\theta) \cos \theta, \quad y(\theta) = f(\theta) \sin \theta
+\]
+Therefore,
+\[
+	\frac{dy}{d\theta} = f'(\theta) \sin \theta + f(\theta) \cos \theta
+\]
+
+\dfn{Slope of a curve in polar coordinates}{
+	\[
+		\frac{dx}{d\theta} = f'(\theta) \cos \theta - f(\theta) \sin \theta
+	\]
+}
+
+\ex{Example: Slope of Cardioid}{
+	For the cardioid \( r = 1 + \cos \theta \),
+	\[
+		f(\theta) = 1 + \cos \theta, \quad f'(\theta) = -\sin \theta
+	\]
+	Then,
+	\[
+		\text{slope} = \frac{-\sin \theta (\sin \theta) + (1 + \cos \theta) \cos \theta}{-\sin \theta \cos \theta - (1 + \cos \theta) \sin \theta}
+	\]
+	Simplifying,
+	\[
+		\text{slope} = -\frac{\cos^2 \theta}{\sin \theta (2 \cos \theta + 1)}
+	\]
+
+	To determine where the slope is undefined, we examine the denominator:
+
+	\[
+		\text{slope} = -\frac{\cos^2 \theta}{\sin \theta (2 \cos \theta + 1)}
+	\]
+
+	The slope is undefined when the denominator is zero.
+
+	\subsection*{At \(\theta = \pi\):}
+	\[
+		\sin \pi = 0 \quad \text{and} \quad \cos \pi = -1
+	\]
+	\[
+		\sin \pi \cdot (2 \cos \pi + 1) = 0 \cdot (2 \cdot (-1) + 1) = 0
+	\]
+	Thus, the slope is undefined at \(\theta = \pi\).
+
+	\subsection*{At \(\theta = \frac{3\pi}{4}\):}
+	\[
+		\sin \frac{3\pi}{4} = \frac{\sqrt{2}}{2} \quad \text{and} \quad \cos \frac{3\pi}{4} = -\frac{\sqrt{2}}{2}
+	\]
+	\[
+		\sin \frac{3\pi}{4} \cdot \left(2 \cos \frac{3\pi}{4} + 1\right) = \frac{\sqrt{2}}{2} \cdot \left(-\sqrt{2} + 1\right) = 0
+	\]
+	Thus, the slope is also undefined at \(\theta = \frac{3\pi}{4}\).
+
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{polaraxis}[
+            legend style={at={(1.1,1.1)}, anchor=north west}
+        ]
+            % Plot the curve r = 1 + cos(theta)
+            \addplot+[domain=0:360, samples=50, thick, blue] (x, {1 + cos(x)});
+            
+            % Highlight the points at theta = 135 and 180 degrees with different colors
+            \addplot+[only marks, mark=*, mark size=2pt, red] coordinates {(135, {1 + cos(135)})};
+            \addlegendentry{$\theta = \frac{3\pi}{4}$}
+
+            \addplot+[only marks, mark=*, mark size=2pt, green] coordinates {(180, {1 + cos(180)})};
+            \addlegendentry{$\theta = \pi$}
+
+        \end{polaraxis}
+    \end{tikzpicture}
+\end{center}
+
+The slope at \( \theta = \frac{3\pi}{4} \) does not exist in the usual Cartesian sense. Here’s why:
+
+\begin{enumerate}
+    \item Radial Line: At \( \theta = \frac{3\pi}{4} \), the line connecting the point \( \left(1 + \cos\left(\frac{3\pi}{4}\right), \frac{3\pi}{4}\right) \) to the origin is a radial line. Radial lines in polar coordinates point directly toward or away from the origin, meaning they lack a well-defined Cartesian slope.
+
+    \item Slope in Polar Coordinates: In polar coordinates, the concept of "slope" differs from Cartesian coordinates. We can calculate \( \frac{dr}{d\theta} \) at \( \theta = \frac{3\pi}{4} \), but this does not correspond to a Cartesian slope.
+
+    \item Alternative Interpretation: Converting \( r = 1 + \cos(\theta) \) to Cartesian form and calculating derivatives would show a vertical tangent at \( \theta = \frac{3\pi}{4} \), indicating an undefined slope.
+\end{enumerate}
+
+}
+
+\section{Deriving the Integral for Area Under a Curve in Polar Coordinates}
+
+To find the area under a curve defined in polar coordinates using Riemann sums, we follow these steps:
+
+In Cartesian coordinates, the area under a curve from \( x = a \) to \( x = b \) is given by:
+\[
+	\int_a^b f(x) \, dx
+\]
+In polar coordinates, a point is represented by \( (r, \theta) \), where \( r \) is the radial distance from the origin, and \( \theta \) is the angle from the positive \( x \)-axis. To calculate the area under a curve \( r = f(\theta) \) between two angles \( \theta = \alpha \) and \( \theta = \beta \), we use sectors of circles.
+
+For a small angle \( d\theta \), the area of a sector with radius \( r \) is approximately:
+\[
+	dA \approx \frac{1}{2} r^2 \, d\theta
+\]
+This comes from the area formula for a sector, \( \frac{1}{2} r^2 \theta \), with a small change in angle \( d\theta \).
+
+To find the total area under the curve \( r = f(\theta) \) from \( \theta = \alpha \) to \( \theta = \beta \), we can divide the interval \( [\alpha, \beta] \) into \( n \) small subintervals, each of width \( \Delta \theta = \frac{\beta - \alpha}{n} \).
+
+In each subinterval \( [ \theta_i, \theta_{i+1} ] \), we approximate the radius \( r \) by \( f(\theta_i) \), where \( \theta_i \) is a sample point in that interval. The area of each small sector is then approximately:
+\[
+	\Delta A_i \approx \frac{1}{2} f(\theta_i)^2 \Delta \theta
+\]
+
+The total area \( A \) is the sum of the areas of these small sectors:
+\[
+	A \approx \sum_{i=0}^{n-1} \frac{1}{2} f(\theta_i)^2 \Delta \theta
+\]
+
+As we take the limit where \( n \to \infty \) and \( \Delta \theta \to 0 \), this Riemann sum becomes an integral:
+\[
+	A = \lim_{n \to \infty} \sum_{i=0}^{n-1} \frac{1}{2} f(\theta_i)^2 \Delta \theta = \int_{\alpha}^{\beta} \frac{1}{2} f(\theta)^2 \, d\theta
+\]
+
+Thus, the area under the curve \( r = f(\theta) \) in polar coordinates from \( \theta = \alpha \) to \( \theta = \beta \) is:
+\[
+	\boxed{A = \int_{\alpha}^{\beta} \frac{1}{2} f(\theta)^2 \, d\theta}
+\]
+
+This is the formula for the area in polar coordinates, derived using the concept of Riemann sums.
+
+\ex{Example: Circle \( r = a \)}{
+	\[
+		A = \frac{1}{2} \int_0^{2 \pi} a^2 \, d\theta = \pi a^2
+	\]
+}
+
+
+\ex{Two curves}{
+
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		% Define angles for the interval [theta_1, theta_2]
+		\def\thetaone{30}    % Start angle
+		\def\thetatwo{120}   % End angle
+
+		% Draw the radial grid (optional for reference)
+		\foreach \r in {0.5, 1, 1.5, 2} {
+				\draw[cyan, thin] (0,0) circle (\r);
+			}
+
+		% Draw angular lines at theta_1 and theta_2
+		\draw[dashed] (0,0) -- (\thetaone:2.5);
+		\draw[dashed] (0,0) -- (\thetatwo:2.5);
+
+		% Label angles
+		\node at (\thetaone:2.6) {\( \theta_1 \)};
+		\node at (\thetatwo:2.6) {\( \theta_2 \)};
+
+		% Define the functions f(theta) and g(theta) as polar plots
+		% f(theta) - Outer curve
+		\draw[thick, blue, domain=\thetaone:\thetatwo, samples=100, variable=\t]
+		plot ({\t}:{1 + 0.5*cos(\t)});
+		\node at (70:1.5) {\( f(\theta) \)};
+
+		% g(theta) - Inner curve
+		\draw[thick, red, domain=\thetaone:\thetatwo, samples=100, variable=\t]
+		plot ({\t}:{0.5 + 0.3*cos(\t)});
+		\node at (70:0.8) {\( g(\theta) \)};
+
+		% Shade the area between the two curves
+		\fill[blue!30, opacity=0.5, domain=\thetaone:\thetatwo, samples=100, variable=\t]
+		plot ({\t}:{1 + 0.5*cos(\t)}) --
+		plot[domain=\thetatwo:\thetaone, samples=100] ({\t}:{0.5 + 0.3*cos(\t)}) -- cycle;
+
+		% Add label for the shaded area
+		\node at (80:1.2) {\( A = \frac{1}{2} \int_{\theta_1}^{\theta_2} \left( f(\theta)^2 - g(\theta)^2 \right) \, d\theta \)};
+	\end{tikzpicture}
+\end{center}
+
+For two curves \( r = f(\theta) \) and \( r = g(\theta) \):
+\[
+	A = \int_{\theta_1}^{\theta_2} \frac{1}{2} f(\theta)^2 \, d\theta - \int_{\theta_1}^{\theta_2} \frac{1}{2} g(\theta)^2 \, d\theta
+\]
+which simplifies to
+\[
+A = \frac{1}{2} \int_{\theta_1}^{\theta_2} (f(\theta)^2 - g(\theta)^2) \, d\theta
+\]
+
+}
+
 \end{document}
