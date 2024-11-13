@@ -115,4 +115,12 @@
 \contentsline {paragraph}{(1) Probability that \( (x,y,z) \in D \):}{76}{section*.23}%
 \contentsline {paragraph}{(2) Probability that customers wait at most 5 minutes:}{76}{section*.24}%
 \contentsline {paragraph}{(3) Probability that \( 0 \leqslant x \leqslant y \leqslant z \leqslant 20 \):}{76}{section*.25}%
+\contentsline {chapter}{\numberline {3}Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{79}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Polar Coordinate System}{81}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Basic Equations}{83}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Ellipse}{83}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Line}{83}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Cardioid}{83}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Slope of a Curve}{83}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Deriving the Integral for Area Under a Curve in Polar Coordinates}{85}{section.3.4}%
 \contentsfinish 
