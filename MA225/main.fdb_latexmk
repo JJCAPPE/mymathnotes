@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1731454062.60343 "/Users/giacomo/Documents/Math/Notes/MA225/main.tex" "main.pdf" "main" 1731454116.30026 0
-  "/Users/giacomo/Documents/Math/Notes/MA225/main.tex" 1731453867.57965 175470 450d0871414d64f8f97ab3bc3d9e7806 ""
+["lualatex"] 1731458175.07356 "/Users/giacomo/Documents/Math/Notes/MA225/main.tex" "main.pdf" "main" 1731458230.804 0
+  "/Users/giacomo/Documents/Math/Notes/MA225/main.tex" 1731457982.26038 175395 4f57379f2ed89b2edf8cc13c095915df ""
   "/Users/giacomo/Library/texlive/2024/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1729721589.43923 128410 d0a7d6c5b84cb323c732980fd1a15945 ""
   "/Users/giacomo/Library/texlive/2024/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bolditalic.luc" 1729721592.56983 136491 508cc4ef558221ac746fab8d9af233da ""
   "/Users/giacomo/Library/texlive/2024/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1729721598.34207 136312 0e3e64866d362ca6507213d4e45d4d17 ""
@@ -437,9 +437,9 @@
   "letterfonts.tex" 1725456673.16208 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "levelcurves.png" 1728661369.0459 301710 7f399a18d31e0df96e729b5b27213cc2 ""
   "macros.tex" 1725456673.16496 3389 93000260d2aea292d29c76d4ace77a29 ""
-  "main.aux" 1731454115.80206 88474 60cd20bc83501d2265fc69bf072d319b "lualatex"
-  "main.tex" 1731453867.57965 175470 450d0871414d64f8f97ab3bc3d9e7806 ""
-  "main.toc" 1731454115.85013 12371 fe221c9b3d77be074d623abf717564c7 "lualatex"
+  "main.aux" 1731458230.22883 87644 ca3f10f49946e9b86b9b3d98918e7247 "lualatex"
+  "main.tex" 1731457982.26038 175395 4f57379f2ed89b2edf8cc13c095915df ""
+  "main.toc" 1731458230.27805 12257 9d0dc5387b5fc69328b342526f078983 "lualatex"
   "preamble.tex" 1725456673.16729 20053 cac64cd8837854e12008c40220fda887 ""
   (generated)
   "main.aux"
