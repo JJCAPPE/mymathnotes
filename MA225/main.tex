@@ -3402,18 +3402,18 @@ where \(\nabla f(a, b)\) represents the gradient vector of the function \(f(x, y
 \begin{center}
 	\begin{tikzpicture}
 		\begin{axis}[
-			colormap/cool,
-			grid=both,
-			enlargelimits=false,
-			samples=50,
-			z buffer=sort,
-			view={60}{30},
-			xlabel=$x$, ylabel=$y$, zlabel=$z$,
-			domain=-3:6,
-			y domain=-3:3,
-			zmin=-5, zmax=5, % Set z-range to about 10 units total
-			xmin=-3, xmax=6, % Set x-range to about 10 units total
-			ymin=-3, ymax=3, % Set y-range to about 10 units total
+				colormap/cool,
+				grid=both,
+				enlargelimits=false,
+				samples=50,
+				z buffer=sort,
+				view={60}{30},
+				xlabel=$x$, ylabel=$y$, zlabel=$z$,
+				domain=-3:6,
+				y domain=-3:3,
+				zmin=-5, zmax=5, % Set z-range to about 10 units total
+				xmin=-3, xmax=6, % Set x-range to about 10 units total
+				ymin=-3, ymax=3, % Set y-range to about 10 units total
 			]
 			% Plot the surface z = sin(x) * exp(y)
 			\addplot3[surf] {sin(deg(x)) * exp(y)};
@@ -5428,10 +5428,13 @@ Therefore,
 	\frac{dy}{d\theta} = f'(\theta) \sin \theta + f(\theta) \cos \theta
 \]
 
-\dfn{Slope of a curve in polar coordinates}{
-	\[
-		\frac{dx}{d\theta} = f'(\theta) \cos \theta - f(\theta) \sin \theta
-	\]
+
+\[
+	\frac{dx}{d\theta} = f'(\theta) \cos \theta - f(\theta) \sin \theta
+\]
+
+\dfn{Slope or function with Polar Coordinates}{
+		$$\frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}} = \frac{dy}{dx} = \frac{f'(\theta) \sin \theta + f(\theta) \cos \theta}{f'(\theta) \cos \theta - f(\theta) \sin \theta}$$
 }
 
 \ex{Example: Slope of Cardioid}{
@@ -5475,34 +5478,34 @@ Therefore,
 	Thus, the slope is also undefined at \(\theta = \frac{3\pi}{4}\).
 
 
-\begin{center}
-    \begin{tikzpicture}
-        \begin{polaraxis}[
-            legend style={at={(1.1,1.1)}, anchor=north west}
-        ]
-            % Plot the curve r = 1 + cos(theta)
-            \addplot+[domain=0:360, samples=50, thick, blue] (x, {1 + cos(x)});
-            
-            % Highlight the points at theta = 135 and 180 degrees with different colors
-            \addplot+[only marks, mark=*, mark size=2pt, red] coordinates {(135, {1 + cos(135)})};
-            \addlegendentry{$\theta = \frac{3\pi}{4}$}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{polaraxis}[
+					legend style={at={(1.1,1.1)}, anchor=north west}
+				]
+				% Plot the curve r = 1 + cos(theta)
+				\addplot+[domain=0:360, samples=50, thick, blue] (x, {1 + cos(x)});
 
-            \addplot+[only marks, mark=*, mark size=2pt, green] coordinates {(180, {1 + cos(180)})};
-            \addlegendentry{$\theta = \pi$}
+				% Highlight the points at theta = 135 and 180 degrees with different colors
+				\addplot+[only marks, mark=*, mark size=2pt, red] coordinates {(135, {1 + cos(135)})};
+				\addlegendentry{$\theta = \frac{3\pi}{4}$}
 
-        \end{polaraxis}
-    \end{tikzpicture}
-\end{center}
+				\addplot+[only marks, mark=*, mark size=2pt, green] coordinates {(180, {1 + cos(180)})};
+				\addlegendentry{$\theta = \pi$}
 
-The slope at \( \theta = \frac{3\pi}{4} \) does not exist in the usual Cartesian sense. Here’s why:
+			\end{polaraxis}
+		\end{tikzpicture}
+	\end{center}
 
-\begin{enumerate}
-    \item Radial Line: At \( \theta = \frac{3\pi}{4} \), the line connecting the point \( \left(1 + \cos\left(\frac{3\pi}{4}\right), \frac{3\pi}{4}\right) \) to the origin is a radial line. Radial lines in polar coordinates point directly toward or away from the origin, meaning they lack a well-defined Cartesian slope.
+	The slope at \( \theta = \frac{3\pi}{4} \) does not exist in the usual Cartesian sense. Here’s why:
 
-    \item Slope in Polar Coordinates: In polar coordinates, the concept of "slope" differs from Cartesian coordinates. We can calculate \( \frac{dr}{d\theta} \) at \( \theta = \frac{3\pi}{4} \), but this does not correspond to a Cartesian slope.
+	\begin{enumerate}
+		\item Radial Line: At \( \theta = \frac{3\pi}{4} \), the line connecting the point \( \left(1 + \cos\left(\frac{3\pi}{4}\right), \frac{3\pi}{4}\right) \) to the origin is a radial line. Radial lines in polar coordinates point directly toward or away from the origin, meaning they lack a well-defined Cartesian slope.
 
-    \item Alternative Interpretation: Converting \( r = 1 + \cos(\theta) \) to Cartesian form and calculating derivatives would show a vertical tangent at \( \theta = \frac{3\pi}{4} \), indicating an undefined slope.
-\end{enumerate}
+		\item Slope in Polar Coordinates: In polar coordinates, the concept of "slope" differs from Cartesian coordinates. We can calculate \( \frac{dr}{d\theta} \) at \( \theta = \frac{3\pi}{4} \), but this does not correspond to a Cartesian slope.
+
+		\item Alternative Interpretation: Converting \( r = 1 + \cos(\theta) \) to Cartesian form and calculating derivatives would show a vertical tangent at \( \theta = \frac{3\pi}{4} \), indicating an undefined slope.
+	\end{enumerate}
 
 }
 
