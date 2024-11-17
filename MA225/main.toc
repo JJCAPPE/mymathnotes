@@ -122,4 +122,7 @@
 \contentsline {subsection}{\numberline {2.22.3}Cardioid}{82}{subsection.2.22.3}%
 \contentsline {section}{\numberline {2.23}Slope of a Curve}{82}{section.2.23}%
 \contentsline {section}{\numberline {2.24}Deriving the Integral for Area Under a Curve in Polar Coordinates}{84}{section.2.24}%
+\contentsline {section}{\numberline {2.25}Arc Length in Polar Coordinates}{86}{section.2.25}%
+\contentsline {section}{\numberline {2.26}Multivariate Case}{86}{section.2.26}%
+\contentsline {section}{\numberline {2.27}General Procedure for Polar Integration}{87}{section.2.27}%
 \contentsfinish 
