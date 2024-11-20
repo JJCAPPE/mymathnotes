@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.11.11)  17 NOV 2024 10:47
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.11.11)  20 NOV 2024 11:24
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/giacomo/Documents/Math/Notes/MA225/main.tex
@@ -1268,51 +1268,102 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \pgfplots@group@current@plot=\count504
 \pgfplots@group@current@row=\count505
 \pgfplots@group@current@column=\count506
-) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.polar.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/latex/smartdiagram/smartdiagramlibraryadditions.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.polar.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2024-09-30 v3.3.22 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count507
+\l__siunitx_number_exponent_fixed_int=\count508
+\l__siunitx_number_min_decimal_int=\count509
+\l__siunitx_number_min_integer_int=\count510
+\l__siunitx_number_round_precision_int=\count511
+\l__siunitx_number_lower_threshold_int=\count512
+\l__siunitx_number_upper_threshold_int=\count513
+\l__siunitx_number_group_first_int=\count514
+\l__siunitx_number_group_size_int=\count515
+\l__siunitx_number_group_minimum_int=\count516
+\l__siunitx_angle_tmp_dim=\dimen345
+\l__siunitx_angle_marker_box=\box171
+\l__siunitx_angle_unit_box=\box172
+\l__siunitx_compound_count_int=\count517
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+)
+\l__siunitx_table_tmp_box=\box173
+\l__siunitx_table_tmp_dim=\dimen346
+\l__siunitx_table_column_width_dim=\dimen347
+\l__siunitx_table_integer_box=\box174
+\l__siunitx_table_decimal_box=\box175
+\l__siunitx_table_uncert_box=\box176
+\l__siunitx_table_before_box=\box177
+\l__siunitx_table_after_box=\box178
+\l__siunitx_table_before_dim=\dimen348
+\l__siunitx_table_carry_dim=\dimen349
+\l__siunitx_unit_tmp_int=\count518
+\l__siunitx_unit_position_int=\count519
+\l__siunitx_unit_total_int=\count520
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.sty
+Package: contour 2004/11/18 v2.14 Print contoured text (HH, MH)
+\con@length=\skip86
+
+Loading configuration file `contour.cfg'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.cfg
+File: contour.cfg 2004/11/18 v2.14 Print contoured text (HH, MH)
+)
+contour: Using driver file `dvips.cnt'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/contour/dvips.cnt
+File: dvips.cnt 2004/11/18 v2.14 Print contoured text (HH, MH)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
+File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
+\tikz@math@for@depth=\count521
+\tikz@math@dimen=\dimen350
+\tikz@math@toks=\toks77
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/smartdiagram/smartdiagramlibraryadditions.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (./main.aux)
+))
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 45.
+ (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 26.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 26.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 45.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 45.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 26.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 26.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 45.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 45.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 26.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 26.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 45.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 45.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 26.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 26.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 45.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 45.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1348,29 +1399,35 @@ LaTeX Font Info:    ... okay on input line 26.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Command `\dddot' is already robust on input line 26.
-LaTeX Info: Command `\ddddot' is already robust on input line 26.
+LaTeX Info: Command `\dddot' is already robust on input line 45.
+LaTeX Info: Command `\ddddot' is already robust on input line 45.
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count507
-\scratchdimen=\dimen345
-\scratchbox=\box171
-\nofMPsegments=\count508
-\nofMParguments=\count509
-\everyMPshowfont=\toks77
-\MPscratchCnt=\count510
-\MPscratchDim=\dimen346
-\MPnumerator=\count511
-\makeMPintoPDFobject=\count512
-\everyMPtoPDFconversion=\toks78
+\scratchcounter=\count522
+\scratchdimen=\dimen351
+\scratchbox=\box179
+\nofMPsegments=\count523
+\nofMParguments=\count524
+\everyMPshowfont=\toks78
+\MPscratchCnt=\count525
+\MPscratchDim=\dimen352
+\MPnumerator=\count526
+\makeMPintoPDFobject=\count527
+\everyMPtoPDFconversion=\toks79
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 26.
-\c@lstlisting=\count513
+Package hyperref Info: Link coloring ON on input line 45.
+\c@lstlisting=\count528
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1382,27 +1439,31 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 30.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+(/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 45.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 49.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
@@ -1412,7 +1473,7 @@ File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Font Warning: Font shape `TU/lmr/bx/sc' undefined
-(Font)              using `TU/lmr/bx/n' instead on input line 32.
+(Font)              using `TU/lmr/bx/n' instead on input line 51.
 
 (./main.toc
 
@@ -1435,27 +1496,27 @@ Missing character: There is no ; (U+003B) in font nullfont!
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 35.
+(hyperref)                removing `math shift' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 35.
+(hyperref)                removing `\m@thbbch@rR' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 35.
+(hyperref)                removing `\rightarrow' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 35.
+(hyperref)                removing `\m@thbbch@rR' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 35.
+(hyperref)                removing `superscript' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 35.
+(hyperref)                removing `math shift' on input line 54.
 
 
 
@@ -1464,7 +1525,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ]
 
 [4]
-Overfull \hbox (36.40596pt too wide) in paragraph at lines 236--236
+Overfull \hbox (36.40596pt too wide) in paragraph at lines 255--255
  [] 
  []
 
@@ -1475,10 +1536,10 @@ Overfull \hbox (36.40596pt too wide) in paragraph at lines 236--236
 [6]
 
 [7]
-<graphicalvm.png, id=524, 829.0975pt x 338.26375pt>
+<graphicalvm.png, id=539, 829.0975pt x 338.26375pt>
 File: graphicalvm.png Graphic file (type png)
 <use graphicalvm.png>
-Package luatex.def Info: graphicalvm.png  used on input line 438.
+Package luatex.def Info: graphicalvm.png  used on input line 457.
 (luatex.def)             Requested size: 239.02704pt x 97.51588pt.
 
 
@@ -1491,7 +1552,7 @@ Package luatex.def Info: graphicalvm.png  used on input line 438.
 [11]
 
 [12]
-Package pgfplots info on input line 810: Using 'lua backend=false' for visualization of plot 4 (type 'mesh'): it has no LUA visualizer.
+Package pgfplots info on input line 829: Using 'lua backend=false' for visualization of plot 4 (type 'mesh'): it has no LUA visualizer.
 
 
 [13]
@@ -1537,18 +1598,18 @@ Missing character: There is no t (U+0074) in font nullfont!
 [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1610.
+(hyperref)                removing `math shift' on input line 1629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\kappa' on input line 1610.
+(hyperref)                removing `\kappa' on input line 1629.
 
 
 
 [26]
 
 [27]
-Overfull \hbox (5.27235pt too wide) in paragraph at lines 1767--1768
+Overfull \hbox (5.27235pt too wide) in paragraph at lines 1786--1787
  [] 
  []
 
@@ -1557,11 +1618,11 @@ Overfull \hbox (5.27235pt too wide) in paragraph at lines 1767--1768
 [28]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1789.
+(hyperref)                removing `math shift' on input line 1808.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1789.
+(hyperref)                removing `math shift' on input line 1808.
 
 
 
@@ -1581,27 +1642,27 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Chapter 2.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2157.
+(hyperref)                removing `math shift' on input line 2176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 2157.
+(hyperref)                removing `\m@thbbch@rR' on input line 2176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 2157.
+(hyperref)                removing `superscript' on input line 2176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 2157.
+(hyperref)                removing `\rightarrow' on input line 2176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 2157.
+(hyperref)                removing `\m@thbbch@rR' on input line 2176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2157.
+(hyperref)                removing `math shift' on input line 2176.
 
 
 
@@ -1620,50 +1681,50 @@ NOTE: coordinate (--,--,--) [--](was (0.0,0.0,nan) [--]) has been dropped becaus
 [40]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2518.
+(hyperref)                removing `math shift' on input line 2537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 2518.
+(hyperref)                removing `\m@thbbch@rR' on input line 2537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 2518.
+(hyperref)                removing `\rightarrow' on input line 2537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 2518.
+(hyperref)                removing `\m@thbbch@rR' on input line 2537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2518.
+(hyperref)                removing `math shift' on input line 2537.
 
 
 
 [41]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2566.
+(hyperref)                removing `math shift' on input line 2585.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 2566.
+(hyperref)                removing `\m@thbbch@rR' on input line 2585.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 2566.
+(hyperref)                removing `\rightarrow' on input line 2585.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 2566.
+(hyperref)                removing `\m@thbbch@rR' on input line 2585.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 2566.
+(hyperref)                removing `superscript' on input line 2585.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2566.
+(hyperref)                removing `math shift' on input line 2585.
 
 
 
@@ -1672,34 +1733,34 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [43]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2727.
+(hyperref)                removing `math shift' on input line 2746.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\neq' on input line 2727.
+(hyperref)                removing `\neq' on input line 2746.
 
 
 
 [44]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2737.
+(hyperref)                removing `math shift' on input line 2756.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2737.
+(hyperref)                removing `math shift' on input line 2756.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\neq' on input line 2737.
+(hyperref)                removing `\neq' on input line 2756.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2745.
+(hyperref)                removing `math shift' on input line 2764.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2784.
+(hyperref)                removing `math shift' on input line 2803.
 
 
 
@@ -1716,10 +1777,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [50]
 
 [51]
-<levelcurves.png, id=861, 411.57765pt x 397.84634pt>
+<levelcurves.png, id=876, 411.57765pt x 397.84634pt>
 File: levelcurves.png Graphic file (type png)
 <use levelcurves.png>
-Package luatex.def Info: levelcurves.png  used on input line 3287.
+Package luatex.def Info: levelcurves.png  used on input line 3306.
 (luatex.def)             Requested size: 205.78831pt x 198.92268pt.
 
 
@@ -1734,44 +1795,49 @@ Package luatex.def Info: levelcurves.png  used on input line 3287.
 [56]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3657.
+(hyperref)                removing `math shift' on input line 3807.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\ln' on input line 3657.
+(hyperref)                removing `\ln' on input line 3807.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 3657.
+(hyperref)                removing `superscript' on input line 3807.
 
 
 
-[57]
+[57
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+]
 
 [58]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3712.
+(hyperref)                removing `math shift' on input line 3862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 3712.
+(hyperref)                removing `\m@thbbch@rR' on input line 3862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 3712.
+(hyperref)                removing `superscript' on input line 3862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 3712.
+(hyperref)                removing `\rightarrow' on input line 3862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 3712.
+(hyperref)                removing `\m@thbbch@rR' on input line 3862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3712.
+(hyperref)                removing `math shift' on input line 3862.
 
 
 
@@ -1779,33 +1845,33 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [60]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 3931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 3931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 3931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 3931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3931.
-
-
-
 [61]
-Overfull \hbox (7.46219pt too wide) in paragraph at lines 3991--3992
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4081.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\m@thbbch@rR' on input line 4081.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rightarrow' on input line 4081.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\m@thbbch@rR' on input line 4081.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 4081.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4081.
+
+
+Overfull \hbox (7.46219pt too wide) in paragraph at lines 4141--4142
 [] 
  []
 
@@ -1814,37 +1880,37 @@ Overfull \hbox (7.46219pt too wide) in paragraph at lines 3991--3992
 [62]
 
 [63]
-Overfull \hbox (1.55687pt too wide) in paragraph at lines 4096--4097
+Overfull \hbox (1.55687pt too wide) in paragraph at lines 4246--4247
 []\TU/lmr/m/n/10 Neg-a-tive eigen-val-ues cor-re-spond to di-rec-tions where the func-tion de-creases, re-sem-bling a downward-parabola. 
  []
 
 
 
 [64]
-Underfull \hbox (badness 10000) in paragraph at lines 4203--4203
+Underfull \hbox (badness 10000) in paragraph at lines 4353--4353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4203--4203
+Underfull \hbox (badness 10000) in paragraph at lines 4353--4353
 
  []
 
 
 
 [65]
-Underfull \hbox (badness 10000) in paragraph at lines 4210--4210
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4310--4310
+Underfull \hbox (badness 10000) in paragraph at lines 4360--4360
 
  []
 
 
 
 [66]
+Underfull \hbox (badness 10000) in paragraph at lines 4460--4460
+
+ []
+
+
 
 [67]
 
@@ -1857,11 +1923,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 4310--4310
 [71]
 
 [72]
-Package pgfplots info on input line 4645: Using 'lua backend=false' for plot 0 (type 'mesh'): LUA does not support x filter (yet).
+Package pgfplots info on input line 4795: Using 'lua backend=false' for plot 0 (type 'mesh'): LUA does not support x filter (yet).
 
 
 [73]
-Package pgfplots info on input line 4784: Using 'lua backend=false' for plot 0 (type 'mesh'): LUA does not support x filter (yet).
+Package pgfplots info on input line 4934: Using 'lua backend=false' for plot 0 (type 'mesh'): LUA does not support x filter (yet).
 
 
 [74]
@@ -1871,6 +1937,10 @@ Package pgfplots info on input line 4784: Using 'lua backend=false' for plot 0 (
 [76]
 
 [77]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 
 [78]
 
@@ -1892,7 +1962,21 @@ Package pgfplots info on input line 4784: Using 'lua backend=false' for plot 0 (
 
 [87]
 
-[88] (./main.aux)
+[88]
+
+[89]
+
+Package pgfplots Warning: Axis range for axis z is approximately empty; enlarging it (it is [0.0:0.0]) on input line 6096.
+
+ [warning /pgfplots/warning/approx empty range enlarged]
+
+Underfull \hbox (badness 10000) in paragraph at lines 6108--6109
+[]$\OML/npxmi/m/it/10 r [] $ \TU/lmr/m/n/10 is un-bounded (rep-re-sent-ing the $\OML/npxmi/m/it/10 z$\TU/lmr/m/n/10 -
+ []
+
+[90]
+
+[91] (./main.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -1904,19 +1988,19 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 )
 
 Here is how much of LuaTeX's memory you used:
- 63530 strings out of 475664
- 934170,5906145 words of node,token memory allocated
- 4361 words of node memory still in use:
-   44 hlist, 2 vlist, 15 rule, 18 glue, 4 kern, 1 glyph, 719 attribute, 80 glue_spec, 719 attribute_list, 2 write, 47 pdf_literal, 11 pdf_action, 26 pdf_colorstack nodes
-   avail lists: 1:3,2:139482,3:137789,4:323,5:818,6:144,7:7505,8:75,9:1667,10:14,11:566
- 84149 multiletter control sequences out of 65536+600000
- 443 fonts using 31503159 bytes
+ 69432 strings out of 475664
+ 1459664,5906145 words of node,token memory allocated
+ 4430 words of node memory still in use:
+   45 hlist, 2 vlist, 15 rule, 18 glue, 4 kern, 1 glyph, 734 attribute, 80 glue_spec, 734 attribute_list, 2 write, 47 pdf_literal, 11 pdf_action, 26 pdf_colorstack nodes
+   avail lists: 1:8,2:227673,3:211660,4:1739,5:824,6:157,7:26945,8:75,9:1858,10:14,11:620
+ 89937 multiletter control sequences out of 65536+600000
+ 493 fonts using 35072327 bytes
  133i,18n,126p,1651b,2942s stack positions out of 10000i,1000n,20000p,12000000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmb10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb>
-Output written on main.pdf (89 pages, 1874690 bytes).
+Output written on main.pdf (92 pages, 2488275 bytes).
 
-PDF statistics: 1676 PDF objects out of 1728 (max. 8388607)
- 1327 compressed objects within 14 object streams
- 462 named destinations out of 1000 (max. 131072)
- 1716 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1732 PDF objects out of 2073 (max. 8388607)
+ 1375 compressed objects within 14 object streams
+ 482 named destinations out of 1000 (max. 131072)
+ 1756 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.11)  17 NOV 2024 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.11)  20 NOV 2024 11:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1238,49 +1238,100 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \pgfplots@group@current@plot=\count506
 \pgfplots@group@current@row=\count507
 \pgfplots@group@current@column=\count508
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2024-09-30 v3.3.22 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count509
+\l__siunitx_number_exponent_fixed_int=\count510
+\l__siunitx_number_min_decimal_int=\count511
+\l__siunitx_number_min_integer_int=\count512
+\l__siunitx_number_round_precision_int=\count513
+\l__siunitx_number_lower_threshold_int=\count514
+\l__siunitx_number_upper_threshold_int=\count515
+\l__siunitx_number_group_first_int=\count516
+\l__siunitx_number_group_size_int=\count517
+\l__siunitx_number_group_minimum_int=\count518
+\l__siunitx_angle_tmp_dim=\dimen346
+\l__siunitx_angle_marker_box=\box171
+\l__siunitx_angle_unit_box=\box172
+\l__siunitx_compound_count_int=\count519
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+)
+\l__siunitx_table_tmp_box=\box173
+\l__siunitx_table_tmp_dim=\dimen347
+\l__siunitx_table_column_width_dim=\dimen348
+\l__siunitx_table_integer_box=\box174
+\l__siunitx_table_decimal_box=\box175
+\l__siunitx_table_uncert_box=\box176
+\l__siunitx_table_before_box=\box177
+\l__siunitx_table_after_box=\box178
+\l__siunitx_table_before_dim=\dimen349
+\l__siunitx_table_carry_dim=\dimen350
+\l__siunitx_unit_tmp_int=\count520
+\l__siunitx_unit_position_int=\count521
+\l__siunitx_unit_total_int=\count522
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.sty
+Package: contour 2004/11/18 v2.14 Print contoured text (HH, MH)
+\con@length=\skip86
+
+Loading configuration file `contour.cfg'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.cfg
+File: contour.cfg 2004/11/18 v2.14 Print contoured text (HH, MH)
+)
+contour: Using driver file `pdftex.cnt'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/contour/pdftex.cnt
+File: pdftex.cnt 2004/11/18 v2.14 Print contoured text (HH, MH)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
+File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
+\tikz@math@for@depth=\count523
+\tikz@math@dimen=\dimen351
+\tikz@math@toks=\toks76
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/smartdiagram/smartdiagramlibraryadditions.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (./temp.aux)
+))
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 49.
+ (./temp.aux)
 \openout1 = `temp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 26.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 26.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 49.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 26.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 26.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 49.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 26.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 26.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 49.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 26.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 26.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 49.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 49.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1316,33 +1367,39 @@ LaTeX Font Info:    ... okay on input line 26.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Command `\dddot' is already robust on input line 26.
-LaTeX Info: Command `\ddddot' is already robust on input line 26.
+LaTeX Info: Command `\dddot' is already robust on input line 49.
+LaTeX Info: Command `\ddddot' is already robust on input line 49.
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count509
-\scratchdimen=\dimen346
-\scratchbox=\box171
-\nofMPsegments=\count510
-\nofMParguments=\count511
-\everyMPshowfont=\toks76
-\MPscratchCnt=\count512
-\MPscratchDim=\dimen347
-\MPnumerator=\count513
-\makeMPintoPDFobject=\count514
-\everyMPtoPDFconversion=\toks77
+\scratchcounter=\count524
+\scratchdimen=\dimen352
+\scratchbox=\box179
+\nofMPsegments=\count525
+\nofMParguments=\count526
+\everyMPshowfont=\toks77
+\MPscratchCnt=\count527
+\MPscratchDim=\dimen353
+\MPnumerator=\count528
+\makeMPintoPDFobject=\count529
+\everyMPtoPDFconversion=\toks78
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 26.
-\c@lstlisting=\count515
+Package hyperref Info: Link coloring ON on input line 49.
+\c@lstlisting=\count530
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks78
-\inpenc@posthook=\toks79
+\inpenc@prehook=\toks79
+\inpenc@posthook=\toks80
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1354,23 +1411,27 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 53.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 53.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 53.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
@@ -1380,7 +1441,7 @@ File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 32.
+(Font)              using `OT1/cmr/bx/n' instead on input line 55.
 
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -1400,43 +1461,51 @@ Missing character: There is no ; in font nullfont!
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 
+l.57 
       [1
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}]
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 35.
+(hyperref)                removing `math shift' on input line 59.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 35.
+(hyperref)                removing `\m@thbbch@rR' on input line 59.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 35.
+(hyperref)                removing `\rightarrow' on input line 59.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@thbbch@rR' on input line 35.
+(hyperref)                removing `\m@thbbch@rR' on input line 59.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 35.
+(hyperref)                removing `superscript' on input line 59.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 35.
+(hyperref)                removing `math shift' on input line 59.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18.2> not available
-(Font)              size <17.28> substituted on input line 35.
+(Font)              size <17.28> substituted on input line 59.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.7> not available
-(Font)              size <14.4> substituted on input line 35.
+(Font)              size <14.4> substituted on input line 59.
 
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no , in font nullfont!
+contour: Using real outline for `$1$' on input line 218.
+contour: Using real outline for `$1$' on input line 219.
+contour: Using real outline for `$-1$' on input line 220.
+contour: Using real outline for `$-1$' on input line 221.
 
 
 [2
@@ -1445,7 +1514,19 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.7> not available
 
 [3]
 
-[4] (./temp.aux)
+[4]
+
+Package pgfplots Warning: Axis range for axis z is approximately empty; enlarging it (it is [0.0:0.0]) on input line 432.
+
+ [warning /pgfplots/warning/approx empty range enlarged]
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
+[]$\OML/npxmi/m/it/10 r [] ^^R$ \OT1/cmr/m/n/10 is un-bounded (rep-re-sent-ing the $\OML/npxmi/m/it/10 z$\OT1/cmr/m/n/10 -
+ []
+
+[5]
+
+[6] (./temp.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -1460,18 +1541,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 57472 strings out of 473362
- 1389624 string characters out of 11470983
- 15350160 words of memory out of 22000000
- 79657 multiletter control sequences out of 15000+600000
- 602219 words of font info for 162 fonts, out of 12000000 for 9000
+ 66588 strings out of 473362
+ 1622001 string characters out of 11470983
+ 17247984 words of memory out of 22000000
+ 88716 multiletter control sequences out of 15000+600000
+ 611787 words of font info for 189 fonts, out of 12000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,18n,110p,1652b,2948s stack positions out of 10000i,1000n,20000p,12000000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb>
-Output written on temp.pdf (5 pages, 207373 bytes).
+ 103i,9n,110p,1652b,5705s stack positions out of 10000i,1000n,20000p,12000000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb>
+Output written on temp.pdf (7 pages, 798515 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
- 14 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

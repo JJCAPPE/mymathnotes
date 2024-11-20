@@ -16,7 +16,26 @@
 \usepgfplotslibrary{groupplots}
 \usepgfplotslibrary{polar}
 \pgfplotsset{compat=newest}
-
+\tikzset{>=latex}
+\usepackage{siunitx}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{angles,quotes} % for pic
+\contourlength{1.3pt}
+\usetikzlibrary{math}
+\usepackage{ifthen}
+\tikzset{>=latex} % for LaTeX arrow head
+\usepackage{xcolor}
+\colorlet{veccol}{green!70!black}
+\colorlet{vcol}{green!70!black}
+\colorlet{xcol}{blue!85!black}
+\colorlet{projcol}{xcol!60}
+\colorlet{unitcol}{xcol!60!black!85}
+\colorlet{unitcol2}{vcol!60!black!85}
+\colorlet{myblue}{blue!70!black}
+\colorlet{myred}{red!70!black}
+\tikzstyle{vector}=[->,very thick,xcol]
+\tikzstyle{mydashed}=[dash pattern=on 2pt off 2pt]
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.1) --++ (#2-180:0.2)} %0.03*\xmax
 \usesmartdiagramlibrary{additions}
 
 \title{\Huge{CASMA 225}\\Calc 3}
@@ -3548,6 +3567,137 @@ In many cases, we know the value of the function \( f(a, b) \) at a particular p
 \]
 where \( \nabla f(a, b) \) is the gradient of the function \( f \) at the point \((a, b)\).
 
+
+
+\tdplotsetmaincoords{70}{130}
+%
+
+\begin{center}
+	\begin{tikzpicture}[tdplot_main_coords]
+		% functions
+		\tikzmath{function funcion(\x,\y) {return (\x*\x+3*\y*\y)*e^(-\x*\x-\y*\y);};} % the function $z = f(x,y)$
+		\tikzmath{function derivadax(\x,\y) {return -2.0*\x*(-1.0 + \x * \x + 3.0 * \y * \y) * exp(-\x*\x - \y*\y);};}	% $f_{x}$
+		\tikzmath{function derivaday(\x,\y) {return -2.0*\y*(-3.0 + \x * \x + 3.0 * \y * \y) * exp(-\x*\x - \y*\y);};}	% $f_{y}$
+		% equation of the plane
+		\tikzmath{function plano(\x,\y) {return derivadax(\xcero,\ycero)*(\x-\xcero)+derivaday(\xcero,\ycero)*(\y-\ycero)+\zcero;};}
+		%	
+		\pgfmathsetmacro{\dominio}{0.75*pi}	% domain for plotting
+		\pgfmathsetmacro{\step}{\dominio/50.0} % step size
+		\pgfmathsetmacro{\max}{\dominio}
+		\pgfmathsetmacro{\xi}{-\dominio}
+		\pgfmathsetmacro{\xf}{\dominio}
+		\pgfmathsetmacro{\xe}{\xf+\step}
+		\pgfmathsetmacro{\xs}{\xi+\step}
+		\pgfmathsetmacro{\yi}{-\dominio}
+		\pgfmathsetmacro{\yf}{\dominio}
+		\pgfmathsetmacro{\ys}{\yi+\step}
+		\pgfmathsetmacro{\ye}{\yf+\step}
+		\pgfmathsetmacro{\h}{1}
+		%  size of the tangent plane
+		\pgfmathsetmacro{\size}{1.5}
+		% Point of tangency $(\x_{0}, y_{0}, z_{0})$
+		\pgfmathsetmacro{\xcero}{1.125} 
+		\pgfmathsetmacro{\ycero}{1.5} 
+		\pgfmathsetmacro{\zcero}{funcion(\xcero,\ycero)}
+		\pgfmathsetmacro{\dx}{1.0}
+		\pgfmathsetmacro{\dy}{1.0}
+		\pgfmathsetmacro{\zplanoxi}{plano(\xcero,\ycero)}
+		\pgfmathsetmacro{\zplanoxf}{plano(\xcero+\dx,\ycero)}
+		\pgfmathsetmacro{\zplanoyi}{plano(\xcero,\ycero)}
+		\pgfmathsetmacro{\zplanoyf}{plano(\xcero,\ycero+\dx)}
+		\pgfmathsetmacro{\zplanoxyf}{plano(\xcero+\dx,\ycero+\dx)}
+		% Region where the tangent plane is shown
+		\pgfmathsetmacro{\Ax}{\xcero-\size}
+		\pgfmathsetmacro{\Ay}{\ycero-\size}
+		\pgfmathsetmacro{\Bx}{\xcero+\size}
+		\pgfmathsetmacro{\By}{\ycero-\size}
+		\pgfmathsetmacro{\Cx}{\xcero+\size}
+		\pgfmathsetmacro{\Cy}{\ycero+\size}
+		\pgfmathsetmacro{\Dx}{\xcero-\size}
+		\pgfmathsetmacro{\Dy}{\ycero+\size}
+		% Vertices of the tangent plane
+		\pgfmathsetmacro{\Az}{plano(\Ax,\Ay)}
+		\pgfmathsetmacro{\Bz}{plano(\Bx,\By)}
+		\pgfmathsetmacro{\Cz}{plano(\Cx,\Cy)}
+		\pgfmathsetmacro{\Dz}{plano(\Dx,\Dy)}
+		%
+		\pgfmathsetmacro{\zmax}{funcion(-\max,-\max)}
+		\pgfmathsetmacro{\zorigen}{funcion(0,0)}
+		\pgfmathsetmacro{\zplano}{plano(0,0)}
+		% Plot the graph in the third and second quadrants 
+		% The graph of $z = f(x,y)$: third quadrant
+		\foreach \x in {\xi,\xs,...,0}{
+			\draw[cyan,opacity=0.75] plot[domain=\yi:0,smooth,variable=\t] ({\x},{\t},{funcion(\x,\t)});
+		}
+		\foreach \y in {\yi,\ys,...,0}{
+			\draw[cyan,opacity=0.75] plot[domain=\yi:0,smooth,variable=\t] ({\t},{\y},{funcion(\t,\y)});
+		}
+		% negative part of the coordinate axis
+		\draw[thick] (\xi-0.25,0,0) -- (0,0,0); % x axis
+		\draw[thick] (0,\yi-0.25,0,0) -- (0,0,0); % y axis
+		\foreach \x in {-1,1}
+			\draw[thick] (\x,0,0.05) -- (\x,0,-0.05) node [below] {$\x$};
+		\foreach \y in {-1,1}
+			\draw[thick] (0,\y,0.05) -- (0,\y,-0.05) node [below] {$\y$};
+		\foreach \z/\posicion in {0/below left}
+			\draw[thick] (0,0.05,\z) -- (0,-0.05,\z) node [\posicion] {$\z$};
+		% The graph of $z = f(x,y)$: second quadrant
+		\foreach \x in {\xi,\xs,...,0}{
+			\draw[cyan,opacity=0.75] plot[domain=0:\yf,smooth,variable=\t] ({\x},{\t},{funcion(\x,\t)});
+		}
+		\foreach \y in {0,\step,...,\yf}{
+			\draw[cyan,opacity=0.75] plot[domain=\xi:0,smooth,variable=\t] ({\t},{\y},{funcion(\t,\y)});
+		}
+		% The graph of $z = f(x,y)$: fouth quadrant
+		\foreach \x in {0,\step,...,\xf}{
+			\draw[cyan,opacity=0.75] plot[domain=\yi:0,smooth,variable=\t] ({\x},{\t},{funcion(\x,\t)});
+		}
+		\foreach \y in {\yi,\ys,...,0}{
+			\draw[cyan,opacity=0.75] plot[domain=0:\yf,smooth,variable=\t] ({\t},{\y},{funcion(\t,\y)});
+		}	
+		% coordinate axis
+		\draw[thick] (0,0,0) -- (0,\yf+0.5,0); % Eje y
+		\draw[thick,->] (0,0,0) -- (\xf+1.0,0,0) node [below] {$x$};
+		\draw[thick,->] (0,\yf,0) -- (0,\yf+0.5,0) node [right] {$y$};
+		\draw[thick] (0,0,0) -- (0,0,\zplano,0);
+		\foreach \z/\posicion in {1/above right}
+			\draw[thick] (0,0.05,\z) -- (0,-0.05,\z) node [\posicion] {$\z$};
+		% The graph of $z = f(x,y)$: first quadrant
+		\foreach \x in {0,\step,...,\xf}{
+			\draw[cyan,opacity=0.75] plot[domain=0:\yf,smooth,variable=\t] ({\x},{\t},{funcion(\x,\t)});
+		}
+		\foreach \y in {0,\step,...,\yf}{
+			\draw[cyan,opacity=0.75] plot[domain=0:\yf,smooth,variable=\t] ({\t},{\y},{funcion(\t,\y)});
+		}	
+		% plot of $z = f(x,y)$ for $y$ constant
+		\draw[blue,thick] plot[domain=-\dominio:\dominio,smooth,variable=\t,samples=100] ({\t},{\ycero},{funcion(\t,\ycero)});
+		% plot of $z = f(x,y)$ for $x$ constant
+		\draw[blue,thick] plot[domain=-\dominio:\dominio,smooth,variable=\t,samples=100] ({\xcero},{\t},{funcion(\xcero,\t)});
+		% the edge of the plane
+		\fill[yellow,opacity=0.5] (\Ax,\Ay,\Az) -- (\Bx,\By,\Bz) -- (\Cx,\Cy,\Cz) -- (\Dx,\Dy,\Dz) -- (\Ax,\Ay,\Az);
+		\draw[gray,dash dot dot] (\Ax,\Ay,\Az) -- (\Bx,\By,\Bz) -- (\Cx,\Cy,\Cz) -- (\Dx,\Dy,\Dz) -- (\Ax,\Ay,\Az);
+		% The point of tangency
+		\fill[blue] (\xcero,\ycero,\zcero) circle (1pt);		
+		% Last part of the $z$ axis
+		\draw[thick,->] (0,0,\zplano) -- (0,0,\max) node[above] {$z = f(x,y)$}; 
+		% Increment $\Delta x$
+		\draw[red,thin] (\xcero,\ycero,\zcero) 
+			-- (\xcero+\dx,\ycero,\zcero) 
+			-- (\xcero+\dx,\ycero,\zplanoxf) node[left,midway] {\footnotesize$f_{x}(x,y)\cdot \Delta x$}
+			-- (\xcero,\ycero,\zcero);
+		% Increment $\Delta y$
+		\draw[red,thin] (\xcero,\ycero,\zcero) 
+			-- (\xcero,\ycero+\dy,\zcero) 
+			-- (\xcero,\ycero+\dy,\zplanoyf) node[right,midway] {\footnotesize$f_{y}(x,y)\cdot \Delta y$}
+			-- (\xcero,\ycero,\zcero);
+		% Total increment for $z$
+		\draw[red,thin] (\xcero,\ycero,\zcero) -- (\xcero+\dx,\ycero,\zcero) -- (\xcero+\dx,\ycero+\dy,\zcero) -- (\xcero,\ycero+\dy,\zcero) -- (\xcero,\ycero,\zcero);
+		\draw[red,thin] (\xcero+\dx,\ycero,\zplanoxf) -- (\xcero+\dx, \ycero+\dy, \zplanoxyf) -- (\xcero,\ycero+\dy,\zplanoyf);
+		\draw[red,thin] (\xcero+\dx, \ycero+\dy, \zplanoxyf) -- (\xcero+\dx, \ycero+\dy, \zcero);
+	\end{tikzpicture}
+	%
+\end{center}
+
 \ex{Linear Approximation of \( \sin(x y) \)}{
 
 	Let \( f(x, y) = \sin(x y) \). We want to estimate \( f(0.8, 0.25) \) using linear approximation.
@@ -5751,5 +5901,288 @@ The integral for the volume is:
     \end{tikzpicture}
 \end{center}
 }
+
+
+\section{Cylindrical Coordinate Axes}
+\begin{center}
+	\tdplotsetmaincoords{60}{110}
+	\begin{tikzpicture}[scale=4, tdplot_main_coords]
+		\coordinate (O) at (0,0,0);
+		\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+		\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+		\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+		\tdplotsetcoord{P}{1}{30}{60}
+		\draw plot [mark=*, mark size=0.2] (P) node [right] {\scriptsize$(r,\phi,z)$};
+		\draw[dashed] (O) -- (P);
+		\draw[->, thick, color=black] (O) -- (Pxy) node [below right] {$r$};
+		\draw[dashed, color=black] (P) -- (Pxy);
+		\tdplotdrawarc{(O)}{0.2}{0}{60}{anchor=north}{$\theta$}
+		\draw[dashed, color=black] (P) -- (Pz) node [below left] {$z$};
+	\end{tikzpicture}
+\end{center}
+
+
+\ex{Cylinders and Cones Example}{
+	\textbf{Cylinders:}
+	\[
+		r = 1, \quad v = 2
+	\]
+
+	\textbf{Cones:}
+	\[
+		z = \frac{\sqrt{3}}{3}r, \quad z = \sqrt{3}r
+	\]
+
+	\textbf{Ranges:}
+	\begin{itemize}
+		\item \(r\) is bounded by the cylinders: \(1 \leq r \leq 2\)
+		\item \(z\) is bounded by the cones: \(\frac{\sqrt{3}}{3}r \leq z \leq \sqrt{3}r\)
+		\item \(\theta\) is unbounded: \(0 \leq \theta \leq 2\pi\)
+	\end{itemize}
+
+	\textbf{Volume:}
+	\[
+		V = \int_0^{2\pi} \int_1^2 \int_{\frac{\sqrt{3}}{3}r}^{\sqrt{3}r} r \, dz \, dr \, d\theta
+	\]
+	(Simplify to evaluate)
+}
+
+\section{Spherical Coordinate Axes}
+
+
+The relationships between Cartesian coordinates \((x, y, z)\) and spherical coordinates \((\rho, \phi, \theta)\) are as follows:
+\dfn{Polar -  Spherical Relationships}{
+	\[
+		x = \rho \cos\phi \cos\theta
+	\]
+	\[
+		y = \rho \cos\phi \sin\theta
+	\]
+	\[
+		z = \rho \sin\phi
+	\]
+
+	\noindent Conversely, the spherical coordinates can be expressed in terms of Cartesian coordinates as:
+	\[
+		\rho = \sqrt{x^2 + y^2 + z^2}
+	\]
+	\[
+		\phi = \tan^{-1}\left(\frac{z}{\sqrt{x^2 + y^2}}\right)
+	\]
+	\[
+		\theta = \tan^{-1}\left(\frac{y}{x}\right)
+	\]
+
+	\noindent The volume element in spherical coordinates is:
+	\[
+		dV = \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+	\]
+
+	\noindent The integral of a function \(f(x, y, z)\) in spherical coordinates becomes:
+	\[
+		\iiint_P f(x, y, z) \, dV = \iiint_P f\big(\rho \cos\phi \cos\theta, \rho \cos\phi \sin\theta, \rho \sin\phi\big) \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+	\]
+}
+
+\begin{center}
+	% Spherical Coordinates
+	\tdplotsetmaincoords{60}{110}
+	\begin{tikzpicture}[scale=4, tdplot_main_coords]
+		\coordinate (O) at (0,0,0);
+		\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+		\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+		\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+		\tdplotsetcoord{P}{1}{30}{60}
+		\draw plot [mark=*, mark size=0.2] (P) node [right] {\scriptsize$(\rho,\theta,\phi)$};
+		\draw[->, thick] (O) -- (P) node [midway, below right] {$\rho$};
+		\draw[dashed, color=black] (O) -- (Pxy);
+		\draw[dashed, color=black] (P) -- (Pxy);
+		\tdplotdrawarc{(O)}{0.2}{0}{60}{anchor=north}{$\theta$}
+		\tdplotsetthetaplanecoords{60}
+		\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.4}{0}%
+		{30}{anchor=south}{$\phi$}
+	\end{tikzpicture}
+
+\end{center}
+
+\section{Shapes Represented in Spherical Coordinates}
+
+\subsection{Overview of Spherical Coordinates}
+\begin{itemize}
+    \item \textbf{Definition}: Spherical coordinates \((r, \theta, \phi)\) are defined as:
+    \begin{itemize}
+        \item \(r\): Radial distance from the origin.
+        \item \(\theta\): Polar angle (angle from the positive \(z\)-axis, \(0 \leq \theta \leq \pi\)).
+        \item \(\phi\): Azimuthal angle (angle in the \(xy\)-plane from the positive \(x\)-axis, \(0 \leq \phi < 2\pi\)).
+    \end{itemize}
+    \item \textbf{Conversion to Cartesian coordinates}:
+    \[
+    x = r \sin\theta \cos\phi, \quad y = r \sin\theta \sin\phi, \quad z = r \cos\theta
+    \]
+\end{itemize}
+
+\subsection{Shapes in Spherical Coordinates}
+
+
+\begin{multicols}{2}
+
+
+\subsubsection{1. Sphere}
+\textbf{Equation}: \(r = R\) \\
+\textbf{Description}: A sphere of radius \(R\) centered at the origin. \\
+\textbf{Representation}: Independent of \(\theta\) and \(\phi\).
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=50, domain=0:pi, y domain=0:2*pi]
+		({sin(deg(x))*cos(deg(y))}, {sin(deg(x))*sin(deg(y))}, {cos(deg(x))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+\subsubsection{2. Half-Sphere}
+\textbf{Equation}: \(r = R, \, 0 \leq \theta \leq \frac{\pi}{2}\) \\
+\textbf{Description}: Upper half of a sphere centered at the origin, constrained by the polar angle.
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:pi/2, y domain=0:2*pi]
+		({sin(deg(x))*cos(deg(y))}, {sin(deg(x))*sin(deg(y))}, {cos(deg(x))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+
+\subsubsection{3. Spherical Shell}
+\textbf{Equation}: \(R_1 \leq r \leq R_2\) \\
+\textbf{Description}: A hollow spherical region with inner radius \(R_1\) and outer radius \(R_2\).
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:pi, y domain=0:2*pi, opacity=0.5]
+		({1.5*sin(deg(x))*cos(deg(y))}, {1.5*sin(deg(x))*sin(deg(y))}, {1.5*cos(deg(x))});
+		\addplot3[surf, samples=40, domain=0:pi, y domain=0:2*pi, opacity=0.5]
+		({2*sin(deg(x))*cos(deg(y))}, {2*sin(deg(x))*sin(deg(y))}, {2*cos(deg(x))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+\subsubsection{4. Cone}
+\textbf{Equation}: \(\theta = \theta_0\) \\
+\textbf{Description}: A cone with its vertex at the origin, opening angle \(2\theta_0\), symmetric around the \(z\)-axis. \\
+\textbf{Constraints}: \(r > 0\), \(\phi\) varies from \(0\) to \(2\pi\).
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:2*pi, y domain=0:2]
+		({y*sin(deg(pi/4))*cos(deg(x))}, {y*sin(deg(pi/4))*sin(deg(x))}, {y*cos(deg(pi/4))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+\subsubsection{5. Circular Disc (in the \(xy\)-Plane)}
+\textbf{Equation}: \(r = R, \, \theta = \frac{\pi}{2}\) \\
+\textbf{Description}: A circular disc of radius \(R\) centered on the origin in the \(xy\)-plane.
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={0}{90}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}]
+		\addplot3[surf, samples=40, domain=0:2*pi, y domain=0:1, z buffer=sort]
+		({y*cos(deg(x))}, {y*sin(deg(x))}, {0});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+
+
+\subsubsection{6. Cylinder}
+\textbf{Equation}: \(r \sin\theta = a\) \\
+\textbf{Description}: A cylinder of radius \(a\) around the \(z\)-axis. \\
+\textbf{Constraints}:
+\begin{itemize}
+    \item \(0 \leq \phi < 2\pi\),
+    \item \(r \cos\theta\) is unbounded (representing the \(z\)-coordinate).
+\end{itemize}
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:2*pi, y domain=-1:1]
+		({cos(deg(x))}, {sin(deg(x))}, {y});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+
+\subsubsection{7. Torus (Approximation)}
+\textbf{Equation}: \(r = R + r_0 \sin\theta\) \\
+\textbf{Description}: A torus with major radius \(R\) and minor radius \(r_0\), approximately represented in spherical coordinates. \\
+\textbf{Constraints}:
+\begin{itemize}
+    \item \(\phi\) varies from \(0\) to \(2\pi\),
+    \item Specific parametric constraints apply.
+\end{itemize}
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:2*pi, y domain=0:2*pi]
+		({(2 + cos(deg(y)))*cos(deg(x))}, {(2 + cos(deg(y)))*sin(deg(x))}, {sin(deg(y))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+
+\subsubsection{8. Plane}
+\textbf{Equation}: \(\theta = \text{constant}\) or \(\phi = \text{constant}\) \\
+\textbf{Description}:
+\begin{itemize}
+    \item \(\theta = \text{constant}\): A conical plane cutting through the origin at a fixed polar angle.
+    \item \(\phi = \text{constant}\): A vertical plane slicing through the \(z\)-axis at a fixed azimuthal angle.
+\end{itemize}
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=-2:2, y domain=-2:2]
+		({x}, {y}, {tan(deg(45))*x});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+
+\subsubsection{9. Lemniscate Shape}
+\textbf{Equation}: \(r = a \sin\theta \sin2\phi\) \\
+\textbf{Description}: A figure-eight or lemniscate shape in spherical coordinates.
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:pi, y domain=0:2*pi]
+		({sin(deg(x))*cos(deg(y))}, {sin(deg(x))*sin(deg(y))}, {sin(deg(x))*sin(deg(2*y))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+
+\subsubsection{10. Wave-like Surfaces}
+\textbf{Equation}: \(r = R + A \cos(k\theta)\) \\
+\textbf{Description}: Oscillating surface around a spherical shell, useful in representing waves or perturbations on a sphere.
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[view={60}{30}, axis equal, width=5cm, height=5cm, colormap/cool, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}]
+		\addplot3[surf, samples=40, domain=0:pi, y domain=0:2*pi]
+		({(2 + 0.5*cos(deg(5*x)))*sin(deg(x))*cos(deg(y))},
+		 {(2 + 0.5*cos(deg(5*x)))*sin(deg(x))*sin(deg(y))},
+		 {(2 + 0.5*cos(deg(5*x)))*cos(deg(x))});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+\end{multicols}
 
 \end{document}

@@ -88,33 +88,33 @@
 \contentsline {section}{\numberline {2.12}Applications of Tangent Planes}{56}{section.2.12}%
 \contentsline {subsection}{\numberline {2.12.1}Linear Approximation}{56}{subsection.2.12.1}%
 \contentsline {subsection}{\numberline {2.12.2}Finding Approximate Solutions to Equations}{57}{subsection.2.12.2}%
-\contentsline {subsection}{\numberline {2.12.3}Example: Linearizing \( f(x,y,z) = z\ln (z) + xz - e^{yz} \)}{57}{subsection.2.12.3}%
+\contentsline {subsection}{\numberline {2.12.3}Example: Linearizing \( f(x,y,z) = z\ln (z) + xz - e^{yz} \)}{58}{subsection.2.12.3}%
 \contentsline {subsection}{\numberline {2.12.4}Differentials}{58}{subsection.2.12.4}%
 \contentsline {section}{\numberline {2.13}Chain Rule in Functions of several random variables $ f:\varmathbb {R} ^ n \rightarrow \varmathbb {R} $ }{59}{section.2.13}%
-\contentsline {section}{\numberline {2.14}Maximum and Minimum of 2 Variable Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^2$ }{61}{section.2.14}%
-\contentsline {subsection}{\numberline {2.14.1}Critical Points}{61}{subsection.2.14.1}%
+\contentsline {section}{\numberline {2.14}Maximum and Minimum of 2 Variable Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^2$ }{62}{section.2.14}%
+\contentsline {subsection}{\numberline {2.14.1}Critical Points}{62}{subsection.2.14.1}%
 \contentsline {subsection}{\numberline {2.14.2}Definitions}{62}{subsection.2.14.2}%
 \contentsline {subsection}{\numberline {2.14.3}Visual Representation of Maxima, Minima and Saddle Points}{62}{subsection.2.14.3}%
-\contentsline {subsection}{\numberline {2.14.4}Second Derivative Test}{62}{subsection.2.14.4}%
-\contentsline {subsection}{\numberline {2.14.5}Connection Between the Second Derivative Test and Eigenvalues of the Hessian}{63}{subsection.2.14.5}%
+\contentsline {subsection}{\numberline {2.14.4}Second Derivative Test}{63}{subsection.2.14.4}%
+\contentsline {subsection}{\numberline {2.14.5}Connection Between the Second Derivative Test and Eigenvalues of the Hessian}{64}{subsection.2.14.5}%
 \contentsline {subsection}{\numberline {2.14.6}Intuition from Linear Algebra}{64}{subsection.2.14.6}%
-\contentsline {section}{\numberline {2.15}Absolute Extrema}{64}{section.2.15}%
+\contentsline {section}{\numberline {2.15}Absolute Extrema}{65}{section.2.15}%
 \contentsline {section}{\numberline {2.16}Lagrange Multiplier Method}{66}{section.2.16}%
 \contentsline {subsection}{\numberline {2.16.1}General Procedure}{66}{subsection.2.16.1}%
 \contentsline {section}{\numberline {2.17}Multiple Integration}{69}{section.2.17}%
 \contentsline {subsection}{\numberline {2.17.1}Non-Rectangular Domains}{71}{subsection.2.17.1}%
-\contentsline {subsection}{\numberline {2.17.2}Volume Between Surfaces}{71}{subsection.2.17.2}%
-\contentsline {section}{\numberline {2.18}Applications of Double Integrals}{72}{section.2.18}%
-\contentsline {subsection}{\numberline {2.18.1}Area of a Surface}{72}{subsection.2.18.1}%
-\contentsline {subsection}{\numberline {2.18.2}Average Value of a Function}{73}{subsection.2.18.2}%
-\contentsline {section}{\numberline {2.19}Derivation of Triple Integrals through Riemann Sums}{74}{section.2.19}%
-\contentsline {subsection}{\numberline {2.19.1}Partitioning the Region}{74}{subsection.2.19.1}%
+\contentsline {subsection}{\numberline {2.17.2}Volume Between Surfaces}{72}{subsection.2.17.2}%
+\contentsline {section}{\numberline {2.18}Applications of Double Integrals}{73}{section.2.18}%
+\contentsline {subsection}{\numberline {2.18.1}Area of a Surface}{73}{subsection.2.18.1}%
+\contentsline {subsection}{\numberline {2.18.2}Average Value of a Function}{74}{subsection.2.18.2}%
+\contentsline {section}{\numberline {2.19}Derivation of Triple Integrals through Riemann Sums}{75}{section.2.19}%
+\contentsline {subsection}{\numberline {2.19.1}Partitioning the Region}{75}{subsection.2.19.1}%
 \contentsline {subsection}{\numberline {2.19.2}Forming the Riemann Sum}{75}{subsection.2.19.2}%
-\contentsline {section}{\numberline {2.20}Triple Integrals Intuitions and Applications}{75}{section.2.20}%
-\contentsline {subsection}{\numberline {2.20.1}Integrals Represent Products}{75}{subsection.2.20.1}%
-\contentsline {paragraph}{(1) Probability that \( (x,y,z) \in D \):}{76}{section*.23}%
-\contentsline {paragraph}{(2) Probability that customers wait at most 5 minutes:}{76}{section*.24}%
-\contentsline {paragraph}{(3) Probability that \( 0 \leqslant x \leqslant y \leqslant z \leqslant 20 \):}{76}{section*.25}%
+\contentsline {section}{\numberline {2.20}Triple Integrals Intuitions and Applications}{76}{section.2.20}%
+\contentsline {subsection}{\numberline {2.20.1}Integrals Represent Products}{76}{subsection.2.20.1}%
+\contentsline {paragraph}{(1) Probability that \( (x,y,z) \in D \):}{77}{section*.23}%
+\contentsline {paragraph}{(2) Probability that customers wait at most 5 minutes:}{77}{section*.24}%
+\contentsline {paragraph}{(3) Probability that \( 0 \leqslant x \leqslant y \leqslant z \leqslant 20 \):}{77}{section*.25}%
 \contentsline {section}{\numberline {2.21}Polar Coordinate System}{80}{section.2.21}%
 \contentsline {section}{\numberline {2.22}Basic Equations}{82}{section.2.22}%
 \contentsline {subsection}{\numberline {2.22.1}Ellipse}{82}{subsection.2.22.1}%
@@ -125,4 +125,19 @@
 \contentsline {section}{\numberline {2.25}Arc Length in Polar Coordinates}{86}{section.2.25}%
 \contentsline {section}{\numberline {2.26}Multivariate Case}{86}{section.2.26}%
 \contentsline {section}{\numberline {2.27}General Procedure for Polar Integration}{87}{section.2.27}%
+\contentsline {section}{\numberline {2.28}Cylindrical Coordinate Axes}{88}{section.2.28}%
+\contentsline {section}{\numberline {2.29}Spherical Coordinate Axes}{89}{section.2.29}%
+\contentsline {section}{\numberline {2.30}Shapes Represented in Spherical Coordinates}{89}{section.2.30}%
+\contentsline {subsection}{\numberline {2.30.1}Overview of Spherical Coordinates}{89}{subsection.2.30.1}%
+\contentsline {subsection}{\numberline {2.30.2}Shapes in Spherical Coordinates}{90}{subsection.2.30.2}%
+\contentsline {subsubsection}{1. Sphere}{90}{section*.28}%
+\contentsline {subsubsection}{2. Half-Sphere}{90}{section*.29}%
+\contentsline {subsubsection}{3. Spherical Shell}{90}{section*.30}%
+\contentsline {subsubsection}{4. Cone}{90}{section*.31}%
+\contentsline {subsubsection}{5. Circular Disc (in the \(xy\)-Plane)}{90}{section*.32}%
+\contentsline {subsubsection}{6. Cylinder}{91}{section*.33}%
+\contentsline {subsubsection}{7. Torus (Approximation)}{91}{section*.34}%
+\contentsline {subsubsection}{8. Plane}{91}{section*.35}%
+\contentsline {subsubsection}{9. Lemniscate Shape}{91}{section*.36}%
+\contentsline {subsubsection}{10. Wave-like Surfaces}{91}{section*.37}%
 \contentsfinish 
