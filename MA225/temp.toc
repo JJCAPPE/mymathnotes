@@ -1,17 +1,3 @@
 \contentsline {chapter}{\numberline {1}Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Cylindrical Coordinate Axes}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Spherical Coordinate Axes}{3}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Shapes Represented in Spherical Coordinates}{4}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Overview of Spherical Coordinates}{4}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Shapes in Spherical Coordinates}{4}{subsection.1.3.2}%
-\contentsline {subsubsection}{1. Sphere}{5}{section*.2}%
-\contentsline {subsubsection}{2. Half-Sphere}{5}{section*.3}%
-\contentsline {subsubsection}{3. Spherical Shell}{5}{section*.4}%
-\contentsline {subsubsection}{4. Cone}{5}{section*.5}%
-\contentsline {subsubsection}{5. Circular Disc (in the \(xy\)-Plane)}{5}{section*.6}%
-\contentsline {subsubsection}{6. Cylinder}{5}{section*.7}%
-\contentsline {subsubsection}{7. Torus (Approximation)}{6}{section*.8}%
-\contentsline {subsubsection}{8. Plane}{6}{section*.9}%
-\contentsline {subsubsection}{9. Lemniscate Shape}{6}{section*.10}%
-\contentsline {subsubsection}{10. Wave-like Surfaces}{6}{section*.11}%
+\contentsline {section}{\numberline {1.1}Change of Variable for Double and Triple Integrals}{2}{section.1.1}%
 \contentsfinish 

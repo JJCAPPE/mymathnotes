@@ -58,59 +58,118 @@
 
 \chapter{Vector Valued Functions $f:\mathbb{R} \rightarrow \mathbb{R}^n$}
 
+\section{Change of Variable for Double and Triple Integrals}
 
-\begin{center}
-	\begin{tikzpicture}
-		\def\xmax{2.2}
-		\def\ul{0.6}
-		\def\R{2.0}
-		\def\ang{43}
-		\coordinate (O) at (0,0);
-		\coordinate (X) at (\xmax,0);
-		\coordinate (R) at (\ang:\R);
+\subsection*{Polar Coordinates}
+\[
+	\iint_D f(x, y) \, dx \, dy \rightarrow \iint_S f(r\cos\theta, r\sin\theta) \, r \, dr \, d\theta
+\]
 
-		% AXIS
-		\draw[->,line width=0.9] (-\xmax,0) -- (1.08*\xmax,0) node[right] {$x$};
-		\draw[->,line width=0.9] (0,-\xmax) -- (0,1.08*\xmax) node[left] {$y$};
-		%\node[fill=black,circle,inner sep=0.9] (R') at (R) {};
-		%\node[above right] at (R) {$(x,y)=(r;\theta)$};
-		\draw[blue!60!black] (O) circle (\R);
+\subsection*{Cylindrical Coordinates}
+\[
+	\iiint_D f(x, y, z) \, dx \, dy \, dz \rightarrow \iiint_S f(r\cos\theta, r\sin\theta, z) \, r \, dr \, d\theta \, dz
+\]
 
-		\def\tick#1#2{\draw[blue!40!black,thick] (#1) ++ (#2:0.1) --++ (#2-180:0.2)} %0.03*\xmax
-		\def\axis#1#2{
-			\node[red!70!black,fill=white,inner sep=1,scale=0.70] at (#1:0.5*\R) {\SI{#1}{\degree}};
-			\node[red!60!black,fill=white,inner sep=1,scale=0.82] at (#1:0.8*\R) {#2};
-		}
-		\def\line#1#2#3#4#5{
-			\draw[mydashed,red!50!black] (#1:\R) -- (O);
-			\node[red!70!black,fill=white,inner sep=0,rotate=#2,scale=0.8] at (#1:0.5*\R) {\SI{#1}{\degree}};
-			\node[red!60!black,fill=white,inner sep=0,rotate=#2,scale=0.9] at (#1:0.8*\R) {#4};
-			\node[blue!40!black,anchor=#3,scale=0.9] at (#1:\R) {#5}; %#1-180 %sign(#2)*(90-abs(#2)) %40
-			\fill[blue!40!black] (#1:\R) circle (0.04);
-		}
+\subsection*{Spherical Coordinates}
+\[
+	\iiint_D f(x, y, z) \, dx \, dy \, dz \rightarrow \iiint_S f(\rho\sin\phi\cos\theta, \rho\sin\phi\sin\theta, \rho\cos\phi) \, \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+\]
 
-		\tick{ \R,0}{90} node[scale=0.9,below=-1]        {\contour{white}{$1$}};
-		\tick{0, \R}{ 0} node[scale=0.9,left=-1]         {\contour{white}{$1$}};
-		\tick{-\R,0}{90} node[scale=0.9,left=3,below=-1] {\contour{white}{$-1$}};
-		\tick{0,-\R}{ 0} node[scale=0.9,left=-1]         {\contour{white}{$-1$}};
-		\axis{  0}{$0$}
-		\line{ 30}{ 30}{175}{$\frac{  \pi}{6}$}{$\left( \frac{\sqrt{3}}{2}, \frac{1}{2}       \right)$}
-		\line{ 45}{ 45}{188}{$\frac{  \pi}{4}$}{$\left( \frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)$}
-		\line{ 60}{ 60}{220}{$\frac{  \pi}{3}$}{$\left( \frac{1}{2},        \frac{\sqrt{3}}{2}\right)$}
-		\axis{ 90}{$\frac{\pi}{2}$}
-		\line{120}{-60}{-25}{$\frac{ 2\pi}{3}$}{$\left(-\frac{1}{2},        \frac{\sqrt{3}}{2}\right)\!\!$} %\vspace{-4mm}
-		\line{135}{-45}{ -8}{$\frac{ 3\pi}{4}$}{$\left(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)$}
-		\line{150}{-30}{  5}{$\frac{ 5\pi}{6}$}{$\left(-\frac{\sqrt{3}}{2}, \frac{1}{2}       \right)$}
-		\axis{180}{$\pi$}
-		\line{210}{ 30}{ -5}{$\frac{ 7\pi}{6}$}{$\left(-\frac{\sqrt{3}}{2},-\frac{1}{2}       \right)$}
-		\line{225}{ 45}{ 10}{$\frac{ 5\pi}{4}$}{$\left(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}\right)$}
-		\line{240}{ 60}{ 30}{$\frac{ 4\pi}{3}$}{$\left(-\frac{1}{2},       -\frac{\sqrt{3}}{2}\right)$}
-		\axis{270}{$\frac{3\pi}{2}$}
-		\line{330}{-30}{180}{$\frac{11\pi}{6}$}{$\left( \frac{1}{2},       -\frac{\sqrt{3}}{2}\right)$}
-		\line{315}{-45}{170}{$\frac{ 7\pi}{4}$}{$\left( \frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}\right)$}
-		\line{300}{-60}{150}{$\frac{ 5\pi}{3}$}{$\left( \frac{\sqrt{3}}{2},-\frac{1}{2}       \right)$}
+\thm{Intuition Behind Change of Variables}{
+We use a \textbf{mapping} \( T \) to transform coordinates in one space \( S \) to another \( R \). This is particularly useful when integrating over regions that are easier to describe in new coordinates (e.g., circular or spherical regions).
 
-	\end{tikzpicture}
-\end{center}
+For example:
+\[
+	S = [0, 2\pi] \times [0, 2], \quad T(r, \theta) = (r\cos\theta, r\sin\theta)
+\]
+
+Here, the mapping \( T \) converts a point in \( S \) into a point in \( R \).
+
+
+\subsection*{Area Differential Transformation}
+Consider a small differential area element in the original space:
+\[
+	dA = |\det(J)| \, du \, dv
+\]
+where \( J \) is the \textbf{Jacobian matrix}, and \( |\det(J)| \) accounts for how the transformation scales area.
+}
+
+\dfn{Jacobian Matrix}{
+The Jacobian matrix represents the linear transformation of the mapping \( T \) at a given point:
+\[
+	J = \begin{bmatrix}
+		\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+		\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+	\end{bmatrix}
+\]
+
+For a transformation \( T(u, v) = (g(u, v), h(u, v)) \), the determinant of \( J \) is:
+\[
+	\det(J) =
+	\begin{vmatrix}
+		\frac{\partial g}{\partial u} & \frac{\partial g}{\partial v} \\
+		\frac{\partial h}{\partial u} & \frac{\partial h}{\partial v}
+	\end{vmatrix}
+	= \frac{\partial g}{\partial u} \cdot \frac{\partial h}{\partial v} - \frac{\partial g}{\partial v} \cdot \frac{\partial h}{\partial u}
+\]
+
+}
+
+\subsection*{Geometric Interpretation}
+\begin{itemize}
+	\item \textbf{Local Stretching/Scaling:} \( |\det(J)| \) gives the local scaling factor of the area due to the transformation.
+	\item \textbf{Orientation:} The sign of \( \det(J) \) indicates whether the orientation is preserved or flipped.
+\end{itemize}
+
+\ex{Polar Coordinates}{
+For the transformation \( T(r, \theta) = (r\cos\theta, r\sin\theta) \), the Jacobian matrix is:
+\[
+	J = \begin{bmatrix}
+		\cos\theta & -r\sin\theta \\
+		\sin\theta & r\cos\theta
+	\end{bmatrix}
+\]
+
+The determinant is:
+\[
+	\det(J) = \begin{vmatrix}
+		\cos\theta & -r\sin\theta \\
+		\sin\theta & r\cos\theta
+	\end{vmatrix}
+	= r(\cos^2\theta + \sin^2\theta) = r
+\]
+
+Thus, the area differential in polar coordinates becomes:
+\[
+	dx \, dy = r \, dr \, d\theta
+\]
+
+}
+
+\dfn{General Formula for Transforming Integrals}{
+If \( T: S \rightarrow R \) is a transformation with Jacobian determinant \( |\det(J)| \), then the integral transforms as:
+\[
+	\iint_R f(x, y) \, dx \, dy = \iint_S f(T(u, v)) \, |\det(J)| \, du \, dv
+\]
+
+}
+
+\dfn{Intuition for Higher Dimensions}{
+In three dimensions, the Jacobian matrix extends to account for the transformation of volume elements:
+\[
+	J = \begin{bmatrix}
+		\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+		\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+		\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+	\end{bmatrix}
+\]
+
+The volume scaling factor is given by \( |\det(J)| \), and the integral transforms as:
+\[
+	\iiint_R f(x, y, z) \, dx \, dy \, dz = \iiint_S f(T(u, v, w)) \, |\det(J)| \, du \, dv \, dw
+\]
+
+}
+
 
 \end{document}
