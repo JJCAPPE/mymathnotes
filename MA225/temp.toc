@@ -1,3 +1,5 @@
 \contentsline {chapter}{\numberline {1}Vector Valued Functions $f:\varmathbb {R} \rightarrow \varmathbb {R}^n$}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Change of Variable for Double and Triple Integrals}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Non-overlapping from Mapping \( T \)}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Integral Transformation for a Parallelogram Region}{4}{section.1.3}%
 \contentsfinish 

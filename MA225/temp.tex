@@ -171,5 +171,173 @@ The volume scaling factor is given by \( |\det(J)| \), and the integral transfor
 
 }
 
+\section{Non-overlapping from Mapping \( T \)}
+
+\thm{Non-overlapping Condition}{
+For any two points \( Q \) and \( P \):
+\[
+T(Q) \neq T(P) \quad \text{(This would result in overlapping areas in the domain \( R \))}
+\]
+However, boundaries (e.g., \( y = 2x \)) can overlap as long as the bounded region is distinct.
+}
+
+\ex{Integral Transformation Example}{
+Evaluate:
+\[
+\iint_R 2x(y - 2x) \, dA
+\]
+where \( R \) is the parallelogram with vertices \((0, 0), (0, 1), (2, 4), (2, 3)\).
+
+Steps:
+\begin{enumerate}
+    \item \textbf{Choose a Transformation:} Select a mapping \( T \) to simplify the integral.
+    \item \textbf{Define the Mapping:}
+    \[
+    x = u, \quad y = 2x + v = 2u + v
+    \]
+    Substituting:
+    \[
+    (x, y) \rightarrow (u, v)
+    \]
+
+    \item \textbf{Boundary Equations:}
+    \[
+    0 \leq x \leq 2 \quad \Rightarrow \quad 0 \leq u \leq 2
+    \]
+    \[
+    0 \leq y - 2x < 1 \quad \Rightarrow \quad 0 \leq v < 1
+    \]
+
+    \item \textbf{Region:}
+    \[
+    S = [0, 2] \times [0, 1]
+    \]
+
+    \item \textbf{Transform the Integrand:}
+    \[
+    f(T(x, y)) = 2u(v)
+    \]
+
+    \item \textbf{Jacobian Calculation:}
+    \[
+    J = \begin{bmatrix}
+    x_u & x_v \\
+    y_u & y_v
+    \end{bmatrix}
+    = \begin{bmatrix}
+    1 & 0 \\
+    2 & 1
+    \end{bmatrix}, \quad \det(J) = 1 \cdot 1 - 2 \cdot 0 = 1
+    \]
+
+    \item \textbf{Transformed Integral:}
+    \[
+    \iint_R 2x(y - 2x) \, dA = \int_0^2 \int_0^1 2uv \, du \, dv
+    \]
+\end{enumerate}
+}
+
+\section{Integral Transformation for a Parallelogram Region}
+
+\ex{Example of Transformation}{
+Evaluate:
+\[
+\iint_R 2x(y - 2x) \, dA
+\]
+where \( R \) is the parallelogram defined by the vertices \((0, 0), (0, 1), (2, 4), (2, 3)\).
+
+\subsection*{Steps:}
+\begin{enumerate}
+    \item \textbf{Choose a Transformation:} Select a transformation \( T \) that simplifies the integral.
+    \item \textbf{Define \( x, y \) in terms of \( u, v \):}
+    \[
+    x = u, \quad y = 2x + v = 2u + v
+    \]
+    Substituting:
+    \[
+    (x, y) \rightarrow (u, v)
+    \]
+    Here, \( u \) corresponds to \( x \), and \( v = y - 2x \).
+
+    \item \textbf{Boundary Equations:}
+    \[
+    0 \leq x \leq 2 \quad \Rightarrow \quad 0 \leq u \leq 2
+    \]
+    \[
+    0 \leq y - 2x < 1 \quad \Rightarrow \quad 0 \leq v < 1
+    \]
+
+    \item \textbf{Region in \( u, v \):}
+    \[
+    S = [0, 2] \times [0, 1]
+    \]
+    This maps the parallelogram \( R \) into a rectangle \( S \) in the \( u, v \)-plane.
+
+    \item \textbf{Transform the Integrand:}
+    Substituting \( x = u \) and \( y - 2x = v \):
+    \[
+    f(T(x, y)) = 2u(v)
+    \]
+
+    \item \textbf{Jacobian Calculation:}
+    The Jacobian matrix for the transformation \( T \) is:
+    \[
+    J = \begin{bmatrix}
+    x_u & x_v \\
+    y_u & y_v
+    \end{bmatrix}
+    = \begin{bmatrix}
+    1 & 0 \\
+    2 & 1
+    \end{bmatrix}
+    \]
+    The determinant of \( J \) is:
+    \[
+    \det(J) = 1 \cdot 1 - 2 \cdot 0 = 1
+    \]
+
+    \item \textbf{Transformed Integral:}
+    Using the transformation and the Jacobian determinant:
+    \[
+    \iint_R 2x(y - 2x) \, dA = \int_0^2 \int_0^1 2uv \, du \, dv
+    \]
+    The transformed integral simplifies the computation significantly.
+\end{enumerate}
+}
+
+\section{Integral Transformation for a Triangular Region}
+
+\ex{Example of Transformation}{
+Evaluate:
+\[
+\iint_R (x - u)\sqrt{x - 2y} \, dA
+\]
+where \( R \) is the triangular region bounded by the lines \( y = 0 \), \( x - 2y = 0 \), and \( x = y + 1 \).
+
+\subsection*{Steps:}
+\begin{enumerate}
+    \item \textbf{Region Definition:}
+    The region \( R \) is defined by:
+    \[
+    0 \leq x \leq 2, \quad x - 2y \geq 0, \quad x \leq y + 1
+    \]
+
+    \item \textbf{Define Transformation:}
+    Let:
+    \[
+    u = x - 4, \quad v = x - 2y
+    \]
+    Substituting:
+    \[
+    x = v + u, \quad y = \frac{x - v}{2} = \frac{v + u - v}{2} = \frac{u}{2}
+    \]
+
+    \item \textbf{Boundaries in New Coordinates:}
+    Using the transformation:
+    \begin{align*}
+    u &= x - 2y \quad \text{(Lower Bound)} \\
+    &\text{'boundary-assist-text'} for}
+\end text 
+
 
 \end{document}
