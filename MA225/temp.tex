@@ -319,25 +319,68 @@ where \( R \) is the triangular region bounded by the lines \( y = 0 \), \( x - 
     \item \textbf{Region Definition:}
     The region \( R \) is defined by:
     \[
-    0 \leq x \leq 2, \quad x - 2y \geq 0, \quad x \leq y + 1
+    y = 0, \quad x - 2y = 0, \quad x = y + 1
+    \]
+    The boundaries in \( x \) and \( y \) are:
+    \[
+    0 \leq x \leq 2, \quad 0 \leq y \leq \frac{x}{2}, \quad x \leq y + 1
     \]
 
     \item \textbf{Define Transformation:}
     Let:
     \[
-    u = x - 4, \quad v = x - 2y
+    u = x - 2y, \quad v = x - y
     \]
     Substituting:
     \[
-    x = v + u, \quad y = \frac{x - v}{2} = \frac{v + u - v}{2} = \frac{u}{2}
+    x = v + u, \quad y = v - u
     \]
 
     \item \textbf{Boundaries in New Coordinates:}
     Using the transformation:
     \begin{align*}
-    u &= x - 2y \quad \text{(Lower Bound)} \\
-    &\text{'boundary-assist-text'} for}
-\end text 
+    u &= x - 2y \quad \Rightarrow \quad 0 \leq u \leq 1 \\
+    v &= x - y \quad \Rightarrow \quad u \leq v \leq 1
+    \end{align*}
+
+    The transformed region \( S \) is bounded by \( u = 0 \), \( v = 1 \), and \( v - u = 1 \).
+
+    \item \textbf{Jacobian Calculation:}
+    The Jacobian matrix for the transformation \( T(u, v) \) is:
+    \[
+    J = \begin{bmatrix}
+    \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+    \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+    \end{bmatrix}
+    = \begin{bmatrix}
+    1 & 1 \\
+    -2 & 1
+    \end{bmatrix}
+    \]
+    The determinant of \( J \) is:
+    \[
+    \det(J) = (1)(1) - (1)(-2) = 1 + 2 = 3
+    \]
+
+    \item \textbf{Transform the Integral:}
+    Using the transformation and Jacobian determinant:
+    \[
+    \iint_R (x - u)\sqrt{x - 2y} \, dA = \int_0^1 \int_0^v \sqrt{u} \cdot 3 \, du \, dv
+    \]
+    Simplify:
+    \[
+    \int_0^1 \int_0^v \sqrt{u} \, du \, dv = \int_0^1 \left[ \frac{2}{3} u^{3/2} \right]_0^v dv
+    = \int_0^1 \frac{2}{3} v^{3/2} dv
+    \]
+    \[
+    = \left[ \frac{2}{3} \cdot \frac{2}{5} v^{5/2} \right]_0^1 = \frac{4}{15}.
+    \]
+    The result is:
+    \[
+    \iint_R (x - u)\sqrt{x - 2y} \, dA = \frac{4}{15}.
+    \]
+\end{enumerate}
+}
 
 
 \end{document}
