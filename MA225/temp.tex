@@ -95,23 +95,23 @@ where \( J \) is the \textbf{Jacobian matrix}, and \( |\det(J)| \) accounts for 
 }
 
 \dfn{Jacobian Matrix}{
-The Jacobian matrix represents the linear transformation of the mapping \( T \) at a given point:
-\[
-	J = \begin{bmatrix}
-		\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-		\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-	\end{bmatrix}
-\]
+	The Jacobian matrix represents the linear transformation of the mapping \( T \) at a given point:
+	\[
+		J = \begin{bmatrix}
+			\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+			\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+		\end{bmatrix}
+	\]
 
-For a transformation \( T(u, v) = (g(u, v), h(u, v)) \), the determinant of \( J \) is:
-\[
-	\det(J) =
-	\begin{vmatrix}
-		\frac{\partial g}{\partial u} & \frac{\partial g}{\partial v} \\
-		\frac{\partial h}{\partial u} & \frac{\partial h}{\partial v}
-	\end{vmatrix}
-	= \frac{\partial g}{\partial u} \cdot \frac{\partial h}{\partial v} - \frac{\partial g}{\partial v} \cdot \frac{\partial h}{\partial u}
-\]
+	For a transformation \( T(u, v) = (g(u, v), h(u, v)) \), the determinant of \( J \) is:
+	\[
+		\det(J) =
+		\begin{vmatrix}
+			\frac{\partial g}{\partial u} & \frac{\partial g}{\partial v} \\
+			\frac{\partial h}{\partial u} & \frac{\partial h}{\partial v}
+		\end{vmatrix}
+		= \frac{\partial g}{\partial u} \cdot \frac{\partial h}{\partial v} - \frac{\partial g}{\partial v} \cdot \frac{\partial h}{\partial u}
+	\]
 
 }
 
@@ -122,265 +122,547 @@ For a transformation \( T(u, v) = (g(u, v), h(u, v)) \), the determinant of \( J
 \end{itemize}
 
 \ex{Polar Coordinates}{
-For the transformation \( T(r, \theta) = (r\cos\theta, r\sin\theta) \), the Jacobian matrix is:
-\[
-	J = \begin{bmatrix}
-		\cos\theta & -r\sin\theta \\
-		\sin\theta & r\cos\theta
-	\end{bmatrix}
-\]
+	For the transformation \( T(r, \theta) = (r\cos\theta, r\sin\theta) \), the Jacobian matrix is:
+	\[
+		J = \begin{bmatrix}
+			\cos\theta & -r\sin\theta \\
+			\sin\theta & r\cos\theta
+		\end{bmatrix}
+	\]
 
-The determinant is:
-\[
-	\det(J) = \begin{vmatrix}
-		\cos\theta & -r\sin\theta \\
-		\sin\theta & r\cos\theta
-	\end{vmatrix}
-	= r(\cos^2\theta + \sin^2\theta) = r
-\]
+	The determinant is:
+	\[
+		\det(J) = \begin{vmatrix}
+			\cos\theta & -r\sin\theta \\
+			\sin\theta & r\cos\theta
+		\end{vmatrix}
+		= r(\cos^2\theta + \sin^2\theta) = r
+	\]
 
-Thus, the area differential in polar coordinates becomes:
-\[
-	dx \, dy = r \, dr \, d\theta
-\]
+	Thus, the area differential in polar coordinates becomes:
+	\[
+		dx \, dy = r \, dr \, d\theta
+	\]
 
 }
 
 \dfn{General Formula for Transforming Integrals}{
-If \( T: S \rightarrow R \) is a transformation with Jacobian determinant \( |\det(J)| \), then the integral transforms as:
-\[
-	\iint_R f(x, y) \, dx \, dy = \iint_S f(T(u, v)) \, |\det(J)| \, du \, dv
-\]
+	If \( T: S \rightarrow R \) is a transformation with Jacobian determinant \( |\det(J)| \), then the integral transforms as:
+	\[
+		\iint_R f(x, y) \, dx \, dy = \iint_S f(T(u, v)) \, |\det(J)| \, du \, dv
+	\]
 
 }
 
 \dfn{Intuition for Higher Dimensions}{
-In three dimensions, the Jacobian matrix extends to account for the transformation of volume elements:
-\[
-	J = \begin{bmatrix}
-		\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
-		\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
-		\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-	\end{bmatrix}
-\]
+	In three dimensions, the Jacobian matrix extends to account for the transformation of volume elements:
+	\[
+		J = \begin{bmatrix}
+			\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+			\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+			\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+		\end{bmatrix}
+	\]
 
-The volume scaling factor is given by \( |\det(J)| \), and the integral transforms as:
-\[
-	\iiint_R f(x, y, z) \, dx \, dy \, dz = \iiint_S f(T(u, v, w)) \, |\det(J)| \, du \, dv \, dw
-\]
+	The volume scaling factor is given by \( |\det(J)| \), and the integral transforms as:
+	\[
+		\iiint_R f(x, y, z) \, dx \, dy \, dz = \iiint_S f(T(u, v, w)) \, |\det(J)| \, du \, dv \, dw
+	\]
 
 }
 
 \section{Non-overlapping from Mapping \( T \)}
 
 \thm{Non-overlapping Condition}{
-For any two points \( Q \) and \( P \):
-\[
-T(Q) \neq T(P) \quad \text{(This would result in overlapping areas in the domain \( R \))}
-\]
-However, boundaries (e.g., \( y = 2x \)) can overlap as long as the bounded region is distinct.
+	For any two points \( Q \) and \( P \):
+	\[
+		T(Q) \neq T(P) \quad \text{(This would result in overlapping areas in the domain \( R \))}
+	\]
+	However, boundaries (e.g., \( y = 2x \)) can overlap as long as the bounded region is distinct.
 }
 
 \ex{Integral Transformation Example}{
-Evaluate:
-\[
-\iint_R 2x(y - 2x) \, dA
-\]
-where \( R \) is the parallelogram with vertices \((0, 0), (0, 1), (2, 4), (2, 3)\).
+	Evaluate:
+	\[
+		\iint_R 2x(y - 2x) \, dA
+	\]
+	where \( R \) is the parallelogram with vertices \((0, 0), (0, 1), (2, 4), (2, 3)\).
 
-Steps:
-\begin{enumerate}
-    \item \textbf{Choose a Transformation:} Select a mapping \( T \) to simplify the integral.
-    \item \textbf{Define the Mapping:}
-    \[
-    x = u, \quad y = 2x + v = 2u + v
-    \]
-    Substituting:
-    \[
-    (x, y) \rightarrow (u, v)
-    \]
+	Steps:
+	\begin{enumerate}
+		\item \textbf{Choose a Transformation:} Select a mapping \( T \) to simplify the integral.
+		\item \textbf{Define the Mapping:}
+		      \[
+			      x = u, \quad y = 2x + v = 2u + v
+		      \]
+		      Substituting:
+		      \[
+			      (x, y) \rightarrow (u, v)
+		      \]
 
-    \item \textbf{Boundary Equations:}
-    \[
-    0 \leq x \leq 2 \quad \Rightarrow \quad 0 \leq u \leq 2
-    \]
-    \[
-    0 \leq y - 2x < 1 \quad \Rightarrow \quad 0 \leq v < 1
-    \]
+		\item \textbf{Boundary Equations:}
+		      \[
+			      0 \leq x \leq 2 \quad \Rightarrow \quad 0 \leq u \leq 2
+		      \]
+		      \[
+			      0 \leq y - 2x < 1 \quad \Rightarrow \quad 0 \leq v < 1
+		      \]
 
-    \item \textbf{Region:}
-    \[
-    S = [0, 2] \times [0, 1]
-    \]
+		\item \textbf{Region:}
+		      \[
+			      S = [0, 2] \times [0, 1]
+		      \]
 
-    \item \textbf{Transform the Integrand:}
-    \[
-    f(T(x, y)) = 2u(v)
-    \]
+		\item \textbf{Transform the Integrand:}
+		      \[
+			      f(T(x, y)) = 2u(v)
+		      \]
 
-    \item \textbf{Jacobian Calculation:}
-    \[
-    J = \begin{bmatrix}
-    x_u & x_v \\
-    y_u & y_v
-    \end{bmatrix}
-    = \begin{bmatrix}
-    1 & 0 \\
-    2 & 1
-    \end{bmatrix}, \quad \det(J) = 1 \cdot 1 - 2 \cdot 0 = 1
-    \]
+		\item \textbf{Jacobian Calculation:}
+		      \[
+			      J = \begin{bmatrix}
+				      x_u & x_v \\
+				      y_u & y_v
+			      \end{bmatrix}
+			      = \begin{bmatrix}
+				      1 & 0 \\
+				      2 & 1
+			      \end{bmatrix}, \quad \det(J) = 1 \cdot 1 - 2 \cdot 0 = 1
+		      \]
 
-    \item \textbf{Transformed Integral:}
-    \[
-    \iint_R 2x(y - 2x) \, dA = \int_0^2 \int_0^1 2uv \, du \, dv
-    \]
-\end{enumerate}
+		\item \textbf{Transformed Integral:}
+		      \[
+			      \iint_R 2x(y - 2x) \, dA = \int_0^2 \int_0^1 2uv \, du \, dv
+		      \]
+	\end{enumerate}
 }
 
 \section{Integral Transformation for a Parallelogram Region}
 
 \ex{Example of Transformation}{
-Evaluate:
-\[
-\iint_R 2x(y - 2x) \, dA
-\]
-where \( R \) is the parallelogram defined by the vertices \((0, 0), (0, 1), (2, 4), (2, 3)\).
+	Evaluate:
+	\[
+		\iint_R 2x(y - 2x) \, dA
+	\]
+	where \( R \) is the parallelogram defined by the vertices \((0, 0), (0, 1), (2, 4), (2, 3)\).
 
-\subsection*{Steps:}
-\begin{enumerate}
-    \item \textbf{Choose a Transformation:} Select a transformation \( T \) that simplifies the integral.
-    \item \textbf{Define \( x, y \) in terms of \( u, v \):}
-    \[
-    x = u, \quad y = 2x + v = 2u + v
-    \]
-    Substituting:
-    \[
-    (x, y) \rightarrow (u, v)
-    \]
-    Here, \( u \) corresponds to \( x \), and \( v = y - 2x \).
+	\subsection*{Steps:}
+	\begin{enumerate}
+		\item \textbf{Choose a Transformation:} Select a transformation \( T \) that simplifies the integral.
+		\item \textbf{Define \( x, y \) in terms of \( u, v \):}
+		      \[
+			      x = u, \quad y = 2x + v = 2u + v
+		      \]
+		      Substituting:
+		      \[
+			      (x, y) \rightarrow (u, v)
+		      \]
+		      Here, \( u \) corresponds to \( x \), and \( v = y - 2x \).
 
-    \item \textbf{Boundary Equations:}
-    \[
-    0 \leq x \leq 2 \quad \Rightarrow \quad 0 \leq u \leq 2
-    \]
-    \[
-    0 \leq y - 2x < 1 \quad \Rightarrow \quad 0 \leq v < 1
-    \]
+		\item \textbf{Boundary Equations:}
+		      \[
+			      0 \leq x \leq 2 \quad \Rightarrow \quad 0 \leq u \leq 2
+		      \]
+		      \[
+			      0 \leq y - 2x < 1 \quad \Rightarrow \quad 0 \leq v < 1
+		      \]
 
-    \item \textbf{Region in \( u, v \):}
-    \[
-    S = [0, 2] \times [0, 1]
-    \]
-    This maps the parallelogram \( R \) into a rectangle \( S \) in the \( u, v \)-plane.
+		\item \textbf{Region in \( u, v \):}
+		      \[
+			      S = [0, 2] \times [0, 1]
+		      \]
+		      This maps the parallelogram \( R \) into a rectangle \( S \) in the \( u, v \)-plane.
 
-    \item \textbf{Transform the Integrand:}
-    Substituting \( x = u \) and \( y - 2x = v \):
-    \[
-    f(T(x, y)) = 2u(v)
-    \]
+		\item \textbf{Transform the Integrand:}
+		      Substituting \( x = u \) and \( y - 2x = v \):
+		      \[
+			      f(T(x, y)) = 2u(v)
+		      \]
 
-    \item \textbf{Jacobian Calculation:}
-    The Jacobian matrix for the transformation \( T \) is:
-    \[
-    J = \begin{bmatrix}
-    x_u & x_v \\
-    y_u & y_v
-    \end{bmatrix}
-    = \begin{bmatrix}
-    1 & 0 \\
-    2 & 1
-    \end{bmatrix}
-    \]
-    The determinant of \( J \) is:
-    \[
-    \det(J) = 1 \cdot 1 - 2 \cdot 0 = 1
-    \]
+		\item \textbf{Jacobian Calculation:}
+		      The Jacobian matrix for the transformation \( T \) is:
+		      \[
+			      J = \begin{bmatrix}
+				      x_u & x_v \\
+				      y_u & y_v
+			      \end{bmatrix}
+			      = \begin{bmatrix}
+				      1 & 0 \\
+				      2 & 1
+			      \end{bmatrix}
+		      \]
+		      The determinant of \( J \) is:
+		      \[
+			      \det(J) = 1 \cdot 1 - 2 \cdot 0 = 1
+		      \]
 
-    \item \textbf{Transformed Integral:}
-    Using the transformation and the Jacobian determinant:
-    \[
-    \iint_R 2x(y - 2x) \, dA = \int_0^2 \int_0^1 2uv \, du \, dv
-    \]
-    The transformed integral simplifies the computation significantly.
-\end{enumerate}
+		\item \textbf{Transformed Integral:}
+		      Using the transformation and the Jacobian determinant:
+		      \[
+			      \iint_R 2x(y - 2x) \, dA = \int_0^2 \int_0^1 2uv \, du \, dv
+		      \]
+		      The transformed integral simplifies the computation significantly.
+	\end{enumerate}
 }
 
 \section{Integral Transformation for a Triangular Region}
 
 \ex{Example of Transformation}{
-Evaluate:
-\[
-\iint_R (x - u)\sqrt{x - 2y} \, dA
-\]
-where \( R \) is the triangular region bounded by the lines \( y = 0 \), \( x - 2y = 0 \), and \( x = y + 1 \).
+	Evaluate:
+	\[
+		\iint_R (x - u)\sqrt{x - 2y} \, dA
+	\]
+	where \( R \) is the triangular region bounded by the lines \( y = 0 \), \( x - 2y = 0 \), and \( x = y + 1 \).
 
-\subsection*{Steps:}
-\begin{enumerate}
-    \item \textbf{Region Definition:}
-    The region \( R \) is defined by:
-    \[
-    y = 0, \quad x - 2y = 0, \quad x = y + 1
-    \]
-    The boundaries in \( x \) and \( y \) are:
-    \[
-    0 \leq x \leq 2, \quad 0 \leq y \leq \frac{x}{2}, \quad x \leq y + 1
-    \]
+	\subsection*{Steps:}
+	\begin{enumerate}
+		\item \textbf{Region Definition:}
+		      The region \( R \) is defined by:
+		      \[
+			      y = 0, \quad x - 2y = 0, \quad x = y + 1
+		      \]
+		      The boundaries in \( x \) and \( y \) are:
+		      \[
+			      0 \leq x \leq 2, \quad 0 \leq y \leq \frac{x}{2}, \quad x \leq y + 1
+		      \]
 
-    \item \textbf{Define Transformation:}
-    Let:
-    \[
-    u = x - 2y, \quad v = x - y
-    \]
-    Substituting:
-    \[
-    x = v + u, \quad y = v - u
-    \]
+		\item \textbf{Define Transformation:}
+		      Let:
+		      \[
+			      u = x - 2y, \quad v = x - y
+		      \]
+		      Substituting:
+		      \[
+			      x = v + u, \quad y = v - u
+		      \]
 
-    \item \textbf{Boundaries in New Coordinates:}
-    Using the transformation:
-    \begin{align*}
-    u &= x - 2y \quad \Rightarrow \quad 0 \leq u \leq 1 \\
-    v &= x - y \quad \Rightarrow \quad u \leq v \leq 1
-    \end{align*}
+		\item \textbf{Boundaries in New Coordinates:}
+		      Using the transformation:
+		      \begin{align*}
+			      u & = x - 2y \quad \Rightarrow \quad 0 \leq u \leq 1 \\
+			      v & = x - y \quad \Rightarrow \quad u \leq v \leq 1
+		      \end{align*}
 
-    The transformed region \( S \) is bounded by \( u = 0 \), \( v = 1 \), and \( v - u = 1 \).
+		      The transformed region \( S \) is bounded by \( u = 0 \), \( v = 1 \), and \( v - u = 1 \).
 
-    \item \textbf{Jacobian Calculation:}
-    The Jacobian matrix for the transformation \( T(u, v) \) is:
-    \[
-    J = \begin{bmatrix}
-    \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-    \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-    \end{bmatrix}
-    = \begin{bmatrix}
-    1 & 1 \\
-    -2 & 1
-    \end{bmatrix}
-    \]
-    The determinant of \( J \) is:
-    \[
-    \det(J) = (1)(1) - (1)(-2) = 1 + 2 = 3
-    \]
+		\item \textbf{Jacobian Calculation:}
+		      The Jacobian matrix for the transformation \( T(u, v) \) is:
+		      \[
+			      J = \begin{bmatrix}
+				      \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+				      \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+			      \end{bmatrix}
+			      = \begin{bmatrix}
+				      1  & 1 \\
+				      -2 & 1
+			      \end{bmatrix}
+		      \]
+		      The determinant of \( J \) is:
+		      \[
+			      \det(J) = (1)(1) - (1)(-2) = 1 + 2 = 3
+		      \]
 
-    \item \textbf{Transform the Integral:}
-    Using the transformation and Jacobian determinant:
-    \[
-    \iint_R (x - u)\sqrt{x - 2y} \, dA = \int_0^1 \int_0^v \sqrt{u} \cdot 3 \, du \, dv
-    \]
-    Simplify:
-    \[
-    \int_0^1 \int_0^v \sqrt{u} \, du \, dv = \int_0^1 \left[ \frac{2}{3} u^{3/2} \right]_0^v dv
-    = \int_0^1 \frac{2}{3} v^{3/2} dv
-    \]
-    \[
-    = \left[ \frac{2}{3} \cdot \frac{2}{5} v^{5/2} \right]_0^1 = \frac{4}{15}.
-    \]
-    The result is:
-    \[
-    \iint_R (x - u)\sqrt{x - 2y} \, dA = \frac{4}{15}.
-    \]
-\end{enumerate}
+		\item \textbf{Transform the Integral:}
+		      Using the transformation and Jacobian determinant:
+		      \[
+			      \iint_R (x - u)\sqrt{x - 2y} \, dA = \int_0^1 \int_0^v \sqrt{u} \cdot 3 \, du \, dv
+		      \]
+		      Simplify:
+		      \[
+			      \int_0^1 \int_0^v \sqrt{u} \, du \, dv = \int_0^1 \left[ \frac{2}{3} u^{3/2} \right]_0^v dv
+			      = \int_0^1 \frac{2}{3} v^{3/2} dv
+		      \]
+		      \[
+			      = \left[ \frac{2}{3} \cdot \frac{2}{5} v^{5/2} \right]_0^1 = \frac{4}{15}.
+		      \]
+		      The result is:
+		      \[
+			      \iint_R (x - u)\sqrt{x - 2y} \, dA = \frac{4}{15}.
+		      \]
+	\end{enumerate}
 }
 
+
+\chapter{Vector Fields $f:\mathbb{R}^n \rightarrow \mathbb{R}^n$}
+
+
+\section{Vector Fields}
+
+A \textbf{vector field} is a function $\vec{F}$ that takes points in $\mathbb{R}^2$ or $\mathbb{R}^3$ and outputs a vector in $\mathbb{R}^2$ or $\mathbb{R}^3$:
+\[
+	\vec{F} : \mathbb{R}^n \to \mathbb{R}^n, \quad \vec{F}(x, y, z) = \langle q(x, y, z), w(x, y, z), t(x, y, z) \rangle.
+\]
+
+\subsection{Properties}
+\begin{itemize}
+	\item Continuous if $q, w, t$ are continuous.
+	\item Differentiable if $q, w, t$ are differentiable.
+	\item Domain is the intersection of domains of $q, w, t$.
+\end{itemize}
+
+\subsection{Applications}
+\begin{itemize}
+	\item Water and wind currents.
+	\item Gravitational, electric, and magnetic fields.
+	\item Human circulation, heat propagation.
+	\item Modeling through partial differential equations.
+\end{itemize}
+
+\subsection{Drawing a Vector Field}
+At each point in the domain of $\vec{F}$, draw a vector whose:
+\begin{itemize}
+	\item Direction is parallel to $\vec{F}(x, y)$.
+	\item Length is proportional to the magnitude of $\vec{F}(x, y)$.
+\end{itemize}
+
+\ex{$\vec{F}(x, y) = \frac{ \langle x, y \rangle }{\left\lvert \langle x, y \rangle \right\rvert ^3 } $}{
+	\begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[%
+                    view     = {0}{90}, % for a view 'from above'
+                    domain   = -2:2,
+                    y domain = -2:2,
+                    xtick    = {-2,...,2},
+                    ytick    = {-2,...,2},
+                    colormap/viridis,
+                    colorbar,
+                    colorbar style = {
+                        ylabel = {Vector Length}
+                    }
+                ]
+                \addplot3[
+                    point meta = {(x^2 + y^2)^(-1/2)}, % length of the vector
+                    quiver = {
+                        u = {x/(x^2+y^2)^(3/2)},
+                        v = {y/(x^2+y^2)^(3/2)},
+                        scale arrows = 0.1,
+                    },
+                    quiver/colored = {mapped color},
+                    -stealth,
+                    samples = 16
+                ] (x, y, 0);
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+}
+
+\ex{ $\vec{F}(x, y) = \langle -y, x \rangle$ }{
+	\begin{center}
+		\begin{tikzpicture}
+            \begin{axis}[
+                xmin = -4, xmax = 4,
+                ymin = -4, ymax = 4,
+                zmin = 0, zmax = 1,
+                axis equal image,
+                xtick distance = 1,
+                ytick distance = 1,
+                view = {0}{90},
+                scale = 1.25,
+                title = {\bf Vector Field $F = [-y,x]$},
+                height=7cm,
+                xlabel = {$x$},
+                ylabel = {$y$},
+                colormap/viridis,
+                colorbar,
+                colorbar style = {
+                    ylabel = {Vector Length}
+                }
+            ]
+                \addplot3[
+                    point meta = {sqrt(x^2+y^2)},
+                    quiver = {
+                        u = {-y},
+                        v = {x},
+                        scale arrows = 0.25,
+                    },
+                    quiver/colored = {mapped color},
+                    -stealth,
+                    domain = -4:4,
+                    domain y = -4:4,
+                ] {0};
+            \end{axis}
+        \end{tikzpicture}
+	\end{center}
+}
+
+\section{Gradient Vector Fields}
+
+A \textbf{gradient vector field} $\nabla \varphi(x, y)$ is a vector field:
+\[
+	\vec{F}(x, y) = \nabla \varphi \quad \text{where } \varphi \text{ is a potential function.}
+\]
+
+If $\varphi$ exists, $\vec{F}$ is called a \textbf{conservative field}.
+
+\ex{ $\varphi = -\frac{x^2 + y^2}{2}$ }{
+	\[
+		\vec{F}(x, y) = \nabla \varphi = \langle -x, -y \rangle
+	\]
+	\begin{center}
+		\begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xmin = -4, xmax = 4,
+                    ymin = -4, ymax = 4,
+                    zmin = 0, zmax = 1,
+                    axis equal image,
+                    xtick distance = 1,
+                    ytick distance = 1,
+                    view = {0}{90},
+                    scale = 1.25,
+                    title = {\bf Vector Field $F = [-y,x]$},
+                    height=7cm,
+                    xlabel = {$x$},
+                    ylabel = {$y$},
+                    colormap/viridis,
+                    colorbar,
+                    colorbar style = {
+                        ylabel = {Vector Length}
+                    }
+                ]
+                    \addplot3[
+                        point meta = {sqrt(x^2+y^2)},
+                        quiver = {
+                            u = {x},
+                            v = {-y},
+                            scale arrows = 0.25,
+                        },
+                        quiver/colored = {mapped color},
+                        -stealth,
+                        domain = -4:4,
+                        domain y = -4:4,
+                    ] {0};
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+	\end{center}
+}
+
+
+\section{Line Integrals}
+
+\subsection*{Scalar Case}
+For a scalar function \( f(x, y) \), the line integral over a curve \( C \) is defined as:
+\[
+	A = \int_C f(x, y) \, ds
+\]
+where \( ds = |\mathbf{r}'(t)| dt \), with \( \mathbf{r}(t) \) being the parameterization of \( C \).
+
+If \( \mathbf{r}(t) = (x(t), y(t)) \), then:
+\[
+	ds = \sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2} \, dt
+\]
+
+This allows us to rewrite the line integral as:
+\[
+	\int_C f(x, y) \, ds = \int_a^b f(\mathbf{r}(t)) |\mathbf{r}'(t)| \, dt
+\]
+
+\ex{Example: Average Temperature on a Plate}{
+	Suppose we have a plate located in \( R = \{(x, y) : x^2 + y^2 \leq 4 \}\), where the temperature at any point \( (x, y) \) is \( T(x, y) = 100 (x^2 + y^2) \). Find the average temperature over the boundary of \( R \).
+
+	\begin{enumerate}
+		\item \textbf{Parameterize the Boundary:}
+		      The boundary \( C \) of \( R \) is a circle of radius \( 2 \), centered at the origin. Parameterize \( C \) as:
+		      \[
+			      \mathbf{r}(t) = (2\cos t, 2\sin t), \quad 0 \leq t \leq 2\pi
+		      \]
+		      Then:
+		      \[
+			      |\mathbf{r}'(t)| = \sqrt{(-2\sin t)^2 + (2\cos t)^2} = 2
+		      \]
+
+		\item \textbf{Average Temperature:}
+		      The average temperature is given by:
+		      \[
+			      \text{Average Temperature} = \frac{\int_C T(x, y) \, ds}{\int_C ds}
+		      \]
+		      Compute the numerator:
+		      \[
+			      \int_C T(x, y) \, ds = \int_0^{2\pi} 100 \cdot 4 \cdot 2 \, dt = 800\pi
+		      \]
+		      Compute the denominator (arc length of \( C \)):
+		      \[
+			      \int_C ds = \int_0^{2\pi} 2 \, dt = 4\pi
+		      \]
+		      Thus:
+		      \[
+			      \text{Average Temperature} = \frac{800\pi}{4\pi} = 200
+		      \]
+	\end{enumerate}
+}
+
+\subsection*{Oriented Curves}
+An oriented curve \( C \) includes a direction along the curve. For example, when calculating work done by a force \( \mathbf{F} \) along a curve, the direction matters.
+
+\ex{Example: Work}{
+	Work done by a force \( \mathbf{F}(x) \) is given by:
+	\[
+		W = \int_a^b F(x) \, dx
+	\]
+	For a spring with force \( F(x) = -kx \), the work done to stretch the spring from \( x = a \) to \( x = b \) is:
+	\[
+		W = \int_a^b -kx \, dx = -\frac{k}{2} \left[ b^2 - a^2 \right]
+	\]
+}
+
+\section{Vector Line Integrals}
+
+\ex{Example: Earth's Gravitational Field}{
+	The Earth's gravitational field exerts a force \( \mathbf{F}(\mathbf{r}) \) on an object, pulling it toward the origin. Suppose an object travels along a path \( C \). The work done by \( \mathbf{F} \) is:
+	\[
+		W = \int_C \mathbf{F} \cdot d\mathbf{r}
+	\]
+	If \( \mathbf{F}(\mathbf{r}) = \frac{-Gm}{|\mathbf{r}|^3} \mathbf{r} \), parameterize \( C \) as \( \mathbf{r}(t) \), and compute:
+	\[
+		\mathbf{F}(\mathbf{r}) = -\frac{Gm}{|\mathbf{r}|^3} \mathbf{r}, \quad d\mathbf{r} = \mathbf{r}'(t) \, dt
+	\]
+	Then:
+	\[
+		W = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt
+	\]
+
+	If \( C \) is along the z-axis from \( (0, 0, 1) \) to \( (0, 0, 4) \), parameterize:
+	\[
+		\mathbf{r}(t) = (0, 0, t), \quad 1 \leq t \leq 4
+	\]
+	Then:
+	\[
+		W = \int_1^4 -\frac{Gm}{t^2} \cdot 1 \, dt = -Gm \int_1^4 \frac{1}{t^2} \, dt
+	\]
+	\[
+		W = -Gm \left[ -\frac{1}{t} \right]_1^4 = -Gm \left( -\frac{1}{4} + 1 \right) = Gm \left( \frac{3}{4} \right)
+	\]
+}
+
+\section{Fundamental Theorem of Line Integrals}
+
+\thm{Fundamental Theorem of Line Integrals}{
+	If \( \mathbf{F} \) is a vector field that can be expressed as \( \mathbf{F} = \nabla \phi \), then given an oriented curve \( C \) from \( P \) to \( Q \):
+	\[
+		\int_C \mathbf{F} \cdot d\mathbf{r} = \phi(Q) - \phi(P)
+	\]
+}
+
+\ex{Example}{
+	Let \( \phi(x, y, z) = \frac{-G}{\sqrt{x^2 + y^2 + z^2}} \), and \( \mathbf{F} = \nabla \phi \). Compute:
+	\[
+		\int_C \mathbf{F} \cdot d\mathbf{r}
+	\]
+	from \( (a, a, a) \) to \( (1, 1, 1) \):
+	\[
+		\phi(x, y, z) = \frac{-G}{\sqrt{x^2 + y^2 + z^2}}, \quad \Delta \phi = \phi(1, 1, 1) - \phi(a, a, a)
+	\]
+	\[
+		\phi(a, a, a) = \frac{-G}{\sqrt{3a^2}} = \frac{-G}{a\sqrt{3}}, \quad \phi(1, 1, 1) = \frac{-G}{\sqrt{3}}
+	\]
+	Thus:
+	\[
+		\int_C \mathbf{F} \cdot d\mathbf{r} = \phi(1, 1, 1) - \phi(a, a, a) = \frac{-G}{\sqrt{3}} - \left( \frac{-G}{a\sqrt{3}} \right)
+	\]
+	\[
+		= \frac{G}{\sqrt{3}} \left( 1 - \frac{1}{a} \right)
+	\]
+}
 
 \end{document}
