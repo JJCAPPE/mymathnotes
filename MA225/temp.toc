@@ -12,4 +12,16 @@
 \contentsline {section}{\numberline {2.3}Line Integrals}{9}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Vector Line Integrals}{10}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Fundamental Theorem of Line Integrals}{11}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Vector Line Integrals and Gradient Fields}{12}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Vector Line Integral for a Curve \( C \)}{12}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Gradient Fields and Fundamental Theorem of Line Integrals}{12}{subsection.2.6.2}%
+\contentsline {section}{\numberline {2.7}Gradient Vector Fields and Closed Curves}{13}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Definition of a Closed Curve}{13}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}How to Identify a Gradient Vector Field}{13}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Finding the Potential Function \( \phi (x, y) \)}{13}{subsection.2.7.3}%
+\contentsline {section}{\numberline {2.8}Non-Gradient Vector Fields and Green's Theorem}{14}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Non-Gradient Vector Fields}{14}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Green's Theorem}{15}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Line Integrals and Area}{16}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Flux of a Vector Field}{17}{section.2.10}%
 \contentsfinish 

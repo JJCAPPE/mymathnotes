@@ -417,71 +417,71 @@ At each point in the domain of $\vec{F}$, draw a vector whose:
 
 \ex{$\vec{F}(x, y) = \frac{ \langle x, y \rangle }{\left\lvert \langle x, y \rangle \right\rvert ^3 } $}{
 	\begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[%
-                    view     = {0}{90}, % for a view 'from above'
-                    domain   = -2:2,
-                    y domain = -2:2,
-                    xtick    = {-2,...,2},
-                    ytick    = {-2,...,2},
-                    colormap/viridis,
-                    colorbar,
-                    colorbar style = {
-                        ylabel = {Vector Length}
-                    }
-                ]
-                \addplot3[
-                    point meta = {(x^2 + y^2)^(-1/2)}, % length of the vector
-                    quiver = {
-                        u = {x/(x^2+y^2)^(3/2)},
-                        v = {y/(x^2+y^2)^(3/2)},
-                        scale arrows = 0.1,
-                    },
-                    quiver/colored = {mapped color},
-                    -stealth,
-                    samples = 16
-                ] (x, y, 0);
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
+		\begin{tikzpicture}
+			\begin{axis}[%
+					view     = {0}{90}, % for a view 'from above'
+					domain   = -2:2,
+					y domain = -2:2,
+					xtick    = {-2,...,2},
+					ytick    = {-2,...,2},
+					colormap/viridis,
+					colorbar,
+					colorbar style = {
+							ylabel = {Vector Length}
+						}
+				]
+				\addplot3[
+					point meta = {(x^2 + y^2)^(-1/2)}, % length of the vector
+					quiver = {
+							u = {x/(x^2+y^2)^(3/2)},
+							v = {y/(x^2+y^2)^(3/2)},
+							scale arrows = 0.1,
+						},
+					quiver/colored = {mapped color},
+					-stealth,
+					samples = 16
+				] (x, y, 0);
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 }
 
 \ex{ $\vec{F}(x, y) = \langle -y, x \rangle$ }{
 	\begin{center}
 		\begin{tikzpicture}
-            \begin{axis}[
-                xmin = -4, xmax = 4,
-                ymin = -4, ymax = 4,
-                zmin = 0, zmax = 1,
-                axis equal image,
-                xtick distance = 1,
-                ytick distance = 1,
-                view = {0}{90},
-                scale = 1.25,
-                title = {\bf Vector Field $F = [-y,x]$},
-                height=7cm,
-                xlabel = {$x$},
-                ylabel = {$y$},
-                colormap/viridis,
-                colorbar,
-                colorbar style = {
-                    ylabel = {Vector Length}
-                }
-            ]
-                \addplot3[
-                    point meta = {sqrt(x^2+y^2)},
-                    quiver = {
-                        u = {-y},
-                        v = {x},
-                        scale arrows = 0.25,
-                    },
-                    quiver/colored = {mapped color},
-                    -stealth,
-                    domain = -4:4,
-                    domain y = -4:4,
-                ] {0};
-            \end{axis}
-        \end{tikzpicture}
+			\begin{axis}[
+				xmin = -4, xmax = 4,
+				ymin = -4, ymax = 4,
+				zmin = 0, zmax = 1,
+				axis equal image,
+				xtick distance = 1,
+				ytick distance = 1,
+				view = {0}{90},
+				scale = 1.25,
+				title = {\bf Vector Field $F = [-y,x]$},
+				height=7cm,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				colormap/viridis,
+				colorbar,
+				colorbar style = {
+						ylabel = {Vector Length}
+					}
+				]
+				\addplot3[
+					point meta = {sqrt(x^2+y^2)},
+					quiver = {
+							u = {-y},
+							v = {x},
+							scale arrows = 0.25,
+						},
+					quiver/colored = {mapped color},
+					-stealth,
+					domain = -4:4,
+					domain y = -4:4,
+				] {0};
+			\end{axis}
+		\end{tikzpicture}
 	\end{center}
 }
 
@@ -500,41 +500,41 @@ If $\varphi$ exists, $\vec{F}$ is called a \textbf{conservative field}.
 	\]
 	\begin{center}
 		\begin{center}
-            \begin{tikzpicture}
-                \begin{axis}[
-                    xmin = -4, xmax = 4,
-                    ymin = -4, ymax = 4,
-                    zmin = 0, zmax = 1,
-                    axis equal image,
-                    xtick distance = 1,
-                    ytick distance = 1,
-                    view = {0}{90},
-                    scale = 1.25,
-                    title = {\bf Vector Field $F = [-y,x]$},
-                    height=7cm,
-                    xlabel = {$x$},
-                    ylabel = {$y$},
-                    colormap/viridis,
-                    colorbar,
-                    colorbar style = {
-                        ylabel = {Vector Length}
-                    }
-                ]
-                    \addplot3[
-                        point meta = {sqrt(x^2+y^2)},
-                        quiver = {
-                            u = {x},
-                            v = {-y},
-                            scale arrows = 0.25,
-                        },
-                        quiver/colored = {mapped color},
-                        -stealth,
-                        domain = -4:4,
-                        domain y = -4:4,
-                    ] {0};
-                \end{axis}
-            \end{tikzpicture}
-        \end{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+					xmin = -4, xmax = 4,
+					ymin = -4, ymax = 4,
+					zmin = 0, zmax = 1,
+					axis equal image,
+					xtick distance = 1,
+					ytick distance = 1,
+					view = {0}{90},
+					scale = 1.25,
+					title = {\bf Vector Field $F = [-y,x]$},
+					height=7cm,
+					xlabel = {$x$},
+					ylabel = {$y$},
+					colormap/viridis,
+					colorbar,
+					colorbar style = {
+							ylabel = {Vector Length}
+						}
+					]
+					\addplot3[
+						point meta = {sqrt(x^2+y^2)},
+						quiver = {
+								u = {x},
+								v = {-y},
+								scale arrows = 0.25,
+							},
+						quiver/colored = {mapped color},
+						-stealth,
+						domain = -4:4,
+						domain y = -4:4,
+					] {0};
+				\end{axis}
+			\end{tikzpicture}
+		\end{center}
 	\end{center}
 }
 
@@ -663,6 +663,448 @@ An oriented curve \( C \) includes a direction along the curve. For example, whe
 	\[
 		= \frac{G}{\sqrt{3}} \left( 1 - \frac{1}{a} \right)
 	\]
+}
+
+\section{Vector Line Integrals and Gradient Fields}
+
+\subsection{Vector Line Integral for a Curve \( C \)}
+Given a vector field \( \mathbf{F}(x, y) = (P(x, y), Q(x, y)) \) and an oriented curve \( C \), the vector line integral is defined as:
+\[
+	\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P \, dx + Q \, dy
+\]
+where:
+\[
+	d\mathbf{r} = (dx, dy), \quad \mathbf{F} \cdot d\mathbf{r} = P \, dx + Q \, dy.
+\]
+
+If \( C \) is parameterized as \( \mathbf{r}(t) = (x(t), y(t)) \), where \( t \in [a, b] \), then:
+\[
+	\int_C \mathbf{F} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt = \int_a^b \left[ P(x(t), y(t)) \frac{dx}{dt} + Q(x(t), y(t)) \frac{dy}{dt} \right] dt
+\]
+
+\ex{Example: Compute a Vector Line Integral}{
+	Let \( \mathbf{F}(x, y) = (x, x^2 + y) \) and let \( C \) be the curve defined by \( \mathbf{r}(t) = (t, t^2) \), where \( t \in [1, 3] \).
+
+	\textbf{Steps:}
+	\begin{enumerate}
+		\item \textbf{Parameterize \( C \):}
+		      From the parameterization, we have:
+		      \[
+			      x(t) = t, \quad y(t) = t^2, \quad \mathbf{r}'(t) = \left(\frac{dx}{dt}, \frac{dy}{dt}\right) = (1, 2t)
+		      \]
+
+		\item \textbf{Evaluate \( \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \):}
+		      Substitute \( x(t) \) and \( y(t) \) into \( \mathbf{F}(x, y) \):
+		      \[
+			      \mathbf{F}(\mathbf{r}(t)) = (t, t^2 + t^2) = (t, 2t^2)
+		      \]
+		      Then:
+		      \[
+			      \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) = t \cdot 1 + (2t^2) \cdot (2t) = t + 4t^3
+		      \]
+
+		\item \textbf{Compute the Integral:}
+		      \[
+			      \int_C \mathbf{F} \cdot d\mathbf{r} = \int_1^3 (t + 4t^3) \, dt
+		      \]
+		      Split the integral:
+		      \[
+			      \int_1^3 (t + 4t^3) \, dt = \int_1^3 t \, dt + \int_1^3 4t^3 \, dt
+		      \]
+		      Compute each term:
+		      \[
+			      \int_1^3 t \, dt = \left[\frac{t^2}{2}\right]_1^3 = \frac{9}{2} - \frac{1}{2} = 4
+		      \]
+		      \[
+			      \int_1^3 4t^3 \, dt = 4 \left[\frac{t^4}{4}\right]_1^3 = \left[81 - 1\right] = 80
+		      \]
+		      Thus:
+		      \[
+			      \int_C \mathbf{F} \cdot d\mathbf{r} = 4 + 80 = 84
+		      \]
+	\end{enumerate}
+}
+
+\subsection{Gradient Fields and Fundamental Theorem of Line Integrals}
+If \( \mathbf{F} \) is a gradient field, meaning \( \mathbf{F} = \nabla \phi \), then the line integral over a curve \( C \) depends only on the endpoints of \( C \). Specifically:
+\[
+	\int_C \mathbf{F} \cdot d\mathbf{r} = \phi(B) - \phi(A)
+\]
+where \( A \) and \( B \) are the start and end points of \( C \).
+
+\textbf{Intuition:}
+\begin{itemize}
+	\item The integral \( \int_C \mathbf{F} \cdot d\mathbf{r} \) represents the difference in potential between the endpoints of \( C \).
+	\item The path taken does not matter; only the values of \( \phi \) at \( A \) and \( B \) are relevant.
+\end{itemize}
+
+\ex{Example: Gradient Field Integral}{
+	Let \( \mathbf{F} = \nabla \phi \), where \( \phi(x, y) = x^2 + xy \). Compute:
+	\[
+		\int_C \mathbf{F} \cdot d\mathbf{r}
+	\]
+	where \( C \) is any curve starting at \( A = (1, 2) \) and ending at \( B = (3, 4) \).
+
+	\textbf{Solution:}
+	\begin{enumerate}
+		\item Compute \( \phi(A) \) and \( \phi(B) \):
+		      \[
+			      \phi(A) = (1)^2 + (1)(2) = 1 + 2 = 3
+		      \]
+		      \[
+			      \phi(B) = (3)^2 + (3)(4) = 9 + 12 = 21
+		      \]
+
+		\item Apply the Fundamental Theorem:
+		      \[
+			      \int_C \mathbf{F} \cdot d\mathbf{r} = \phi(B) - \phi(A) = 21 - 3 = 18
+		      \]
+	\end{enumerate}
+}
+
+\section{Gradient Vector Fields and Closed Curves}
+
+\subsection{Definition of a Closed Curve}
+A curve \( C \) is said to be \textbf{closed} if its start and end points are the same, i.e., \( A = B \).
+
+For a closed curve \( C \), the following property holds:
+\[
+\int_C \mathbf{F} \cdot d\mathbf{r} = 0 \quad \text{if } \mathbf{F} \text{ is a gradient vector field}.
+\]
+
+If \( \mathbf{F} = \nabla \phi \), then:
+\[
+\int_C \mathbf{F} \cdot d\mathbf{r} = \phi(A) - \phi(A) = 0.
+\]
+
+This implies that \textbf{the line integral of a gradient field over a closed curve is always zero}.
+
+\subsection{How to Identify a Gradient Vector Field}
+To determine whether a vector field \( \mathbf{F} = (P(x, y), Q(x, y)) \) is a gradient field:
+\begin{itemize}
+    \item \( \mathbf{F} \) must be defined on a region \( R \) that is \textbf{connected} and \textbf{simply connected} (no holes in \( R \)).
+    \item \( P(x, y) \) and \( Q(x, y) \) must satisfy the condition:
+    \[
+    \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}.
+    \]
+\end{itemize}
+
+\textbf{Theorem:} If \( \mathbf{F} \) satisfies the above conditions, then \( \mathbf{F} \) is a gradient vector field, and there exists a scalar function \( \phi(x, y) \) such that \( \mathbf{F} = \nabla \phi \).
+
+\subsection{Finding the Potential Function \( \phi(x, y) \)}
+To find \( \phi(x, y) \), follow these steps:
+\begin{enumerate}
+    \item Check if \( \mathbf{F} \) satisfies \( \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \).
+    \item Assume \( \phi(x, y) \) exists and satisfies:
+    \[
+    \frac{\partial \phi}{\partial x} = P(x, y), \quad \frac{\partial \phi}{\partial y} = Q(x, y).
+    \]
+    \item Integrate \( P(x, y) \) with respect to \( x \) to find a partial expression for \( \phi(x, y) \):
+    \[
+    \phi(x, y) = \int P(x, y) \, dx + h(y),
+    \]
+    where \( h(y) \) is an arbitrary function of \( y \).
+    \item Differentiate the result with respect to \( y \), and equate it to \( Q(x, y) \) to find \( h'(y) \):
+    \[
+    \frac{\partial \phi}{\partial y} = \frac{\partial}{\partial y} \left[ \int P(x, y) \, dx + h(y) \right] = Q(x, y).
+    \]
+    Solve for \( h(y) \).
+    \item Substitute \( h(y) \) back into \( \phi(x, y) \) to obtain the full potential function.
+\end{enumerate}
+
+\ex{Example: Finding the Potential Function}{
+Given \( \mathbf{F} = (2xy, x^2 + 2y) \), determine if \( \mathbf{F} \) is a gradient field and, if so, find \( \phi(x, y) \).
+
+\textbf{Step 1: Check the Condition.}
+\[
+\frac{\partial P}{\partial y} = \frac{\partial}{\partial y} (2xy) = 2x, \quad \frac{\partial Q}{\partial x} = \frac{\partial}{\partial x} (x^2 + 2y) = 2x.
+\]
+Since \( \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \), \( \mathbf{F} \) is a gradient field.
+
+\textbf{Step 2: Integrate \( P(x, y) \) with Respect to \( x \).}
+\[
+\phi(x, y) = \int P(x, y) \, dx = \int 2xy \, dx = x^2y + h(y),
+\]
+where \( h(y) \) is an arbitrary function of \( y \).
+
+\textbf{Step 3: Differentiate with Respect to \( y \).}
+\[
+\frac{\partial \phi}{\partial y} = \frac{\partial}{\partial y} \left( x^2y + h(y) \right) = x^2 + h'(y).
+\]
+
+\textbf{Step 4: Equate to \( Q(x, y) \).}
+\[
+x^2 + h'(y) = x^2 + 2y \quad \Rightarrow \quad h'(y) = 2y.
+\]
+
+\textbf{Step 5: Solve for \( h(y) \).}
+\[
+h(y) = \int 2y \, dy = y^2 + C.
+\]
+
+\textbf{Step 6: Write the Final Potential Function.}
+\[
+\phi(x, y) = x^2y + y^2 + C.
+\]
+}
+
+\section{Non-Gradient Vector Fields and Green's Theorem}
+
+\subsection{Non-Gradient Vector Fields}
+For a vector field \( \mathbf{F} = (P(x, y), Q(x, y)) \), if:
+\[
+\frac{\partial P}{\partial y} \neq \frac{\partial Q}{\partial x},
+\]
+then \( \mathbf{F} \) is \textbf{not a gradient vector field}.
+
+To measure the \textbf{rotation} of \( \mathbf{F} \), we compute the \textbf{curl} of \( \mathbf{F} \), defined as:
+\[
+\text{curl}(\mathbf{F}) = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}.
+\]
+The curl describes the tendency of \( \mathbf{F} \) to "rotate" around a point.
+
+\ex{Example: Interpreting the Curl}{
+Suppose \( \mathbf{F}(x, y) \) represents the velocity of a fluid. If:
+\[
+\frac{\partial Q}{\partial x} > \frac{\partial P}{\partial y},
+\]
+then \( \text{curl}(\mathbf{F}) > 0 \), indicating counterclockwise rotation of the fluid flow. Conversely, if:
+\[
+\frac{\partial Q}{\partial x} < \frac{\partial P}{\partial y},
+\]
+then \( \text{curl}(\mathbf{F}) < 0 \), indicating clockwise rotation of the fluid flow.
+
+Consider a case where \( Q_x = 1 \) and \( P_y = 0 \). This means \( \text{curl}(\mathbf{F}) = 1 \), indicating counterclockwise rotation.
+}
+
+\subsection{Green's Theorem}
+Green's Theorem provides a relationship between a line integral over a closed curve \( C \) and a double integral over the region \( R \) enclosed by \( C \). 
+
+\textbf{Theorem:}
+Let \( C \) be a positively oriented, simple, closed curve enclosing a region \( R \). If \( \mathbf{F} = (P, Q) \) is a continuously differentiable vector field, then:
+\[
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P \, dx + Q \, dy = \iint_R \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA.
+\]
+
+\textbf{Intuition:}
+Green's Theorem states that the circulation of \( \mathbf{F} \) along the boundary \( C \) equals the sum of the curl of \( \mathbf{F} \) over the area \( R \). It connects the local rotation of \( \mathbf{F} \) (through curl) to its global behavior along the curve \( C \).
+
+\ex{Example: Application of Green's Theorem}{
+Let \( \mathbf{F} = (-3y, 3x) \), and let \( R \) be the triangle with vertices \( (0, 0), (1, 0), (0, 2) \), oriented counterclockwise. Compute \( \int_C \mathbf{F} \cdot d\mathbf{r} \) using Green's Theorem.
+
+\textbf{Solution:}
+\begin{enumerate}
+    \item Compute the Curl of \( \mathbf{F} \):
+    \[
+    \text{curl}(\mathbf{F}) = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 3 - (-3) = 6.
+    \]
+
+    \item Set up the Double Integral over \( R \):
+    The region \( R \) is the triangle with vertices \( (0, 0), (1, 0), (0, 2) \). Its boundaries can be described by:
+    \[
+    0 \leq x \leq 1, \quad 0 \leq y \leq 2 - 2x.
+    \]
+    Using Green's Theorem:
+    \[
+    \int_C \mathbf{F} \cdot d\mathbf{r} = \iint_R \text{curl}(\mathbf{F}) \, dA = \iint_R 6 \, dA.
+    \]
+
+    \item Compute the Double Integral:
+    \[
+    \iint_R 6 \, dA = \int_0^1 \int_0^{2 - 2x} 6 \, dy \, dx.
+    \]
+    First, integrate with respect to \( y \):
+    \[
+    \int_0^{2 - 2x} 6 \, dy = 6y \Big|_0^{2 - 2x} = 6(2 - 2x).
+    \]
+    Now integrate with respect to \( x \):
+    \[
+    \int_0^1 6(2 - 2x) \, dx = \int_0^1 (12 - 12x) \, dx = \left[ 12x - 6x^2 \right]_0^1.
+    \]
+    Evaluate:
+    \[
+    \left[ 12(1) - 6(1)^2 \right] - \left[ 12(0) - 6(0)^2 \right] = 12 - 6 = 6.
+    \]
+
+    \item Final Answer:
+    \[
+    \int_C \mathbf{F} \cdot d\mathbf{r} = 6.
+    \]
+\end{enumerate}
+}
+
+\section{Line Integrals and Area}
+
+\subsection*{Area Using Line Integrals}
+For a vector field \( \mathbf{F} = (-y, x) \), the curl is given by:
+\[
+\text{curl}(\mathbf{F}) = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1.
+\]
+If \( C \) is a closed curve oriented counterclockwise, enclosing a region \( R \), the area of \( R \) can be computed using the following line integrals:
+\[
+\text{Area}(R) = \iint_R 1 \, dA = \int_C \mathbf{F} \cdot d\mathbf{r}.
+\]
+The parametrized curve \( C \) is expressed as \( \mathbf{r}(t) = (x(t), y(t)) \), with:
+\[
+\mathbf{F} \cdot d\mathbf{r} = P \, dx + Q \, dy.
+\]
+
+\subsection*{Alternative Formulas for Area}
+Using line integrals:
+\[
+\text{Area}(R) = \int_C x \, dy = -\int_C y \, dx = \frac{1}{2} \int_C (x \, dy - y \, dx).
+\]
+These expressions are equivalent and depend on how \( C \) is parameterized.
+
+\ex{Example: Area of an Ellipse}{
+Consider an ellipse parameterized by:
+\[
+\mathbf{r}(t) = (a\cos t, b\sin t), \quad t \in [0, 2\pi].
+\]
+Here, \( a \) and \( b \) are the semi-major and semi-minor axes, respectively.
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Compute \( x \, dy \):
+    \[
+    x = a\cos t, \quad dy = \frac{d}{dt}(b\sin t) \, dt = b\cos t \, dt.
+    \]
+    Thus:
+    \[
+    x \, dy = a\cos t \cdot b\cos t \, dt = ab\cos^2 t \, dt.
+    \]
+
+    \item Compute \( y \, dx \):
+    \[
+    y = b\sin t, \quad dx = \frac{d}{dt}(a\cos t) \, dt = -a\sin t \, dt.
+    \]
+    Thus:
+    \[
+    y \, dx = b\sin t \cdot (-a\sin t) \, dt = -ab\sin^2 t \, dt.
+    \]
+
+    \item Compute \( x \, dy - y \, dx \):
+    \[
+    x \, dy - y \, dx = ab\cos^2 t \, dt - (-ab\sin^2 t \, dt) = ab(\cos^2 t + \sin^2 t) \, dt = ab \, dt.
+    \]
+
+    \item Compute the Line Integral:
+    \[
+    \text{Area}(R) = \frac{1}{2} \int_0^{2\pi} ab \, dt = \frac{1}{2} ab \int_0^{2\pi} 1 \, dt = \frac{1}{2} ab \cdot 2\pi = \pi ab.
+    \]
+\end{enumerate}
+
+\textbf{Conclusion:}
+The area of the ellipse is:
+\[
+\text{Area}(R) = \pi ab,
+\]
+where \( a \) and \( b \) are the semi-major and semi-minor axes.
+}
+
+\subsection*{Summary}
+The area of a region \( R \) enclosed by a curve \( C \) can be computed using line integrals in multiple equivalent ways:
+\begin{itemize}
+    \item Directly using \( \int_C \mathbf{F} \cdot d\mathbf{r} \), where \( \mathbf{F} = (-y, x) \).
+    \item Using \( \int_C x \, dy \) or \( -\int_C y \, dx \).
+    \item Using the symmetric formula:
+    \[
+    \text{Area}(R) = \frac{1}{2} \int_C (x \, dy - y \, dx).
+    \]
+\end{itemize}
+
+\section{Flux of a Vector Field}
+
+\subsection*{Definition of Flux}
+Flux represents the flow of a vector field \( \mathbf{F} = (f, g) \) across an oriented curve \( C \). It measures how much of \( \mathbf{F} \) passes through \( C \) in the normal direction.
+
+The flux of \( \mathbf{F} \) across \( C \) is defined as:
+\[
+\text{Flux} = \int_C \mathbf{F} \cdot \mathbf{n} \, ds,
+\]
+where:
+\begin{itemize}
+    \item \( \mathbf{n} \) is the unit normal vector to the curve \( C \).
+    \item \( ds \) is the arc length differential.
+\end{itemize}
+
+For a parameterized curve \( \mathbf{r}(t) = (x(t), y(t)) \), where \( t \in [a, b] \), the unit normal vector is given by:
+\[
+\mathbf{n} = \frac{1}{|\mathbf{r}'(t)|} (-y'(t), x'(t)).
+\]
+Thus:
+\[
+\mathbf{F} \cdot \mathbf{n} = \frac{1}{|\mathbf{r}'(t)|} \left[f(x(t), y(t)) (-y'(t)) + g(x(t), y(t)) x'(t)\right].
+\]
+
+
+
+\subsection*{Flux in Simplified Form}
+If the curve \( C \) is parameterized, the flux integral can be simplified as:
+\[
+\int_C \mathbf{F} \cdot \mathbf{n} \, ds = \int_a^b \left[f(x(t), y(t)) y'(t) - g(x(t), y(t)) x'(t)\right] dt.
+\]
+Or equivalently:
+\[
+\int_C \mathbf{F} \cdot \mathbf{n} \, ds = \int_C f \, dy - g \, dx.
+\]
+
+
+
+\subsection*{Green's Theorem Applied to Flux}
+By applying Green's Theorem, the flux of \( \mathbf{F} = (f, g) \) across \( C \) can also be related to a double integral over the region \( R \) enclosed by \( C \):
+\[
+\int_C \mathbf{F} \cdot \mathbf{n} \, ds = \int_R \text{div}(\mathbf{F}) \, dA,
+\]
+where:
+\[
+\text{div}(\mathbf{F}) = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y}.
+\]
+This shows that the flux across the boundary \( C \) is equal to the total divergence of \( \mathbf{F} \) inside \( R \).
+
+
+
+\ex{Example: Flux Around a Circle}{
+Let \( \mathbf{F}(x, y) = (x, y) \), and let \( C \) be the circle \( x^2 + y^2 = 1 \) parameterized by:
+\[
+\mathbf{r}(t) = (\cos t, \sin t), \quad t \in [0, 2\pi].
+\]
+
+\textbf{Step 1: Parameterize the Flux Integral.}
+The unit normal vector to \( C \) is given by:
+\[
+\mathbf{n} = (-\sin t, \cos t),
+\]
+and \( \mathbf{F}(\mathbf{r}(t)) = (\cos t, \sin t) \). Then:
+\[
+\mathbf{F} \cdot \mathbf{n} = \cos t (-\sin t) + \sin t (\cos t) = 0.
+\]
+
+\textbf{Step 2: Apply Green's Theorem.}
+Using Green's Theorem:
+\[
+\int_C \mathbf{F} \cdot \mathbf{n} \, ds = \int_R \text{div}(\mathbf{F}) \, dA.
+\]
+The divergence of \( \mathbf{F} = (x, y) \) is:
+\[
+\text{div}(\mathbf{F}) = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} = 1 + 1 = 2.
+\]
+
+The area of the circle is:
+\[
+\text{Area}(R) = \pi \cdot 1^2 = \pi.
+\]
+
+Thus:
+\[
+\int_C \mathbf{F} \cdot \mathbf{n} \, ds = \int_R 2 \, dA = 2 \cdot \pi = 2\pi.
+\]
+
+\textbf{Final Answer:}
+The flux across the circle is:
+\[
+\text{Flux} = 2\pi.
+\]
 }
 
 \end{document}
