@@ -1,7 +1,7 @@
 INFO:  latexindent.pl version 3.24, 2024-04-28, a script to indent .tex files
        latexindent.pl lives here: /opt/homebrew/Cellar/latexindent/3.24/libexec/bin/
-       Fri Dec  6 11:22:04 2024
-       Filename: /Users/giacomo/Documents/Math/Notes/MA225/temp.tex
+       Sun Dec 15 18:02:31 2024
+       Filename: /Users/giacomo/Documents/Math/Notes/MA225/cheatsheet.tex
 INFO:  Processing switches:
 INFO:  Directory for backup files and log file indent.log:
        /Users/giacomo/Documents/Math/Notes/MA225
