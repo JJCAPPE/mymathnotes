@@ -12,7 +12,7 @@
 \usepackage{smartdiagram}
 \usepackage{xcolor}
 \usepackage{multicol}
-% Content here
+\DeclareMathOperator{\arccot}{arccot}
 
 \usesmartdiagramlibrary{additions}
 \begin{document}
@@ -162,4 +162,141 @@
 		\text{div}(\mathbf{F}) = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y}
 	\]
 \end{multicols}
+
+
+\begin{multicols}{2}
+    \[
+    \sin^2\theta + \cos^2\theta = 1
+    \]
+    \[
+    1 + \tan^2\theta = \sec^2\theta, \quad 1 + \cot^2\theta = \csc^2\theta
+    \]
+    \[
+    \sin(-\theta) = -\sin\theta, \quad \cos(-\theta) = \cos\theta
+    \]
+    \[
+    \tan(-\theta) = -\tan\theta, \quad \csc(-\theta) = -\csc\theta
+    \]
+
+    \[
+    \sin(a \pm b) = \sin a \cos b \pm \cos a \sin b
+    \]
+    \[
+    \cos(a \pm b) = \cos a \cos b \mp \sin a \sin b
+    \]
+    \[
+    \tan(a \pm b) = \frac{\tan a \pm \tan b}{1 \mp \tan a \tan b}
+    \]
+
+    \[
+    \sin(2\theta) = 2\sin\theta\cos\theta
+    \]
+    \[
+    \cos(2\theta) = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta
+    \]
+    \[
+    \tan(2\theta) = \frac{2\tan\theta}{1 - \tan^2\theta}
+    \]
+    \[
+    \sin^2\theta = \frac{1 - \cos(2\theta)}{2}, \quad \cos^2\theta = \frac{1 + \cos(2\theta)}{2}
+    \]
+
+    \[
+    \sin a \sin b = \frac{1}{2} [\cos(a - b) - \cos(a + b)]
+    \]
+    \[
+    \cos a \cos b = \frac{1}{2} [\cos(a - b) + \cos(a + b)]
+    \]
+    \[
+    \sin a \cos b = \frac{1}{2} [\sin(a + b) + \sin(a - b)]
+    \]
+
+    \[
+    \sin a + \sin b = 2 \sin\left(\frac{a+b}{2}\right) \cos\left(\frac{a-b}{2}\right)
+    \]
+    \[
+    \sin a - \sin b = 2 \cos\left(\frac{a+b}{2}\right) \sin\left(\frac{a-b}{2}\right)
+    \]
+    \[
+    \cos a + \cos b = 2 \cos\left(\frac{a+b}{2}\right) \cos\left(\frac{a-b}{2}\right)
+    \]
+    \[
+    \cos a - \cos b = -2 \sin\left(\frac{a+b}{2}\right) \sin\left(\frac{a-b}{2}\right)
+    \]
+
+    \[
+    \int \sin x \, dx = -\cos x + C
+    \]
+    \[
+    \int \cos x \, dx = \sin x + C
+    \]
+    \[
+    \int \sec^2 x \, dx = \tan x + C
+    \]
+    \[
+    \int \csc^2 x \, dx = -\cot x + C
+    \]
+    \[
+    \int \sec x \tan x \, dx = \sec x + C
+    \]
+    \[
+    \int \csc x \cot x \, dx = -\csc x + C
+    \]
+
+    \[
+    \int \frac{1}{\sqrt{1-x^2}} \, dx = \arcsin x + C
+    \]
+    \[
+    \int \frac{-1}{\sqrt{1-x^2}} \, dx = \arccos x + C
+    \]
+    \[
+    \int \frac{1}{1+x^2} \, dx = \arctan x + C
+    \]
+    \[
+    \int \frac{-1}{1+x^2} \, dx = \arccot x + C
+    \]
+
+    \[
+    \int \sin^2 x \, dx = \frac{x}{2} - \frac{\sin(2x)}{4} + C
+    \]
+    \[
+    \int \cos^2 x \, dx = \frac{x}{2} + \frac{\sin(2x)}{4} + C
+    \]
+    \[
+    \int \sin^n x \cos^m x \, dx
+    \]
+    (Use reduction formulas)
+
+    \[
+    \int \sin^2 x \, dx = \int \frac{1 - \cos(2x)}{2} \, dx
+    \]
+    \[
+    \int \cos^2 x \, dx = \int \frac{1 + \cos(2x)}{2} \, dx
+    \]
+
+    \[
+    \int \tan x \, dx = \ln|\sec x| + C
+    \]
+    \[
+    \int \cot x \, dx = \ln|\sin x| + C
+    \]
+    \[
+    \int \sec x \, dx = \ln|\sec x + \tan x| + C
+    \]
+    \[
+    \int \csc x \, dx = \ln|\csc x - \cot x| + C
+    \]
+
+    %%%%% Useful Substitutions %%%%%
+    \[
+    \int \sqrt{a^2 - x^2} \, dx \quad (x = a\sin\theta)
+    \]
+    \[
+    \int \sqrt{x^2 + a^2} \, dx \quad (x = a\tan\theta)
+    \]
+    \[
+    \int \sqrt{x^2 - a^2} \, dx \quad (x = a\sec\theta)
+    \]
+\end{multicols}
+
 \end{document}
