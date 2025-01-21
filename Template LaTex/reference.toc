@@ -1,9 +1,0 @@
-\contentsline {chapter}{\numberline {1}Examples}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Random Examples}{2}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Algorithms}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Pseudocode}{5}{section.2.1}%
-\contentsline {chapter}{\numberline {3}Plots}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}3d}{6}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Diagrams}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Circular}{7}{section.4.1}%
-\contentsfinish 

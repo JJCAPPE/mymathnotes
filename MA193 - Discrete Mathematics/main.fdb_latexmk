@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1737418891.4872 "/Users/giacomo/Documents/Math/Notes/MA193 - Discrete Mathematics/main.tex" "main.pdf" "main" 1737418893.28492 0
-  "/Users/giacomo/Documents/Math/Notes/MA193 - Discrete Mathematics/main.tex" 1737418889.38581 639 c577da06cbb61bef2619f33e59ad850e ""
+["pdflatex"] 1737419044.82644 "/Users/giacomo/Documents/Math/Notes/MA193 - Discrete Mathematics/main.tex" "main.pdf" "main" 1737419046.64652 0
+  "/Users/giacomo/Documents/Math/Notes/MA193 - Discrete Mathematics/main.tex" 1737419044.63772 642 31476872e723dfe21cd5f7c700b19233 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -315,9 +315,9 @@
   "/usr/local/texlive/2024/texmf.cnf" 1729722333.78626 780 2ce0de11e5a206fa6cabe3358d07583f ""
   "letterfonts.tex" 1737418792.38533 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1737418792.38985 3389 93000260d2aea292d29c76d4ace77a29 ""
-  "main.aux" 1737418893.15263 490 cc820a24cb96eb5103919fb9e68d86e7 "pdflatex"
-  "main.tex" 1737418889.38581 639 c577da06cbb61bef2619f33e59ad850e ""
-  "main.toc" 1737418893.15364 17 a67c51215264c290e9436746d1527cb8 "pdflatex"
+  "main.aux" 1737419046.52141 490 cc820a24cb96eb5103919fb9e68d86e7 "pdflatex"
+  "main.tex" 1737419044.63772 642 31476872e723dfe21cd5f7c700b19233 ""
+  "main.toc" 1737419046.52248 17 a67c51215264c290e9436746d1527cb8 "pdflatex"
   "preamble.tex" 1737418792.39368 20053 cac64cd8837854e12008c40220fda887 ""
   (generated)
   "main.aux"
