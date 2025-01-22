@@ -32,5 +32,79 @@
 \tableofcontents
 \pagebreak
 
+\chapter{Fundamental Principles of Counting}
+
+\section{Counting with Repetitions}
+
+\nt{
+These notes cover the basic counting principles (often called the
+``Rule of Sum'' and the ``Rule of Product''), along with a brief
+discussion of permutations and combinations, including the formula
+for permutations of multiset objects (i.e., repeated elements).
+}
+
+\dfn{Rule of Sum (``OR'')}{
+If a certain task can be done in \(n\) ways and another independent
+task can be done in \(m\) ways, and these tasks are mutually exclusive,
+then there are \(n + m\) ways to do \textit{one} of the two tasks.
+}
+
+\dfn{Rule of Product (``AND'')}{
+If a procedure can be broken into two consecutive steps such that
+the first step can be done in \(n\) ways and the second step can be
+done in \(m\) ways (independently of how the first step is done),
+then there are \(n \times m\) ways to do the entire procedure.
+}
+
+\nt{
+In many counting problems, we break a larger procedure into a series
+of smaller steps and then apply either the Rule of Sum or the Rule
+of Product (or both) as needed.
+}
+
+\dfn{Arrangements of \(n\) Distinct Objects}{
+If you want to arrange \(n\) distinct objects in a row (i.e., an
+ordered list), there are \(n!\) ways to do so. Order matters here,
+and this number is referred to as the number of permutations of
+\(n\) distinct items.
+}
+
+\dfn{Permutations of Multisets}{
+Suppose we have \(n\) total objects, but they are not all distinct.
+Instead, let there be \(n_1\) objects of type 1, \(n_2\) objects of
+type 2, \(\dots\), and \(n_k\) objects of type \(k\). Clearly
+\[
+n_1 + n_2 + \cdots + n_k = n.
+\]
+Then the number of distinct ways to arrange all \(n\) objects is
+\[
+\frac{n!}{n_1! \, n_2! \, \dots \, n_k!}.
+\]
+}
+
+\ex{Examples of Counting with Repetitions}{
+\begin{enumerate}
+\item \textbf{ABCD:} All letters are distinct, so the number of ways
+to arrange A, B, C, D is
+\[
+4! = 24.
+\]
+\item \textbf{AABC:} Here we have 4 total letters, with A repeated twice.
+The number of distinct arrangements is
+\[
+\frac{4!}{2!} = \frac{24}{2} = 12.
+\]
+\item \textbf{AABB:} Now we have 2 A's and 2 B's (4 letters total). The
+number of arrangements is
+\[
+\frac{4!}{2! \, 2!} = \frac{24}{2 \times 2} = 6.
+\]
+\item \textbf{SUCCESS:} The word ``SUCCESS'' has 7 letters total:
+3 S's, 2 C's, 1 U, and 1 E. The number of distinct permutations is
+\[
+\frac{7!}{3! \, 2! \, 1! \, 1!} = \frac{5040}{(6)(2)(1)(1)} = 420.
+\]
+\end{enumerate}
+}
 
 \end{document}
