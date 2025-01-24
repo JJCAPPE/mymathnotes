@@ -37,74 +37,183 @@
 \section{Counting with Repetitions}
 
 \nt{
-These notes cover the basic counting principles (often called the
-``Rule of Sum'' and the ``Rule of Product''), along with a brief
-discussion of permutations and combinations, including the formula
-for permutations of multiset objects (i.e., repeated elements).
+	These notes cover the basic counting principles (often called the
+	``Rule of Sum'' and the ``Rule of Product''), along with a brief
+	discussion of permutations and combinations, including the formula
+	for permutations of multiset objects (i.e., repeated elements).
 }
 
 \dfn{Rule of Sum (``OR'')}{
-If a certain task can be done in \(n\) ways and another independent
-task can be done in \(m\) ways, and these tasks are mutually exclusive,
-then there are \(n + m\) ways to do \textit{one} of the two tasks.
+	If a certain task can be done in \(n\) ways and another independent
+	task can be done in \(m\) ways, and these tasks are mutually exclusive,
+	then there are \(n + m\) ways to do \textit{one} of the two tasks.
 }
 
 \dfn{Rule of Product (``AND'')}{
-If a procedure can be broken into two consecutive steps such that
-the first step can be done in \(n\) ways and the second step can be
-done in \(m\) ways (independently of how the first step is done),
-then there are \(n \times m\) ways to do the entire procedure.
+	If a procedure can be broken into two consecutive steps such that
+	the first step can be done in \(n\) ways and the second step can be
+	done in \(m\) ways (independently of how the first step is done),
+	then there are \(n \times m\) ways to do the entire procedure.
 }
 
 \nt{
-In many counting problems, we break a larger procedure into a series
-of smaller steps and then apply either the Rule of Sum or the Rule
-of Product (or both) as needed.
+	In many counting problems, we break a larger procedure into a series
+	of smaller steps and then apply either the Rule of Sum or the Rule
+	of Product (or both) as needed.
 }
 
 \dfn{Arrangements of \(n\) Distinct Objects}{
-If you want to arrange \(n\) distinct objects in a row (i.e., an
-ordered list), there are \(n!\) ways to do so. Order matters here,
-and this number is referred to as the number of permutations of
-\(n\) distinct items.
+	If you want to arrange \(n\) distinct objects in a row (i.e., an
+	ordered list), there are \(n!\) ways to do so. Order matters here,
+	and this number is referred to as the number of permutations of
+	\(n\) distinct items.
 }
 
 \dfn{Permutations of Multisets}{
-Suppose we have \(n\) total objects, but they are not all distinct.
-Instead, let there be \(n_1\) objects of type 1, \(n_2\) objects of
-type 2, \(\dots\), and \(n_k\) objects of type \(k\). Clearly
-\[
-n_1 + n_2 + \cdots + n_k = n.
-\]
-Then the number of distinct ways to arrange all \(n\) objects is
-\[
-\frac{n!}{n_1! \, n_2! \, \dots \, n_k!}.
-\]
+	Suppose we have \(n\) total objects, but they are not all distinct.
+	Instead, let there be \(n_1\) objects of type 1, \(n_2\) objects of
+	type 2, \(\dots\), and \(n_k\) objects of type \(k\). Clearly
+	\[
+		n_1 + n_2 + \cdots + n_k = n.
+	\]
+	Then the number of distinct ways to arrange all \(n\) objects is
+	\[
+		\frac{n!}{n_1! \, n_2! \, \dots \, n_k!}.
+	\]
 }
 
 \ex{Examples of Counting with Repetitions}{
-\begin{enumerate}
-\item \textbf{ABCD:} All letters are distinct, so the number of ways
-to arrange A, B, C, D is
-\[
-4! = 24.
-\]
-\item \textbf{AABC:} Here we have 4 total letters, with A repeated twice.
-The number of distinct arrangements is
-\[
-\frac{4!}{2!} = \frac{24}{2} = 12.
-\]
-\item \textbf{AABB:} Now we have 2 A's and 2 B's (4 letters total). The
-number of arrangements is
-\[
-\frac{4!}{2! \, 2!} = \frac{24}{2 \times 2} = 6.
-\]
-\item \textbf{SUCCESS:} The word ``SUCCESS'' has 7 letters total:
-3 S's, 2 C's, 1 U, and 1 E. The number of distinct permutations is
-\[
-\frac{7!}{3! \, 2! \, 1! \, 1!} = \frac{5040}{(6)(2)(1)(1)} = 420.
-\]
-\end{enumerate}
+	\begin{enumerate}
+		\item \textbf{ABCD:} All letters are distinct, so the number of ways
+		      to arrange A, B, C, D is
+		      \[
+			      4! = 24.
+		      \]
+		\item \textbf{AABC:} Here we have 4 total letters, with A repeated twice.
+		      The number of distinct arrangements is
+		      \[
+			      \frac{4!}{2!} = \frac{24}{2} = 12.
+		      \]
+		\item \textbf{AABB:} Now we have 2 A's and 2 B's (4 letters total). The
+		      number of arrangements is
+		      \[
+			      \frac{4!}{2! \, 2!} = \frac{24}{2 \times 2} = 6.
+		      \]
+		\item \textbf{SUCCESS:} The word ``SUCCESS'' has 7 letters total:
+		      3 S's, 2 C's, 1 U, and 1 E. The number of distinct permutations is
+		      \[
+			      \frac{7!}{3! \, 2! \, 1! \, 1!} = \frac{5040}{(6)(2)(1)(1)} = 420.
+		      \]
+	\end{enumerate}
+}
+
+\section*{Committee-Choosing Problems}
+
+\dfn{Combinations}{
+	A \emph{combination} is a way to choose \(r\) objects from \(n\) distinct
+	objects where order does \emph{not} matter. The number of ways to do
+	so is given by
+	\[
+		\binom{n}{r} \;=\; \frac{n!}{r! \,(n-r)!}.
+	\]
+	In many committee-selection problems, we use combinations because the
+	particular order in which people are chosen does not matter.
+}
+
+\dfn{When to Use Permutations vs.\ Combinations}{
+	\begin{itemize}
+		\item \emph{Permutations} (\(P(n,r)\) or \(\frac{n!}{(n-r)!}\)) are used
+		      when we care about the \emph{order} of the chosen items (for instance,
+		      arranging people in a line for a photo).
+		\item \emph{Combinations} (\(\binom{n}{r}\)) are used when we only care
+		      about \emph{which} items are chosen, not the order in which they appear
+		      (e.g., forming committees).
+	\end{itemize}
+}
+
+\dfn{Basic Subset Counting}{
+	Note that the total number of distinct subsets of a set with \(n\)
+	elements is \(2^n\). This comes from the fact that, for each element,
+	we independently choose to include it or not in a given subset.
+	For an \(r\)-element subset, specifically, we use \(\binom{n}{r}\).
+}
+
+\ex{Choosing a Simple Committee}{
+	Suppose we have 8 people in a group, and we want to choose a committee
+	of 3 individuals. Since order does not matter, the number of ways to
+	choose the committee is
+	\[
+		\binom{8}{3} \;=\; \frac{8!}{3!(8-3)!} \;=\; \frac{8!}{3!5!} \;=\; 56.
+	\]
+}
+
+\ex{Committee with Restrictions: Gender Balance}{
+	Imagine we have 5 men and 6 women, and we want to form a committee of 4
+	people that has at least 2 women. We can break it down by the number
+	of women selected:
+	\[
+		\binom{6}{2}\binom{5}{2} \;+\;
+		\binom{6}{3}\binom{5}{1} \;+\;
+		\binom{6}{4}\binom{5}{0}.
+	\]
+	Here, \(\binom{6}{k}\) chooses the women, and \(\binom{5}{4-k}\) chooses
+	the men for each scenario. Summing these counts gives the total number
+	of ways to form such a committee.
+}
+
+\ex{Committee with Subgroups Required}{
+	Say we have 10 people, of whom 3 are Teaching Assistants (TAs) and 7 are
+	Professors, and we wish to form a committee of 4 people \emph{with exactly
+		2 TAs}. We select 2 from the 3 TAs and 2 from the 7 Professors, yielding
+	\[
+		\binom{3}{2} \;\times\; \binom{7}{2}
+	\]
+	possible committees.
+}
+
+\ex{Larger Committees: Multiple Constraints}{
+	Suppose there are 12 people divided into three categories: 4 from group
+	A, 5 from group B, and 3 from group C. We want a committee of 5 that
+	has at least 1 person from each group. One way to count is to enumerate
+	possible splits of 5 among \((A,B,C)\), ensuring each category has at
+	least one representative. For instance:
+	\begin{itemize}
+		\item 1 from A, 3 from B, 1 from C,
+		\item 1 from A, 2 from B, 2 from C,
+		\item 2 from A, 2 from B, 1 from C,
+		\item and so forth,
+	\end{itemize}
+	and sum the corresponding products of binomial coefficients
+	\(\binom{4}{\dots}\binom{5}{\dots}\binom{3}{\dots}\).
+}
+
+\nt{
+	These examples illustrate the typical approaches to \emph{committee
+		choosing} problems:
+	\begin{itemize}
+		\item Identify if order matters (usually it does not, hence combinations).
+		\item If there are constraints (e.g.\ minimum number of members from a certain
+		      group), split the problem into valid cases and sum their respective counts.
+	\end{itemize}
+}
+
+\ex{Probability of Getting a Flush in Poker}{
+	A \emph{flush} in poker is a hand where all 5 cards are of the same suit.
+	To calculate the probability of being dealt a flush, we proceed as follows:
+
+	\begin{itemize}
+		\item There are 4 suits in a deck (hearts, diamonds, clubs, spades).
+		\item For each suit, there are \(\binom{13}{5}\) ways to choose 5 cards from the 13 available.
+		\item Thus, the total number of ways to get a flush is \(4 \times \binom{13}{5}\).
+		\item The total number of 5-card hands from a 52-card deck is \(\binom{52}{5}\).
+	\end{itemize}
+
+	Therefore, the probability \(P\) of being dealt a flush is given by
+	\[
+		P(\text{flush}) = \frac{\binom{4}{1} \times \binom{13}{5}}{\binom{52}{5}}.
+	\]
+
+	So, the probability of being dealt a flush in poker is approximately 0.198\%.
 }
 
 \end{document}
