@@ -160,7 +160,15 @@
 	the men for each scenario. Summing these counts gives the total number
 	of ways to form such a committee.
 }
+\dfn{Labeled Teams}{%
+	When teams themselves have distinct “names” or labels (e.g.\ Team~A vs.\ Team~B).
+	A configuration where Person~1 is on Team~A and Person~2 is on Team~B
+	is then different from Person~1 on Team~B and Person~2 on Team~A.}
 
+\dfn{Unlabeled Teams}{%
+	When the teams are treated as identical (no distinct labels).
+	In that scenario, swapping membership between “Team~A” and “Team~B”
+	would not create a new configuration.}
 \ex{Committee with Subgroups Required}{
 	Say we have 10 people, of whom 3 are Teaching Assistants (TAs) and 7 are
 	Professors, and we wish to form a committee of 4 people \emph{with exactly
@@ -169,6 +177,14 @@
 		\binom{3}{2} \;\times\; \binom{7}{2}
 	\]
 	possible committees.
+	\nt{%
+		\textbf{Labeled vs.\ Unlabeled Teams.}
+		``3 people, 2 teams with a label?'' Here, we wonder if putting
+		Alice on Team~A and Bob on Team~B differs from Alice on Team~B
+		and Bob on Team~A. If teams are unlabeled, then swapping them
+		would not create a different outcome. If teams \emph{are} labeled,
+		we count each distinct assignment as different.
+	}
 }
 
 \ex{Larger Committees: Multiple Constraints}{
@@ -197,6 +213,7 @@
 	\end{itemize}
 }
 
+\section{Gambling}
 \ex{Probability of Getting a Flush in Poker}{
 	A \emph{flush} in poker is a hand where all 5 cards are of the same suit.
 	To calculate the probability of being dealt a flush, we proceed as follows:
@@ -215,5 +232,130 @@
 
 	So, the probability of being dealt a flush in poker is approximately 0.198\%.
 }
+
+
+
+
+\ex{Example: 3 people into 2 teams}{%
+	Suppose we have 3 people (say Alice, Bob, and Carol).
+	If the teams are \emph{labeled}, we count every distinct assignment
+	into Team~A vs.\ Team~B.
+	If the teams are \emph{unlabeled}, we only care about who ends up together,
+	not which group is called “Team~A.”
+	Hence the total counts differ, because labeling typically doubles
+	the number of distinct ways (unless one team is empty).}
+
+\nt Next, consider two common 5-card poker hands:
+
+\dfn{One Pair}{%
+	A 5-card hand containing exactly two cards of the same rank
+	and the other three cards all of different ranks (and each different
+	from the pair’s rank).}
+
+\ex{Counting One Pair}{%
+	To choose exactly one pair out of a standard deck, we do:
+	\[
+		\binom{13}{1}\binom{4}{2}
+	\]
+	to pick which rank we have a pair of (13 ways)
+	and which 2 suits out of the 4.
+	For a complete 5-card hand with “exactly one pair,”
+	we then choose the other 3 cards of distinct ranks,
+	leading to the well-known formula
+	\(
+	\binom{13}{1}\binom{4}{2}\,\times\,\binom{12}{3}\,(\text{each chosen rank has } \binom{4}{1} \text{ ways}).
+	\)
+}
+
+\dfn{Full House}{%
+	A 5-card hand consisting of 3 cards of one rank plus 2 cards of another rank.}
+
+\ex{Counting a Full House}{%
+	We choose the rank for the three-of-a-kind in \(\binom{13}{1}\) ways,
+	and then choose 3 suits out of 4 for that rank: \(\binom{4}{3}\).
+	Next, we choose the rank for the pair out of the remaining 12 ranks:
+	\(\binom{12}{1}\), and choose 2 suits out of 4 for that pair: \(\binom{4}{2}\).
+	Hence,
+	\[
+		\text{Number of Full Houses}
+		\;=\; \binom{13}{1}\binom{4}{3}\,\times\,\binom{12}{1}\binom{4}{2}.
+	\]
+}
+
+\section{Binomial identities}
+
+\dfn{Binomial Symmetry}{%
+\centering
+  \(\displaystyle \binom{n}{k} \;=\; \binom{n}{n-k}.\)
+}
+\nt{The intuition is that choosing \(k\) objects out of \(n\) 
+is equivalent to choosing which \(n-k\) to \emph{leave out}. 
+Hence \(\binom{n}{k}\) equals \(\binom{n}{n-k}\). 
+}
+\ex{Example}{%
+For instance, \(\binom{5}{2} = \binom{5}{3}\). 
+Choosing 2 items from 5 is the same as deciding which 3 are excluded.
+}
+
+\dfn{Pascal’s Rule}{%
+  \centering
+\(\displaystyle \binom{n}{v} \;=\; \binom{n-1}{v-1} + \binom{n-1}{v}.\)
+}
+\nt{A combinatorial interpretation is to imagine a set of \(n\) items 
+where one particular “special” item can either be in your chosen subset or not. 
+If you include the special item, then you need to pick the remaining \(v-1\) items 
+from the other \(n-1\). 
+If you exclude the special item, then you pick all \(v\) items from the other \(n-1\). 
+Summing these counts gives \(\binom{n}{v}\). 
+}
+\ex{Example}{%
+\(\binom{5}{3} = \binom{4}{2} + \binom{4}{3}.\) 
+Either include a special item (then choose 2 more from the other 4) 
+or exclude it (then choose all 3 from the other 4).
+}
+
+\dfn{Hockey-Stick Identity}{%
+  \centering
+\(\displaystyle
+  \sum_{j=r}^n \binom{j}{r}
+  \;=\; \binom{n+1}{r+1}.
+  \)
+}
+\nt{This identity is sometimes called the “Christmas Stocking” or “Hockey-Stick” identity 
+because of the pattern it creates in Pascal’s triangle. 
+It can be viewed as a cumulative version of Pascal’s Rule:
+once you fix \(\binom{n+1}{r+1}\), you can “unroll” it into the sum 
+\(\binom{r}{r} + \binom{r+1}{r} + \dots + \binom{n}{r}\). 
+}
+\ex{Example}{%
+\(\binom{3}{3} + \binom{4}{3} + \binom{5}{3} \;=\; \binom{6}{4}.\)
+In general, if you sum along a diagonal in Pascal’s triangle, 
+you end up at a binomial coefficient one row down and one column over.
+}
+
+
+\nt{
+	A useful application of these identities is to evaluate sums of products
+	like \(1 \cdot 2 \cdot 3 + 2 \cdot 3 \cdot 4 + \dots + (u-2)(u-1)u\).
+	Note that
+	\[
+		k(k+1)(k+2) \;=\; 3! \,\binom{k+2}{3},
+	\]
+	so
+	\[
+		\sum_{k=1}^{u-2} k(k+1)(k+2)
+		\;=\; 3!\,\sum_{k=1}^{u-2} \binom{k+2}{3}
+		\;=\; 3! \,\binom{u+1}{4}.
+	\]
+}
+\ex{Binomial Expansion}{%
+\(\displaystyle (x + y)^n
+\;=\; \sum_{k=0}^n \binom{n}{k}\,x^{n-k}\,y^k.\)
+For instance, \((2x + 3y)^9\) expands as
+\[
+	\sum_{k=0}^9 \binom{9}{k} (2x)^{9-k} (3y)^k.
+\]
+}
+
 
 \end{document}
