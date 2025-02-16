@@ -1,7 +1,0 @@
-\contentsline {chapter}{\numberline {1}To Remember}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Functions}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Series}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Probability}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Trig and Geometry}{2}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Calculus}{3}{section.1.5}%
-\contentsfinish 
