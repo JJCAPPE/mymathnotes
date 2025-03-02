@@ -107,7 +107,7 @@
 	\end{enumerate}
 }
 
-\section*{Committee-Choosing Problems}
+\section{Committee-Choosing Problems}
 
 \dfn{Combinations}{
 	A \emph{combination} is a way to choose \(r\) objects from \(n\) distinct
@@ -520,61 +520,398 @@ For instance, \((2x + 3y)^9\) expands as
 	We want all sequences of 15 coin flips (H or T) that produce exactly 7 runs.  Suppose there are 5 heads (H) and 10 tails (T) in total.  Label the runs by their lengths \(x_1, x_2, \dots, x_7\), each \(x_i\ge 1\).
 
 	\begin{enumerate}
-	\item \emph{Case 1: First flip is H.} Then the runs alternate
-	\[
-		H,\;T,\;H,\;T,\;H,\;T,\;H,
-	\]
-	so there are 4 head-runs and 3 tail-runs.  Hence
-	\[
-		x_1 + x_3 + x_5 + x_7 = 5
-		\quad\text{and}\quad
-		x_2 + x_4 + x_6 = 10,
-	\]
-	with each \(x_i\ge 1\).  The number of integer solutions is
-	\[
-		\binom{5-1}{4-1}
-		\;\times\;
-		\binom{10-1}{3-1}
-		\;=\;
-		\binom{4}{3}
-		\;\times\;
-		\binom{9}{2}
-		\;=\;
-		4 \times 36
-		\;=\;
-		144.
-	\]
+		\item \emph{Case 1: First flip is H.} Then the runs alternate
+		      \[
+			      H,\;T,\;H,\;T,\;H,\;T,\;H,
+		      \]
+		      so there are 4 head-runs and 3 tail-runs.  Hence
+		      \[
+			      x_1 + x_3 + x_5 + x_7 = 5
+			      \quad\text{and}\quad
+			      x_2 + x_4 + x_6 = 10,
+		      \]
+		      with each \(x_i\ge 1\).  The number of integer solutions is
+		      \[
+			      \binom{5-1}{4-1}
+			      \;\times\;
+			      \binom{10-1}{3-1}
+			      \;=\;
+			      \binom{4}{3}
+			      \;\times\;
+			      \binom{9}{2}
+			      \;=\;
+			      4 \times 36
+			      \;=\;
+			      144.
+		      \]
 
-	\item \emph{Case 2: First flip is T.} Then the runs alternate
-	\[
-		T,\;H,\;T,\;H,\;T,\;H,\;T,
-	\]
-	so there are 4 tail-runs and 3 head-runs.  Now
-	\[
-		x_1 + x_3 + x_5 + x_7 = 10
-		\quad\text{and}\quad
-		x_2 + x_4 + x_6 = 5,
-	\]
-	again with each \(x_i\ge 1\).  The number of solutions is
-	\[
-		\binom{10-1}{4-1}
-		\;\times\;
-		\binom{5-1}{3-1}
-		\;=\;
-		\binom{9}{3}
-		\;\times\;
-		\binom{4}{2}
-		\;=\;
-		84 \times 6
-		\;=\;
-		504.
-	\]
+		\item \emph{Case 2: First flip is T.} Then the runs alternate
+		      \[
+			      T,\;H,\;T,\;H,\;T,\;H,\;T,
+		      \]
+		      so there are 4 tail-runs and 3 head-runs.  Now
+		      \[
+			      x_1 + x_3 + x_5 + x_7 = 10
+			      \quad\text{and}\quad
+			      x_2 + x_4 + x_6 = 5,
+		      \]
+		      again with each \(x_i\ge 1\).  The number of solutions is
+		      \[
+			      \binom{10-1}{4-1}
+			      \;\times\;
+			      \binom{5-1}{3-1}
+			      \;=\;
+			      \binom{9}{3}
+			      \;\times\;
+			      \binom{4}{2}
+			      \;=\;
+			      84 \times 6
+			      \;=\;
+			      504.
+		      \]
 
-	Adding both cases, the total number of 15-flip sequences with exactly 7 runs is
-	\[
-		144 \;+\; 504 \;=\; 648.
-	\]
+		      Adding both cases, the total number of 15-flip sequences with exactly 7 runs is
+		      \[
+			      144 \;+\; 504 \;=\; 648.
+		      \]
 	\end{enumerate}
+}
+
+\chapter{Set Theory}
+
+\[
+	B \subset A \quad \rightarrow \quad \text{All elements of } B \text{ are in } A, \text{ but } B \neq A.
+\]
+
+\[
+	B \subseteq A \quad \rightarrow \quad \text{All elements of } B \text{ are in } A, \text{ and } B \text{ may be equal to } A.
+\]
+
+\[
+	A \cup B \quad \rightarrow \quad \text{All elements of } A \text{ or } B \text{ or both}.
+\]
+
+\[
+	A \cap B \quad \rightarrow \quad \text{All elements of } A \text{ and of } B.
+\]
+
+\[
+	A \setminus B \quad \rightarrow \quad \text{All elements of } A \text{ not in } B.
+\]
+
+\[
+	A \Delta B \quad \rightarrow \quad \text{All elements of } A \text{ or of } B, \text{ but not both}.
+\]
+
+\section{Relations - Cartesian Cross Product of 2 Sets}
+
+\subsection{Definitions and Notations}
+
+\dfn{Cartesian Product}{
+	Given two sets $A$ and $B$, the Cartesian product, denoted by $A \times B$, is the set of all ordered pairs $(a, b)$ where $a \in A$ and $b \in B$. Formally:
+	\[ A \times B = \{(a, b) \mid a \in A, b \in B \} \]
+}
+
+\nt{
+	The cardinality of the Cartesian product of two sets $A$ and $B$ is given by the product of the cardinalities of the individual sets:
+	\[ |A \times B| = |A| \cdot |B| \]
+}
+
+\subsection{Examples}
+
+\ex{Example 1: Cartesian Product}{
+	Let $A = \{2, 3, 4\}$ and $B = \{g, s\}$. Find $A \times B$.
+}
+\sol
+\[ A \times B = \{(2, g), (2, s), (3, g), (3, s), (4, g), (4, s)\} \]
+
+\ex{Example 2: Cartesian Product with Itself}{
+	Let $B = \{g, s\}$. Find $B^2 = B \times B$.
+}
+
+\sol
+\[ B^2 = B \times B = \{(g, g), (g, s), (s, g), (s, s)\} \]
+
+\subsection{Binary Relations}
+
+\dfn{Binary Relation}{
+	A binary relation from set $A$ to set $B$ is any subset of the Cartesian product $A \times B$.
+}
+
+\nt{
+	Any subset of $A \times B$ is a binary relation from $A$ to $B$ or on $A$ if the relation is a subset of $A \times A$.
+}
+
+\ex{Example of Relations}{
+	Consider the sets $A = \{2, 3, 4\}$ and $B = \{g, s\}$. Since $|A \times B| = 6$, there are $2^6$ possible relations.
+}
+
+\nt{
+	In the previous example, since $|A \times B| = 6$, there are $2^6$ possible relations.
+}
+\section{Further Elaboration}
+
+\subsection{Detailed Explanation of Cartesian Product}
+The Cartesian Product is a fundamental concept in set theory that allows us to combine elements of two sets in an ordered manner.
+
+\begin{itemize}
+	\item \textbf{Ordered Pairs:} The key feature of the Cartesian product is that it forms ordered pairs. This means the pair $(a, b)$ is different from the pair $(b, a)$ unless $a = b$.
+	\item \textbf{Cardinality:} The number of elements in the Cartesian product $A \times B$ is the product of the number of elements in set $A$ and the number of elements in set $B$. This shows how the Cartesian product scales with the size of the input sets.
+\end{itemize}
+
+\subsection{Understanding Binary Relations}
+Binary relations are subsets of the Cartesian product and form the basis for many mathematical structures and concepts.
+
+\begin{itemize}
+	\item \textbf{Subsets:} Any subset of $A \times B$ qualifies as a binary relation. This includes the empty set, the full set $A \times B$, and any combination of ordered pairs in between.
+	\item \textbf{Representations:} Binary relations can be represented in various ways, including:
+	      \begin{itemize}
+		      \item \textbf{Set Notation:} As a set of ordered pairs.
+		      \item \textbf{Graphical Representation:} Using directed graphs (digraphs) where elements of the sets are nodes, and ordered pairs are directed edges.
+	      \end{itemize}
+\end{itemize}
+
+\ex{Graphical Representation of a Relation}{
+
+	Consider sets $A = \{1, 2\}$ and $B = \{3, 4\}$.
+	Let $R$ be a relation from A to B defined by $R = \{(1,3), (2,4)\}$.
+
+}
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.7]
+		\node[circle,draw] (a1) at (0,0) {1};
+		\node[circle,draw] (a2) at (0,-2) {2};
+		\node[circle,draw] (b1) at (4,0) {3};
+		\node[circle,draw] (b2) at (4,-2) {4};
+
+		\draw[->,>=stealth] (a1) -- (b1);
+		\draw[->,>=stealth] (a2) -- (b2);
+
+		\node at (-1,0) {$A$};
+		\node at (5,0) {$B$};
+		\node at (2,-3) {$R$};
+	\end{tikzpicture}
+\end{center}
+\sol
+The diagram shows a graphical representation of the relation $R$. The nodes on the left represent elements of set $A$, and the nodes on the right represent elements of set $B$. The directed edges (arrows) represent the ordered pairs in the relation $R$.
+
+\subsection{Number of Possible Relations}
+
+For finite sets $A$ and $B$, the number of possible binary relations from $A$ to $B$ is determined by the number of subsets of $A \times B$.
+
+\nt{
+	If $|A| = m$ and $|B| = n$, then $|A \times B| = m \cdot n$. The number of possible relations is the number of subsets of $A \times B$, which is $2^{|A \times B|} = 2^{m \cdot n}$.
+}
+
+\ex{Counting Relations}{
+	If $A = \{1, 2\}$ and $B = \{x, y, z\}$, how many possible relations are there from $A$ to $B$?
+}
+\sol
+$|A| = 2$ and $|B| = 3$, so $|A \times B| = 2 \times 3 = 6$.
+The number of possible relations is $2^6 = 64$.
+
+\subsection{Types of Relations}
+
+\begin{itemize}
+	\item \textbf{Reflexive Relation:} A relation $R$ on a set $A$ is reflexive if $(a, a) \in R$ for all $a \in A$.
+	\item \textbf{Symmetric Relation:} A relation $R$ on a set $A$ is symmetric if $(a, b) \in R$ implies $(b, a) \in R$ for all $a, b \in A$.
+	\item \textbf{Transitive Relation:} A relation $R$ on a set $A$ is transitive if $(a, b) \in R$ and $(b, c) \in R$ implies $(a, c) \in R$ for all $a, b, c \in A$.
+	\item \textbf{Equivalence Relation} A relation that is reflexive, symmetric and transitive.
+\end{itemize}
+
+\section*{Properties That Relations Can Satisfy}
+
+\subsection*{Reflexive Relations}
+
+\dfn{Reflexive Relation}{
+	A relation $R$ on a set $A$ is called \textbf{reflexive} if for all $x \in A$, $xRx$ (or $(x,x) \in R$). In other words, every element in the set is related to itself.
+}
+
+\ex{Example of Reflexive Relations}{
+	Let $A = \{1, 2, 3\}$.
+	\begin{itemize}
+		\item $R_1 = \{(1,1), (2,2), (3,3)\}$ is reflexive.
+		\item $R_2 = \{(1,1), (2,2), (3,3), (2,3)\}$ is also reflexive.
+	\end{itemize}
+}
+\nt{
+	The key characteristic of a reflexive relation is that every element of the set *must* be related to itself.  The presence of other relations (like (2,3) in $R_2$) doesn't affect the reflexivity.
+}
+
+\qs{How many possible reflexive relations are there for a set A if $|A| = n$?}{
+}
+\sol{
+	\begin{itemize}
+		\item  If $|A| = n$, then $|A \times A| = n^2$. This represents all possible ordered pairs in the Cartesian product of A with itself.
+		\item All possible relations on A is $2^{n^2}$, since a relation is a subset of $A \times A$, and the number of subsets of a set with $n^2$ elements is $2^{n^2}$.
+		\item If a relation $R$ on $A$ is reflexive, then for all $a_i \in A$, $(a_i, a_i)$ must be in $R$, where $1 \le i \le n$.
+		\item We must consider the rest of the pairs, which are $n^2 - n$.
+		\item Therefore, the number of reflexive relations is $2^{(n^2 - n)}$.  This is because the $n$ pairs of the form $(a_i, a_i)$ are *required* for reflexivity, leaving $n^2 - n$ other pairs that may or may not be present.
+	\end{itemize}
+
+}
+
+\subsection*{Symmetric Relations}
+
+\dfn{Symmetric Relation}{
+	A relation $R$ on a set $A$ is \textbf{symmetric} if for all $x, y \in A$, if $(x, y) \in R$, then $(y, x) \in R$. In simpler terms, if $x$ is related to $y$, then $y$ must also be related to $x$.
+}
+
+\ex{Examples of Symmetric Relations}{
+	Let $A = \{1, 2, 3\}$.
+	\begin{itemize}
+		\item $R_1 = \{(1,2), (2,1), (3,1), (1,3)\}$ is symmetric, but not reflexive.
+		\item $R_2 = \{(1,1), (2,2), (3,3)\}$ is reflexive and symmetric.
+	\end{itemize}
+}
+
+\qs{How many symmetric relations are there?}{
+}
+
+\sol{
+	\begin{itemize}
+		\item For pairs of the form $(a_i, a_i)$, we can either include or exclude them. There are $n$ such pairs, leading to $2^n$ possibilities.
+		\item For the remaining $n^2 - n$ elements, they must come in pairs: $(a_i, a_j)$ and $(a_j, a_i)$.
+		\item There are $\frac{1}{2}(n^2 - n)$ such pairs.
+		\item For each of these $\frac{1}{2}(n^2 - n)$ pairs, we can either include both $(a_i, a_j)$ and $(a_j, a_i)$ or exclude both.
+		\item Thus, there are $2^{\frac{1}{2}(n^2 - n)}$ choices for these pairs.
+		\item  The total number of symmetric relations is $2^n \cdot 2^{\frac{1}{2}(n^2 - n)} = 2^{n + \frac{1}{2}(n^2-n)} =  2^{\frac{1}{2}(n^2 + n)}$.
+	\end{itemize}
+}
+
+\subsection*{Antisymmetric Relations}
+
+\dfn{Antisymmetric Relation}{
+	A relation $R$ on a set $A$ is \textbf{antisymmetric} if for all $a, b \in A$, if $(a, b) \in R$ and $(b, a) \in R$, then $a = b$.  This means that the only way for both $(a,b)$ and $(b,a)$ to be in the relation is if $a$ and $b$ are the same element.
+}
+
+\ex{Examples of Antisymmetric Relations}{
+	Let $A = \{1, 2, 3\}$.
+	\begin{itemize}
+		\item $R_1 = \{(1,2), (2,1), (1,1)\}$ is not symmetric and not antisymmetric.
+		\item $R_2 = \{(1,2), (1,3)\}$ is antisymmetric.
+		\item $R_3 = \{(1,1), (2,2)\}$ is symmetric and antisymmetric.
+	\end{itemize}
+}
+
+\qs{How many antisymmetric relations are there?}{
+}
+
+\sol{
+	\begin{itemize}
+		\item For pairs $(a_i, a_i)$, it doesn't matter if we include them or not. There are $n$ such pairs, so $2^n$ possibilities.
+		\item For pairs $(a_i, a_j)$ where $i \neq j$, if we include one pair, we cannot include the other.
+		\item There are $\frac{1}{2}(n^2 - n)$ such pairs of pairs.
+		\item For each pair of pairs, there are three options:
+		      \begin{enumerate}
+			      \item Place $(a_i, a_j) \in R$.
+			      \item Place $(a_j, a_i) \in R$.
+			      \item Place neither.
+		      \end{enumerate}
+		\item Thus, there are $3^{\frac{1}{2}(n^2-n)}$ options for these pairs.
+		\item The total number of antisymmetric relations will be $2^n \cdot 3^{\frac{1}{2}(n^2 - n)}$.
+	\end{itemize}
+}
+
+\nt{
+	\begin{tabular}{c|c}
+		Note              &     \\
+		\hline
+		T $\rightarrow$ T & : T \\
+		T $\rightarrow$ F & : F \\
+		F $\rightarrow$ T & : T \\
+		F $\rightarrow$ F & : T
+	\end{tabular}
+}
+
+\section*{Relations and Divisibility}
+
+\subsection*{Defining a Relation}
+
+\ex{Example: Divisors of 12}{
+Let $A = \{1, 2, 3, 4, 6, 12\}$. This set contains all the positive divisors of 12.
+}
+
+\dfn{Definition: Relation on A}{
+Define a relation $R$ on $A$ as $(x, y) \in R$ if and only if $x | y$, which means "$x$ exactly divides $y$".
+}
+
+\nt{
+The notation $(x, y) \in R$ is often written as $xRy$. The relation $R$ in this context represents the divisibility relation.
+}
+
+\subsection*{Properties of the Relation}
+
+\nt{
+We will check if the relation $R$ is reflexive, antisymmetric, and transitive.
+}
+
+\begin{itemize}
+    \item \textbf{Reflexive:} For all $x \in A$, $x | x$, so $(x, x) \in R$. Thus, $R$ is reflexive.
+    \item \textbf{Antisymmetric:} If $x | y$ and $y | x$, then $x = y$. So, if $(x, y) \in R$ and $(y, x) \in R$, then $x = y$. Thus, $R$ is antisymmetric.
+    \item \textbf{Transitive:} If $x | y$ and $y | z$, then $x | z$. So, if $(x, y) \in R$ and $(y, z) \in R$, then $(x, z) \in R$. Thus, $R$ is transitive.
+\end{itemize}
+
+\ex{Examples of Pairs in R}{
+Some pairs in $R$ include $(2, 4)$, $(4, 12)$, and consequently, $(2, 12)$ due to transitivity.
+}
+
+\subsection*{Counting Ordered Pairs}
+
+\qs{Question: Number of Ordered Pairs}{
+How many ordered pairs occur in $R$?
+}
+
+\sol{
+We can use prime factorization to determine the number of ordered pairs. Given $12 = 2^2 \cdot 3^1$, if $(c, d) \in R$, then $c = 2^m 3^n$ and $d = 2^p 3^q$ where:
+\begin{itemize}
+    \item $0 \leq m \leq p \leq 2$
+    \item $0 \leq n \leq q \leq 1$
+\end{itemize}
+
+\begin{tikzpicture}
+\draw[->] (0,0) -- (3,0) node[right] {$m, p$};
+\draw[->] (0,0) -- (0,2) node[above] {$n, q$};
+
+\foreach \x in {0,1,2}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {0,1}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+\fill[red] (0,0) circle (2pt);
+\fill[red] (1,0) circle (2pt);
+\fill[red] (2,0) circle (2pt);
+\fill[red] (0,1) circle (2pt);
+\fill[red] (1,1) circle (2pt);
+\fill[red] (2,1) circle (2pt);
+
+\draw[dashed] (0,0) -- (2,1);
+
+\node at (1.5,-0.5) {$0 \leq m \leq p \leq 2$};
+\node at (-0.5,0.5) {$0 \leq n \leq q \leq 1$};
+
+\end{tikzpicture}
+
+For $m$ and $p$, we can pick from $\{0, 1, 2\}$. The number of ways to choose $m$ and $p$ such that $0 \leq m \leq p \leq 2$ is given by $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
+For $n$ and $q$, we pick from $\{0, 1\}$. The number of ways to choose $n$ and $q$ such that $0 \leq n \leq q \leq 1$ is given by $\binom{2-1+2}{2} = \binom{3}{2} = 3$.
+Total number of ordered pairs = $6 \times 3 = 18$.
+}
+
+\subsection*{Generalization for 1800}
+\qs{Question: Generalization}{Consider the number $1800 = 2^3 \cdot 3^2 \cdot 5^2$. How many ordered pairs are there such that one divides the other?}
+\sol{
+Let $1800 = 2^3 \cdot 3^2 \cdot 5^2$. If $(c,d) \in R$ such that $ c|d$ and both divide 1800, we have $c = 2^r 3^s 5^t$ and $d = 2^u 3^v 5^w$.
+Then
+\begin{itemize}
+    \item $0 \leq r \leq u \leq 3$
+    \item $0 \leq s \leq v \leq 2$
+    \item $0 \leq t \leq w \leq 2$
+\end{itemize}
+The number of ways to choose $r$ and $u$ is $\binom{4-1+2}{2} = \binom{5}{2} = 10$.
+The number of ways to choose $s$ and $v$ is $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
+The number of ways to choose $t$ and $w$ is $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
+Thus, the total number of such ordered pairs is $10 \times 6 \times 6 = 360$.
 }
 
 \end{document}
