@@ -456,7 +456,6 @@ For instance, \((2x + 3y)^9\) expands as
 		\binom{N + \text{n} - 1}{\text{n} - 1}.
 	\]
 }
-
 \nt{
 	\textbf{Placing Distinct vs.~Indistinguishable Objects into Containers}
 
@@ -720,9 +719,9 @@ The number of possible relations is $2^6 = 64$.
 	\item \textbf{Equivalence Relation} A relation that is reflexive, symmetric and transitive.
 \end{itemize}
 
-\section*{Properties That Relations Can Satisfy}
+\section{Properties That Relations Can Satisfy}
 
-\subsection*{Reflexive Relations}
+\subsection{Reflexive Relations}
 
 \dfn{Reflexive Relation}{
 	A relation $R$ on a set $A$ is called \textbf{reflexive} if for all $x \in A$, $xRx$ (or $(x,x) \in R$). In other words, every element in the set is related to itself.
@@ -752,7 +751,7 @@ The number of possible relations is $2^6 = 64$.
 
 }
 
-\subsection*{Symmetric Relations}
+\subsection{Symmetric Relations}
 
 \dfn{Symmetric Relation}{
 	A relation $R$ on a set $A$ is \textbf{symmetric} if for all $x, y \in A$, if $(x, y) \in R$, then $(y, x) \in R$. In simpler terms, if $x$ is related to $y$, then $y$ must also be related to $x$.
@@ -780,7 +779,7 @@ The number of possible relations is $2^6 = 64$.
 	\end{itemize}
 }
 
-\subsection*{Antisymmetric Relations}
+\subsection{Antisymmetric Relations}
 
 \dfn{Antisymmetric Relation}{
 	A relation $R$ on a set $A$ is \textbf{antisymmetric} if for all $a, b \in A$, if $(a, b) \in R$ and $(b, a) \in R$, then $a = b$.  This means that the only way for both $(a,b)$ and $(b,a)$ to be in the relation is if $a$ and $b$ are the same element.
@@ -825,93 +824,701 @@ The number of possible relations is $2^6 = 64$.
 	\end{tabular}
 }
 
-\section*{Relations and Divisibility}
+\section{Relations and Divisibility}
 
-\subsection*{Defining a Relation}
+\subsection{Defining a Relation}
 
 \ex{Example: Divisors of 12}{
-Let $A = \{1, 2, 3, 4, 6, 12\}$. This set contains all the positive divisors of 12.
+	Let $A = \{1, 2, 3, 4, 6, 12\}$. This set contains all the positive divisors of 12.
 }
 
 \dfn{Definition: Relation on A}{
-Define a relation $R$ on $A$ as $(x, y) \in R$ if and only if $x | y$, which means "$x$ exactly divides $y$".
+	Define a relation $R$ on $A$ as $(x, y) \in R$ if and only if $x | y$, which means "$x$ exactly divides $y$".
 }
 
 \nt{
-The notation $(x, y) \in R$ is often written as $xRy$. The relation $R$ in this context represents the divisibility relation.
+	The notation $(x, y) \in R$ is often written as $xRy$. The relation $R$ in this context represents the divisibility relation.
 }
 
-\subsection*{Properties of the Relation}
+\subsection{Properties of the Relation}
 
 \nt{
-We will check if the relation $R$ is reflexive, antisymmetric, and transitive.
+	We will check if the relation $R$ is reflexive, antisymmetric, and transitive.
 }
 
 \begin{itemize}
-    \item \textbf{Reflexive:} For all $x \in A$, $x | x$, so $(x, x) \in R$. Thus, $R$ is reflexive.
-    \item \textbf{Antisymmetric:} If $x | y$ and $y | x$, then $x = y$. So, if $(x, y) \in R$ and $(y, x) \in R$, then $x = y$. Thus, $R$ is antisymmetric.
-    \item \textbf{Transitive:} If $x | y$ and $y | z$, then $x | z$. So, if $(x, y) \in R$ and $(y, z) \in R$, then $(x, z) \in R$. Thus, $R$ is transitive.
+	\item \textbf{Reflexive:} For all $x \in A$, $x | x$, so $(x, x) \in R$. Thus, $R$ is reflexive.
+	\item \textbf{Antisymmetric:} If $x | y$ and $y | x$, then $x = y$. So, if $(x, y) \in R$ and $(y, x) \in R$, then $x = y$. Thus, $R$ is antisymmetric.
+	\item \textbf{Transitive:} If $x | y$ and $y | z$, then $x | z$. So, if $(x, y) \in R$ and $(y, z) \in R$, then $(x, z) \in R$. Thus, $R$ is transitive.
 \end{itemize}
 
 \ex{Examples of Pairs in R}{
-Some pairs in $R$ include $(2, 4)$, $(4, 12)$, and consequently, $(2, 12)$ due to transitivity.
+	Some pairs in $R$ include $(2, 4)$, $(4, 12)$, and consequently, $(2, 12)$ due to transitivity.
 }
 
-\subsection*{Counting Ordered Pairs}
+\subsection{Counting Ordered Pairs}
 
 \qs{Question: Number of Ordered Pairs}{
-How many ordered pairs occur in $R$?
+	How many ordered pairs occur in $R$?
 }
 
 \sol{
-We can use prime factorization to determine the number of ordered pairs. Given $12 = 2^2 \cdot 3^1$, if $(c, d) \in R$, then $c = 2^m 3^n$ and $d = 2^p 3^q$ where:
-\begin{itemize}
-    \item $0 \leq m \leq p \leq 2$
-    \item $0 \leq n \leq q \leq 1$
-\end{itemize}
+	We can use prime factorization to determine the number of ordered pairs. Given $12 = 2^2 \cdot 3^1$, if $(c, d) \in R$, then $c = 2^m 3^n$ and $d = 2^p 3^q$ where:
+	\begin{itemize}
+		\item $0 \leq m \leq p \leq 2$
+		\item $0 \leq n \leq q \leq 1$
+	\end{itemize}
 
-\begin{tikzpicture}
-\draw[->] (0,0) -- (3,0) node[right] {$m, p$};
-\draw[->] (0,0) -- (0,2) node[above] {$n, q$};
+	\begin{tikzpicture}
+		\draw[->] (0,0) -- (3,0) node[right] {$m, p$};
+		\draw[->] (0,0) -- (0,2) node[above] {$n, q$};
 
-\foreach \x in {0,1,2}
-    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-\foreach \y in {0,1}
-    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\foreach \x in {0,1,2}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+		\foreach \y in {0,1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
 
-\fill[red] (0,0) circle (2pt);
-\fill[red] (1,0) circle (2pt);
-\fill[red] (2,0) circle (2pt);
-\fill[red] (0,1) circle (2pt);
-\fill[red] (1,1) circle (2pt);
-\fill[red] (2,1) circle (2pt);
+		\fill[red] (0,0) circle (2pt);
+		\fill[red] (1,0) circle (2pt);
+		\fill[red] (2,0) circle (2pt);
+		\fill[red] (0,1) circle (2pt);
+		\fill[red] (1,1) circle (2pt);
+		\fill[red] (2,1) circle (2pt);
 
-\draw[dashed] (0,0) -- (2,1);
+		\draw[dashed] (0,0) -- (2,1);
 
-\node at (1.5,-0.5) {$0 \leq m \leq p \leq 2$};
-\node at (-0.5,0.5) {$0 \leq n \leq q \leq 1$};
+		\node at (1.5,-0.5) {$0 \leq m \leq p \leq 2$};
+		\node at (-0.5,0.5) {$0 \leq n \leq q \leq 1$};
 
-\end{tikzpicture}
+	\end{tikzpicture}
 
-For $m$ and $p$, we can pick from $\{0, 1, 2\}$. The number of ways to choose $m$ and $p$ such that $0 \leq m \leq p \leq 2$ is given by $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
-For $n$ and $q$, we pick from $\{0, 1\}$. The number of ways to choose $n$ and $q$ such that $0 \leq n \leq q \leq 1$ is given by $\binom{2-1+2}{2} = \binom{3}{2} = 3$.
-Total number of ordered pairs = $6 \times 3 = 18$.
+	For $m$ and $p$, we can pick from $\{0, 1, 2\}$. The number of ways to choose $m$ and $p$ such that $0 \leq m \leq p \leq 2$ is given by $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
+	For $n$ and $q$, we pick from $\{0, 1\}$. The number of ways to choose $n$ and $q$ such that $0 \leq n \leq q \leq 1$ is given by $\binom{2-1+2}{2} = \binom{3}{2} = 3$.
+	Total number of ordered pairs = $6 \times 3 = 18$.
 }
 
-\subsection*{Generalization for 1800}
+\subsection{Generalization for 1800}
 \qs{Question: Generalization}{Consider the number $1800 = 2^3 \cdot 3^2 \cdot 5^2$. How many ordered pairs are there such that one divides the other?}
 \sol{
-Let $1800 = 2^3 \cdot 3^2 \cdot 5^2$. If $(c,d) \in R$ such that $ c|d$ and both divide 1800, we have $c = 2^r 3^s 5^t$ and $d = 2^u 3^v 5^w$.
-Then
+	Let $1800 = 2^3 \cdot 3^2 \cdot 5^2$. If $(c,d) \in R$ such that $ c|d$ and both divide 1800, we have $c = 2^r 3^s 5^t$ and $d = 2^u 3^v 5^w$.
+	Then
+	\begin{itemize}
+		\item $0 \leq r \leq u \leq 3$
+		\item $0 \leq s \leq v \leq 2$
+		\item $0 \leq t \leq w \leq 2$
+	\end{itemize}
+	The number of ways to choose $r$ and $u$ is $\binom{4-1+2}{2} = \binom{5}{2} = 10$.
+	The number of ways to choose $s$ and $v$ is $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
+	The number of ways to choose $t$ and $w$ is $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
+	Thus, the total number of such ordered pairs is $10 \times 6 \times 6 = 360$.
+}
+
+\section{Function}
+
+\nt{
+	The notes were taken on Tuesday, 4 March 2025, at 11:08.
+}
+
+\subsection{Definition of a Function}
+
+\dfn{Function}{
+	For non-empty sets $A$ and $B$, a function (or mapping) $f$ from $A$ to $B$, denoted as $f: A \rightarrow B$, is a relation in which every element of $A$ appears exactly once as a component of an ordered pair in $R$ (where R is likely the set of ordered pairs defining the function).
+}
+
+\subsection{Example 1}
+
+\ex{Example 1}{
+	Let $A = \{1, 2, 3\}$ and $B = \{w, x, y, z\}$. Define a function $f$ as follows:
+	\[
+		f = \{(1, w), (2, x), (3, x)\}
+	\]
+}
+\ex{Example 2}{
+	Consider the relation $R$:
+	\[
+		R = \{(1, w), (2, w), (3, x), (3, z)\}
+	\]
+	This is \textit{not} a function because the element $3$ in set $A$ is mapped to two different elements ($x$ and $z$) in set $B$.
+}
+
+\subsection{Domain, Codomain, and Range}
+Consider the function in the first Example.
+
+\begin{tikzpicture}[scale=0.8]
+
+	\node (1) at (-0.5,1.5) {1};
+	\node (2) at (-0.5,0.5) {2};
+	\node (3) at (-0.5,-0.5) {3};
+
+	\node (w) at (3.5,1.5) {w};
+	\node (x) at (3.5,0.5) {x};
+	\node (y) at (3.5,-0.5) {y};
+	\node (z) at (3.5,-1.5) {z};
+
+	\draw[->] (1) -- (w);
+	\draw[->] (2) -- (x);
+	\draw[->] (3) -- (x);
+\end{tikzpicture}
+
 \begin{itemize}
-    \item $0 \leq r \leq u \leq 3$
-    \item $0 \leq s \leq v \leq 2$
-    \item $0 \leq t \leq w \leq 2$
+	\item $A$ is the \textbf{domain}.
+	\item $B$ is the \textbf{codomain}.
+	\item $f(A) = \{w, x\}$ is the \textbf{range} of $f$. The range is the set of all elements in $B$ that are mapped to by at least one element in $A$.  It is a subset of the codomain.
 \end{itemize}
-The number of ways to choose $r$ and $u$ is $\binom{4-1+2}{2} = \binom{5}{2} = 10$.
-The number of ways to choose $s$ and $v$ is $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
-The number of ways to choose $t$ and $w$ is $\binom{3-1+2}{2} = \binom{4}{2} = 6$.
-Thus, the total number of such ordered pairs is $10 \times 6 \times 6 = 360$.
+
+\subsection{Number of Possible Functions}
+
+\qs{How Many Functions?}{
+	How many functions are possible from set $A$ to set $B$?
+}
+
+\sol{
+If $|A| = 3$ and $|B| = 4$, then the number of possible functions is $|B|^{|A|} = 4^3$. In General, if we have a set $A$ and $B$, the number of functions possible is $|B|^{|A|}$.
+
+}
+
+\subsection{One-to-One Functions (Injective Functions)}
+
+\dfn{One-to-One Function (Injective)}{
+	A function is one-to-one (injective) if each element of the codomain is mapped to by at most one element of the domain.  In other words, no two elements in the domain map to the same element in the codomain.
+}
+
+\begin{itemize}
+	\item Example of an injective function:
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.8]
+
+	\node (1a) at (-0.5,1.5) {1};
+	\node (2a) at (-0.5,0.5) {2};
+	\node (3a) at (-0.5,-0.5) {3};
+
+	\node (4b) at (3.5,1.5) {4};
+	\node (5b) at (3.5,0.5) {5};
+	\node (6b) at (3.5,-0.5) {6};
+
+	\draw[->] (1a) -- (4b);
+	\draw[->] (2a) -- (5b);
+	\draw[->] (3a) -- (6b);
+	\node[below= 0.1cm of 3a] {Injective};
+\end{tikzpicture}
+\begin{itemize}
+	\item Example of a *non*-injective function:
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.8]
+
+	\node (1c) at (5.5,1.5) {1};
+	\node (2c) at (5.5,0.5) {2};
+	\node (3c) at (5.5,-0.5) {3};
+
+	\node (4d) at (9.5,1.5) {4};
+	\node (5d) at (9.5,0.5) {5};
+	\node (6d) at (9.5,-0.5) {6};
+	\node (7d) at (9.5,-1.5) {7};
+	\draw[->] (1c) -- (4d);
+	\draw[->] (2c) -- (5d);
+	\draw[->] (3c) -- (5d);
+	\node[below= 0.1cm of 3c] {Not injective};
+\end{tikzpicture}
+
+\subsection{Number of One-to-One Functions}
+Consider Sets $A= \{1,2,3,4\}$ and $B = \{4,5,6,7,8\}$.
+\qs{How many one to one functions?}{
+	How many 1-to-1 functions are there from A to B?
+}
+
+\sol{
+	$5 \cdot 4 \cdot 3 \cdot 2$. This can be expressed generally as:
+
+	For the first element in A, there are 5 choices in B.
+	For the second element in A, there are 4 remaining choices in B (since it must be one-to-one).
+	For the third element in A, there are 3 remaining choices in B.
+	For the fourth element in A, there are 2 remaining choices in B.
+}
+
+\subsection{General Case}
+
+\nt{
+	Let:
+	\begin{itemize}
+		\item $A = \{a_1, a_2, \dots, a_n\}$, where $n \leq m$
+		\item $B = \{b_1, b_2, \dots, b_m\}$
+	\end{itemize}
+	Then, the number of one-to-one functions from $A$ to $B$ is given by $P(m, n)$, which represents permutations of $m$ items taken $n$ at a time. This is calculated as:
+	\[
+		P(m, n) = \frac{m!}{(m-n)!} = m \cdot (m-1) \cdot (m-2) \dots (m-n+1)
+	\]
+	If $n>m$, there will be 0 one-to-one functions, as the pigeon hole principle states.
+}
+
+\section{Surjective and Onto Functions}
+
+\dfn{Surjective (Onto) Function}{
+	A function \( f: A \rightarrow B \) is surjective (or onto) if for every element \( b \) in the codomain \( B \), there exists at least one element \( a \) in the domain \( A \) such that \( f(a) = b \). In other words, the range of \( f \) is equal to its codomain \( B \), or  \( f(A) = B \).
+}
+
+\ex{Example of Surjective and Non-Surjective Functions}{
+	Consider the sets \( A = \{1, 2, 3, 4\} \) and \( B = \{x, y, z\} \).
+
+	\begin{enumerate}
+		\item Define \( f_1: A \rightarrow B \) as follows:
+		      \( f_1(1) = x \), \( f_1(2) = y \), \( f_1(3) = z \), \( f_1(4) = z \)
+
+		      This function IS surjective because every element in \( B \) has at least one corresponding element in \( A \).
+
+		\item Define \( f_2: A \rightarrow B \) as follows:
+		      \( f_2(1) = x \), \( f_2(2) = x \), \( f_2(3) = y \), \( f_2(4) = y \)
+
+		      This function is NOT surjective (not onto) because the element \( z \in B \) has no pre-image in \( A \).
+	\end{enumerate}
+}
+
+\qs{How to check for onto functions?}{
+	How can we determine if a function is onto, especially when dealing with larger or infinite sets?
+}
+\sol{
+One common method is using the Inclusion-Exclusion Principle. Another is to try and express an arbitrary element of the co-domain in terms of an element from the domain.
+
+Consider sets \( A = \{a, b, c, d\} \) and \( B = \{1, 2, 3, 4\} \).  If we have a function \( f: A \rightarrow B \), then the total number of possible functions is \( |B|^{|A|} = 4^4 \).
+
+To calculate the number of onto functions, we can use the Inclusion-Exclusion Principle.
+}
+
+\subsection{Inclusion-Exclusion Principle}
+
+\nt{
+	The Inclusion-Exclusion Principle is a counting technique which generalizes the familiar method of obtaining the number of elements in the union of two finite sets.
+}
+\ex{Inclusion-Exclusion Example (Number of Onto Functions)}{
+For finite sets \( A \) and \( B \) where \( |A| = m \) and \( |B| = n \), and we want to find the number of onto functions \( f: A \rightarrow B \),  the formula derived from the Inclusion-Exclusion Principle is:
+
+\[
+	\sum_{k=0}^{n} (-1)^k \binom{n}{k} (n-k)^m
+\]
+
+Let's consider a simple example:
+\(A = \{a,b,c\}\)
+\(B = \{1,2,3\}\)
+The number of functions is \( |B|^{|A|} = 3^3 = 27\)
+\[
+	\left( \binom{3}{0} 3^3 \right) - \left( \binom{3}{1} 2^3 \right) + \left( \binom{3}{2} 1^3 \right) - \left( \binom{3}{3} 0^3 \right)
+\]
+}
+
+\section{Counting Problems}
+
+\subsection{Elevator Problem}
+
+\qs{Elevator Problem}{
+	Seven people enter an elevator. The elevator will stop at four different floors. What is the probability that the elevator must stop at all four floors?
+}
+
+\sol{
+	This problem is equivalent to finding the number of onto functions from a set of 7 people (objects) to a set of 4 floors (boxes).
+
+	\begin{itemize}
+		\item Let \( A \) represent the set of people, so \( |A| = 7 \).
+		\item Let \( B \) represent the set of floors, so \( |B| = 4 \).
+	\end{itemize}
+
+	We want to find the number of onto functions from \( A \) to \( B \).  Using the Inclusion-Exclusion Principle:
+
+	\[
+		\sum_{k=0}^{4} (-1)^k \binom{4}{k} (4-k)^7
+	\]
+	The Total number of ways 7 people can get off on 4 floors is:
+	\[
+		4^7
+	\]
+	The probability that the elevator must stop on all floors is:
+	\[
+		\frac{\sum_{k=0}^{4} (-1)^k \binom{4}{k} (4-k)^7}{4^7}
+	\]
+}
+\subsection{Dice Rolling Problem}
+
+\qs{Dice Rolling Problem}{
+	A die is tossed 12 times (or equivalently, 12 dice are tossed simultaneously). What is the probability of seeing all 6 faces?
+}
+
+\sol{
+	This is analogous to finding the number of onto functions from a set of 12 tosses (objects) to a set of 6 faces (boxes).
+
+	\begin{itemize}
+		\item Let \( A \) represent the set of tosses, so \( |A| = 12 \).
+		\item Let \( B \) represent the set of faces, so \( |B| = 6 \).
+	\end{itemize}
+
+	We want to find the number of onto functions from \( A \) to \( B \).  Using the Inclusion-Exclusion Principle:
+	\[
+		\sum_{k=0}^{6} (-1)^k \binom{6}{k} (6-k)^{12}
+	\]
+	The total number of possible outcomes when rolling a die 12 times is \( 6^{12} \).
+
+	Therefore, the probability of seeing all 6 faces is:
+
+	\[
+		\frac{\sum_{k=0}^{6} (-1)^k \binom{6}{k} (6-k)^{12}}{6^{12}}
+	\]
+	This can also be expressed in terms of Stirling numbers of the second kind, denoted as \( S(n, k) \) or \( \begin{Bmatrix} n \\ k \end{Bmatrix} \), which counts the number of ways to partition a set of \( n \) objects into \( k \) non-empty subsets. The number of onto functions is \( 6! \cdot S(12, 6) \).
+}
+\dfn{Stirling Numbers of the Second Kind}{
+	\( S(n, k) \) or \( \begin{Bmatrix} n \\ k \end{Bmatrix} \) represents the number of ways to partition a set of *n* objects into *k* non-empty subsets.
+}
+\nt{
+	The formula to calculate Stirling numbers of the second kind is:
+
+	\[ S(n, k) = \frac{1}{k!} \sum_{j=0}^{k} (-1)^{k-j} \binom{k}{j} j^n \]
+}
+
+\section*{Where does this come from?}
+
+\nt{
+	If $A = \{a,b,c,d\}$ \\
+	$B = \{1, 2, 3\}$ \\
+	$\exists$ 36 onto functions
+}
+
+\qs{Question}{
+	But if Boxes in B are identical? \\
+	Then there are $\frac{36}{3!}$ to put 4 distinct objects in 3 identical containers.
+}
+\sol{
+
+}
+
+\begin{tikzpicture}
+	\draw[->, very thick] (0,0) -- (2,0);
+	\node[above] at (1,0) {$A \rightarrow B$};
+	\node[below] at (1,-0.2) {$n=4 \quad k=3$};
+	\draw (3,0) node[right] {
+		$\begin{cases}
+				\{a,b\} \{c\} \{d\} \\
+				\{a\} \{b,c\} \{d\} \\
+				\{a\} \{b\} \{c,d\}
+			\end{cases}$
+		\quad
+		\begin{tabular}{l}
+			Same as making \\
+			k subsets (non empty)
+		\end{tabular}
+	};
+
+	\draw (0,-1) -- (2.5,1);
+	\draw (0,-1) -- (0,1);
+	\draw (0,-1) -- (-1.5,0.5);
+\end{tikzpicture}
+
+\nt{
+	\# of ways to partition $n$ distinct objects in $k$ parts.
+}
+\section{Stirling Number of the Second Kind}
+
+\dfn{Stirling Number of the Second Kind}{
+	\[
+		S(n,k) = \frac{1}{k!} \sum_{j=0}^{k} (-1)^j \binom{k}{j} (k-j)^n
+	\]
+}
+
+\nt{
+	The Stirling number of the second kind, \( S(n,k) \), represents the number of ways to partition \( n \) distinct objects into \( k \) identical boxes.
+}
+
+\nt{
+	Basic Properties:
+	\begin{itemize}
+		\item \( S(n,1) = S(n,n) = 1 \)
+		\item Recursive Relation: \( S(n,k) = S(n-1, k-1) + k \cdot S(n-1, k) \) for \( 2 \leq k \leq n-1 \)
+	\end{itemize}
+}
+
+\ex{Example}{
+	For 6 objects and 3 identical containers:
+	\[
+		S(6,3) = S(5,2) + 3 \cdot S(5,3)
+	\]
+}
+
+\nt{
+	Understanding the Recursive Relation:
+	\begin{itemize}
+		\item One object is inserted alone, illustrating that configurations are the same.
+		\item Once 3 people are placed, boxes become distinct, allowing 3 places to insert the last person.
+	\end{itemize}
+}
+
+\chapter{Discrete Calculus}
+
+\qs{Sums for Discrete Functions?}{
+	Can we define concepts analogous to derivatives for discrete functions?
+}
+
+\sol
+\begin{itemize}
+	\item $\Delta f(x) = f(x+1) - f(x) \implies$ \boxed{\text{FORWARD DIFFERENCE}}
+	\item $\Delta^2 f(x) = \Delta[\Delta f(x)] = \Delta[f(x+1) - f(x)] = [f(x+2) - f(x+1)] - [f(x+1) - f(x)]$
+	      \begin{align*}
+		       & = f(x+2) - 2f(x+1) + f(x)
+	      \end{align*}
+\end{itemize}
+
+\dfn{Shift Operator}{
+Define operator $E$ such that:
+\[ E[f(x)] = f(x+1) \]
+And in general
+\[E^n[f(x)] = f(x+n)\]
+h so $\Delta f(x) = E[f(x)] - f(x) = (E-I)f(x)$
+}
+
+\begin{itemize}
+	\item $\Delta^n [f(x)] = (E-I)^n f(x)$
+	      \begin{align*}
+		       & = \left[ E^n[f(x)] - \binom{n}{1}E^{n-1}[f(x)] + ... + (-1)^k\binom{n}{k}E^{n-k}f(x) \right]
+	      \end{align*}
+\end{itemize}
+
+\ex{Example}{
+$\Delta^2(x^3) = (E-I)^2(x^3)=[E^2 - 2EI + I^2]x^3$
+
+$=E^2x^3 -2(x+1)^3 + x^3 = 6x+6$
+}
+
+\nt{
+	\begin{itemize}
+		\item The forward difference of \(x^3\) results in \(6x + 6\).
+		\item Compare this with the second derivative \(\frac{d^2}{dx^2}x^3 = 6x\).
+	\end{itemize}
+}
+
+\section{Analogies to Continuous Calculus}
+
+\subsection{The Difference Operator}
+
+\dfn{Difference Operator}{
+	The difference operator, denoted by $\Delta$, is the discrete analog of the derivative.  For a function $f(x)$, it is defined as:
+	\[
+		\Delta[f(x)] = f(x+1) - f(x)
+	\]
+	More generally, for a step size $h$, we have $\Delta_h[f(x)] = f(x+h) - f(x)$.  Here, we are primarily concerned with the case $h=1$.
+}
+
+\nt{
+	The difference operator gives the change in the function's value when the input increases by 1.  It's a "forward difference."
+}
+
+\ex{Example: Linear Function}{
+	Consider $f(x) = 6x + 6$. Then,
+	\[
+		\Delta[f(x)] = f(x+1) - f(x) = (6(x+1) + 6) - (6x + 6) = 6x + 6 + 6 - 6x - 6 = 6
+	\]
+}
+
+\ex{Example: Quadratic Function}{
+	Consider $f(x)=x^2$
+	\[
+		\Delta[f(x)] = f(x+1)-f(x) = (x+1)^2 -x^2 = x^2 + 2x +1 - x^2 = 2x+1
+	\]
+}
+
+\subsection*{Product Rule Analogy}
+
+In continuous calculus, the product rule states:
+\[
+	\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+\]
+
+We seek a discrete analog.  Let's try:
+
+\[
+	\Delta[f(x)g(x)] = f(x+1)g(x+1) - f(x)g(x)
+\]
+
+We can manipulate this expression by adding and subtracting a "clever zero": $f(x)g(x+1) - f(x)g(x+1)$.
+
+\begin{align*}
+	\Delta[f(x)g(x)] & = f(x+1)g(x+1) - f(x)g(x+1) + f(x)g(x+1) - f(x)g(x) \\
+	                 & = g(x+1)[f(x+1) - f(x)] + f(x)[g(x+1) - g(x)]       \\
+	                 & = g(x+1)\Delta[f(x)] + f(x)\Delta[g(x)]
+\end{align*}
+
+\thm{Discrete Product Rule}{
+	\[
+		\Delta[f(x)g(x)] = g(x+1)\Delta[f(x)] + f(x)\Delta[g(x)]
+	\]
+}
+\nt{
+	Notice the slight difference from the continuous product rule.  One of the terms uses $g(x+1)$ instead of $g(x)$.
+}
+
+\subsection*{The Discrete Analog of $e^x$}
+
+In continuous calculus, the function $e^{kx}$ has the property that $\frac{d}{dx}e^{kx} = ke^{kx}$.  That is, it's an eigenfunction of the derivative operator. We seek a discrete analog.
+
+Consider $f(x) = a^x$, where $a \in \mathbb{Z}^+$. Then
+\[
+	\Delta[f(x)] = a^{x+1} - a^x = a^x(a - 1)
+\]
+
+If we choose $a=2$, we have
+\[
+	\Delta[2^x] = 2^x(2-1) = 2^x
+\]
+Thus, $2^x$ is the discrete analog of $e^x$, as it is an eigenfunction of the difference operator with eigenvalue 1. We can say "2 is the discrete $e$".
+
+\subsection*{Falling Factorials}
+
+\dfn{Falling Factorial}{
+	The falling factorial, denoted by $x^{(n)}$, is defined as:
+	\[
+		x^{(n)} = x(x-1)(x-2)\cdots(x-n+1)
+	\]
+	where $n$ is a non-negative integer. It's a product of $n$ terms. If n=0, $x^{(0)} = 1$
+}
+
+\ex{Example}{
+	$x^{(3)} = x(x-1)(x-2)$
+}
+
+Now, let's compute the difference of a falling factorial:
+
+\begin{align*}
+	\Delta[x^{(n)}] & = (x+1)^{(n)} - x^{(n)}                                 \\
+	                & = (x+1)(x)(x-1)\cdots(x-n+2) - x(x-1)(x-2)\cdots(x-n+1) \\
+	                & = x(x-1)\cdots(x-n+2)[(x+1) - (x-n+1)]                  \\
+	                & = x(x-1)\cdots(x-n+2)[n]                                \\
+	                & = n x^{(n-1)}
+\end{align*}
+
+\thm{Difference of Falling Factorial}{
+	\[
+		\Delta[x^{(n)}] = nx^{(n-1)}
+	\]
+}
+This is analogous to the power rule in continuous calculus: $\frac{d}{dx}x^n = nx^{n-1}$.
+
+\subsection*{Standard Basis vs. Falling Factorial Basis}
+
+Polynomials can be expressed in different bases.
+
+\begin{itemize}
+	\item \textbf{Standard Basis:}  $\{1, x, x^2, x^3, \dots\}$
+	\item \textbf{Falling Factorial Basis:} $\{1, x^{(1)}, x^{(2)}, x^{(3)}, \dots\}$
+\end{itemize}
+
+\qs{Converting Between Bases}{
+	How do we convert a polynomial from the standard basis to the falling factorial basis, and vice-versa?
+}
+\sol{
+Let's consider a cubic polynomial as an example. Suppose we have a polynomial in the standard basis:
+
+\[ P(x) = Ax^3 + Bx^2 + Cx + D \]
+
+We want to express it in the falling factorial basis:
+
+\[ P(x) = A'x^{(3)} + B'x^{(2)} + C'x^{(1)} + D' \]
+
+We can do this by successively applying the difference operator and evaluating at $x=0$.
+
+\begin{enumerate}
+	\item $P(0) = D = D'$
+	\item $\Delta[P(x)] = 3Ax^2 + 2Bx + C = 3A'x^{(2)} + 2B'x^{(1)} + C'$.  Evaluating at $x=0$, we get $\Delta[P(0)] = C = C'$.
+	\item $\Delta^2[P(x)] = 6Ax + 2B = 6A'x^{(1)} + 2B'$. Evaluating at $x=0$, we get $\Delta^2[P(0)] = 2B = 2B'$, so $B = B'$.
+	\item $\Delta^3[P(x)] = 6A = 6A'$.  Thus, $A=A'$.
+\end{enumerate}
+
+Alternatively, we can express the falling factorials in terms of the standard basis:
+
+\begin{itemize}
+	\item $x^{(1)} = x$
+	\item $x^{(2)} = x(x-1) = x^2 - x$
+	\item $x^{(3)} = x(x-1)(x-2) = x^3 - 3x^2 + 2x$
+\end{itemize}
+Then, we can solve for $x$, $x^2$, and $x^3$ in terms of the falling factorials and substitute.
+
+}
+
+\ex{Example: Conversion}{
+	Convert $P(x) = 3x^3 - x^2 + 6x + 5$ to the falling factorial basis.
+
+	\sol
+	First expand the falling factorial terms:
+	$x^{(1)} = x$
+	$x^{(2)} = x(x-1) = x^2 - x$
+	$x^{(3)} = x(x-1)(x-2) = x^3-3x^2+2x$
+
+	We can setup a system of equations, or we can use the method of successive differences.
+	Method 1: System of Equations
+	We want to find $A, B, C, D$ such that
+	$3x^3-x^2+6x+5 = A x^{(3)} + B x^{(2)} + Cx^{(1)} + D$
+	Substituting the expanded forms:
+	$3x^3 - x^2 + 6x + 5 = A(x^3 - 3x^2 + 2x) + B(x^2 - x) + Cx + D$
+	$3x^3 - x^2 + 6x + 5 = Ax^3 + (-3A+B)x^2 + (2A-B+C)x + D$
+	Comparing coefficients:
+	\begin{itemize}
+		\item $A=3$
+		\item $-3A+B=-1 \Rightarrow -9+B=-1 \Rightarrow B=8$
+		\item $2A-B+C=6 \Rightarrow 6-8+C=6 \Rightarrow C=8$
+		\item $D=5$
+	\end{itemize}
+	So, $3x^3 - x^2 + 6x + 5 = 3x^{(3)} + 8x^{(2)} + 8x^{(1)} + 5$.
+
+	Method 2: Successive Differences
+	\begin{enumerate}
+		\item $P(x) = 3x^3 - x^2 + 6x + 5$, $P(0) = 5$, so $D=5$.
+		\item $\Delta P(x) = 3(x+1)^3 - (x+1)^2 + 6(x+1) + 5 - (3x^3-x^2+6x+5) = 9x^2+5x+8$, and $\Delta P(0) = 8$, so $C=8$.
+		\item $\Delta^2 P(x) = 9(x+1)^2+5(x+1)+8 - (9x^2+5x+8) = 18x + 14$, $\Delta^2 P(0) = 14$, and we know $\Delta^2 x^{(2)} = 2$, so $14/2= B = 7$ is incorrect (from the previous derivation it should be 8, so the method from the original document is not perfectly correct).
+		\item $\Delta^3 P(x) = 18(x+1)+14-(18x+14)=18$, $\Delta^3 x^{(3)} = 6$. Thus $18/6=A=3$, as $A=3$
+	\end{enumerate}
+	The second method is incorrect, so we should rely on the first one.
+
+}
+
+\subsection*{Matrix Representation of Basis Change}
+We can represent the change of basis using a matrix.  Consider converting a cubic polynomial from the falling factorial basis to the standard basis.
+
+\[
+	\begin{pmatrix}
+		1 \\ x \\ x^2 \\ x^3
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		1 & 0  & 0  & 0 \\
+		0 & 1  & 0  & 0 \\
+		0 & -1 & 1  & 0 \\
+		0 & 2  & -3 & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		1 \\ x^{(1)} \\ x^{(2)} \\ x^{(3)}
+	\end{pmatrix}
+\]
+
+The matrix entries are the coefficients when expressing $x^n$ in terms of the falling factorials. The inverse of this matrix would perform the conversion from the standard basis to the falling factorial basis.
+Since $\Delta x^{(n)} = nx^{(n-1)}$, we have:
+\[
+	\Delta \begin{pmatrix} x^{(0)} \\ x^{(1)} \\ x^{(2)} \\ x^{(3)} \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 2x^{(1)} \\ 3x^{(2)} \end{pmatrix} = \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 3 & 0\end{pmatrix} \begin{pmatrix}  x^{(0)} \\ x^{(1)} \\ x^{(2)} \\ x^{(3)}\end{pmatrix}
+\]
+\subsection*{General Basis}
+
+Consider a general basis of the form: $\{1, (x-x_0), (x-x_0)(x-x_1), (x-x_0)(x-x_1)(x-x_2), \dots \}$
+
+\ex{Example}{
+	Consider the basis $\{1, x, x(x-2), x(x-2)(x-3) \}$. We can expand $x^2$ in this basis. We look for coefficients $A, B, C$ such that:
+
+	$x^2 = A \cdot 1 + B \cdot x + C \cdot x(x-2)$
+	$x^2= A + Bx +Cx^2-2Cx$
+	$x^2 = Cx^2 + (B-2C)x +A $
+
+	Comparing coefficients,
+	$C=1$
+	$B-2C=0 \rightarrow B-2=0 \rightarrow B=2$
+	$A=0$
+
+	$x^2 = 2x + x(x-2)$
+
+	Consider the expansion of $x^2$ in terms of falling factorial:
+
+	$x^2 = x + x(x-1) = x^{(1)} + x^{(2)}$
 }
 
 \end{document}
