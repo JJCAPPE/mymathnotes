@@ -1521,4 +1521,144 @@ Consider a general basis of the form: $\{1, (x-x_0), (x-x_0)(x-x_1), (x-x_0)(x-x
 	$x^2 = x + x(x-1) = x^{(1)} + x^{(2)}$
 }
 
+\section*{Linear Combinations}
+
+\subsection*{Generating Sets}
+
+\dfn{Generating Set}{
+A generating set of a vector space $V$ is a set of vectors such that every vector in $V$ can be written as a linear combination of the vectors in the generating set.
+}
+
+\nt{
+The provided notes explore a specific summation and its connection to integration. The core idea is to demonstrate how a discrete sum can approximate a definite integral. Let's break it down step by step.
+}
+\ex{Summation Formula}{
+Given a summation:
+\[
+\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_a^{b+1}
+\]
+where $x^{(n)}$ likely represents the falling factorial power, defined as $x^{(n)} = x(x-1)(x-2)...(x-n+1)$.
+}
+
+\thm{Falling Factorial Power Summation}{
+For a falling factorial power $x^{(n)} = x(x-1)...(x-n+1)$, the summation from $x=a$ to $b$ is given by:
+\[
+\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_{a}^{b+1} = \frac{(b+1)^{(n+1)}}{n+1} - \frac{a^{(n+1)}}{n+1}
+\]
+}
+
+\nt{ The right-hand side of the initial equation resembles the evaluation of a definite integral. This suggests a connection between the discrete summation and continuous integration.}
+
+\ex{Specific Example}{
+The notes also present a more concrete example:
+
+\[
+\sum_{1}^{n} x = \sum_1^n \frac{\Delta x^{(2)}}{2} = \frac{1}{2} x^{(2)} \Big|_1^{n+1}
+\]
+
+Here, $\Delta x^{(2)}$ likely represents the difference $ (x+1)^{(2)}-x^{(2)} $.
+}
+
+\thm{Sum of First n Natural Numbers}{
+The sum of the first 'n' natural numbers can be represented and calculated using the falling factorial as follows:
+\[
+\sum_{x=1}^{n} x = \frac{1}{2} x(x-1+1) \Big|_{1}^{n+1}= \frac{1}{2}[(n+1)(n) - (1)(0)] = \frac{n(n+1)}{2}
+\]
+
+}
+
+\nt{
+This establishes the familiar formula for the sum of the first 'n' natural numbers. The connection to the falling factorial and the structure resembling integration (evaluation at upper and lower bounds) is highlighted.
+}
+
+\subsection*{Connection to Integration}
+\nt{
+The general form $\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_a^{b+1}$ strongly mirrors the power rule of integration: $\int x^n dx = \frac{x^{n+1}}{n+1} + C$. The discrete sum of falling factorials is analogous to the definite integral. The limits of summation ($a$ and $b$) correspond to the limits of integration. The $+1$ on the upper bound in the summation formula mimics the nature of discrete steps versus continuous evaluation.
+}
+
+\ex{Illustrative Example - Sum of First n Integers}{
+
+Consider the summation of the first 'n' integers:
+\[
+\sum_{x=1}^{n} x
+\]
+This can be viewed as an approximation of the integral:
+\[
+\int_{1}^{n} x \, dx
+\]
+
+}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $x$,
+    ylabel = {$f(x) = x$},
+    xmin=0, xmax=6,
+    ymin=0, ymax=6,
+    xtick={1,2,3,4,5},
+    ytick={1,2,3,4,5},
+    width=8cm, height=8cm,
+    clip=false
+]
+\addplot [
+    domain=0:5,
+    samples=100,
+    color=blue,
+]
+{x};
+\addplot[
+    ycomb,
+    color=red,
+    mark=*,
+]
+coordinates {
+(1,1)
+(2,2)
+(3,3)
+(4,4)
+(5,5)
+};
+
+\draw[dashed] (axis cs:1,0) -- (axis cs:1,1);
+\draw[dashed] (axis cs:2,0) -- (axis cs:2,2);
+\draw[dashed] (axis cs:3,0) -- (axis cs:3,3);
+\draw[dashed] (axis cs:4,0) -- (axis cs:4,4);
+\draw[dashed] (axis cs:5,0) -- (axis cs:5,5);
+
+\node[right] at (axis cs: 5,5) {$f(x) = x$};
+\node[above] at (axis cs: 1,1) {$\bullet$};
+\node[above] at (axis cs: 2,2) {$\bullet$};
+\node[above] at (axis cs: 3,3) {$\bullet$};
+\node[above] at (axis cs: 4,4) {$\bullet$};
+\node[above] at (axis cs: 5,5) {$\bullet$};
+\node[below] at (axis cs:1, 0) {1};
+\node[below] at (axis cs:2, 0) {2};
+\node[below] at (axis cs:3, 0) {3};
+\node[below] at (axis cs:4, 0) {4};
+\node[below] at (axis cs:5, 0) {5};
+
+\addplot[
+    only marks,
+    mark=*,
+    color = black
+] coordinates{(1,0) (2,0) (3,0) (4,0) (5,0)};
+\end{axis}
+\end{tikzpicture}
+
+\nt{
+The blue line represents the continuous function $f(x) = x$.  The red dots represent the discrete values at integer points. The summation $\sum_{x=1}^{n} x$ adds up the y-values of these red dots. The integral $\int_{1}^{n} x \, dx$ calculates the area under the blue line from $x=1$ to $x=n$.  As 'n' increases, and the discrete steps become smaller, the summation becomes a better approximation of the integral.
+}
+
+\qs{Relationship between Summation and Integration}{
+How does the discrete summation relate to the definite integral?
+}
+
+\sol{
+The discrete summation can be seen as a Riemann sum approximation of the definite integral.  Specifically, it's akin to a right Riemann sum where the width of each rectangle is 1. The falling factorial summation formula provides a closed-form expression for this particular type of Riemann sum.
+}
+
+\nt{
+In essence, the notes demonstrate a fundamental concept in calculus: the connection between discrete sums and continuous integrals.  The falling factorial provides a bridge between these two worlds, allowing for a discrete analogue of the power rule of integration.
+}
+
 \end{document}
