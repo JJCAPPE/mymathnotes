@@ -1172,7 +1172,7 @@ The number of functions is \( |B|^{|A|} = 3^3 = 27\)
 	\[ S(n, k) = \frac{1}{k!} \sum_{j=0}^{k} (-1)^{k-j} \binom{k}{j} j^n \]
 }
 
-\section*{Where does this come from?}
+\section{Where does this come from?}
 
 \nt{
 	If $A = \{a,b,c,d\}$ \\
@@ -1321,7 +1321,7 @@ $=E^2x^3 -2(x+1)^3 + x^3 = 6x+6$
 	\]
 }
 
-\subsection*{Product Rule Analogy}
+\subsection{Product Rule Analogy}
 
 In continuous calculus, the product rule states:
 \[
@@ -1351,7 +1351,7 @@ We can manipulate this expression by adding and subtracting a "clever zero": $f(
 	Notice the slight difference from the continuous product rule.  One of the terms uses $g(x+1)$ instead of $g(x)$.
 }
 
-\subsection*{The Discrete Analog of $e^x$}
+\subsection{The Discrete Analog of $e^x$}
 
 In continuous calculus, the function $e^{kx}$ has the property that $\frac{d}{dx}e^{kx} = ke^{kx}$.  That is, it's an eigenfunction of the derivative operator. We seek a discrete analog.
 
@@ -1366,7 +1366,7 @@ If we choose $a=2$, we have
 \]
 Thus, $2^x$ is the discrete analog of $e^x$, as it is an eigenfunction of the difference operator with eigenvalue 1. We can say "2 is the discrete $e$".
 
-\subsection*{Falling Factorials}
+\subsection{Falling Factorials}
 
 \dfn{Falling Factorial}{
 	The falling factorial, denoted by $x^{(n)}$, is defined as:
@@ -1378,6 +1378,16 @@ Thus, $2^x$ is the discrete analog of $e^x$, as it is an eigenfunction of the di
 
 \ex{Example}{
 	$x^{(3)} = x(x-1)(x-2)$
+}
+
+\dfn{When is the Falling Factorial Zero?}{
+	If $n > c$, one of the terms in the product will be zero, specifically when $c-k = 0$ for some $k$. This results in:
+
+	\begin{equation}
+		c^{(n)} = 0, \quad \text{for } n > c.
+	\end{equation}
+
+	Thus, for any constant $c$, if $n > c$, we have $c^{(n)} = 0$.
 }
 
 Now, let's compute the difference of a falling factorial:
@@ -1397,7 +1407,7 @@ Now, let's compute the difference of a falling factorial:
 }
 This is analogous to the power rule in continuous calculus: $\frac{d}{dx}x^n = nx^{n-1}$.
 
-\subsection*{Standard Basis vs. Falling Factorial Basis}
+\subsection{Standard Basis vs. Falling Factorial Basis}
 
 Polynomials can be expressed in different bases.
 
@@ -1474,7 +1484,7 @@ Then, we can solve for $x$, $x^2$, and $x^3$ in terms of the falling factorials 
 
 }
 
-\subsection*{Matrix Representation of Basis Change}
+\subsection{Matrix Representation of Basis Change}
 We can represent the change of basis using a matrix.  Consider converting a cubic polynomial from the falling factorial basis to the standard basis.
 
 \[
@@ -1498,7 +1508,7 @@ Since $\Delta x^{(n)} = nx^{(n-1)}$, we have:
 \[
 	\Delta \begin{pmatrix} x^{(0)} \\ x^{(1)} \\ x^{(2)} \\ x^{(3)} \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 2x^{(1)} \\ 3x^{(2)} \end{pmatrix} = \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 3 & 0\end{pmatrix} \begin{pmatrix}  x^{(0)} \\ x^{(1)} \\ x^{(2)} \\ x^{(3)}\end{pmatrix}
 \]
-\subsection*{General Basis}
+\subsection{General Basis}
 
 Consider a general basis of the form: $\{1, (x-x_0), (x-x_0)(x-x_1), (x-x_0)(x-x_1)(x-x_2), \dots \}$
 
@@ -1521,21 +1531,21 @@ Consider a general basis of the form: $\{1, (x-x_0), (x-x_0)(x-x_1), (x-x_0)(x-x
 	$x^2 = x + x(x-1) = x^{(1)} + x^{(2)}$
 }
 
-\section*{Linear Combinations}
+\section{Linear Combinations}
 
-\subsection*{Generating Sets}
+\subsection{Generating Sets}
 
 \dfn{Generating Set}{
-A generating set of a vector space $V$ is a set of vectors such that every vector in $V$ can be written as a linear combination of the vectors in the generating set.
+	A generating set of a vector space $V$ is a set of vectors such that every vector in $V$ can be written as a linear combination of the vectors in the generating set.
 }
 
 \nt{
-The provided notes explore a specific summation and its connection to integration. The core idea is to demonstrate how a discrete sum can approximate a definite integral. Let's break it down step by step.
+	The provided notes explore a specific summation and its connection to integration. The core idea is to demonstrate how a discrete sum can approximate a definite integral. Let's break it down step by step.
 }
 \ex{Summation Formula}{
 Given a summation:
 \[
-\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_a^{b+1}
+	\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_a^{b+1}
 \]
 where $x^{(n)}$ likely represents the falling factorial power, defined as $x^{(n)} = x(x-1)(x-2)...(x-n+1)$.
 }
@@ -1543,7 +1553,7 @@ where $x^{(n)}$ likely represents the falling factorial power, defined as $x^{(n
 \thm{Falling Factorial Power Summation}{
 For a falling factorial power $x^{(n)} = x(x-1)...(x-n+1)$, the summation from $x=a$ to $b$ is given by:
 \[
-\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_{a}^{b+1} = \frac{(b+1)^{(n+1)}}{n+1} - \frac{a^{(n+1)}}{n+1}
+	\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_{a}^{b+1} = \frac{(b+1)^{(n+1)}}{n+1} - \frac{a^{(n+1)}}{n+1}
 \]
 }
 
@@ -1553,7 +1563,7 @@ For a falling factorial power $x^{(n)} = x(x-1)...(x-n+1)$, the summation from $
 The notes also present a more concrete example:
 
 \[
-\sum_{1}^{n} x = \sum_1^n \frac{\Delta x^{(2)}}{2} = \frac{1}{2} x^{(2)} \Big|_1^{n+1}
+	\sum_{1}^{n} x = \sum_1^n \frac{\Delta x^{(2)}}{2} = \frac{1}{2} x^{(2)} \Big|_1^{n+1}
 \]
 
 Here, $\Delta x^{(2)}$ likely represents the difference $ (x+1)^{(2)}-x^{(2)} $.
@@ -1562,103 +1572,296 @@ Here, $\Delta x^{(2)}$ likely represents the difference $ (x+1)^{(2)}-x^{(2)} $.
 \thm{Sum of First n Natural Numbers}{
 The sum of the first 'n' natural numbers can be represented and calculated using the falling factorial as follows:
 \[
-\sum_{x=1}^{n} x = \frac{1}{2} x(x-1+1) \Big|_{1}^{n+1}= \frac{1}{2}[(n+1)(n) - (1)(0)] = \frac{n(n+1)}{2}
+	\sum_{x=1}^{n} x = \frac{1}{2} x(x-1+1) \Big|_{1}^{n+1}= \frac{1}{2}[(n+1)(n) - (1)(0)] = \frac{n(n+1)}{2}
 \]
 
 }
 
 \nt{
-This establishes the familiar formula for the sum of the first 'n' natural numbers. The connection to the falling factorial and the structure resembling integration (evaluation at upper and lower bounds) is highlighted.
+	This establishes the familiar formula for the sum of the first 'n' natural numbers. The connection to the falling factorial and the structure resembling integration (evaluation at upper and lower bounds) is highlighted.
 }
 
-\subsection*{Connection to Integration}
+\subsection{Connection to Integration}
 \nt{
 The general form $\sum_{x=a}^{b} x^{(n)} = \frac{x^{(n+1)}}{n+1} \Big|_a^{b+1}$ strongly mirrors the power rule of integration: $\int x^n dx = \frac{x^{n+1}}{n+1} + C$. The discrete sum of falling factorials is analogous to the definite integral. The limits of summation ($a$ and $b$) correspond to the limits of integration. The $+1$ on the upper bound in the summation formula mimics the nature of discrete steps versus continuous evaluation.
 }
 
 \ex{Illustrative Example - Sum of First n Integers}{
 
-Consider the summation of the first 'n' integers:
-\[
-\sum_{x=1}^{n} x
-\]
-This can be viewed as an approximation of the integral:
-\[
-\int_{1}^{n} x \, dx
-\]
+	Consider the summation of the first 'n' integers:
+	\[
+		\sum_{x=1}^{n} x
+	\]
+	This can be viewed as an approximation of the integral:
+	\[
+		\int_{1}^{n} x \, dx
+	\]
 
 }
 \begin{tikzpicture}
-\begin{axis}[
-    axis lines = left,
-    xlabel = $x$,
-    ylabel = {$f(x) = x$},
-    xmin=0, xmax=6,
-    ymin=0, ymax=6,
-    xtick={1,2,3,4,5},
-    ytick={1,2,3,4,5},
-    width=8cm, height=8cm,
-    clip=false
-]
-\addplot [
-    domain=0:5,
-    samples=100,
-    color=blue,
-]
-{x};
-\addplot[
-    ycomb,
-    color=red,
-    mark=*,
-]
-coordinates {
-(1,1)
-(2,2)
-(3,3)
-(4,4)
-(5,5)
-};
+	\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = {$f(x) = x$},
+			xmin=0, xmax=6,
+			ymin=0, ymax=6,
+			xtick={1,2,3,4,5},
+			ytick={1,2,3,4,5},
+			width=8cm, height=8cm,
+			clip=false
+		]
+		\addplot [
+			domain=0:5,
+			samples=100,
+			color=blue,
+		]
+		{x};
+		\addplot[
+			ycomb,
+			color=red,
+			mark=*,
+		]
+		coordinates {
+				(1,1)
+				(2,2)
+				(3,3)
+				(4,4)
+				(5,5)
+			};
 
-\draw[dashed] (axis cs:1,0) -- (axis cs:1,1);
-\draw[dashed] (axis cs:2,0) -- (axis cs:2,2);
-\draw[dashed] (axis cs:3,0) -- (axis cs:3,3);
-\draw[dashed] (axis cs:4,0) -- (axis cs:4,4);
-\draw[dashed] (axis cs:5,0) -- (axis cs:5,5);
+		\draw[dashed] (axis cs:1,0) -- (axis cs:1,1);
+		\draw[dashed] (axis cs:2,0) -- (axis cs:2,2);
+		\draw[dashed] (axis cs:3,0) -- (axis cs:3,3);
+		\draw[dashed] (axis cs:4,0) -- (axis cs:4,4);
+		\draw[dashed] (axis cs:5,0) -- (axis cs:5,5);
 
-\node[right] at (axis cs: 5,5) {$f(x) = x$};
-\node[above] at (axis cs: 1,1) {$\bullet$};
-\node[above] at (axis cs: 2,2) {$\bullet$};
-\node[above] at (axis cs: 3,3) {$\bullet$};
-\node[above] at (axis cs: 4,4) {$\bullet$};
-\node[above] at (axis cs: 5,5) {$\bullet$};
-\node[below] at (axis cs:1, 0) {1};
-\node[below] at (axis cs:2, 0) {2};
-\node[below] at (axis cs:3, 0) {3};
-\node[below] at (axis cs:4, 0) {4};
-\node[below] at (axis cs:5, 0) {5};
+		\node[right] at (axis cs: 5,5) {$f(x) = x$};
+		\node[above] at (axis cs: 1,1) {$\bullet$};
+		\node[above] at (axis cs: 2,2) {$\bullet$};
+		\node[above] at (axis cs: 3,3) {$\bullet$};
+		\node[above] at (axis cs: 4,4) {$\bullet$};
+		\node[above] at (axis cs: 5,5) {$\bullet$};
+		\node[below] at (axis cs:1, 0) {1};
+		\node[below] at (axis cs:2, 0) {2};
+		\node[below] at (axis cs:3, 0) {3};
+		\node[below] at (axis cs:4, 0) {4};
+		\node[below] at (axis cs:5, 0) {5};
 
-\addplot[
-    only marks,
-    mark=*,
-    color = black
-] coordinates{(1,0) (2,0) (3,0) (4,0) (5,0)};
-\end{axis}
+		\addplot[
+			only marks,
+			mark=*,
+			color = black
+		] coordinates{(1,0) (2,0) (3,0) (4,0) (5,0)};
+	\end{axis}
 \end{tikzpicture}
 
 \nt{
-The blue line represents the continuous function $f(x) = x$.  The red dots represent the discrete values at integer points. The summation $\sum_{x=1}^{n} x$ adds up the y-values of these red dots. The integral $\int_{1}^{n} x \, dx$ calculates the area under the blue line from $x=1$ to $x=n$.  As 'n' increases, and the discrete steps become smaller, the summation becomes a better approximation of the integral.
+	The blue line represents the continuous function $f(x) = x$.  The red dots represent the discrete values at integer points. The summation $\sum_{x=1}^{n} x$ adds up the y-values of these red dots. The integral $\int_{1}^{n} x \, dx$ calculates the area under the blue line from $x=1$ to $x=n$.  As 'n' increases, and the discrete steps become smaller, the summation becomes a better approximation of the integral.
 }
 
 \qs{Relationship between Summation and Integration}{
-How does the discrete summation relate to the definite integral?
+	How does the discrete summation relate to the definite integral?
 }
 
 \sol{
-The discrete summation can be seen as a Riemann sum approximation of the definite integral.  Specifically, it's akin to a right Riemann sum where the width of each rectangle is 1. The falling factorial summation formula provides a closed-form expression for this particular type of Riemann sum.
+	The discrete summation can be seen as a Riemann sum approximation of the definite integral.  Specifically, it's akin to a right Riemann sum where the width of each rectangle is 1. The falling factorial summation formula provides a closed-form expression for this particular type of Riemann sum.
 }
 
 \nt{
-In essence, the notes demonstrate a fundamental concept in calculus: the connection between discrete sums and continuous integrals.  The falling factorial provides a bridge between these two worlds, allowing for a discrete analogue of the power rule of integration.
+	In essence, the notes demonstrate a fundamental concept in calculus: the connection between discrete sums and continuous integrals.  The falling factorial provides a bridge between these two worlds, allowing for a discrete analogue of the power rule of integration.
 }
+
+\section{Second Order Homogeneous Recurrence Relation with Constant Coefficients}
+
+\subsection{General Form}
+
+A second-order homogeneous recurrence relation with constant coefficients is an equation of the form:
+$$a_n + a_{n-1} - 6a_{n-2} = 0$$
+
+\subsection{Solving the Recurrence Relation}
+
+To solve this, we assume a solution of the form $a_n = Cr^n$, where $C$ and $r$ are constants. Substituting this into the recurrence relation, we get:
+$$Cr^n + Cr^{n-1} - 6Cr^{n-2} = 0$$
+Dividing by $Cr^{n-2}$ (assuming $C \neq 0$ and $r \neq 0$), we obtain the characteristic equation:
+$$r^2 + r - 6 = 0$$
+Factoring the quadratic, we have:
+$$(r+3)(r-2) = 0$$
+Thus, the roots are $r_1 = 2$ and $r_2 = -3$.
+
+\subsection{General Solution}
+
+The general solution is a linear combination of the solutions corresponding to each root:
+$$a_n = C_1(2)^n + C_2(-3)^n$$
+where $C_1$ and $C_2$ are constants determined by initial conditions.
+
+\subsection{Specific Solution with Initial Conditions}
+
+Suppose we are given the initial conditions $a_0 = -1$ and $a_1 = 8$. We can use these to find $C_1$ and $C_2$:
+\begin{align*}
+	a_0 = C_1(2)^0 + C_2(-3)^0 & = C_1 + C_2 = -1  \\
+	a_1 = C_1(2)^1 + C_2(-3)^1 & = 2C_1 - 3C_2 = 8
+\end{align*}
+Solving this system of equations:
+From the first equation, $C_1 = -1 - C_2$. Substituting this into the second equation:
+$$2(-1 - C_2) - 3C_2 = 8$$
+$$-2 - 2C_2 - 3C_2 = 8$$
+$$-5C_2 = 10$$
+$$C_2 = -2$$
+Then, $C_1 = -1 - (-2) = 1$.
+Therefore, the specific solution is:
+$$a_n = (1)(2)^n + (-2)(-3)^n = 2^n - 2(-3)^n$$
+
+\section{Recurrence Relation Example 1}
+
+\subsection{Problem Statement}
+
+Consider the recurrence relation $a_{n+2} = a_{n+1} + a_n$ for $n \geq 0$, with initial conditions $a_0 = 0$ and $a_1 = 1$.
+
+\subsection{Solving the Recurrence Relation}
+
+Assume a solution of the form $a_n = Cr^n$. Substituting into the recurrence relation, we get:
+$$Cr^{n+2} = Cr^{n+1} + Cr^n$$
+Dividing by $Cr^n$, we obtain the characteristic equation:
+$$r^2 = r + 1$$
+$$r^2 - r - 1 = 0$$
+Using the quadratic formula, we find the roots:
+$$r = \frac{-(-1) \pm \sqrt{(-1)^2 - 4(1)(-1)}}{2(1)} = \frac{1 \pm \sqrt{5}}{2}$$
+Thus, the roots are $r_1 = \frac{1 + \sqrt{5}}{2}$ and $r_2 = \frac{1 - \sqrt{5}}{2}$.
+
+\subsection{General Solution}
+
+The general solution is:
+$$a_n = C_1\left(\frac{1 + \sqrt{5}}{2}\right)^n + C_2\left(\frac{1 - \sqrt{5}}{2}\right)^n$$
+
+\subsection{Specific Solution with Initial Conditions}
+
+We have $a_0 = 0$ and $a_1 = 1$.
+\begin{align*}
+	a_0 = C_1\left(\frac{1 + \sqrt{5}}{2}\right)^0 + C_2\left(\frac{1 - \sqrt{5}}{2}\right)^0 & = C_1 + C_2 = 0                                                                       \\
+	a_1 = C_1\left(\frac{1 + \sqrt{5}}{2}\right)^1 + C_2\left(\frac{1 - \sqrt{5}}{2}\right)^1 & = C_1\left(\frac{1 + \sqrt{5}}{2}\right) + C_2\left(\frac{1 - \sqrt{5}}{2}\right) = 1
+\end{align*}
+From the first equation, $C_2 = -C_1$. Substituting this into the second equation:
+$$C_1\left(\frac{1 + \sqrt{5}}{2}\right) - C_1\left(\frac{1 - \sqrt{5}}{2}\right) = 1$$
+$$C_1\left(\frac{1 + \sqrt{5} - (1 - \sqrt{5})}{2}\right) = 1$$
+$$C_1\left(\frac{2\sqrt{5}}{2}\right) = 1$$
+$$C_1\sqrt{5} = 1$$
+$$C_1 = \frac{1}{\sqrt{5}}$$
+Then, $C_2 = -\frac{1}{\sqrt{5}}$.
+Therefore, the specific solution is:
+$$a_n = \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n - \frac{1}{\sqrt{5}}\left(\frac{1 - \sqrt{5}}{2}\right)^n = \frac{1}{\sqrt{5}}\left[\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right]$$
+This is the closed-form expression for the Fibonacci sequence.
+
+\chapter{Recurrence Relations}
+
+\section{Recurrence Relation with Complex Roots}
+
+\subsection{Problem Statement}
+
+Consider the recurrence relation $a_n = 2a_{n-1} - 2a_{n-2}$ for $n \geq 2$, with initial conditions $a_0 = 1$ and $a_1 = 2$.
+
+\subsection{Solving the Recurrence Relation}
+
+Assume a solution of the form $a_n = Cr^n$. Substituting into the recurrence relation, we get:
+$$Cr^n = 2Cr^{n-1} - 2Cr^{n-2}$$
+Dividing by $Cr^{n-2}$, we obtain the characteristic equation:
+$$r^2 - 2r + 2 = 0$$
+Using the quadratic formula, we find the roots:
+$$r = \frac{-(-2) \pm \sqrt{(-2)^2 - 4(1)(2)}}{2(1)} = \frac{2 \pm \sqrt{4 - 8}}{2} = \frac{2 \pm \sqrt{-4}}{2} = \frac{2 \pm 2i}{2} = 1 \pm i$$
+Thus, the roots are $r_1 = 1 + i$ and $r_2 = 1 - i$.
+
+\subsection{General Solution}
+
+Since the roots are complex, we can express them in polar form. Let $r = x + iy$. Then, $|r| = \sqrt{x^2 + y^2}$ and $\theta = \arctan(\frac{y}{x})$.
+In our case, $r_1 = 1 + i$, so $|r_1| = \sqrt{1^2 + 1^2} = \sqrt{2}$ and $\theta_1 = \arctan(\frac{1}{1}) = \frac{\pi}{4}$.
+Thus, $r_1 = \sqrt{2}(\cos(\frac{\pi}{4}) + i\sin(\frac{\pi}{4}))$ and $r_2 = \sqrt{2}(\cos(\frac{\pi}{4}) - i\sin(\frac{\pi}{4}))$.
+The general solution is:
+$$a_n = C_1[\sqrt{2}(\cos(\frac{\pi}{4}) + i\sin(\frac{\pi}{4}))]^n + C_2[\sqrt{2}(\cos(\frac{\pi}{4}) - i\sin(\frac{\pi}{4}))]^n$$
+Using De Moivre's Theorem, we have:
+$$a_n = C_1 (\sqrt{2})^n (\cos(\frac{n\pi}{4}) + i\sin(\frac{n\pi}{4})) + C_2 (\sqrt{2})^n (\cos(\frac{n\pi}{4}) - i\sin(\frac{n\pi}{4}))$$
+$$a_n = (\sqrt{2})^n [(C_1 + C_2)\cos(\frac{n\pi}{4}) + i(C_1 - C_2)\sin(\frac{n\pi}{4})]$$
+Let $K_1 = C_1 + C_2$ and $K_2 = i(C_1 - C_2)$. Then,
+$$a_n = (\sqrt{2})^n [K_1\cos(\frac{n\pi}{4}) + K_2\sin(\frac{n\pi}{4})]$$
+
+\subsection{Specific Solution with Initial Conditions}
+
+We have $a_0 = 1$ and $a_1 = 2$.
+\begin{align*}
+	a_0 = (\sqrt{2})^0 [K_1\cos(\frac{0\pi}{4}) + K_2\sin(\frac{0\pi}{4})] & = K_1\cos(0) + K_2\sin(0) = K_1 = 1                              \\
+	a_1 = (\sqrt{2})^1 [K_1\cos(\frac{1\pi}{4}) + K_2\sin(\frac{1\pi}{4})] & = \sqrt{2} [K_1\cos(\frac{\pi}{4}) + K_2\sin(\frac{\pi}{4})] = 2
+\end{align*}
+Since $K_1 = 1$, we have:
+$$\sqrt{2} [\cos(\frac{\pi}{4}) + K_2\sin(\frac{\pi}{4})] = 2$$
+$$\sqrt{2} [\frac{\sqrt{2}}{2} + K_2\frac{\sqrt{2}}{2}] = 2$$
+$$1 + K_2 = 2$$
+$$K_2 = 1$$
+Therefore, the specific solution is:
+$$a_n = (\sqrt{2})^n [\cos(\frac{n\pi}{4}) + \sin(\frac{n\pi}{4})]$$
+
+\section{Recurrence Relation with Repeated Roots}
+
+\subsection{Problem Statement}
+
+Consider the recurrence relation $a_{n+2} = 4a_{n+1} - 4a_n$ with initial conditions $a_0 = 1$ and $a_1 = 3$.
+
+\subsection{Solving the Recurrence Relation}
+
+Assume a solution of the form $a_n = Cr^n$. Substituting into the recurrence relation, we get:
+$$Cr^{n+2} = 4Cr^{n+1} - 4Cr^n$$
+Dividing by $Cr^n$, we obtain the characteristic equation:
+$$r^2 - 4r + 4 = 0$$
+$$(r-2)^2 = 0$$
+Thus, we have a repeated root $r = 2$ with multiplicity $k = 2$.
+
+\subsection{General Solution}
+
+When there is a repeated root, the general solution is of the form:
+$$a_n = C_1(2)^n + C_2n(2)^n$$
+
+\subsection{Specific Solution with Initial Conditions}
+
+We have $a_0 = 1$ and $a_1 = 3$.
+\begin{align*}
+	a_0 = C_1(2)^0 + C_2(0)(2)^0 & = C_1 = 1         \\
+	a_1 = C_1(2)^1 + C_2(1)(2)^1 & = 2C_1 + 2C_2 = 3
+\end{align*}
+Since $C_1 = 1$, we have:
+$$2(1) + 2C_2 = 3$$
+$$2C_2 = 1$$
+$$C_2 = \frac{1}{2}$$
+Therefore, the specific solution is:
+$$a_n = (2)^n + \frac{1}{2}n(2)^n$$
+
+\subsection{Linear Independence of Solutions}
+\qs{Question}{How do we show that $2^n$ and $n2^n$ are linearly independent eigenfunctions?}
+\sol{
+We can use the Wronskian determinant to show that $2^n$ and $n2^n$ are linearly independent.  The Wronskian is calculated as follows:
+$$W(n) = \begin{vmatrix}
+		2^n     & n2^n         \\
+		2^{n+1} & (n+1)2^{n+1}
+	\end{vmatrix} = 2^n(n+1)2^{n+1} - n2^n2^{n+1} = (n+1)2^{2n+1} - n2^{2n+1} = 2^{2n+1}$$
+Since $W(n) \neq 0$ for all $n$, the functions $2^n$ and $n2^n$ are linearly independent.
+}
+
+\section{Inhomogeneous Recurrence Relations}
+
+\subsection{Problem Statement}
+
+Consider the inhomogeneous recurrence relation $a_n + a_{n-1} = 3n^2$ for $n \geq 1$, with initial condition $a_0 = 7$.
+
+\subsection{Solving the Recurrence Relation}
+
+We can find a particular solution by summing the recurrence relation:
+\begin{align*}
+	a_1 & = a_0 + f(1)                            \\
+	a_2 & = a_1 + f(2) = a_0 + f(1) + f(2)        \\
+	a_3 & = a_2 + f(3) = a_0 + f(1) + f(2) + f(3) \\
+	    & \vdots                                  \\
+	a_n & = a_0 + \sum_{k=1}^{n} f(k)
+\end{align*}
+In our case, $a_0 = 7$ and $f(n) = 3n^2$. Thus,
+$$a_n = 7 + \sum_{k=1}^{n} 3k^2 = 7 + 3\sum_{k=1}^{n} k^2$$
+We know that $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$. Therefore,
+$$a_n = 7 + 3\left[\frac{n(n+1)(2n+1)}{6}\right] = 7 + \frac{n(n+1)(2n+1)}{2}$$
+$$a_n = 7 + \frac{2n^3 + 3n^2 + n}{2}$$
 
 \end{document}
