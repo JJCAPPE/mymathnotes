@@ -19,7 +19,7 @@
 \tikzset{>=latex}
 \usepackage{siunitx}
 
-\title{\Huge{MA193}\\Discrete Mathematics}
+\title{\Huge{MA193}\\Made with \href{https://www.noteworthyy.xyz/}{noteworthyy.xyz}}
 \author{\huge{Giacomo Cappelletto}}
 \date{21/1/25}
 
@@ -1864,16 +1864,16 @@ $$a_n = 7 + 3\left[\frac{n(n+1)(2n+1)}{6}\right] = 7 + \frac{n(n+1)(2n+1)}{2}$$
 $$a_n = 7 + \frac{2n^3 + 3n^2 + n}{2}$$
 
 
-\section*{Recurrence Relations}
+\section{Recurrence Relations}
 
-\subsection*{Solving Inhomogeneous Recurrences}
+\subsection{Solving Inhomogeneous Recurrences}
 
 \dfn{Linear Inhomogeneous Recurrence Relation}{
-A linear inhomogeneous recurrence relation with constant coefficients is of the form:
-\[ c_k a_n + c_{k-1} a_{n-1} + \dots + c_0 a_{n-k} = f(n) \]
-where $c_i$ are constants, $c_k \neq 0$, $c_0 \neq 0$, and $f(n)$ is a non-zero function of $n$.
-The associated homogeneous recurrence relation is:
-\[ c_k a_n + c_{k-1} a_{n-1} + \dots + c_0 a_{n-k} = 0 \]
+	A linear inhomogeneous recurrence relation with constant coefficients is of the form:
+	\[ c_k a_n + c_{k-1} a_{n-1} + \dots + c_0 a_{n-k} = f(n) \]
+	where $c_i$ are constants, $c_k \neq 0$, $c_0 \neq 0$, and $f(n)$ is a non-zero function of $n$.
+	The associated homogeneous recurrence relation is:
+	\[ c_k a_n + c_{k-1} a_{n-1} + \dots + c_0 a_{n-k} = 0 \]
 }
 
 \thm{General Solution of Inhomogeneous Recurrence}{
@@ -1883,313 +1883,629 @@ The constants in $a_n^{(h)}$ are determined using the initial conditions after f
 }
 
 \ex{Recurrence Relation $a_n - a_{n-1} = 3n^2$ (Iteration Method)}{
-We are asked to solve the recurrence relation $a_n - a_{n-1} = 3n^2$ for $n \ge 1$, with the initial condition $a_0 = 7$.
+	We are asked to solve the recurrence relation $a_n - a_{n-1} = 3n^2$ for $n \ge 1$, with the initial condition $a_0 = 7$.
 
-\sol
-This is a first-order linear inhomogeneous recurrence relation. We can solve it by iteration (also known as telescoping sum).
-Let $f(n) = 3n^2$. The relation is $a_n = a_{n-1} + f(n)$.
-We can write out the first few terms:
-\begin{align*} a_1 &= a_0 + f(1) = 7 + 3(1^2) \\ a_2 &= a_1 + f(2) = (a_0 + f(1)) + f(2) = 7 + 3(1^2) + 3(2^2) \\ a_3 &= a_2 + f(3) = (a_0 + f(1) + f(2)) + f(3) = 7 + 3(1^2) + 3(2^2) + 3(3^2) \end{align*}
-In general, we can see the pattern:
-\[ a_n = a_0 + \sum_{i=1}^n f(i) = 7 + \sum_{i=1}^n 3i^2 = 7 + 3 \sum_{i=1}^n i^2 \]
-We use the formula for the sum of the first $n$ squares: $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$.
-Substituting this into our expression for $a_n$:
-\[ a_n = 7 + 3 \left( \frac{n(n+1)(2n+1)}{6} \right) \]
-\[ a_n = 7 + \frac{n(n+1)(2n+1)}{2} \]
-We can expand this expression:
-\[ a_n = 7 + \frac{n(2n^2 + 3n + 1)}{2} = 7 + \frac{2n^3 + 3n^2 + n}{2} \]
-\[ a_n = \frac{14 + 2n^3 + 3n^2 + n}{2} = n^3 + \frac{3}{2}n^2 + \frac{1}{2}n + 7 \]
-The solution to the recurrence relation is $a_n = 7 + \frac{n(n+1)(2n+1)}{2}$.
+	\sol
+	This is a first-order linear inhomogeneous recurrence relation. We can solve it by iteration (also known as telescoping sum).
+	Let $f(n) = 3n^2$. The relation is $a_n = a_{n-1} + f(n)$.
+	We can write out the first few terms:
+	\begin{align*} a_1 &= a_0 + f(1) = 7 + 3(1^2) \\ a_2 &= a_1 + f(2) = (a_0 + f(1)) + f(2) = 7 + 3(1^2) + 3(2^2) \\ a_3 &= a_2 + f(3) = (a_0 + f(1) + f(2)) + f(3) = 7 + 3(1^2) + 3(2^2) + 3(3^2) \end{align*}
+	In general, we can see the pattern:
+	\[ a_n = a_0 + \sum_{i=1}^n f(i) = 7 + \sum_{i=1}^n 3i^2 = 7 + 3 \sum_{i=1}^n i^2 \]
+	We use the formula for the sum of the first $n$ squares: $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$.
+	Substituting this into our expression for $a_n$:
+	\[ a_n = 7 + 3 \left( \frac{n(n+1)(2n+1)}{6} \right) \]
+	\[ a_n = 7 + \frac{n(n+1)(2n+1)}{2} \]
+	We can expand this expression:
+	\[ a_n = 7 + \frac{n(2n^2 + 3n + 1)}{2} = 7 + \frac{2n^3 + 3n^2 + n}{2} \]
+	\[ a_n = \frac{14 + 2n^3 + 3n^2 + n}{2} = n^3 + \frac{3}{2}n^2 + \frac{1}{2}n + 7 \]
+	The solution to the recurrence relation is $a_n = 7 + \frac{n(n+1)(2n+1)}{2}$.
 }
 
 \ex{Recurrence Relation $a_n - 3a_{n-1} = 5(7)^n$ (Method of Undetermined Coefficients)}{
-Solve the recurrence relation $a_n - 3a_{n-1} = 5(7)^n$ for $n \ge 1$, with $a_0 = 2$.
+	Solve the recurrence relation $a_n - 3a_{n-1} = 5(7)^n$ for $n \ge 1$, with $a_0 = 2$.
 
-\sol
-This is a first-order linear inhomogeneous recurrence relation. We use the method of undetermined coefficients.
+	\sol
+	This is a first-order linear inhomogeneous recurrence relation. We use the method of undetermined coefficients.
 
-\begin{enumerate}
-    \item \textbf{Find the homogeneous solution $a_n^{(h)}$:}
-    The associated homogeneous equation is $a_n^{(h)} - 3a_{n-1}^{(h)} = 0$.
-    The characteristic equation is $r - 3 = 0$, which gives the root $r=3$.
-    The general homogeneous solution is $a_n^{(h)} = C(3)^n$, where C is a constant.
+	\begin{enumerate}
+		\item \textbf{Find the homogeneous solution $a_n^{(h)}$:}
+		      The associated homogeneous equation is $a_n^{(h)} - 3a_{n-1}^{(h)} = 0$.
+		      The characteristic equation is $r - 3 = 0$, which gives the root $r=3$.
+		      The general homogeneous solution is $a_n^{(h)} = C(3)^n$, where C is a constant.
 
-    \item \textbf{Find a particular solution $a_n^{(p)}$:}
-    The inhomogeneous term is $f(n) = 5(7)^n$. Since $f(n)$ is of the form $(\text{constant}) \times 7^n$, and $7$ is not a root of the characteristic equation ($r=3$), we guess a particular solution of the form $a_n^{(p)} = \alpha (7)^n$.
-    Substitute $a_n^{(p)}$ into the original recurrence relation:
-    \[ \alpha (7)^n - 3 [\alpha (7)^{n-1}] = 5(7)^n \]
-    Divide by $7^{n-1}$ (assuming $n \ge 1$):
-    \[ \alpha (7) - 3 \alpha = 5(7) \]
-    \[ 7\alpha - 3\alpha = 35 \]
-    \[ 4\alpha = 35 \]
-    \[ \alpha = \frac{35}{4} \]
-    So, the particular solution is $a_n^{(p)} = \frac{35}{4} (7)^n$.
+		\item \textbf{Find a particular solution $a_n^{(p)}$:}
+		      The inhomogeneous term is $f(n) = 5(7)^n$. Since $f(n)$ is of the form $(\text{constant}) \times 7^n$, and $7$ is not a root of the characteristic equation ($r=3$), we guess a particular solution of the form $a_n^{(p)} = \alpha (7)^n$.
+		      Substitute $a_n^{(p)}$ into the original recurrence relation:
+		      \[ \alpha (7)^n - 3 [\alpha (7)^{n-1}] = 5(7)^n \]
+		      Divide by $7^{n-1}$ (assuming $n \ge 1$):
+		      \[ \alpha (7) - 3 \alpha = 5(7) \]
+		      \[ 7\alpha - 3\alpha = 35 \]
+		      \[ 4\alpha = 35 \]
+		      \[ \alpha = \frac{35}{4} \]
+		      So, the particular solution is $a_n^{(p)} = \frac{35}{4} (7)^n$.
 
-    \item \textbf{Find the general solution $a_n$:}
-    The general solution is $a_n = a_n^{(h)} + a_n^{(p)} = C(3)^n + \frac{35}{4} (7)^n$.
+		\item \textbf{Find the general solution $a_n$:}
+		      The general solution is $a_n = a_n^{(h)} + a_n^{(p)} = C(3)^n + \frac{35}{4} (7)^n$.
 
-    \item \textbf{Use the initial condition to find C:}
-    We are given $a_0 = 2$. Substitute $n=0$ into the general solution:
-    \[ a_0 = C(3)^0 + \frac{35}{4} (7)^0 \]
-    \[ 2 = C(1) + \frac{35}{4} (1) \]
-    \[ 2 = C + \frac{35}{4} \]
-    \[ C = 2 - \frac{35}{4} = \frac{8}{4} - \frac{35}{4} = -\frac{27}{4} \]
+		\item \textbf{Use the initial condition to find C:}
+		      We are given $a_0 = 2$. Substitute $n=0$ into the general solution:
+		      \[ a_0 = C(3)^0 + \frac{35}{4} (7)^0 \]
+		      \[ 2 = C(1) + \frac{35}{4} (1) \]
+		      \[ 2 = C + \frac{35}{4} \]
+		      \[ C = 2 - \frac{35}{4} = \frac{8}{4} - \frac{35}{4} = -\frac{27}{4} \]
 
-    \item \textbf{Write the final solution:}
-    Substituting the value of C back into the general solution:
-    \[ a_n = -\frac{27}{4} (3)^n + \frac{35}{4} (7)^n \]
-\end{enumerate}
+		\item \textbf{Write the final solution:}
+		      Substituting the value of C back into the general solution:
+		      \[ a_n = -\frac{27}{4} (3)^n + \frac{35}{4} (7)^n \]
+	\end{enumerate}
 }
 
 \ex{Recurrence Relation $a_n - 3a_{n-1} = 5(3)^n$ (Resonant Case)}{
-Solve the recurrence relation $a_n - 3a_{n-1} = 5(3)^n$ for $n \ge 1$, with $a_0 = 2$.
+	Solve the recurrence relation $a_n - 3a_{n-1} = 5(3)^n$ for $n \ge 1$, with $a_0 = 2$.
 
-\sol
-This is similar to the previous example, but the inhomogeneous term involves the root of the characteristic equation.
+	\sol
+	This is similar to the previous example, but the inhomogeneous term involves the root of the characteristic equation.
 
-\begin{enumerate}
-    \item \textbf{Find the homogeneous solution $a_n^{(h)}$:}
-    The associated homogeneous equation is $a_n^{(h)} - 3a_{n-1}^{(h)} = 0$.
-    The characteristic equation is $r - 3 = 0$, giving the root $r=3$.
-    The general homogeneous solution is $a_n^{(h)} = C(3)^n$.
+	\begin{enumerate}
+		\item \textbf{Find the homogeneous solution $a_n^{(h)}$:}
+		      The associated homogeneous equation is $a_n^{(h)} - 3a_{n-1}^{(h)} = 0$.
+		      The characteristic equation is $r - 3 = 0$, giving the root $r=3$.
+		      The general homogeneous solution is $a_n^{(h)} = C(3)^n$.
 
-    \item \textbf{Find a particular solution $a_n^{(p)}$:}
-    The inhomogeneous term is $f(n) = 5(3)^n$. Since the base $3$ matches the characteristic root $r=3$ (with multiplicity $m=1$), we must modify our guess for the particular solution. Instead of $\alpha(3)^n$, we guess $a_n^{(p)} = \alpha n^m (3)^n = \alpha n (3)^n$.
-    Substitute $a_n^{(p)}$ into the original recurrence relation:
-    \[ \alpha n (3)^n - 3 [\alpha (n-1) (3)^{n-1}] = 5(3)^n \]
-    Divide by $3^{n-1}$:
-    \[ \alpha n (3) - 3 [\alpha (n-1)] = 5(3) \]
-    \[ 3\alpha n - 3\alpha (n-1) = 15 \]
-    \[ 3\alpha n - 3\alpha n + 3\alpha = 15 \]
-    \[ 3\alpha = 15 \]
-    \[ \alpha = 5 \]
-    So, the particular solution is $a_n^{(p)} = 5n (3)^n$.
+		\item \textbf{Find a particular solution $a_n^{(p)}$:}
+		      The inhomogeneous term is $f(n) = 5(3)^n$. Since the base $3$ matches the characteristic root $r=3$ (with multiplicity $m=1$), we must modify our guess for the particular solution. Instead of $\alpha(3)^n$, we guess $a_n^{(p)} = \alpha n^m (3)^n = \alpha n (3)^n$.
+		      Substitute $a_n^{(p)}$ into the original recurrence relation:
+		      \[ \alpha n (3)^n - 3 [\alpha (n-1) (3)^{n-1}] = 5(3)^n \]
+		      Divide by $3^{n-1}$:
+		      \[ \alpha n (3) - 3 [\alpha (n-1)] = 5(3) \]
+		      \[ 3\alpha n - 3\alpha (n-1) = 15 \]
+		      \[ 3\alpha n - 3\alpha n + 3\alpha = 15 \]
+		      \[ 3\alpha = 15 \]
+		      \[ \alpha = 5 \]
+		      So, the particular solution is $a_n^{(p)} = 5n (3)^n$.
 
-    \nt{If we had tried $a_n^{(p)} = \beta(3)^n$, substituting would give $\beta(3)^n - 3\beta(3)^{n-1} = \beta(3)^n - \beta(3)^n = 0$. Setting this equal to $5(3)^n$ gives $0 = 5(3)^n$, which is impossible. This confirms the need for the modification factor $n$.}
+		      \nt{If we had tried $a_n^{(p)} = \beta(3)^n$, substituting would give $\beta(3)^n - 3\beta(3)^{n-1} = \beta(3)^n - \beta(3)^n = 0$. Setting this equal to $5(3)^n$ gives $0 = 5(3)^n$, which is impossible. This confirms the need for the modification factor $n$.}
 
-    \item \textbf{Find the general solution $a_n$:}
-    The general solution is $a_n = a_n^{(h)} + a_n^{(p)} = C(3)^n + 5n(3)^n = (C+5n)3^n$.
+		\item \textbf{Find the general solution $a_n$:}
+		      The general solution is $a_n = a_n^{(h)} + a_n^{(p)} = C(3)^n + 5n(3)^n = (C+5n)3^n$.
 
-    \item \textbf{Use the initial condition to find C:}
-    We are given $a_0 = 2$. Substitute $n=0$:
-    \[ a_0 = (C+5(0))3^0 \]
-    \[ 2 = (C)(1) \]
-    \[ C = 2 \]
+		\item \textbf{Use the initial condition to find C:}
+		      We are given $a_0 = 2$. Substitute $n=0$:
+		      \[ a_0 = (C+5(0))3^0 \]
+		      \[ 2 = (C)(1) \]
+		      \[ C = 2 \]
 
-    \item \textbf{Write the final solution:}
-    Substituting $C=2$ back into the general solution:
-    \[ a_n = (2+5n)3^n \]
-\end{enumerate}
+		\item \textbf{Write the final solution:}
+		      Substituting $C=2$ back into the general solution:
+		      \[ a_n = (2+5n)3^n \]
+	\end{enumerate}
 }
 
-\subsection*{Summation via Recurrence Relations}
+\subsection{Summation via Recurrence Relations}
 
 We can sometimes evaluate summations by framing them as recurrence relations.
 
 \ex{Finding a Closed Form for $\sum_{i=1}^n i^2$}{
-Find a closed-form expression for the sum $S_n = \sum_{i=1}^n i^2$.
+	Find a closed-form expression for the sum $S_n = \sum_{i=1}^n i^2$.
 
-\sol
-Let $a_n = \sum_{i=1}^n i^2$. We define $a_0 = 0$.
-For $n \ge 1$, we have the relationship:
-\[ a_n = \sum_{i=1}^n i^2 = \left( \sum_{i=1}^{n-1} i^2 \right) + n^2 = a_{n-1} + n^2 \]
-This gives us the recurrence relation $a_n - a_{n-1} = n^2$ with $a_0 = 0$. This is a linear inhomogeneous recurrence relation.
+	\sol
+	Let $a_n = \sum_{i=1}^n i^2$. We define $a_0 = 0$.
+	For $n \ge 1$, we have the relationship:
+	\[ a_n = \sum_{i=1}^n i^2 = \left( \sum_{i=1}^{n-1} i^2 \right) + n^2 = a_{n-1} + n^2 \]
+	This gives us the recurrence relation $a_n - a_{n-1} = n^2$ with $a_0 = 0$. This is a linear inhomogeneous recurrence relation.
 
-\begin{enumerate}
-    \item \textbf{Homogeneous solution $a_n^{(h)}$:}
-    The homogeneous equation is $a_n^{(h)} - a_{n-1}^{(h)} = 0$.
-    The characteristic equation is $r-1=0$, so $r=1$.
-    The homogeneous solution is $a_n^{(h)} = C(1)^n = C$.
+	\begin{enumerate}
+		\item \textbf{Homogeneous solution $a_n^{(h)}$:}
+		      The homogeneous equation is $a_n^{(h)} - a_{n-1}^{(h)} = 0$.
+		      The characteristic equation is $r-1=0$, so $r=1$.
+		      The homogeneous solution is $a_n^{(h)} = C(1)^n = C$.
 
-    \item \textbf{Particular solution $a_n^{(p)}$:}
-    The inhomogeneous term is $f(n) = n^2$, a polynomial of degree 2.
-    Since the characteristic root is $r=1$ (multiplicity $m=1$), we guess a particular solution of the form $a_n^{(p)} = n^m (\text{polynomial of degree 2}) = n(Bn^2 + Dn + E)$. Let's use the constants as in the notes: $a_n^{(p)} = n(Dn^2 + Cn + B) = Dn^3 + Cn^2 + Bn$. (Note: the constants B,C,D here correspond to D,C,B in the notes' guess $Bn+Cn^2+Dn^3$. Let's stick to $Dn^3 + Cn^2 + Bn$ to match the standard form).
-    Substitute into $a_n - a_{n-1} = n^2$:
-    \[ (Dn^3 + Cn^2 + Bn) - [D(n-1)^3 + C(n-1)^2 + B(n-1)] = n^2 \]
-    Expand $(n-1)^3 = n^3 - 3n^2 + 3n - 1$ and $(n-1)^2 = n^2 - 2n + 1$.
-    \[ D(n^3 - (n^3 - 3n^2 + 3n - 1)) + C(n^2 - (n^2 - 2n + 1)) + B(n - (n-1)) = n^2 \]
-    \[ D(3n^2 - 3n + 1) + C(2n - 1) + B(1) = n^2 \]
-    \[ (3D)n^2 + (-3D + 2C)n + (D - C + B) = 1 \cdot n^2 + 0 \cdot n + 0 \]
-    Equating coefficients:
-    \begin{itemize}
-        \item Coefficient of $n^2$: $3D = 1 \implies D = 1/3$.
-        \item Coefficient of $n$: $-3D + 2C = 0 \implies -3(1/3) + 2C = 0 \implies -1 + 2C = 0 \implies C = 1/2$.
-        \item Constant term: $D - C + B = 0 \implies 1/3 - 1/2 + B = 0 \implies -1/6 + B = 0 \implies B = 1/6$.
-    \end{itemize}
-    The particular solution is $a_n^{(p)} = \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$.
+		\item \textbf{Particular solution $a_n^{(p)}$:}
+		      The inhomogeneous term is $f(n) = n^2$, a polynomial of degree 2.
+		      Since the characteristic root is $r=1$ (multiplicity $m=1$), we guess a particular solution of the form $a_n^{(p)} = n^m (\text{polynomial of degree 2}) = n(Bn^2 + Dn + E)$. Let's use the constants as in the notes: $a_n^{(p)} = n(Dn^2 + Cn + B) = Dn^3 + Cn^2 + Bn$. (Note: the constants B,C,D here correspond to D,C,B in the notes' guess $Bn+Cn^2+Dn^3$. Let's stick to $Dn^3 + Cn^2 + Bn$ to match the standard form).
+		      Substitute into $a_n - a_{n-1} = n^2$:
+		      \[ (Dn^3 + Cn^2 + Bn) - [D(n-1)^3 + C(n-1)^2 + B(n-1)] = n^2 \]
+		      Expand $(n-1)^3 = n^3 - 3n^2 + 3n - 1$ and $(n-1)^2 = n^2 - 2n + 1$.
+		      \[ D(n^3 - (n^3 - 3n^2 + 3n - 1)) + C(n^2 - (n^2 - 2n + 1)) + B(n - (n-1)) = n^2 \]
+		      \[ D(3n^2 - 3n + 1) + C(2n - 1) + B(1) = n^2 \]
+		      \[ (3D)n^2 + (-3D + 2C)n + (D - C + B) = 1 \cdot n^2 + 0 \cdot n + 0 \]
+		      Equating coefficients:
+		      \begin{itemize}
+			      \item Coefficient of $n^2$: $3D = 1 \implies D = 1/3$.
+			      \item Coefficient of $n$: $-3D + 2C = 0 \implies -3(1/3) + 2C = 0 \implies -1 + 2C = 0 \implies C = 1/2$.
+			      \item Constant term: $D - C + B = 0 \implies 1/3 - 1/2 + B = 0 \implies -1/6 + B = 0 \implies B = 1/6$.
+		      \end{itemize}
+		      The particular solution is $a_n^{(p)} = \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$.
 
-    \item \textbf{General solution $a_n$:}
-    $a_n = a_n^{(h)} + a_n^{(p)} = A + \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$. (Using A for the homogeneous constant).
+		\item \textbf{General solution $a_n$:}
+		      $a_n = a_n^{(h)} + a_n^{(p)} = A + \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$. (Using A for the homogeneous constant).
 
-    \item \textbf{Use initial condition $a_0 = 0$:}
-    $a_0 = A + 0 + 0 + 0 = 0 \implies A = 0$.
+		\item \textbf{Use initial condition $a_0 = 0$:}
+		      $a_0 = A + 0 + 0 + 0 = 0 \implies A = 0$.
 
-    \item \textbf{Final solution:}
-    $a_n = \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$.
-    We can factor this expression:
-    \[ a_n = \frac{2n^3 + 3n^2 + n}{6} = \frac{n(2n^2 + 3n + 1)}{6} = \frac{n(n+1)(2n+1)}{6} \]
-\end{enumerate}
-This confirms the well-known formula for the sum of the first $n$ squares.
+		\item \textbf{Final solution:}
+		      $a_n = \frac{1}{3}n^3 + \frac{1}{2}n^2 + \frac{1}{6}n$.
+		      We can factor this expression:
+		      \[ a_n = \frac{2n^3 + 3n^2 + n}{6} = \frac{n(2n^2 + 3n + 1)}{6} = \frac{n(n+1)(2n+1)}{6} \]
+	\end{enumerate}
+	This confirms the well-known formula for the sum of the first $n$ squares.
 }
 
-\section*{Generating Functions}
+\section{Generating Functions}
 
 \dfn{Ordinary Generating Function (OGF)}{
-The ordinary generating function (OGF) for an infinite sequence $a_0, a_1, a_2, \dots$ is the formal power series:
-\[ G(x) = \sum_{n=0}^\infty a_n x^n = a_0 + a_1 x + a_2 x^2 + \dots \]
+	The ordinary generating function (OGF) for an infinite sequence $a_0, a_1, a_2, \dots$ is the formal power series:
+	\[ G(x) = \sum_{n=0}^\infty a_n x^n = a_0 + a_1 x + a_2 x^2 + \dots \]
 }
 
 \dfn{Exponential Generating Function (EGF)}{
-The exponential generating function (EGF) for an infinite sequence $a_0, a_1, a_2, \dots$ is the formal power series:
-\[ \hat{G}(x) = \sum_{n=0}^\infty a_n \frac{x^n}{n!} = a_0 + a_1 \frac{x}{1!} + a_2 \frac{x^2}{2!} + \dots \]
-EGFs are particularly useful for problems involving arrangements or distributions of distinct objects.
+	The exponential generating function (EGF) for an infinite sequence $a_0, a_1, a_2, \dots$ is the formal power series:
+	\[ \hat{G}(x) = \sum_{n=0}^\infty a_n \frac{x^n}{n!} = a_0 + a_1 \frac{x}{1!} + a_2 \frac{x^2}{2!} + \dots \]
+	EGFs are particularly useful for problems involving arrangements or distributions of distinct objects.
 }
 
-\subsection*{Basic Generating Functions and Operations}
+\subsection{Basic Generating Functions and Operations}
 
 Some fundamental generating functions:
 \begin{itemize}
-    \item Sequence $1, 1, 1, \dots$ (i.e., $a_n = 1$ for all $n \ge 0$):
-    OGF: $\sum_{n=0}^\infty 1 \cdot x^n = 1 + x + x^2 + \dots = \frac{1}{1-x}$.
-    \item Sequence $1, c, c^2, c^3, \dots$ (i.e., $a_n = c^n$):
-    OGF: $\sum_{n=0}^\infty c^n x^n = \sum_{n=0}^\infty (cx)^n = \frac{1}{1-cx}$.
-    \item Finite Sequence $1, 1, \dots, 1$ (n+1 ones), $0, 0, \dots$:
-    OGF: $1 + x + x^2 + \dots + x^n = \frac{1-x^{n+1}}{1-x}$.
-    \item Sequence $0, 1, 2, 3, \dots$ (i.e., $a_n = n$):
-    We can obtain this by differentiating the OGF for $1, 1, 1, \dots$ and multiplying by $x$.
-    $\frac{d}{dx} \left( \frac{1}{1-x} \right) = \frac{1}{(1-x)^2} = 1 + 2x + 3x^2 + \dots = \sum_{n=0}^\infty (n+1)x^n$. (This is the OGF for $1, 2, 3, \dots$)
-    Multiplying by $x$ shifts the sequence and introduces a leading zero:
-    $x \cdot \frac{1}{(1-x)^2} = x + 2x^2 + 3x^3 + \dots = \sum_{n=1}^\infty n x^n$. This is the OGF for $0, 1, 2, 3, \dots$.
-    \item Sequence $0, 1, 4, 9, \dots$ (i.e., $a_n = n^2$):
-    Apply the operation $x \frac{d}{dx}$ to the OGF for $a_n=n$:
-    $G_{n^2}(x) = x \frac{d}{dx} \left( \frac{x}{(1-x)^2} \right)$
-    Using the quotient rule: $\frac{d}{dx} \left( \frac{x}{(1-x)^2} \right) = \frac{1 \cdot (1-x)^2 - x \cdot 2(1-x)(-1)}{(1-x)^4} = \frac{(1-x)^2 + 2x(1-x)}{(1-x)^4} = \frac{(1-x)(1-x+2x)}{(1-x)^4} = \frac{1+x}{(1-x)^3}$.
-    So, $G_{n^2}(x) = x \cdot \frac{1+x}{(1-x)^3} = \frac{x(1+x)}{(1-x)^3}$.
-    This is the OGF for $0^2, 1^2, 2^2, 3^2, \dots$.
+	\item Sequence $1, 1, 1, \dots$ (i.e., $a_n = 1$ for all $n \ge 0$):
+	      OGF: $\sum_{n=0}^\infty 1 \cdot x^n = 1 + x + x^2 + \dots = \frac{1}{1-x}$.
+	\item Sequence $1, c, c^2, c^3, \dots$ (i.e., $a_n = c^n$):
+	      OGF: $\sum_{n=0}^\infty c^n x^n = \sum_{n=0}^\infty (cx)^n = \frac{1}{1-cx}$.
+	\item Finite Sequence $1, 1, \dots, 1$ (n+1 ones), $0, 0, \dots$:
+	      OGF: $1 + x + x^2 + \dots + x^n = \frac{1-x^{n+1}}{1-x}$.
+	\item Sequence $0, 1, 2, 3, \dots$ (i.e., $a_n = n$):
+	      We can obtain this by differentiating the OGF for $1, 1, 1, \dots$ and multiplying by $x$.
+	      $\frac{d}{dx} \left( \frac{1}{1-x} \right) = \frac{1}{(1-x)^2} = 1 + 2x + 3x^2 + \dots = \sum_{n=0}^\infty (n+1)x^n$. (This is the OGF for $1, 2, 3, \dots$)
+	      Multiplying by $x$ shifts the sequence and introduces a leading zero:
+	      $x \cdot \frac{1}{(1-x)^2} = x + 2x^2 + 3x^3 + \dots = \sum_{n=1}^\infty n x^n$. This is the OGF for $0, 1, 2, 3, \dots$.
+	\item Sequence $0, 1, 4, 9, \dots$ (i.e., $a_n = n^2$):
+	      Apply the operation $x \frac{d}{dx}$ to the OGF for $a_n=n$:
+	      $G_{n^2}(x) = x \frac{d}{dx} \left( \frac{x}{(1-x)^2} \right)$
+	      Using the quotient rule: $\frac{d}{dx} \left( \frac{x}{(1-x)^2} \right) = \frac{1 \cdot (1-x)^2 - x \cdot 2(1-x)(-1)}{(1-x)^4} = \frac{(1-x)^2 + 2x(1-x)}{(1-x)^4} = \frac{(1-x)(1-x+2x)}{(1-x)^4} = \frac{1+x}{(1-x)^3}$.
+	      So, $G_{n^2}(x) = x \cdot \frac{1+x}{(1-x)^3} = \frac{x(1+x)}{(1-x)^3}$.
+	      This is the OGF for $0^2, 1^2, 2^2, 3^2, \dots$.
 \end{itemize}
 
 \nt{
-Operations on Generating Functions:
-\begin{itemize}
-    \item Addition: $A(x)+B(x) = \sum (a_n+b_n)x^n$. Corresponds to adding sequences term-wise.
-    \item Multiplication by $x^k$: $x^k A(x) = \sum a_n x^{n+k} = \sum a_{n-k} x^n$. Shifts sequence $a_n$ right by $k$ positions, filling with zeros.
-    \item Differentiation: $A'(x) = \sum n a_n x^{n-1}$.
-    \item Integration: $\int A(x) dx = \sum \frac{a_n}{n+1} x^{n+1} + C$.
-    \item Convolution: $A(x)B(x) = (\sum a_n x^n)(\sum b_n x^n) = \sum c_n x^n$, where $c_n = \sum_{k=0}^n a_k b_{n-k}$.
-\end{itemize}
-The operation $x \frac{d}{dx}$ applied to $A(x) = \sum a_n x^n$ yields $x A'(x) = \sum n a_n x^n$. The resulting generating function corresponds to the sequence $0, a_1, 2a_2, 3a_3, \dots$.
+	Operations on Generating Functions:
+	\begin{itemize}
+		\item Addition: $A(x)+B(x) = \sum (a_n+b_n)x^n$. Corresponds to adding sequences term-wise.
+		\item Multiplication by $x^k$: $x^k A(x) = \sum a_n x^{n+k} = \sum a_{n-k} x^n$. Shifts sequence $a_n$ right by $k$ positions, filling with zeros.
+		\item Differentiation: $A'(x) = \sum n a_n x^{n-1}$.
+		\item Integration: $\int A(x) dx = \sum \frac{a_n}{n+1} x^{n+1} + C$.
+		\item Convolution: $A(x)B(x) = (\sum a_n x^n)(\sum b_n x^n) = \sum c_n x^n$, where $c_n = \sum_{k=0}^n a_k b_{n-k}$.
+	\end{itemize}
+	The operation $x \frac{d}{dx}$ applied to $A(x) = \sum a_n x^n$ yields $x A'(x) = \sum n a_n x^n$. The resulting generating function corresponds to the sequence $0, a_1, 2a_2, 3a_3, \dots$.
 }
 
-\subsection*{Applications to Combinatorial Problems}
+\subsection{Applications to Combinatorial Problems}
 
 \ex{Donut Selection (Ordinary Generating Functions)}{
-How many ways are there to select 26 donuts from 4 types (say A, B, C, D) such that we select an even number of type C donuts and at least 6 type D donuts?
+	How many ways are there to select 26 donuts from 4 types (say A, B, C, D) such that we select an even number of type C donuts and at least 6 type D donuts?
 
-\sol
-This is a selection problem where the order does not matter and items of the same type are indistinguishable. We use Ordinary Generating Functions. Let $x$ represent a donut. We want to find the coefficient of $x^{26}$ in the product of the generating functions for each type, representing the constraints.
+	\sol
+	This is a selection problem where the order does not matter and items of the same type are indistinguishable. We use Ordinary Generating Functions. Let $x$ represent a donut. We want to find the coefficient of $x^{26}$ in the product of the generating functions for each type, representing the constraints.
 
-\begin{itemize}
-    \item Type A: No restrictions. We can choose $0, 1, 2, \dots$ donuts.
-    GF: $A(x) = 1 + x + x^2 + x^3 + \dots = \frac{1}{1-x}$.
-    \item Type B: No restrictions.
-    GF: $B(x) = 1 + x + x^2 + x^3 + \dots = \frac{1}{1-x}$.
-    \item Type C: Even number must be chosen ($0, 2, 4, \dots$).
-    GF: $C(x) = 1 + x^2 + x^4 + x^6 + \dots = \sum_{k=0}^\infty (x^2)^k = \frac{1}{1-x^2}$.
-    \item Type D: At least 6 must be chosen ($6, 7, 8, \dots$).
-    GF: $D(x) = x^6 + x^7 + x^8 + \dots = x^6(1 + x + x^2 + \dots) = \frac{x^6}{1-x}$.
-\end{itemize}
+	\begin{itemize}
+		\item Type A: No restrictions. We can choose $0, 1, 2, \dots$ donuts.
+		      GF: $A(x) = 1 + x + x^2 + x^3 + \dots = \frac{1}{1-x}$.
+		\item Type B: No restrictions.
+		      GF: $B(x) = 1 + x + x^2 + x^3 + \dots = \frac{1}{1-x}$.
+		\item Type C: Even number must be chosen ($0, 2, 4, \dots$).
+		      GF: $C(x) = 1 + x^2 + x^4 + x^6 + \dots = \sum_{k=0}^\infty (x^2)^k = \frac{1}{1-x^2}$.
+		\item Type D: At least 6 must be chosen ($6, 7, 8, \dots$).
+		      GF: $D(x) = x^6 + x^7 + x^8 + \dots = x^6(1 + x + x^2 + \dots) = \frac{x^6}{1-x}$.
+	\end{itemize}
 
-The overall generating function $G(x)$ is the product of these individual GFs:
-\[ G(x) = A(x) B(x) C(x) D(x) = \left(\frac{1}{1-x}\right) \left(\frac{1}{1-x}\right) \left(\frac{1}{1-x^2}\right) \left(\frac{x^6}{1-x}\right) \]
-\[ G(x) = \frac{x^6}{(1-x)^3 (1-x^2)} \]
-We can simplify the denominator: $1-x^2 = (1-x)(1+x)$.
-\[ G(x) = \frac{x^6}{(1-x)^3 (1-x)(1+x)} = \frac{x^6}{(1-x)^4 (1+x)} \]
-We need the coefficient of $x^{26}$ in $G(x)$. This is equivalent to finding the coefficient of $x^{20}$ in the expansion of $H(x) = \frac{1}{(1-x)^4 (1+x)}$.
-We use partial fraction decomposition for $H(x)$:
-\[ \frac{1}{(1-x)^4 (1+x)} = \frac{A}{1+x} + \frac{B}{1-x} + \frac{C}{(1-x)^2} + \frac{D}{(1-x)^3} + \frac{E}{(1-x)^4} \]
-Multiplying by $(1-x)^4 (1+x)$ gives:
-\[ 1 = A(1-x)^4 + B(1+x)(1-x)^3 + C(1+x)(1-x)^2 + D(1+x)(1-x) + E(1+x) \]
-We can find the constants by substituting values for $x$ or comparing coefficients.
-\begin{itemize}
-    \item Set $x=1$: $1 = E(1+1) = 2E \implies E = 1/2$.
-    \item Set $x=-1$: $1 = A(1-(-1))^4 = A(2^4) = 16A \implies A = 1/16$.
-    \item Using values found in the thought process (derived by solving a system of equations): $B = 1/16$, $C = 1/8$, $D = 1/4$.
-\end{itemize}
-So, $H(x) = \frac{1/16}{1+x} + \frac{1/16}{1-x} + \frac{1/8}{(1-x)^2} + \frac{1/4}{(1-x)^3} + \frac{1/2}{(1-x)^4}$.
+	The overall generating function $G(x)$ is the product of these individual GFs:
+	\[ G(x) = A(x) B(x) C(x) D(x) = \left(\frac{1}{1-x}\right) \left(\frac{1}{1-x}\right) \left(\frac{1}{1-x^2}\right) \left(\frac{x^6}{1-x}\right) \]
+	\[ G(x) = \frac{x^6}{(1-x)^3 (1-x^2)} \]
+	We can simplify the denominator: $1-x^2 = (1-x)(1+x)$.
+	\[ G(x) = \frac{x^6}{(1-x)^3 (1-x)(1+x)} = \frac{x^6}{(1-x)^4 (1+x)} \]
+	We need the coefficient of $x^{26}$ in $G(x)$. This is equivalent to finding the coefficient of $x^{20}$ in the expansion of $H(x) = \frac{1}{(1-x)^4 (1+x)}$.
+	We use partial fraction decomposition for $H(x)$:
+	\[ \frac{1}{(1-x)^4 (1+x)} = \frac{A}{1+x} + \frac{B}{1-x} + \frac{C}{(1-x)^2} + \frac{D}{(1-x)^3} + \frac{E}{(1-x)^4} \]
+	Multiplying by $(1-x)^4 (1+x)$ gives:
+	\[ 1 = A(1-x)^4 + B(1+x)(1-x)^3 + C(1+x)(1-x)^2 + D(1+x)(1-x) + E(1+x) \]
+	We can find the constants by substituting values for $x$ or comparing coefficients.
+	\begin{itemize}
+		\item Set $x=1$: $1 = E(1+1) = 2E \implies E = 1/2$.
+		\item Set $x=-1$: $1 = A(1-(-1))^4 = A(2^4) = 16A \implies A = 1/16$.
+		\item Using values found in the thought process (derived by solving a system of equations): $B = 1/16$, $C = 1/8$, $D = 1/4$.
+	\end{itemize}
+	So, $H(x) = \frac{1/16}{1+x} + \frac{1/16}{1-x} + \frac{1/8}{(1-x)^2} + \frac{1/4}{(1-x)^3} + \frac{1/2}{(1-x)^4}$.
 
-Now we find the coefficient of $x^{20}$, denoted by $[x^{20}]$, in each term using the generalized binomial theorem $(1-z)^{-k} = \sum_{n=0}^\infty \binom{n+k-1}{n} z^n = \sum_{n=0}^\infty \binom{n+k-1}{k-1} z^n$ and $(1+x)^{-1} = \sum_{n=0}^\infty (-1)^n x^n$.
-\begin{itemize}
-    \item $[x^{20}] \frac{1/16}{1+x} = \frac{1}{16} (-1)^{20} = \frac{1}{16}$.
-    \item $[x^{20}] \frac{1/16}{1-x} = \frac{1}{16} (1) = \frac{1}{16}$.
-    \item $[x^{20}] \frac{1/8}{(1-x)^2} = \frac{1}{8} \binom{20+2-1}{20} = \frac{1}{8} \binom{21}{20} = \frac{1}{8} (21) = \frac{21}{8} = \frac{42}{16}$.
-    \item $[x^{20}] \frac{1/4}{(1-x)^3} = \frac{1}{4} \binom{20+3-1}{20} = \frac{1}{4} \binom{22}{20} = \frac{1}{4} \binom{22}{2} = \frac{1}{4} \frac{22 \times 21}{2} = \frac{231}{4} = \frac{924}{16}$.
-    \item $[x^{20}] \frac{1/2}{(1-x)^4} = \frac{1}{2} \binom{20+4-1}{20} = \frac{1}{2} \binom{23}{20} = \frac{1}{2} \binom{23}{3} = \frac{1}{2} \frac{23 \times 22 \times 21}{3 \times 2 \times 1} = \frac{1}{2} (23 \times 11 \times 7) = \frac{1771}{2} = \frac{14168}{16}$.
-\end{itemize}
-The total coefficient $[x^{20}] H(x)$ is the sum:
-\[ \frac{1}{16} + \frac{1}{16} + \frac{42}{16} + \frac{924}{16} + \frac{14168}{16} = \frac{1+1+42+924+14168}{16} = \frac{15136}{16} \]
-\[ \frac{15136}{16} = 946 \]
-Therefore, there are 946 ways to select the 26 donuts according to the given constraints.
+	Now we find the coefficient of $x^{20}$, denoted by $[x^{20}]$, in each term using the generalized binomial theorem $(1-z)^{-k} = \sum_{n=0}^\infty \binom{n+k-1}{n} z^n = \sum_{n=0}^\infty \binom{n+k-1}{k-1} z^n$ and $(1+x)^{-1} = \sum_{n=0}^\infty (-1)^n x^n$.
+	\begin{itemize}
+		\item $[x^{20}] \frac{1/16}{1+x} = \frac{1}{16} (-1)^{20} = \frac{1}{16}$.
+		\item $[x^{20}] \frac{1/16}{1-x} = \frac{1}{16} (1) = \frac{1}{16}$.
+		\item $[x^{20}] \frac{1/8}{(1-x)^2} = \frac{1}{8} \binom{20+2-1}{20} = \frac{1}{8} \binom{21}{20} = \frac{1}{8} (21) = \frac{21}{8} = \frac{42}{16}$.
+		\item $[x^{20}] \frac{1/4}{(1-x)^3} = \frac{1}{4} \binom{20+3-1}{20} = \frac{1}{4} \binom{22}{20} = \frac{1}{4} \binom{22}{2} = \frac{1}{4} \frac{22 \times 21}{2} = \frac{231}{4} = \frac{924}{16}$.
+		\item $[x^{20}] \frac{1/2}{(1-x)^4} = \frac{1}{2} \binom{20+4-1}{20} = \frac{1}{2} \binom{23}{20} = \frac{1}{2} \binom{23}{3} = \frac{1}{2} \frac{23 \times 22 \times 21}{3 \times 2 \times 1} = \frac{1}{2} (23 \times 11 \times 7) = \frac{1771}{2} = \frac{14168}{16}$.
+	\end{itemize}
+	The total coefficient $[x^{20}] H(x)$ is the sum:
+	\[ \frac{1}{16} + \frac{1}{16} + \frac{42}{16} + \frac{924}{16} + \frac{14168}{16} = \frac{1+1+42+924+14168}{16} = \frac{15136}{16} \]
+	\[ \frac{15136}{16} = 946 \]
+	Therefore, there are 946 ways to select the 26 donuts according to the given constraints.
 }
 
 \ex{Item Distribution (Exponential Generating Functions)}{
-How many ways are there to distribute 12 distinct items into 3 labeled boxes (A, B, C) such that box A has at least 4 items, box B has at least 2 items, and box C has between 2 and 5 items (inclusive)?
+	How many ways are there to distribute 12 distinct items into 3 labeled boxes (A, B, C) such that box A has at least 4 items, box B has at least 2 items, and box C has between 2 and 5 items (inclusive)?
 
-\sol
-Since the items are distinct and the boxes are labeled, this problem calls for Exponential Generating Functions (EGFs). Let the number of items in boxes A, B, C be $a, b, c$ respectively. We require $a+b+c=12$, with $a \ge 4$, $b \ge 2$, and $2 \le c \le 5$.
+	\sol
+	Since the items are distinct and the boxes are labeled, this problem calls for Exponential Generating Functions (EGFs). Let the number of items in boxes A, B, C be $a, b, c$ respectively. We require $a+b+c=12$, with $a \ge 4$, $b \ge 2$, and $2 \le c \le 5$.
 
-The EGF for each box represents the constraints on the number of items it can receive:
+	The EGF for each box represents the constraints on the number of items it can receive:
+	\begin{itemize}
+		\item Box A (at least 4 items): $A(x) = \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \dots = e^x - \left(1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!}\right)$.
+		\item Box B (at least 2 items): $B(x) = \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dots = e^x - \left(1 + \frac{x}{1!}\right)$.
+		\item Box C (between 2 and 5 items): $C(x) = \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!}$.
+	\end{itemize}
+
+	The overall EGF for the distribution is the product $G(x) = A(x) B(x) C(x)$. We are looking for the coefficient of $\frac{x^{12}}{12!}$ in $G(x)$. This coefficient is equal to the number of ways to distribute the 12 items. The coefficient of $x^{12}$ in $G(x)$ is $[x^{12}]G(x)$, and the number of ways is $12! \times [x^{12}]G(x)$.
+
+	While we could try to multiply these series or use their $e^x$ expressions, it's often simpler for fixed totals to use a combinatorial approach based on the definition of the EGF coefficient. The number of ways is the sum of multinomial coefficients over all valid compositions $(a, b, c)$ of 12:
+	Number of ways $= \sum_{\substack{a+b+c=12 \\ a\ge 4, b\ge 2 \\ 2 \le c \le 5}} \binom{12}{a, b, c}$, where $\binom{12}{a, b, c} = \frac{12!}{a! b! c!}$.
+}
+
+
+
+\subsection{Binomial Theorem and Extensions}
+
+\nt{
+	The standard binomial theorem gives the expansion for $(1+x)^n$ when $n$ is a non-negative integer:
+	\[ (1+x)^n = \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + \dots + \binom{n}{n}x^n = \sum_{r=0}^{n} \binom{n}{r} x^r \]
+	What if $n \in \mathbb{R}$ (or specifically, a negative integer)?
+	We define the binomial coefficient $\binom{n}{r}$ for $n \in \mathbb{R}$ and integer $r \ge 0$ as:
+	\[ \binom{n}{r} = \frac{n(n-1)(n-2)\dots(n-r+1)}{r!} \]
+	Let's consider the case where the upper index is a negative integer, say $-n$ where $n > 0$.
+	\begin{align*} \binom{-n}{r} &= \frac{(-n)(-n-1)(-n-2)\dots(-n-r+1)}{r!} \\ &= \frac{(-1)^r (n)(n+1)(n+2)\dots(n+r-1)}{r!} \\ &= (-1)^r \frac{(n+r-1)!}{(n-1)! r!} \\ &= (-1)^r \binom{n+r-1}{r} \end{align*}
+	This identity is crucial for working with generating functions involving negative powers.
+	\[ \boxed{\binom{-n}{r} = (-1)^r \binom{n+r-1}{r}} \]
+	The generalized binomial theorem states that for any $n \in \mathbb{R}$:
+	\[ (1+x)^n = \sum_{r=0}^{\infty} \binom{n}{r} x^r \]
+	Using the identity above, we get the expansion for $(1-x)^{-n}$:
+	\[ (1-x)^{-n} = \sum_{r=0}^{\infty} \binom{-n}{r} (-x)^r = \sum_{r=0}^{\infty} (-1)^r \binom{n+r-1}{r} (-1)^r x^r = \sum_{r=0}^{\infty} \binom{n+r-1}{r} x^r \]
+	This is the generating function for combinations with repetition.
+}
+
+\ex{Calculate $\binom{-3}{4}$}{
+	Using the identity:
+	\[ \binom{-3}{4} = (-1)^4 \binom{3+4-1}{4} = \binom{6}{4} = \frac{6 \times 5}{2 \times 1} = 15 \]
+	Alternatively, using the definition:
+	\[ \binom{-3}{4} = \frac{(-3)(-4)(-5)(-6)}{4!} = \frac{3 \times 4 \times 5 \times 6}{4 \times 3 \times 2 \times 1} = \frac{360}{24} = 15 \]
+}
+
+\qs{Coefficient Question}{
+	What is the coefficient of $x^5$ in $(1-2x)^{-7}$?
+}
+\sol{
+	Let $y = -2x$. The expression is $(1+y)^{-7}$.
+	The generating function is $(1-2x)^{-7} = \sum_{r=0}^{\infty} \binom{-7}{r} (-2x)^r$.
+	We want the coefficient of $x^5$, so we need the term for $r=5$:
+	\[ \binom{-7}{5} (-2x)^5 = \binom{-7}{5} (-32) x^5 \]
+	Now, we calculate the binomial coefficient:
+	\[ \binom{-7}{5} = (-1)^5 \binom{7+5-1}{5} = (-1) \binom{11}{5} = - \frac{11 \times 10 \times 9 \times 8 \times 7}{5 \times 4 \times 3 \times 2 \times 1} = - (11 \times 3 \times 2 \times 7) / 3 = -462 \]
+	The coefficient is $(-462)(-32) = 14784$.
+
+	Alternatively, using the direct formula for $(1-z)^{-n}$:
+	\[ (1-2x)^{-7} = \sum_{r=0}^{\infty} \binom{7+r-1}{r} (2x)^r = \sum_{r=0}^{\infty} \binom{r+6}{r} 2^r x^r \]
+	For $r=5$, the coefficient is:
+	\[ \binom{5+6}{5} 2^5 = \binom{11}{5} 32 = 462 \times 32 = 14784 \]
+}
+
+\ex{Coefficient Example}{
+	Find the coefficient of $x^{13}$ in $f(x) = (x^2+x^3+x^4+\dots)^4$.
+	\nt{
+		First, factor out the common term and use the geometric series formula.
+		\begin{align*} f(x) &= (x^2(1+x+x^2+\dots))^4 \\ &= (x^2)^4 (1+x+x^2+\dots)^4 \\ &= x^8 \left( \frac{1}{1-x} \right)^4 \\ &= x^8 (1-x)^{-4} \end{align*}
+		We want the coefficient of $x^{13}$ in $x^8 (1-x)^{-4}$. This is equivalent to finding the coefficient of $x^{13-8} = x^5$ in $(1-x)^{-4}$.
+		The expansion of $(1-x)^{-n}$ is $\sum_{k=0}^{\infty} \binom{n+k-1}{k} x^k$.
+		For $(1-x)^{-4}$, the coefficient of $x^k$ is $\binom{4+k-1}{k} = \binom{k+3}{k} = \binom{k+3}{3}$.
+		We need the coefficient of $x^5$, so we set $k=5$:
+		\[ \binom{5+3}{5} = \binom{8}{5} = \binom{8}{3} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56 \]
+		So, the coefficient of $x^{13}$ in the original function is 56.
+	}
+}
+
+\nt{
+	Comparison of two common forms:
+	\[ \frac{1}{(1-x)^n} = \sum_{k=0}^{\infty} \binom{n+k-1}{k} x^k \]
+	\[ \frac{1}{(1+x)^n} = (1-(-x))^{-n} = \sum_{k=0}^{\infty} \binom{n+k-1}{k} (-x)^k = \sum_{k=0}^{\infty} (-1)^k \binom{n+k-1}{k} x^k \]
+	Alternatively, using $\binom{-n}{k}$:
+	\[ (1+x)^{-n} = \sum_{k=0}^{\infty} \binom{-n}{k} x^k \]
+}
+
+\section{Applications in Combinatorics}
+
+\subsection{Combinations with Repetition}
+
+\qs{Selection with Repetition}{
+	How many ways with repetition allowed can $r$ objects be selected from $n$ distinct types of objects?
+}
+\sol{
+This is equivalent to finding the number of non-negative integer solutions to $x_1 + x_2 + \dots + x_n = r$, where $x_i$ is the number of objects of type $i$ selected.
+The generating function for the selection of objects of one type is $(1+x+x^2+\dots)$, where the exponent of $x$ represents the number of objects of that type chosen.
+Since there are $n$ distinct types and the selections for each type are independent, the generating function for the total selection is:
+\[ f(x) = (1+x+x^2+\dots)^n = \left( \frac{1}{1-x} \right)^n = (1-x)^{-n} \]
+We are interested in selecting a total of $r$ objects, so we need the coefficient of $x^r$ in the expansion of $f(x)$.
+\[ [x^r] (1-x)^{-n} = \binom{n+r-1}{r} \]
+This is the well-known stars and bars formula.
+The notes use the $\binom{-n}{r}$ identity:
+\[ [x^r] (1-x)^{-n} = [x^r] \sum_{k=0}^{\infty} \binom{-n}{k} (-x)^k \]
+		For the term $x^r$, we need $k=r$. The coefficient is $\binom{-n}{r} (-1)^r$.
+		Using the identity $\binom{-n}{r} = (-1)^r \binom{n+r-1}{r}$, the coefficient becomes:
+		\[ (-1)^r \binom{n+r-1}{r} (-1)^r = \binom{n+r-1}{r} \]
+		Both approaches yield the same result.
+	}
+
+\subsection{Problems with Constraints}
+
+\ex{Selection with Minimums}{
+	Select items from 5 types of beans, 3 types of candy, and 8 types of lollipops. Select at least 1 of each type. How many ways are there to select $k$ items? (Value of $k$ not specified, find the GF).
+}
+\nt{
+	The generating function for selecting beans, with at least one bean of each of the 5 types, is $(x+x^2+\dots)^5$.
+	The generating function for selecting candy, with at least one candy of each of the 3 types, is $(x+x^2+\dots)^3$.
+	The generating function for selecting lollipops, with at least one lollipop of each of the 8 types, is $(x+x^2+\dots)^8$.
+	The total generating function is:
+	\[ f(x) = (x+x^2+\dots)^5 (x+x^2+\dots)^3 (x+x^2+\dots)^8 = (x(1+x+\dots))^{16} \]
+	\[ f(x) = \left( \frac{x}{1-x} \right)^{16} = x^{16} (1-x)^{-16} \]
+	The coefficient of $x^k$ in $f(x)$ gives the number of ways to select $k$ items with the given constraints. This requires finding the coefficient of $x^{k-16}$ in $(1-x)^{-16}$, which is $\binom{16+(k-16)-1}{k-16} = \binom{k-1}{k-16} = \binom{k-1}{15}$. This is valid for $k \ge 16$.
+}
+
+\ex{Distribution with Maximums}{
+	Distribute 25 identical balls into 7 distinct containers such that no container has more than 10 balls.
+}
+\nt{
+Let $x_i$ be the number of balls in container $i$. We want the number of integer solutions to $x_1 + x_2 + \dots + x_7 = 25$ with the constraint $0 \le x_i \le 10$ for all $i=1, \dots, 7$.
+The generating function for a single container is $(1+x+x^2+\dots+x^{10})$.
+The generating function for 7 containers is:
+\[ f(x) = (1+x+x^2+\dots+x^{10})^7 = \left( \frac{1-x^{11}}{1-x} \right)^7 = (1-x^{11})^7 (1-x)^{-7} \]
+We need the coefficient of $x^{25}$ in $f(x)$.
+First, expand $(1-x^{11})^7$ using the binomial theorem:
+\[ (1-x^{11})^7 = \binom{7}{0} - \binom{7}{1}x^{11} + \binom{7}{2}x^{22} - \binom{7}{3}x^{33} + \dots \]
+Next, expand $(1-x)^{-7}$ using the generalized binomial theorem:
+\[ (1-x)^{-7} = \sum_{k=0}^{\infty} \binom{7+k-1}{k} x^k = \sum_{k=0}^{\infty} \binom{k+6}{k} x^k = \sum_{k=0}^{\infty} \binom{k+6}{6} x^k \]
+Now, multiply the two expansions and find the coefficient of $x^{25}$:
+\[ f(x) = \left( \binom{7}{0} - \binom{7}{1}x^{11} + \binom{7}{2}x^{22} - \dots \right) \left( \sum_{k=0}^{\infty} \binom{k+6}{6} x^k \right) \]
+To get $x^{25}$, we can combine terms as follows:
 \begin{itemize}
-    \item Box A (at least 4 items): $A(x) = \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \dots = e^x - \left(1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!}\right)$.
-    \item Box B (at least 2 items): $B(x) = \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dots = e^x - \left(1 + \frac{x}{1!}\right)$.
-    \item Box C (between 2 and 5 items): $C(x) = \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!}$.
+	\item From $\binom{7}{0}$: We need $x^{25}$ from $(1-x)^{-7}$. Coefficient is $\binom{25+6}{6} = \binom{31}{6}$.
+	\item From $-\binom{7}{1}x^{11}$: We need $x^{25-11} = x^{14}$ from $(1-x)^{-7}$. Coefficient is $-\binom{7}{1} \binom{14+6}{6} = -7 \binom{20}{6}$.
+	\item From $\binom{7}{2}x^{22}$: We need $x^{25-22} = x^{3}$ from $(1-x)^{-7}$. Coefficient is $\binom{7}{2} \binom{3+6}{6} = 21 \binom{9}{6} = 21 \binom{9}{3}$.
+	\item Higher terms like $x^{33}$ are not needed as $33 > 25$.
 \end{itemize}
+The coefficient of $x^{25}$ is:
+\[ [x^{25}] f(x) = \binom{31}{6} - \binom{7}{1} \binom{20}{6} + \binom{7}{2} \binom{9}{3} \]
+\[ = \binom{31}{6} - 7 \binom{20}{6} + 21 \binom{9}{3} \]
+(Numerical calculation omitted as per instructions).
 
-The overall EGF for the distribution is the product $G(x) = A(x) B(x) C(x)$. We are looking for the coefficient of $\frac{x^{12}}{12!}$ in $G(x)$. This coefficient is equal to the number of ways to distribute the 12 items. The coefficient of $x^{12}$ in $G(x)$ is $[x^{12}]G(x)$, and the number of ways is $12! \times [x^{12}]G(x)$.
+The notes show calculations using the $\binom{-n}{r}$ identity, let's verify one term.
+For example, $[x^{14}]$ in $(1-x)^{-7}$ is $\binom{-7}{14}(-1)^{14} = \binom{-7}{14}$.
+Using the identity: $\binom{-7}{14} = (-1)^{14} \binom{7+14-1}{14} = \binom{20}{14} = \binom{20}{6}$. This matches.
+The notes calculation seems to be $[x^{25}] (1-x)^{-7} - \binom{7}{1} [x^{14}] (1-x)^{-7} + \dots$
+This corresponds to $\binom{-7}{25}(-1)^{25} - \binom{7}{1} \binom{-7}{14}(-1)^{14} + \binom{7}{2} \binom{-7}{3}(-1)^{3}$.
+Which simplifies to $\binom{25+7-1}{25} - \binom{7}{1} \binom{14+7-1}{14} + \binom{7}{2} \binom{3+7-1}{3}$
+$= \binom{31}{25} - 7 \binom{20}{14} + 21 \binom{9}{3}$
+$= \binom{31}{6} - 7 \binom{20}{6} + 21 \binom{9}{3}$. The result is consistent.
+}
 
-While we could try to multiply these series or use their $e^x$ expressions, it's often simpler for fixed totals to use a combinatorial approach based on the definition of the EGF coefficient. The number of ways is the sum of multinomial coefficients over all valid compositions $(a, b, c)$ of 12:
-Number of ways $= \sum_{\substack{a+b+c=12 \\ a\ge 4, b\ge 2 \\ 2 \le c \le 5}} \binom{12}{a, b, c}$, where $\binom{12}{a, b, c} = \frac{12!}{a! b! c!}$.
-
-We list the possible values for $c$ and the corresponding constraints on $a$ and $b$:
+\ex{Selection with Range Constraint}{
+	Jar A has 100 identical red balls (R), Jar B has 100 identical blue balls (B), Jar G has 100 identical green balls (G). Select 14 balls such that the number of blue balls selected is between 3 and 10 (inclusive).
+}
+\nt{
+Let $x_R, x_B, x_G$ be the number of red, blue, green balls selected.
+We need $x_R + x_B + x_G = 14$, with $x_R \ge 0$, $3 \le x_B \le 10$, $x_G \ge 0$.
+The generating function for red balls is $(1+x+x^2+\dots) = \frac{1}{1-x}$.
+The generating function for blue balls is $(x^3+x^4+\dots+x^{10}) = x^3(1+x+\dots+x^7) = x^3 \frac{1-x^8}{1-x}$.
+The generating function for green balls is $(1+x+x^2+\dots) = \frac{1}{1-x}$.
+The total generating function is:
+\[ f(x) = \left( \frac{1}{1-x} \right) \left( x^3 \frac{1-x^8}{1-x} \right) \left( \frac{1}{1-x} \right) = x^3 (1-x^8) (1-x)^{-3} \]
+We need the coefficient of $x^{14}$ in $f(x)$. This is equivalent to finding the coefficient of $x^{14-3} = x^{11}$ in $(1-x^8)(1-x)^{-3}$.
+Expand $(1-x^8)(1-x)^{-3} = (1-x^8) \sum_{k=0}^{\infty} \binom{3+k-1}{k} x^k = (1-x^8) \sum_{k=0}^{\infty} \binom{k+2}{k} x^k$.
+\[ = (1-x^8) \sum_{k=0}^{\infty} \binom{k+2}{2} x^k = \sum_{k=0}^{\infty} \binom{k+2}{2} x^k - \sum_{k=0}^{\infty} \binom{k+2}{2} x^{k+8} \]
+We want the coefficient of $x^{11}$.
 \begin{itemize}
-    \item If $c=2$: $a+b=10$, $a\ge 4, b\ge 2$. Possible $(a,b)$: $(8,2), (7,3), (6,4), (5,5), (4,6)$.
-    \item If $c=3$: $a+b=9$, $a\ge 4, b\ge 2$. Possible $(a,b)$: $(7,2), (6,3), (5,4), (4,5)$.
-    \item If $c=4$: $a+b=8$, $a\ge 4, b\ge 2$. Possible $(a,b)$: $(6,2), (5,3), (4,4)$.
-    \item If $c=5$: $a+b=7$, $a\ge 4, b\ge 2$. Possible $(a,b)$: $(5,2), (4,3)$.
+	\item From the first sum, set $k=11$. Coefficient is $\binom{11+2}{2} = \binom{13}{2}$.
+	\item From the second sum, we need $k+8=11$, so $k=3$. Coefficient is $-\binom{3+2}{2} = -\binom{5}{2}$.
 \end{itemize}
+The coefficient of $x^{11}$ is $\binom{13}{2} - \binom{5}{2}$.
+\[ = \frac{13 \times 12}{2} - \frac{5 \times 4}{2} = 78 - 10 = 68 \]
+The notes show the calculation using $\binom{-n}{k}$:
+$[x^{11}] (1-x^8)(1-x)^{-3} = [x^{11}] (1-x)^{-3} - [x^3] (1-x)^{-3}$
+$[x^{11}] (1-x)^{-3} = \binom{-3}{11}(-1)^{11} = \binom{3+11-1}{11} = \binom{13}{11} = \binom{13}{2}$.
+$[x^3] (1-x)^{-3} = \binom{-3}{3}(-1)^3 = \binom{3+3-1}{3} = \binom{5}{3} = \binom{5}{2}$.
+Result is $\binom{13}{2} - \binom{5}{2} = 68$. Consistent.
+}
 
-Now we calculate the multinomial coefficient for each case and sum them up:
+\subsection{Common Generating Functions and Operations}
+
+\nt{
+	Summary of useful generating functions and operations:
+	\begin{itemize}
+		\item Sequence $1, 1, 1, \dots$: $f(x) = \frac{1}{1-x} = 1+x+x^2+\dots$
+		\item Sequence $1, a, a^2, a^3, \dots$: $f(x) = \frac{1}{1-ax} = 1+ax+a^2x^2+\dots$
+		\item Sequence $1, 2, 3, 4, \dots$: $f(x) = \frac{d}{dx}\left(\frac{1}{1-x}\right) = \frac{1}{(1-x)^2} = 1+2x+3x^2+\dots$
+		\item Sequence $0, 1, 2, 3, \dots$: $f(x) = x \cdot \frac{1}{(1-x)^2} = \frac{x}{(1-x)^2} = x+2x^2+3x^3+\dots$ (Shift operation: multiplying by $x$ shifts the sequence to the right, introducing a leading zero).
+		\item Sequence $\binom{n+k-1}{k}$ for fixed $n$: $f(x) = \frac{1}{(1-x)^n}$.
+		\item Sequence $\binom{k+2}{2} = 1, 3, 6, 10, \dots$: $f(x) = \frac{1}{(1-x)^3}$. (Result of $\frac{1}{2} \frac{d^2}{dx^2} (\frac{1}{1-x})$ or $\frac{1}{2} \frac{d}{dx}(\frac{1}{(1-x)^2})$).
+		\item Sequence $n^2 = 0, 1, 4, 9, \dots$: $f(x) = \frac{x(1+x)}{(1-x)^3}$.
+		\item Convolution: If $A(x) = \sum a_n x^n$ and $B(x) = \sum b_n x^n$, then $A(x)B(x) = C(x) = \sum c_n x^n$ where $c_n = \sum_{k=0}^n a_k b_{n-k}$.
+		\item Sum of coefficients: If $f(x) = \sum a_n x^n$, then $\frac{f(x)}{1-x} = (\sum a_n x^n)(\sum x^n) = \sum_{n=0}^\infty (\sum_{k=0}^n a_k) x^n$. The coefficient of $x^n$ in $\frac{f(x)}{1-x}$ is the sum of the first $n+1$ coefficients of $f(x)$.
+	\end{itemize}
+}
+
+\ex{Generating Function for $n(n+1)$}{
+	Find the generating function for the sequence $a_n = n(n+1)$ for $n \ge 0$. The sequence is $0, 2, 6, 12, 20, 30, \dots$.
+}
+\nt{
+	Method 1: Using known GFs.
+	We know $a_n = n^2 + n$.
+	GF for $n^2$ is $\frac{x(1+x)}{(1-x)^3}$.
+	GF for $n$ is $\frac{x}{(1-x)^2}$.
+	GF for $a_n = n^2+n$ is the sum of their GFs:
+	\[ f(x) = \frac{x(1+x)}{(1-x)^3} + \frac{x}{(1-x)^2} = \frac{x(1+x) + x(1-x)}{(1-x)^3} = \frac{x+x^2+x-x^2}{(1-x)^3} = \frac{2x}{(1-x)^3} \]
+
+	Method 2: Using combinations.
+	$a_n = n(n+1) = 2 \frac{n(n+1)}{2} = 2 \binom{n+1}{2}$.
+	The GF for the sequence $\binom{k+m}{m}$ is $\frac{1}{(1-x)^{m+1}}$.
+	The GF for $\binom{k+2}{2}$ is $\frac{1}{(1-x)^3} = 1+3x+6x^2+10x^3+\dots$. This corresponds to the sequence $\binom{n+2}{2}$ for $n \ge 0$.
+	The GF for $\binom{k+1}{2}$? Let $b_n = \binom{n+1}{2}$. $b_0=0, b_1=1, b_2=3, b_3=6, \dots$.
+	This sequence corresponds to $0, 1, 3, 6, \dots$.
+	Consider the GF $\frac{1}{(1-x)^3} = \sum_{n=0}^\infty \binom{n+2}{2} x^n$.
+	Multiplying by $x$ gives $\frac{x}{(1-x)^3} = \sum_{n=0}^\infty \binom{n+2}{2} x^{n+1}$. Let $k=n+1$.
+	$\frac{x}{(1-x)^3} = \sum_{k=1}^\infty \binom{(k-1)+2}{2} x^k = \sum_{k=1}^\infty \binom{k+1}{2} x^k$.
+	This is the GF for $b_k = \binom{k+1}{2}$ starting from $k=1$. Since $b_0=0$, this is the correct GF for the sequence $0, 1, 3, 6, \dots$.
+	The sequence we want is $a_n = 2 \binom{n+1}{2}$.
+	So the GF is $2 \times \frac{x}{(1-x)^3} = \frac{2x}{(1-x)^3}$.
+	Both methods yield the same result.
+}
+
+\ex{Toy Selection with Constraints}{
+	Pick 25 toys from 7 types. Constraint: select between 2 and 6 (inclusive) toys of type 1. No constraints on types 2-7.
+}
+\nt{
+Generating function for type 1: $(x^2+x^3+x^4+x^5+x^6) = x^2(1+x+x^2+x^3+x^4) = x^2 \frac{1-x^5}{1-x}$.
+Generating function for types 2-7 (each): $(1+x+x^2+\dots) = \frac{1}{1-x}$.
+Total generating function:
+\[ f(x) = \left( x^2 \frac{1-x^5}{1-x} \right) \left( \frac{1}{1-x} \right)^6 = x^2 (1-x^5) (1-x)^{-7} \]
+We need the coefficient of $x^{25}$ in $f(x)$. This is equivalent to finding the coefficient of $x^{25-2} = x^{23}$ in $(1-x^5)(1-x)^{-7}$.
+Expand $(1-x^5)(1-x)^{-7} = (1-x^5) \sum_{k=0}^{\infty} \binom{7+k-1}{k} x^k = (1-x^5) \sum_{k=0}^{\infty} \binom{k+6}{k} x^k$.
+\[ = \sum_{k=0}^{\infty} \binom{k+6}{6} x^k - \sum_{k=0}^{\infty} \binom{k+6}{6} x^{k+5} \]
+We want the coefficient of $x^{23}$.
 \begin{itemize}
-    \item Case c=2:
-    $\binom{12}{8,2,2} = \frac{12!}{8!2!2!} = \frac{12 \cdot 11 \cdot 10 \cdot 9}{4} = 2970$
-    $\binom{12}{7,3,2} = \frac{12!}{7!3!2!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8}{12} = 7920$
-    $\binom{12}{6,4,2} = \frac{12!}{6!4!2!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7}{48} = 13860$
-    $\binom{12}{5,5,2} = \frac{12!}{5!5!2!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 \cdot 6}{2 \cdot 120} = 16632$
-    $\binom{12}{4,6,2} = \frac{12!}{4!6!2!} = 13860$
-    Sum for c=2: $2970 + 7920 + 13860 + 16632 + 13860 = 55242$.
-
-    \item Case c=3:
-    $\binom{12}{7,2,3} = \frac{12!}{7!2!3!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8}{12} = 7920$
-    $\binom{12}{6,3,3} = \frac{12!}{6!3!3!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7}{36} = 18480$
-    $\binom{12}{5,4,3} = \frac{12!}{5!4!3!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 \cdot 6}{144} = 27720$
-    $\binom{12}{4,5,3} = \frac{12!}{4!5!3!} = 27720$
-    Sum for c=3: $7920 + 18480 + 27720 + 27720 = 81840$.
-
-    \item Case c=4:
-    $\binom{12}{6,2,4} = \frac{12!}{6!2!4!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7}{48} = 13860$
-    $\binom{12}{5,3,4} = \frac{12!}{5!3!4!} = 27720$
-    $\binom{12}{4,4,4} = \frac{12!}{4!4!4!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 \cdot 6 \cdot 5}{576} = 34650$
-    Sum for c=4: $13860 + 27720 + 34650 = 76230$.
-
-    \item Case c=5:
-    $\binom{12}{5,2,5} = \frac{12!}{5!2!5!} = 16632$
-    $\binom{12}{4,3,5} = \frac{12!}{4!3!5!} = 27720$
-    Sum for c=5: $16632 + 27720 = 44352$.
+	\item From the first sum, set $k=23$. Coefficient is $\binom{23+6}{6} = \binom{29}{6}$.
+	\item From the second sum, we need $k+5=23$, so $k=18$. Coefficient is $-\binom{18+6}{6} = -\binom{24}{6}$.
 \end{itemize}
+The coefficient of $x^{23}$ is $\binom{29}{6} - \binom{24}{6}$.
 
-The total number of ways is the sum of the ways for each possible value of c:
-Total ways = $55242 + 81840 + 76230 + 44352 = 257664$.
+Using the $\binom{-n}{r}$ notation from the notes:
+$[x^{23}] (1-x^5)(1-x)^{-7} = [x^{23}] (1-x)^{-7} - [x^{18}] (1-x)^{-7}$
+$[x^{23}] (1-x)^{-7} = \binom{-7}{23}(-1)^{23} = (-1)\binom{-7}{23} = (-1)(-1)^{23}\binom{7+23-1}{23} = \binom{29}{23} = \binom{29}{6}$.
+$[x^{18}] (1-x)^{-7} = \binom{-7}{18}(-1)^{18} = \binom{-7}{18} = (-1)^{18}\binom{7+18-1}{18} = \binom{24}{18} = \binom{24}{6}$.
+Result is $\binom{29}{6} - \binom{24}{6}$. Consistent.
+}
 
-There are 257,664 ways to distribute the 12 distinct items according to the constraints.
+\section{Solving Recurrence Relations}
+
+\subsection{Using Generating Functions (Homogeneous)}
+
+\ex{Simple Recurrence: $a_n = 3a_{n-1}$}{
+	Solve $a_n = 3a_{n-1}$ for $n \ge 1$, with $a_0 = 2$.
+}
+\nt{
+	Let $f(x) = \sum_{n=0}^{\infty} a_n x^n$ be the generating function for the sequence $\{a_n\}$.
+	Multiply the recurrence relation by $x^n$ and sum over the range it holds ($n \ge 1$):
+	\[ \sum_{n=1}^{\infty} a_n x^n = \sum_{n=1}^{\infty} 3 a_{n-1} x^n \]
+	Recognize the sums in terms of $f(x)$:
+	The left side is $\sum_{n=1}^{\infty} a_n x^n = (a_0 + a_1 x + a_2 x^2 + \dots) - a_0 = f(x) - a_0$.
+	The right side is $3x \sum_{n=1}^{\infty} a_{n-1} x^{n-1}$. Let $k=n-1$. As $n$ goes from $1$ to $\infty$, $k$ goes from $0$ to $\infty$.
+	So the right side is $3x \sum_{k=0}^{\infty} a_k x^k = 3x f(x)$.
+	The equation becomes:
+	\[ f(x) - a_0 = 3x f(x) \]
+	Substitute the initial condition $a_0=2$:
+	\[ f(x) - 2 = 3x f(x) \]
+	Solve for $f(x)$:
+	\[ f(x) (1 - 3x) = 2 \]
+	\[ f(x) = \frac{2}{1-3x} \]
+	Now, expand $f(x)$ as a power series. We know $\frac{1}{1-y} = \sum_{n=0}^{\infty} y^n$. Let $y=3x$.
+	\[ f(x) = 2 \sum_{n=0}^{\infty} (3x)^n = \sum_{n=0}^{\infty} (2 \cdot 3^n) x^n \]
+	Since $f(x) = \sum a_n x^n$, by comparing coefficients, we find the solution:
+	\[ a_n = 2 \cdot 3^n \]
+	This matches the solution obtained by direct iteration: $a_n = 3 a_{n-1} = 3^2 a_{n-2} = \dots = 3^n a_0 = 2 \cdot 3^n$.
+	The key idea here is the "shift operator" property: the generating function for the shifted sequence $\{a_{n-1}\}$ (where $a_{-1}$ is considered 0 or the sum starts from $n=1$) is related to $x f(x)$.
+}
+
+\subsection{Homogeneous Relation with Constant Coefficients}
+
+\ex{Solve $a_n - 2a_{n-1} - 3a_{n-2} = 0$}{
+	Solve $a_n - 2a_{n-1} - 3a_{n-2} = 0$ for $n \ge 2$, with initial conditions $a_0=1, a_1=2$.
+}
+\nt{
+	Method 1: Characteristic Equation
+	The characteristic equation is $r^2 - 2r - 3 = 0$.
+	Factoring gives $(r-3)(r+1) = 0$. The roots are $r_1 = 3$ and $r_2 = -1$.
+	The general solution is $a_n = C_1 (3)^n + C_2 (-1)^n$.
+	Use initial conditions to find $C_1, C_2$:
+	For $n=0$: $a_0 = 1 = C_1 (3)^0 + C_2 (-1)^0 \implies C_1 + C_2 = 1$.
+	For $n=1$: $a_1 = 2 = C_1 (3)^1 + C_2 (-1)^1 \implies 3C_1 - C_2 = 2$.
+	Adding the two equations: $4C_1 = 3 \implies C_1 = 3/4$.
+	Substituting $C_1$ into the first equation: $3/4 + C_2 = 1 \implies C_2 = 1/4$.
+	The solution is $a_n = \frac{3}{4} (3)^n + \frac{1}{4} (-1)^n$.
+
+	Method 2: Generating Functions
+	Let $f(x) = \sum_{n=0}^{\infty} a_n x^n$.
+	Multiply the recurrence by $x^n$ and sum from $n=2$ to $\infty$:
+	\[ \sum_{n=2}^{\infty} a_n x^n - 2 \sum_{n=2}^{\infty} a_{n-1} x^n - 3 \sum_{n=2}^{\infty} a_{n-2} x^n = 0 \]
+	Express sums in terms of $f(x)$:
+	$\sum_{n=2}^{\infty} a_n x^n = f(x) - a_0 - a_1 x$
+	$\sum_{n=2}^{\infty} a_{n-1} x^n = x \sum_{n=2}^{\infty} a_{n-1} x^{n-1} = x \sum_{k=1}^{\infty} a_k x^k = x (f(x) - a_0)$
+	$\sum_{n=2}^{\infty} a_{n-2} x^n = x^2 \sum_{n=2}^{\infty} a_{n-2} x^{n-2} = x^2 \sum_{k=0}^{\infty} a_k x^k = x^2 f(x)$
+	Substitute these into the summed equation:
+	\[ (f(x) - a_0 - a_1 x) - 2x (f(x) - a_0) - 3x^2 f(x) = 0 \]
+	Substitute initial conditions $a_0=1, a_1=2$:
+	\[ (f(x) - 1 - 2x) - 2x (f(x) - 1) - 3x^2 f(x) = 0 \]
+	\[ f(x) - 1 - 2x - 2x f(x) + 2x - 3x^2 f(x) = 0 \]
+	\[ f(x) (1 - 2x - 3x^2) - 1 = 0 \]
+	\[ f(x) = \frac{1}{1 - 2x - 3x^2} \]
+	Factor the denominator: $1 - 2x - 3x^2 = (1-3x)(1+x)$.
+	\[ f(x) = \frac{1}{(1-3x)(1+x)} \]
+	Use partial fraction decomposition:
+	\[ \frac{1}{(1-3x)(1+x)} = \frac{A}{1-3x} + \frac{B}{1+x} \]
+	\[ 1 = A(1+x) + B(1-3x) \]
+	Set $x = 1/3$: $1 = A(1+1/3) = A(4/3) \implies A = 3/4$.
+	Set $x = -1$: $1 = B(1-3(-1)) = B(4) \implies B = 1/4$.
+	\[ f(x) = \frac{3/4}{1-3x} + \frac{1/4}{1+x} \]
+	Expand using geometric series:
+	\[ f(x) = \frac{3}{4} \sum_{n=0}^{\infty} (3x)^n + \frac{1}{4} \sum_{n=0}^{\infty} (-x)^n \]
+	\[ f(x) = \sum_{n=0}^{\infty} \left( \frac{3}{4} 3^n + \frac{1}{4} (-1)^n \right) x^n \]
+	Comparing coefficients, we get the solution:
+	\[ a_n = \frac{3}{4} 3^n + \frac{1}{4} (-1)^n \]
+	This matches the result from the characteristic equation method. The denominator $1 - 2x - 3x^2$ directly relates to the characteristic polynomial $r^2 - 2r - 3$ by substituting $r=1/x$ (or $x=1/r$) and clearing fractions: $1 - 2(1/r) - 3(1/r)^2 = 0 \implies r^2 - 2r - 3 = 0$.
+}
+
+\subsection{Non-homogeneous Relation}
+
+\ex{Solve $a_n - 3a_{n-1} = 5(3)^n$}{
+	Solve $a_n - 3a_{n-1} = 5(3)^n$ for $n \ge 1$, with $a_0=2$.
+}
+\nt{
+	Let $f(x) = \sum_{n=0}^{\infty} a_n x^n$.
+	Multiply the recurrence by $x^n$ and sum from $n=1$ to $\infty$:
+	\[ \sum_{n=1}^{\infty} a_n x^n - 3 \sum_{n=1}^{\infty} a_{n-1} x^n = \sum_{n=1}^{\infty} 5(3^n) x^n \]
+	Express sums in terms of $f(x)$:
+	Left side: $(f(x) - a_0) - 3x f(x)$.
+	Right side: $5 \sum_{n=1}^{\infty} (3x)^n$. This is a geometric series starting from $n=1$.
+	Sum = $5 \left( \sum_{n=0}^{\infty} (3x)^n - (3x)^0 \right) = 5 \left( \frac{1}{1-3x} - 1 \right) = 5 \left( \frac{1 - (1-3x)}{1-3x} \right) = \frac{15x}{1-3x}$.
+	The equation becomes:
+	\[ (f(x) - a_0) - 3x f(x) = \frac{15x}{1-3x} \]
+	Substitute $a_0=2$:
+	\[ f(x)(1-3x) - 2 = \frac{15x}{1-3x} \]
+	\[ f(x)(1-3x) = 2 + \frac{15x}{1-3x} = \frac{2(1-3x) + 15x}{1-3x} = \frac{2 - 6x + 15x}{1-3x} = \frac{2+9x}{1-3x} \]
+	\[ f(x) = \frac{2+9x}{(1-3x)^2} \]
+	Now, we need to find the coefficients of the power series for $f(x)$. Use partial fractions. Since the denominator has a repeated root, the form is:
+	\[ \frac{2+9x}{(1-3x)^2} = \frac{A}{1-3x} + \frac{B}{(1-3x)^2} \]
+	\[ 2+9x = A(1-3x) + B \]
+	Set $x=1/3$: $2 + 9(1/3) = 2+3 = 5 = A(0) + B \implies B=5$.
+	Set $x=0$: $2 = A(1) + B = A+5 \implies A = -3$.
+	\[ f(x) = \frac{-3}{1-3x} + \frac{5}{(1-3x)^2} \]
+	Expand using known series:
+	$\frac{1}{1-3x} = \sum_{n=0}^{\infty} (3x)^n = \sum_{n=0}^{\infty} 3^n x^n$.
+	$\frac{1}{(1-y)^2} = \sum_{n=0}^{\infty} (n+1) y^n$. Let $y=3x$.
+	$\frac{1}{(1-3x)^2} = \sum_{n=0}^{\infty} (n+1) (3x)^n = \sum_{n=0}^{\infty} (n+1) 3^n x^n$.
+	Substitute these into the expression for $f(x)$:
+	\[ f(x) = -3 \sum_{n=0}^{\infty} 3^n x^n + 5 \sum_{n=0}^{\infty} (n+1) 3^n x^n \]
+	\[ f(x) = \sum_{n=0}^{\infty} [-3 \cdot 3^n + 5(n+1) 3^n] x^n \]
+	\[ f(x) = \sum_{n=0}^{\infty} [(-3 + 5n + 5) 3^n] x^n \]
+	\[ f(x) = \sum_{n=0}^{\infty} (5n+2) 3^n x^n \]
+	By comparing coefficients, the solution is:
+	\[ a_n = (5n+2) 3^n \]
+	Check initial condition: $a_0 = (5(0)+2)3^0 = 2$. Correct.
+	Check recurrence for $n=1$: $a_1 = (5(1)+2)3^1 = 7 \times 3 = 21$.
+	From recurrence: $a_1 - 3a_0 = 5(3)^1 \implies a_1 = 3a_0 + 15 = 3(2) + 15 = 6+15 = 21$. Correct.
 }
 
 \end{document}
