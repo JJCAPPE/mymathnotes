@@ -2508,4 +2508,110 @@ Result is $\binom{29}{6} - \binom{24}{6}$. Consistent.
 	From recurrence: $a_1 - 3a_0 = 5(3)^1 \implies a_1 = 3a_0 + 15 = 3(2) + 15 = 6+15 = 21$. Correct.
 }
 
+
+\section{Recurrence Relations Example Solving}
+
+\dfn{Linear Recurrence Relation}{
+  An equation that defines each term of a sequence in terms of a finite number of its predecessors:
+  \[
+    a_n + c_1 a_{n-1} + \cdots + c_k a_{n-k} = f(n).
+  \]
+  If \(f(n)\equiv0\), the recurrence is called \emph{homogeneous}; otherwise it is \emph{non-homogeneous}.
+}
+
+\dfn{Homogeneous Linear Recurrence}{
+  A recurrence of the form
+  \[
+    a_n + c_1 a_{n-1} + \cdots + c_k a_{n-k} = 0.
+  \]
+  To solve:
+  \begin{enumerate}
+    \item Form the \emph{characteristic polynomial}
+      \[
+        r^k + c_1 r^{k-1} + \cdots + c_k = 0.
+      \]
+    \item Find its roots \(r_1,\dots,r_m\) (with multiplicities).
+    \item Write the general solution
+      \[
+        a_n = \sum_{i=1}^m P_i(n)\,r_i^n,
+      \]
+      where \(P_i\) is a polynomial of degree one less than the multiplicity of \(r_i\).
+    \item Determine constants by the initial conditions.
+  \end{enumerate}
+}
+
+\ex{Homogeneous Example: Fibonacci Sequence}{
+  \[
+    F_n - F_{n-1} - F_{n-2} = 0,\quad F_0=0,\;F_1=1.
+  \]
+  \begin{itemize}
+    \item Characteristic equation: \(r^2 - r - 1=0\), roots
+      \(r=\frac{1\pm\sqrt5}2\).
+    \item General solution:
+      \[
+        F_n = A\Bigl(\tfrac{1+\sqrt5}2\Bigr)^n + B\Bigl(\tfrac{1-\sqrt5}2\Bigr)^n.
+      \]
+    \item Use \(F_0,F_1\) to solve \(A,B\).
+  \end{itemize}
+}
+
+\nt{When roots are repeated, say \(r\) of multiplicity \(m\), include terms 
+\(\;C_0r^n + C_1\,n\,r^n + \cdots + C_{m-1}n^{m-1}r^n\).}
+
+\dfn{Non-Homogeneous Linear Recurrence}{
+  A recurrence of the form
+  \[
+    a_n + c_1 a_{n-1} + \cdots + c_k a_{n-k} = f(n), 
+  \]
+  where \(f(n)\neq0\).  The general solution is
+  \[
+    a_n = a_n^{(h)} + a_n^{(p)},
+  \]
+  the sum of the homogeneous solution and a particular solution.
+}
+
+\ex{Non-Homogeneous Example: Arithmetic Growth}{
+  \[
+    a_n - a_{n-1} = 3,\quad a_0=2.
+  \]
+  \begin{itemize}
+    \item Homogeneous part: \(a_n^{(h)} = C\).
+    \item Particular guess: constant \(\alpha\).  Plug in:
+      \(\alpha - \alpha = 3\) → impossible, so try linear \(\alpha n\).
+      \[
+        \alpha n - \alpha(n-1) = \alpha = 3
+        \;\Longrightarrow\;\alpha=3.
+      \]
+    \item General: \(a_n = C + 3n\). Use \(a_0=2\) → \(C=2\).  
+      \(\boxed{a_n = 2 + 3n.}\)
+  \end{itemize}
+}
+
+\nt{For polynomial/right-hand side \(f(n)\), try a polynomial of the same degree; for exponentials \(b^n\), try \(A\,b^n\); for products \(n^k b^n\), try a polynomial in \(n\) times \(b^n\).}
+
+\dfn{Complex-Root Case}{
+  When the characteristic polynomial has nonreal roots, they occur in conjugate pairs
+  \(r\,e^{\pm i\theta}\).  Write the corresponding part of the solution as
+  \[
+    r^n\bigl(D\cos(n\theta) + E\sin(n\theta)\bigr).
+  \]
+}
+
+\ex{Complex-Root Example}{
+  \[
+    a_n - 2a_{n-1} + 2a_{n-2} = 0,\quad a_0=1,\;a_1=0.
+  \]
+  \begin{itemize}
+    \item Characteristic: \(r^2 - 2r + 2=0\) → roots \(r=1\pm i\).
+    \item General solution:
+      \[
+        a_n = r^n\bigl(D\cos(n\pi/4)+E\sin(n\pi/4)\bigr),
+        \quad r=\sqrt2.
+      \]
+    \item Use \(a_0,a_1\) to find \(D,E\).
+  \end{itemize}
+}
+
+\nt{Alternatively, keep complex exponentials:
+\(\;a_n = A(1+i)^n + B(1-i)^n\), then solve for real coefficients via initial data.}
 \end{document}
