@@ -66,9 +66,9 @@
   show: thmrules
 
   let accent_color = {
-    if type(accent) == "string" {
+    if type(accent) == str {
       rgb(accent)
-    } else if type(accent) == "color" {
+    } else if type(accent) == color {
       accent
     } else {
       rgb("#DC143C")
@@ -159,8 +159,8 @@
   set enum(indent: 0pt, body-indent: 6pt)
   set list(indent: 0pt, body-indent: 6pt)
 
-  // TODO: Configure headings
-  // set heading(numbering: "1A.1A.1A.")
+  // Configure headings with automatic numbering
+  set heading(numbering: "1.1.1.1.")
   show selector(heading.where(level: 1)): set heading(numbering: 
     (..nums) => h1-prefix + " " + nums
       .pos()

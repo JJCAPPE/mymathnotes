@@ -70,6 +70,28 @@ The template provides several boxed environments:
 - `#theorem[]` - For theorems
 - `#proposition[]` - For propositions
 
+## Mathematical Plotting and Diagrams
+
+**RULE**: Always use the CeTZ package for mathematical plots, graphs, and diagrams in Typst documents.
+
+### Standard Setup:
+```typst
+#figure({
+  import "@preview/cetz:0.2.2": canvas, draw
+  
+  canvas(length: 1cm, {
+    // Your plotting code here
+  })
+}, caption: [Your caption here])
+```
+
+### Why CeTZ:
+- Professional quality mathematical graphics
+- Precise control over plot elements
+- Consistent with academic standards
+- Native Typst integration (no external dependencies)
+- Excellent for differential equations, function plots, and geometric diagrams
+
 ## Tips
 
 - Use `#include "content/chapter1.typ"` to organize content across multiple files
