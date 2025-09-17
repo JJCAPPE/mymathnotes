@@ -179,7 +179,7 @@ The simple exponential model $P' = r P$ assumes unlimited resources, leading to 
   {
     import "@preview/cetz:0.4.2": canvas, draw
 
-    canvas(length: 1cm, {
+    canvas(length: 0.6cm, {
       // Set up the plot area
       let width = 12
       let height = 8
@@ -584,7 +584,7 @@ Separable differential equations are a special class of first-order differential
   {
     import "@preview/cetz:0.4.2": canvas, draw
 
-    canvas(length: 1cm, {
+    canvas(length: 0.6cm, {
       // Set up the plot area
       let width = 10
       let height = 7
@@ -872,7 +872,7 @@ When the differential equation has the form $y' = f(t)$, the slope depends only 
       draw.line((x, ymin), (x, ymax), stroke: (paint: paint, thickness: 0.8pt, dash: "dashed"))
     }
 
-    canvas(length: 0.8cm, {
+    canvas(length: 0.6cm, {
       // Direction field for y' = t(t+2)
       let f_t = t => t * (t + 2)
       slope_field((t, y) => f_t(t), t-range: (-3, 3), y-range: (-3, 3), nx: 21, ny: 17)
@@ -981,7 +981,7 @@ When the equation has the form $y' = f(y)$, the slope depends only on the curren
       draw.line((xmin, y), (xmax, y), stroke: (paint: paint, thickness: 0.8pt, dash: "dashed"))
     }
 
-    canvas(length: 0.8cm, {
+    canvas(length: 0.6cm, {
       // Direction field for y' = y^2 - 3
       let f_y = y => y * y - 3
       slope_field((t, y) => f_y(y), t-range: (-3, 3), y-range: (-3, 3), nx: 21, ny: 17)
@@ -1095,7 +1095,7 @@ The most general case where slope depends on both variables creates the richest 
       }
     }
 
-    canvas(length: 0.8cm, {
+    canvas(length: 0.6cm, {
       // Direction field for y' = y - t
       let f_ty = (t, y) => y - t
       slope_field(f_ty, t-range: (-3, 3), y-range: (-3, 3), nx: 21, ny: 17)
@@ -1152,3 +1152,822 @@ Direction fields excel at revealing **global behavior** without solving:
   - **Discontinuities**: Points where $f(t,y)$ is undefined create barriers for solutions
 ]
 
+
+
+
+== Numerical Methods: Euler's Method
+
+Numerical methods let us approximate solutions when an analytic formula is unavailable or inconvenient. The simplest is Euler's method, which replaces the solution by a polygonal curve whose slope on each subinterval matches the differential equation at the left endpoint.
+
+#definition[Euler's Method][
+  Given an IVP $y' = f(t, y)$ with initial data $y(t_0) = y_0$ and a step size $Δ t > 0$:
+
+  - Define grid points $t_n = t_0 + n Δ t$.
+  - Initialize $y_0$.
+  - Update recursively by the forward-Euler rule: $ y_{n+1} = y_n + Δ t f(t_n, y_n) $ and $ t_{n+1} = t_n + Δ t $.
+
+  This is the discretized version of the differential relation $Δ y ≈ f(t_n, y_n) Δ t$ (using the tangent line at $(t_n, y_n)$).
+]
+
+#note[Intuition and Accuracy][
+  - We follow the tangent at the current point for one step of length $Δ t$.
+  - Local truncation error is $O(Δ t^2)$ and the global error after $N$ steps is $O(Δ t)$.
+  - Smaller $Δ t$ yields higher accuracy but requires more steps (cost).
+]
+
+=== Worked Example (Forward Euler)
+
+#example[$y' = (3 - y)(y + 1)$ with $y(0) = 4$ and $Δ t = 0.5$][
+  We compute $f(t, y) = (3 - y)(y + 1)$ and iterate the Euler update. Values are rounded to 3 decimals for readability.
+
+  #table(
+    columns: 6,
+    align: center,
+    [n], [$t_n$], [$y_n$], [$f(t_n, y_n)$], [$Δ y = f Δ t$], [$y_{n+1}$],
+    [0], [0.0], [4.000], [-5.000], [-2.500], [1.500],
+    [1], [0.5], [1.500], [3.750], [1.875], [3.375],
+    [2], [1.0], [3.375], [-1.641], [-0.820], [2.555],
+    [3], [1.5], [2.555], [1.583], [0.791], [3.346],
+    [4], [2.0], [3.346], [-1.503], [-0.751], [2.595],
+    [5], [2.5], [2.595], [1.460], [0.730], [3.325],
+  )
+
+  Hence the Euler approximation at $t = 3$ (after 6 steps) is
+  $ y_E(3) ≈ 3.325. $
+]
+
+=== Analytic Solution and Comparison
+
+#example[Separation with Partial Fractions][
+  For $y' = (3 - y)(y + 1)$, separate variables:
+  $ frac(upright(d)y, (3 - y)(y + 1)) = upright(d)t. $
+
+  Decompose:
+  $ frac(1, (3 - y)(y + 1)) = frac(1, 4) frac(1, y + 1) + frac(1, 4) frac(1, 3 - y). $
+
+  Integrate:
+  $ frac(1, 4) ln|y + 1| - frac(1, 4) ln|3 - y| = t + C $
+  $ ln((y + 1) / (3 - y)) = 4 t + C' $
+  $ (y + 1) / (3 - y) = C e^(4 t). $
+
+  Solve for $y$:
+  $ y(t) = (3 C e^(4 t) - 1) / (1 + C e^(4 t)). $
+
+  Apply $y(0) = 4$ to get $C = -5$, so an equivalent closed form is
+  $ y(t) = (15 e^(4 t) + 1) / (5 e^(4 t) - 1) = 3 + 4 / (5 e^(4 t) - 1). $
+
+  In particular,
+  $ y(3) = 3 + 4 / (5 e^(12) - 1) ≈ 3.000005. $
+
+  Comparing with Euler above, $y_E(3) ≈ 3.325$ so the absolute error is about $0.325$ with $Δ t = 0.5$.
+]
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 0.6cm, {
+      // Plot settings
+      let width = 12
+      let height = 7
+      let x-min = 0.0
+      let x-max = 3.0
+      let y-min = 0.0
+      let y-max = 5.0
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // Mapping from data to canvas
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Exact solution
+      let y-exact = t => (15.0 * calc.exp(4.0 * t) + 1.0) / (5.0 * calc.exp(4.0 * t) - 1.0)
+      let n = 140
+      for j in range(n) {
+        let t0 = x-min + (x-max - x-min) * j / n
+        let t1 = x-min + (x-max - x-min) * (j + 1) / n
+        let p0 = to-canvas(t0, y-exact(t0))
+        let p1 = to-canvas(t1, y-exact(t1))
+        draw.line(p0, p1, stroke: (paint: red, thickness: 2pt))
+      }
+
+      // Euler polygon for Δt = 0.5
+      let et = (0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0)
+      let ey = (4.0, 1.5, 3.375, 2.555, 3.346, 2.595, 3.325)
+      for j in range(et.len() - 1) {
+        let p0 = to-canvas(et.at(j), ey.at(j))
+        let p1 = to-canvas(et.at(j + 1), ey.at(j + 1))
+        draw.line(p0, p1, stroke: (paint: blue, thickness: 2pt))
+      }
+      // Node markers
+      for j in range(et.len()) {
+        draw.circle(to-canvas(et.at(j), ey.at(j)), radius: 2.6pt, fill: white, stroke: blue)
+      }
+
+      // Tangent line at (t0, y0) with slope f(t0, y0) = (3 - y)(y + 1)
+      let m0 = (3.0 - 4.0) * (4.0 + 1.0) // -5
+      let t-span = 0.55
+      let t0 = 0.0
+      let y0 = 4.0
+      draw.line(
+        to-canvas(t0, y0),
+        to-canvas(t0 + t-span, y0 + m0 * t-span),
+        stroke: (paint: orange, thickness: 2pt, dash: "dashed"),
+      )
+
+      // Δt bracket
+      let y-top = 4.6
+      draw.line(to-canvas(0.0, y-top), to-canvas(0.5, y-top), stroke: black)
+      draw.content((to-canvas(0.25, y-top).at(0), to-canvas(0.25, y-top).at(1) + 0.35), [Δ t], anchor: "north")
+
+      // Local error at t = 0.5
+      let te = 0.5
+      let ye = 1.5
+      let ytrue = y-exact(te)
+      draw.line(to-canvas(te, ye), to-canvas(te, ytrue), stroke: (paint: red, dash: "dotted"))
+      draw.content(
+        (to-canvas(te, (ye + ytrue) / 2).at(0) + 0.2, to-canvas(te, (ye + ytrue) / 2).at(1)),
+        [error],
+        anchor: "west",
+      )
+
+      // Ticks and labels
+      for i in range(0, 7) {
+        let x = i * (x-max - x-min) / 6 + x-min
+        let xp = (x - x-min) * width / (x-max - x-min)
+        draw.line((xp, -0.1), (xp, 0.1), stroke: black)
+        draw.content((xp, -0.35), str(i / 2), anchor: "north")
+      }
+      for i in range(0, 6) {
+        let y = i * (y-max - y-min) / 5 + y-min
+        let yp = (y - y-min) * height / (y-max - y-min)
+        draw.line((-0.1, yp), (0.1, yp), stroke: black)
+        draw.content((-0.35, yp), str(i), anchor: "west")
+      }
+      draw.content((width, -0.45), [$ t $], anchor: "north-east")
+      draw.content((-0.45, height), [$ y $], anchor: "north-west")
+    })
+  },
+  caption: [Euler's method for $y' = (3 - y)(y + 1)$ with $Δ t = 0.5$: exact solution (red), Euler polygon (blue) and the initial tangent step (orange, dashed). The vertical dotted segment at $t = 0.5$ shows the local error.],
+)
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 0.6cm, {
+      // Settings
+      let width = 12
+      let height = 7
+      let x-min = 0.0
+      let x-max = 3.0
+      let y-min = 0.0
+      let y-max = 5.0
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // Exact
+      let y-exact = t => (15.0 * calc.exp(4.0 * t) + 1.0) / (5.0 * calc.exp(4.0 * t) - 1.0)
+      let n = 140
+      for j in range(n) {
+        let t0 = x-min + (x-max - x-min) * j / n
+        let t1 = x-min + (x-max - x-min) * (j + 1) / n
+        draw.line(to-canvas(t0, y-exact(t0)), to-canvas(t1, y-exact(t1)), stroke: (paint: red, thickness: 1.6pt))
+      }
+
+      // Euler nodes and polygon (Δt = 0.5)
+      let et = (0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0)
+      let ey = (4.0, 1.5, 3.375, 2.555, 3.346, 2.595, 3.325)
+      for j in range(et.len() - 1) {
+        draw.line(to-canvas(et.at(j), ey.at(j)), to-canvas(et.at(j + 1), ey.at(j + 1)), stroke: (
+          paint: blue,
+          thickness: 2pt,
+        ))
+      }
+      for j in range(et.len()) {
+        draw.circle(to-canvas(et.at(j), ey.at(j)), radius: 3pt, fill: blue)
+        draw.content(
+          (to-canvas(et.at(j), ey.at(j)).at(0), to-canvas(et.at(j), ey.at(j)).at(1) - 0.35),
+          str(j),
+          anchor: "south",
+        )
+      }
+
+      // Labels
+      draw.content((width - 1.5, height - 0.7), [Exact], anchor: "center", frame: "rect", fill: white)
+      draw.content((width - 1.5, height - 1.2), [Euler], anchor: "center", frame: "rect", fill: white)
+      // Sample legend lines
+      draw.line((width - 2.7, height - 0.7), (width - 2.1, height - 0.7), stroke: (paint: red, thickness: 1.6pt))
+      draw.line((width - 2.7, height - 1.2), (width - 2.1, height - 1.2), stroke: (paint: blue, thickness: 2pt))
+    })
+  },
+  caption: [Exact solution (red) vs. Euler polygon (blue) at nodes $t = 0, 0.5, \ldots, 3$. Filled circles mark the Euler nodes; labels indicate the step index $n$.],
+)
+
+== Existence and Uniqueness for First-Order IVPs
+
+#note[Vocabulary][
+  We use $∃$ to denote “there exists” and $∃!$ to denote “there exists exactly one (unique)”.
+]
+
+#theorem[Existence (Peano-type)][
+  Suppose $f(t, y)$ is continuous on a rectangle
+  $ R = { (t, y) : a < t < b, c < y < d } $ containing $(t_0, y_0)$.
+  Then $∃ ε > 0$ and at least one function $y(t)$ defined for $t ∈ (t_0 - ε, t_0 + ε)$ that solves the IVP
+  $ y' = f(t, y),\ y(t_0) = y_0. $
+]
+
+#theorem[Uniqueness (Picard–Lindelöf)][
+  If, in addition, $∂ f / ∂ y$ is continuous on $R$ (equivalently, $f$ is Lipschitz in $y$ on $R$), then $∃!$ a unique solution to the IVP in some interval around $t_0$.
+]
+
+#note[Rectangles and Domains][
+  The interval of guaranteed existence/uniqueness must lie inside a rectangle where the hypotheses hold. If $f$ (or $∂ f/∂ y$) blows up or is undefined, the rectangle—and thus the guaranteed interval—must stop before those singularities.
+]
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 0.6cm, {
+      let width = 9
+      let height = 7
+      let x-min = -1.2
+      let x-max = 1.2
+      let y-min = -2.0
+      let y-max = 2.0
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // Rectangle R around (t0, y0) = (0, 0)
+      let a = -0.8
+      let b = 0.8
+      let c = -1.2
+      let d = 1.2
+      let p1 = to-canvas(a, c)
+      let p2 = to-canvas(b, c)
+      let p3 = to-canvas(b, d)
+      let p4 = to-canvas(a, d)
+      draw.line(p1, p2, stroke: (paint: gray, thickness: 1.2pt, dash: "dashed"))
+      draw.line(p2, p3, stroke: (paint: gray, thickness: 1.2pt, dash: "dashed"))
+      draw.line(p3, p4, stroke: (paint: gray, thickness: 1.2pt, dash: "dashed"))
+      draw.line(p4, p1, stroke: (paint: gray, thickness: 1.2pt, dash: "dashed"))
+
+      // Initial point
+      draw.circle(to-canvas(0, 0), radius: 3pt, fill: red)
+      draw.content((to-canvas(0, 0).at(0) + 0.2, to-canvas(0, 0).at(1) + 0.2), [$(t_0, y_0)$], anchor: "west")
+
+      // Annotations
+      draw.content(
+        (to-canvas(0.0, 1.35).at(0), to-canvas(0.0, 1.35).at(1)),
+        [$R$],
+        anchor: "center",
+        frame: "rect",
+        fill: white,
+      )
+      draw.content(
+        (to-canvas(-0.95, -1.7).at(0), to-canvas(-0.95, -1.7).at(1)),
+        [Continuity on $R$ ⇒ $∃$],
+        anchor: "west",
+      )
+      draw.content(
+        (to-canvas(-0.95, -1.95).at(0), to-canvas(-0.95, -1.95).at(1)),
+        [Lipschitz in $y$ on $R$ ⇒ $∃!$],
+        anchor: "west",
+      )
+
+      // Ticks/labels
+      for i in range(-1, 2) {
+        let x = i
+        let xp = (x - x-min) * width / (x-max - x-min)
+        draw.line((xp, -0.1), (xp, 0.1), stroke: black)
+        if x != 0 { draw.content((xp, -0.35), str(x), anchor: "north") }
+      }
+      for i in range(-2, 3) {
+        let y = i
+        let yp = (y - y-min) * height / (y-max - y-min)
+        draw.line((-0.1, yp), (0.1, yp), stroke: black)
+        if y != 0 { draw.content((-0.35, yp), str(y), anchor: "west") }
+      }
+      draw.content((width, -0.45), [$ t $], anchor: "north-east")
+      draw.content((-0.45, height), [$ y $], anchor: "north-west")
+    })
+  },
+  caption: [Existence rectangle $R$ around $(t_0, y_0)$. Continuity of $f$ on $R$ gives $∃$ a solution; a Lipschitz condition in $y$ on $R$ gives $∃!$ uniqueness near $t_0$.],
+)
+
+
+=== Example: $y' = 1 + y^2$
+
+#example[General Solution and Initial Conditions][
+  Separate variables: $ frac(upright(d)y, 1 + y^2) = upright(d)t $ gives
+  $ arctan(y) = t + C $ and hence $ y(t) = tan(t + C) $.
+
+  - For $y(0) = 0$: $0 = tan(C) ⇒ C = 0$ (mod $π$). The unique solution through $(0, 0)$ near $t = 0$ is
+    $ y(t) = tan(t) $, valid on the maximal interval $(-frac(π, 2),\ frac(π, 2))$.
+
+  - For $y(π) = 0$: $0 = tan(π + C) ⇒ C = -π$, so $ y(t) = tan(t - π) $. The natural domain centered at $t_0 = π$ is $(π - frac(π, 2),\ π + frac(π, 2))$.
+
+  Here $f(t, y) = 1 + y^2$ and $∂ f/∂ y = 2y$ are continuous for all $(t, y)$, so $∃!$ a unique solution through any initial condition; the finite domains arise from vertical asymptotes of $tan$.
+]
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 0.6cm, {
+      let width = 12
+      let height = 7
+      let x-min = -1.0
+      let x-max = 4.5
+      let y-min = -4.0
+      let y-max = 4.0
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // Vertical asymptotes at ±π/2 and 3π/2
+      let a1 = calc.pi / 2
+      let a2 = -calc.pi / 2
+      let a3 = 3 * calc.pi / 2
+      for x in (a1, a2, a3) {
+        if x > x-min and x < x-max {
+          let xp = (x - x-min) * width / (x-max - x-min)
+          draw.line((xp, 0), (xp, height), stroke: (paint: gray, dash: "dashed"))
+        }
+      }
+
+      // Plot y = tan(t) piecewise, avoiding jumps
+      let n = 500
+      let prev-ok = false
+      let prev-p = (0, 0)
+      let clamp(x, lo, hi) = if x < lo { lo } else if x > hi { hi } else { x }
+      for j in range(n + 1) {
+        let t = x-min + (x-max - x-min) * j / n
+        let y = calc.tan(t)
+        let ok = calc.abs(y) <= y-max
+        let p = to-canvas(t, clamp(y, y-min, y-max))
+        if prev-ok and ok and calc.abs(y - ((prev-p.at(1) * (y-max - y-min) / height) + y-min)) < 2.0 {
+          draw.line((prev-p.at(0), prev-p.at(1)), (p.at(0), p.at(1)), stroke: (paint: red, thickness: 1.5pt))
+        }
+        prev-ok = ok
+        prev-p = p
+      }
+
+      // Initial condition markers
+      draw.circle(to-canvas(0, 0), radius: 3pt, fill: blue)
+      draw.content((to-canvas(0, 0).at(0) + 0.2, to-canvas(0, 0).at(1) - 0.2), [$(0, 0)$], anchor: "west")
+      if calc.pi < x-max {
+        draw.circle(to-canvas(calc.pi, 0), radius: 3pt, fill: blue)
+        draw.content(
+          (to-canvas(calc.pi, 0).at(0) + 0.2, to-canvas(calc.pi, 0).at(1) - 0.2),
+          [$ (π, 0) $],
+          anchor: "west",
+        )
+      }
+
+      // Ticks and labels
+      for i in range(-1, 5) {
+        let x = i
+        let xp = (x - x-min) * width / (x-max - x-min)
+        draw.line((xp, -0.1), (xp, 0.1), stroke: black)
+        draw.content((xp, -0.35), str(i), anchor: "north")
+      }
+      for i in range(-4, 5) {
+        let y = i
+        let yp = (y - y-min) * height / (y-max - y-min)
+        draw.line((-0.1, yp), (0.1, yp), stroke: black)
+        draw.content((-0.35, yp), str(i), anchor: "west")
+      }
+      draw.content((width, -0.45), [$ t $], anchor: "north-east")
+      draw.content((-0.45, height), [$ y $], anchor: "north-west")
+    })
+  },
+  caption: [Solutions to $y' = 1 + y^2$ are $y(t) = tan(t + C)$. Vertical dashed lines mark asymptotes at $t = ±\,π/2$ and $t = 3π/2$. The points $(0, 0)$ and $(π, 0)$ illustrate two initial conditions with distinct valid intervals.],
+)
+
+
+=== Uniqueness: Consequences and Intuition
+
+#note[No-Crossing Principle][
+  If the uniqueness hypotheses hold ($∂ f/∂ y$ continuous on a rectangle $R$), then solution curves through different initial values cannot intersect while they remain in $R$. Otherwise two different solutions would pass through the same point, contradicting $∃!$.
+]
+
+#example[Two Solutions That Never Cross][
+  Consider $y' = y - t$. The general solution is $y(t) = t + 1 + C e^t$. With $y(0) = -1$ we get $y_1(t) = t + 1 - 2 e^t$; with $y(0) = 1$ we get $y_2(t) = t + 1$. Since $y_1(t) = y_2(t)$ would imply $-2 e^t = 0$, the solutions never intersect. This illustrates uniqueness and the non-crossing property.
+]
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 0.6cm, {
+      let width = 12
+      let height = 7
+      let x-min = -1.5
+      let x-max = 2.5
+      let y-min = -6.0
+      let y-max = 6.0
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // Solutions
+      let y1 = t => t + 1 - 2 * calc.exp(t)
+      let y2 = t => t + 1
+      let n = 180
+      for j in range(n) {
+        let t0 = x-min + (x-max - x-min) * j / n
+        let t1 = x-min + (x-max - x-min) * (j + 1) / n
+        draw.line(to-canvas(t0, y1(t0)), to-canvas(t1, y1(t1)), stroke: (paint: blue, thickness: 1.6pt))
+        draw.line(to-canvas(t0, y2(t0)), to-canvas(t1, y2(t1)), stroke: (paint: red, thickness: 1.6pt))
+      }
+
+      // Initial points at t = 0
+      draw.circle(to-canvas(0, -1), radius: 3pt, fill: blue)
+      draw.circle(to-canvas(0, 1), radius: 3pt, fill: red)
+      draw.content((to-canvas(0, -1).at(0) + 0.2, to-canvas(0, -1).at(1)), [$y_1(0) = -1$], anchor: "west")
+      draw.content((to-canvas(0, 1).at(0) + 0.2, to-canvas(0, 1).at(1)), [$y_2(0) = 1$], anchor: "west")
+
+      draw.content((width, -0.45), [$ t $], anchor: "north-east")
+      draw.content((-0.45, height), [$ y $], anchor: "north-west")
+      draw.content((width - 2.2, height - 0.7), [No crossings under $∃!$], anchor: "center", frame: "rect", fill: white)
+    })
+  },
+  caption: [Two distinct solutions of $y' = y - t$ starting at $(0, -1)$ (blue) and $(0, 1)$ (red) never cross, visualizing the non-crossing consequence of uniqueness.],
+)
+
+=== A Classic Non-Uniqueness Example
+
+#example[Failure of Lipschitz at $y = 0$][
+  Consider $y' = 3 y^{2/3}$ with $y(0) = 0$.
+
+  - Separating: $y^{-2/3} upright(d)y = 3 upright(d)t => 3 y^{1/3} = 3 t + C$, hence $y = (t + C')^3$.
+  - The constant solution $y(t) ≡ 0$ also satisfies the ODE.
+  - For any $a \ge 0$, the piecewise function $y_a(t) = 0$ for $t \le a$ and $y_a(t) = (t - a)^3$ for $t \ge a$ solves the IVP and matches $y(0) = 0$.
+
+  Here $∂ f/∂ y = 2 y^{-1/3}$ is unbounded at $y = 0$ (not Lipschitz), so uniqueness fails.
+]
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 0.6cm, {
+      let width = 10
+      let height = 7
+      let x-min = -1.2
+      let x-max = 1.8
+      let y-min = -1.0
+      let y-max = 1.8
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // y = 0
+      draw.line(to-canvas(x-min, 0), to-canvas(x-max, 0), stroke: (paint: gray, dash: "dashed"))
+
+      // y = t^3
+      let n = 150
+      for j in range(n) {
+        let t0 = x-min + (x-max - x-min) * j / n
+        let t1 = x-min + (x-max - x-min) * (j + 1) / n
+        draw.line(to-canvas(t0, t0 * t0 * t0), to-canvas(t1, t1 * t1 * t1), stroke: (paint: red, thickness: 1.6pt))
+      }
+
+      // Labels
+      draw.content((width - 1.6, height - 0.7), [$y = t^3$], anchor: "center", frame: "rect", fill: white)
+      draw.content((width - 1.6, height - 1.2), [$y ≡ 0$], anchor: "center", frame: "rect", fill: white)
+      draw.content((width, -0.45), [$ t $], anchor: "north-east")
+      draw.content((-0.45, height), [$ y $], anchor: "north-west")
+    })
+  },
+  caption: [Non-uniqueness for $y' = 3 y^{2/3}$ at $y(0) = 0$: both $y ≡ 0$ (gray dashed) and $y = t^3$ (red) satisfy the IVP, because $∂ f/∂ y$ is unbounded at $y = 0$.],
+)
+
+=== Worked Example with a Singular Line
+
+#example[$y' = t/(y - 2)$ with $y(-1) = 0$][
+  Separate: $(y - 2) upright(d)y = t upright(d)t$ so $ frac(1, 2) (y - 2)^2 = frac(1, 2) t^2 + C $. Applying $y(-1) = 0$ yields $(y - 2)^2 = t^2 + 3$ and hence
+  $ y(t) = 2 - sqrt(t^2 + 3). $
+
+  - The right-hand side $f(t, y) = t/(y - 2)$ and $∂ f/∂ y = -t/(y - 2)^2$ are continuous on any rectangle avoiding $y = 2$, so $∃!$ locally around $(-1, 0)$.
+  - Our explicit solution remains strictly below $y = 2$ for all $t$, so it never meets the singular line; the domain is $t ∈ (-∞, ∞)$.
+]
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 1cm, {
+      let width = 12
+      let height = 7
+      let x-min = -4.0
+      let x-max = 4.0
+      let y-min = -6.0
+      let y-max = 4.0
+      let to-canvas = (x, y) => (
+        (x - x-min) * width / (x-max - x-min),
+        (y - y-min) * height / (y-max - y-min),
+      )
+
+      // Axes
+      draw.line((0, 0), (width, 0), stroke: black)
+      draw.line((0, 0), (0, height), stroke: black)
+
+      // Singular line y = 2
+      let ysing = 2.0
+      draw.line(to-canvas(x-min, ysing), to-canvas(x-max, ysing), stroke: (paint: gray, dash: "dashed"))
+
+      // Solution y = 2 - sqrt(t^2 + 3)
+      let n = 200
+      for j in range(n) {
+        let t0 = x-min + (x-max - x-min) * j / n
+        let t1 = x-min + (x-max - x-min) * (j + 1) / n
+        let y0 = 2 - calc.sqrt(t0 * t0 + 3)
+        let y1 = 2 - calc.sqrt(t1 * t1 + 3)
+        draw.line(to-canvas(t0, y0), to-canvas(t1, y1), stroke: (paint: red, thickness: 1.8pt))
+      }
+
+      // Initial point
+      draw.circle(to-canvas(-1, 0), radius: 3pt, fill: red)
+      draw.content((to-canvas(-1, 0).at(0) + 0.2, to-canvas(-1, 0).at(1)), [$(-1, 0)$], anchor: "west")
+
+      draw.content((width, -0.45), [$ t $], anchor: "north-east")
+      draw.content((-0.45, height), [$ y $], anchor: "north-west")
+    })
+  },
+  caption: [Solution to $y' = t/(y - 2)$ with $y(-1) = 0$ (red). The horizontal dashed line $y = 2$ is a singular barrier and is never crossed.],
+)
+
+== Autonomous Equations and Phase Lines
+
+Autonomous equations have the form $y' = f(y)$. Their qualitative behavior can be read from the sign of $f(y)$ using a phase line (a vertical $y$-axis with arrows up/down where $f(y)$ is positive/negative). Equilibria are zeros of $f$.
+
+#definition[Equilibrium Classification (Phase Line)][
+  Let $y_*$ be a zero of $f$.
+  - $text("sink (stable)")$: arrows point toward $y_*$ from both sides
+  - $text("source (unstable)")$: arrows point away from $y_*$
+  - $text("semi-stable")$: $f$ touches zero but does not change sign (e.g., repeated root)
+]
+
+#note[Workflow for Phase Lines][
+  1) Factor $f(y)$, find zeros. 2) Determine the sign of $f$ on each interval between zeros. 3) Draw arrows on a vertical $y$-axis accordingly. 4) Classify each equilibrium. For intuition, also sketch $f(y)$ vs $y$ next to the phase line.
+]
+
+=== Phase Line 1: $y' = y(1 - y)$
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 1cm, {
+      // Panel layout
+      let W = 13
+      let H = 6.5
+      // Left panel: f(y) vs y
+      let x1 = 0
+      let y1 = 0
+      let w1 = 7.5
+      let h1 = H
+      // Right panel: phase line
+      let x2 = 8.5
+      let y2 = 0
+      let w2 = 3.0
+      let h2 = H
+
+      // Helpers
+      let plot_fx = () => {
+        let ymin = -0.5
+        let ymax = 1.0
+        let xmin = -1.0
+        let xmax = 2.0
+        let to = (x, y) => (
+          x1 + (x - xmin) * w1 / (xmax - xmin),
+          y1 + (y - ymin) * h1 / (ymax - ymin),
+        )
+        // Axes
+        draw.line((x1, to(0, 0).at(1)), (x1 + w1, to(0, 0).at(1)), stroke: black)
+        draw.line((to(0, 0).at(0), y1), (to(0, 0).at(0), y1 + h1), stroke: black)
+        // Function f(y) = y (1 - y)
+        let f = y => y * (1 - y)
+        let n = 140
+        for j in range(n) {
+          let a = xmin + (xmax - xmin) * j / n
+          let b = xmin + (xmax - xmin) * (j + 1) / n
+          draw.line((to(a, f(a))), (to(b, f(b))), stroke: (paint: blue, thickness: 1.4pt))
+        }
+        // Zeros
+        draw.circle((to(0, 0)), radius: 2.3pt, fill: white, stroke: blue)
+        draw.circle((to(1, 0)), radius: 2.3pt, fill: white, stroke: blue)
+        draw.content((to(1, 0).at(0), to(1, 0).at(1) - 0.35), [$1$], anchor: "south")
+        draw.content((to(0, 0).at(0), to(0, 0).at(1) - 0.35), [$0$], anchor: "south")
+        draw.content((x1 + w1, y1 - 0.4), [$ y $], anchor: "north-east")
+        draw.content((x1 - 0.4, y1 + h1), [$ f(y) $], anchor: "north-west")
+      }
+      plot_fx()
+
+      // Phase line on right
+      let ymin = -0.5
+      let ymax = 2.0
+      let to = y => (
+        x2 + w2 / 2,
+        y2 + (y - ymin) * h2 / (ymax - ymin),
+      )
+      draw.line((x2 + w2 / 2, y2), (x2 + w2 / 2, y2 + h2), stroke: black)
+      // Equilibria marks
+      draw.circle(to(0), radius: 2.2pt, fill: white, stroke: black)
+      draw.circle(to(1), radius: 2.2pt, fill: white, stroke: black)
+      // Arrows: sign of f
+      let seg = (y0, y1, up) => {
+        let p0 = to(y0)
+        let p1 = to(y1)
+        let mid = (p0.at(0), (p0.at(1) + p1.at(1)) / 2)
+        let dy = 0.6
+        if up {
+          draw.line((mid.at(0), mid.at(1) - dy), (mid.at(0), mid.at(1) + dy), mark: (end: ">"))
+        } else {
+          draw.line((mid.at(0), mid.at(1) + dy), (mid.at(0), mid.at(1) - dy), mark: (end: ">"))
+        }
+      }
+      seg(-0.5, 0, false) // y < 0: down
+      seg(0, 1, true) // (0,1): up
+      seg(1, 2.0, false) // >1: down
+      draw.content((x2 + w2, to(1).at(1) + 0.3), [stable], anchor: "west")
+      draw.content((x2 + w2, to(0).at(1) + 0.3), [unstable], anchor: "west")
+    })
+  },
+  caption: [Phase line for $y' = y(1 - y)$. Left: $f(y)$ vs $y$. Right: phase line arrows show $y = 1$ is a sink (stable) and $y = 0$ is a source (unstable).],
+)
+
+=== Phase Line 2: $y' = (y - 2)(y + 1)$
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 1cm, {
+      let W = 13
+      let H = 6.5
+      let x1 = 0
+      let y1 = 0
+      let w1 = 7.5
+      let h1 = H
+      let x2 = 8.5
+      let y2 = 0
+      let w2 = 3.0
+      let h2 = H
+
+      // Left: f(y)
+      let ymin = -2.5
+      let ymax = 4.0
+      let xmin = -2.0
+      let xmax = 3.0
+      let to1 = (x, y) => (
+        x1 + (x - xmin) * w1 / (xmax - xmin),
+        y1 + (y - ymin) * h1 / (ymax - ymin),
+      )
+      draw.line((x1, to1(0, 0).at(1)), (x1 + w1, to1(0, 0).at(1)), stroke: black)
+      draw.line((to1(0, 0).at(0), y1), (to1(0, 0).at(0), y1 + h1), stroke: black)
+      let f = y => (y - 2) * (y + 1)
+      let n = 180
+      for j in range(n) {
+        let a = xmin + (xmax - xmin) * j / n
+        let b = xmin + (xmax - xmin) * (j + 1) / n
+        draw.line((to1(a, f(a))), (to1(b, f(b))), stroke: (paint: blue, thickness: 1.4pt))
+      }
+      draw.circle(to1(-1, 0), radius: 2.3pt, fill: white, stroke: blue)
+      draw.circle(to1(2, 0), radius: 2.3pt, fill: white, stroke: blue)
+      draw.content((to1(-1, 0).at(0), to1(-1, 0).at(1) - 0.35), [$-1$], anchor: "south")
+      draw.content((to1(2, 0).at(0), to1(2, 0).at(1) - 0.35), [$2$], anchor: "south")
+
+      // Right: phase line
+      let to2 = y => (
+        x2 + w2 / 2,
+        y2 + (y - (-2.0)) * h2 / (3.0 - (-2.0)),
+      )
+      draw.line((x2 + w2 / 2, y2), (x2 + w2 / 2, y2 + h2), stroke: black)
+      draw.circle(to2(-1), radius: 2.2pt, fill: white, stroke: black)
+      draw.circle(to2(2), radius: 2.2pt, fill: white, stroke: black)
+      // Arrows: + for y < -1, - for (-1,2), + for > 2
+      let seg = (ya, yb, up) => {
+        let p0 = to2(ya)
+        let p1 = to2(yb)
+        let midy = (p0.at(1) + p1.at(1)) / 2
+        if up {
+          draw.line((p0.at(0), midy - 0.7), (p0.at(0), midy + 0.7), mark: (end: ">"))
+        } else {
+          draw.line((p0.at(0), midy + 0.7), (p0.at(0), midy - 0.7), mark: (end: ">"))
+        }
+      }
+      seg(-2.0, -1, true)
+      seg(-1, 2, false)
+      seg(2, 3.0, true)
+      draw.content((x2 + w2, to2(-1).at(1) + 0.3), [stable], anchor: "west")
+      draw.content((x2 + w2, to2(2).at(1) + 0.3), [unstable], anchor: "west")
+    })
+  },
+  caption: [Phase line and $f(y)$ for $y' = (y - 2)(y + 1)$. The equilibrium $y = -1$ is a sink (stable) while $y = 2$ is a source (unstable).],
+)
+
+=== Phase Line 3: $y' = (y - 1)^2(2 - y)$
+
+#figure(
+  {
+    import "@preview/cetz:0.4.2": canvas, draw
+
+    canvas(length: 1cm, {
+      let W = 13
+      let H = 6.5
+      let x1 = 0
+      let y1 = 0
+      let w1 = 7.5
+      let h1 = H
+      let x2 = 8.5
+      let y2 = 0
+      let w2 = 3.0
+      let h2 = H
+
+      // Left: f(y)
+      let ymin = -1.5
+      let ymax = 2.5
+      let xmin = -0.5
+      let xmax = 3.0
+      let to1 = (x, y) => (
+        x1 + (x - xmin) * w1 / (xmax - xmin),
+        y1 + (y - ymin) * h1 / (ymax - ymin),
+      )
+      draw.line((x1, to1(0, 0).at(1)), (x1 + w1, to1(0, 0).at(1)), stroke: black)
+      draw.line((to1(0, 0).at(0), y1), (to1(0, 0).at(0), y1 + h1), stroke: black)
+      let f = y => (y - 1) * (y - 1) * (2 - y)
+      let n = 180
+      for j in range(n) {
+        let a = xmin + (xmax - xmin) * j / n
+        let b = xmin + (xmax - xmin) * (j + 1) / n
+        draw.line((to1(a, f(a))), (to1(b, f(b))), stroke: (paint: blue, thickness: 1.4pt))
+      }
+      draw.circle(to1(1, 0), radius: 2.3pt, fill: white, stroke: blue)
+      draw.circle(to1(2, 0), radius: 2.3pt, fill: white, stroke: blue)
+      draw.content((to1(1, 0).at(0), to1(1, 0).at(1) - 0.35), [$1$], anchor: "south")
+      draw.content((to1(2, 0).at(0), to1(2, 0).at(1) - 0.35), [$2$], anchor: "south")
+
+      // Right: phase line
+      let to2 = y => (
+        x2 + w2 / 2,
+        y2 + (y - 0.0) * h2 / (3.0 - 0.0),
+      )
+      draw.line((x2 + w2 / 2, y2), (x2 + w2 / 2, y2 + h2), stroke: black)
+      draw.circle(to2(1), radius: 2.2pt, fill: white, stroke: black)
+      draw.circle(to2(2), radius: 2.2pt, fill: white, stroke: black)
+      // Signs: positive for y < 2, negative for y > 2; repeated root at 1 => no sign change
+      let seg = (ya, yb, up) => {
+        let p0 = to2(ya)
+        let p1 = to2(yb)
+        let midy = (p0.at(1) + p1.at(1)) / 2
+        if up {
+          draw.line((p0.at(0), midy - 0.7), (p0.at(0), midy + 0.7), mark: (end: ">"))
+        } else {
+          draw.line((p0.at(0), midy + 0.7), (p0.at(0), midy - 0.7), mark: (end: ">"))
+        }
+      }
+      seg(0.0, 1.0, true)
+      seg(1.0, 2.0, true) // still up: semi-stable at 1
+      seg(2.0, 3.0, false)
+      draw.content((x2 + w2, to2(2).at(1) + 0.3), [stable], anchor: "west")
+      draw.content((x2 + w2, to2(1).at(1) + 0.3), [semi-stable], anchor: "west")
+    })
+  },
+  caption: [Phase line paired with $f(y)$ for $y' = (y - 1)^2(2 - y)$. The repeated root at $y = 1$ yields a semi-stable equilibrium (no sign change), while $y = 2$ is a stable sink.],
+)
