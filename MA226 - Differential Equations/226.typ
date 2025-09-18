@@ -14,7 +14,7 @@
     ),
   ),
 
-  lof: true, // Uncomment for list of figures
+  // lof: true, // Uncomment for list of figuresGE
   // lot: true,  // Uncomment for list of tables
   // lol: true,  // Uncomment for list of listings
   paper_size: "a4",
@@ -1588,8 +1588,8 @@ Numerical methods let us approximate solutions when an analytic formula is unava
       let height = 7
       let x-min = -1.5
       let x-max = 2.5
-      let y-min = -6.0
-      let y-max = 6.0
+      let y-min = -3.0
+      let y-max = 4.0
       let to-canvas = (x, y) => (
         (x - x-min) * width / (x-max - x-min),
         (y - y-min) * height / (y-max - y-min),
@@ -1602,19 +1602,29 @@ Numerical methods let us approximate solutions when an analytic formula is unava
       // Solutions
       let y1 = t => t + 1 - 2 * calc.exp(t)
       let y2 = t => t + 1
+      let within = y => y >= y-min and y <= y-max
       let n = 180
       for j in range(n) {
         let t0 = x-min + (x-max - x-min) * j / n
         let t1 = x-min + (x-max - x-min) * (j + 1) / n
-        draw.line(to-canvas(t0, y1(t0)), to-canvas(t1, y1(t1)), stroke: (paint: blue, thickness: 1.6pt))
-        draw.line(to-canvas(t0, y2(t0)), to-canvas(t1, y2(t1)), stroke: (paint: red, thickness: 1.6pt))
+        let a1 = y1(t0)
+        let b1 = y1(t1)
+        let a2 = y2(t0)
+        let b2 = y2(t1)
+        if within(a1) and within(b1) {
+          draw.line(to-canvas(t0, a1), to-canvas(t1, b1), stroke: (paint: blue, thickness: 1.6pt))
+        }
+        if within(a2) and within(b2) {
+          draw.line(to-canvas(t0, a2), to-canvas(t1, b2), stroke: (paint: red, thickness: 1.6pt))
+        }
       }
 
       // Initial points at t = 0
-      draw.circle(to-canvas(0, -1), radius: 3pt, fill: blue)
-      draw.circle(to-canvas(0, 1), radius: 3pt, fill: red)
-      draw.content((to-canvas(0, -1).at(0) + 0.2, to-canvas(0, -1).at(1)), [$y_1(0) = -1$], anchor: "west")
-      draw.content((to-canvas(0, 1).at(0) + 0.2, to-canvas(0, 1).at(1)), [$y_2(0) = 1$], anchor: "west")
+      if within(-1) { draw.circle(to-canvas(0, -1), radius: 3pt, fill: blue) }
+      if within(1) {
+        draw.circle(to-canvas(0, 1), radius: 3pt, fill: red)
+        draw.content((to-canvas(0, 1).at(0) + 0.2, to-canvas(0, 1).at(1)), [$y_2(0) = 1$], anchor: "west")
+      }
 
       draw.content((width, -0.45), [$ t $], anchor: "north-east")
       draw.content((-0.45, height), [$ y $], anchor: "north-west")
@@ -1696,8 +1706,8 @@ Numerical methods let us approximate solutions when an analytic formula is unava
       let height = 7
       let x-min = -4.0
       let x-max = 4.0
-      let y-min = -6.0
-      let y-max = 4.0
+      let y-min = -3.0
+      let y-max = 3.0
       let to-canvas = (x, y) => (
         (x - x-min) * width / (x-max - x-min),
         (y - y-min) * height / (y-max - y-min),
@@ -1781,13 +1791,18 @@ Autonomous equations have the form $y' = f(y)$. Their qualitative behavior can b
         // Axes
         draw.line((x1, to(0, 0).at(1)), (x1 + w1, to(0, 0).at(1)), stroke: black)
         draw.line((to(0, 0).at(0), y1), (to(0, 0).at(0), y1 + h1), stroke: black)
-        // Function f(y) = y (1 - y)
+        // Function f(y) = y (1 - y) with simple clipping to panel bounds
         let f = y => y * (1 - y)
-        let n = 140
+        let within(y) = y >= ymin and y <= ymax
+        let n = 160
         for j in range(n) {
           let a = xmin + (xmax - xmin) * j / n
           let b = xmin + (xmax - xmin) * (j + 1) / n
-          draw.line((to(a, f(a))), (to(b, f(b))), stroke: (paint: blue, thickness: 1.4pt))
+          let fa = f(a)
+          let fb = f(b)
+          if within(fa) and within(fb) {
+            draw.line((to(a, fa)), (to(b, fb)), stroke: (paint: blue, thickness: 1.4pt))
+          }
         }
         // Zeros
         draw.circle((to(0, 0)), radius: 2.3pt, fill: white, stroke: blue)
@@ -1799,9 +1814,9 @@ Autonomous equations have the form $y' = f(y)$. Their qualitative behavior can b
       }
       plot_fx()
 
-      // Phase line on right
-      let ymin = -0.5
-      let ymax = 2.0
+      // Phase line on right (tighter vertical extent)
+      let ymin = -0.2
+      let ymax = 1.6
       let to = y => (
         x2 + w2 / 2,
         y2 + (y - ymin) * h2 / (ymax - ymin),
@@ -1923,8 +1938,8 @@ Autonomous equations have the form $y' = f(y)$. Their qualitative behavior can b
       // Left: f(y)
       let ymin = -1.5
       let ymax = 2.5
-      let xmin = -0.5
-      let xmax = 3.0
+      let xmin = 0
+      let xmax = 2.5
       let to1 = (x, y) => (
         x1 + (x - xmin) * w1 / (xmax - xmin),
         y1 + (y - ymin) * h1 / (ymax - ymin),
